@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: #fafafa;
+    --color-foreground: #1b1815;
+    --color-primary: #ff6b2b;
+    --color-primary-foreground: #ffffff;
+    --color-card: #f9f9f9;
+    --color-card-foreground: #1b1815;
+    --color-muted: #f2f3f5;
+    --color-muted-foreground: #6b6b6b;
+    --color-border: #e5e5e5;
+    --color-ring: #ff6b2b;
+    --color-accent: #f2f3f5;
+    --color-accent-foreground: #1b1815;
+    --color-secondary: #f2f3f5;
+    --color-secondary-foreground: #1b1815;
+    --color-destructive: #fb2c36;
+    --color-destructive-foreground: #ffffff;
+    --color-input: #e5e5e5;
+    --color-dot: #e5e5e5;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --color-background: #1b1815;
+    --color-foreground: #fafafa;
+    --color-primary: #ff6b2b;
+    --color-primary-foreground: #ffffff;
+    --color-card: #222222;
+    --color-card-foreground: #fafafa;
+    --color-muted: #2a2a2a;
+    --color-muted-foreground: #8a8a8a;
+    --color-border: #333333;
+    --color-ring: #ff6b2b;
+    --color-accent: #2a2a2a;
+    --color-accent-foreground: #fafafa;
+    --color-secondary: #2a2a2a;
+    --color-secondary-foreground: #fafafa;
+    --color-destructive: #fb2c36;
+    --color-destructive-foreground: #ffffff;
+    --color-input: #333333;
+    --color-dot: #333333;
+  }
+
+  * {
+    border-color: var(--color-border);
+    outline-color: color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    background-image: radial-gradient(circle, var(--color-dot) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+    letter-spacing: 0.02em;
+    transition: background-color 0.4s, color 0.4s;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@layer components {
+  .dot-grid-bg {
+    background-image: radial-gradient(circle, var(--color-dot) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-attachment: fixed;
+  }
+
+  .nav-blur {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  .live-pulse {
+    animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .live-ping {
+    animation: live-ping 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes live-ping {
+    75%, 100% {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .focus-ring {
+    outline: none;
+  }
+  .focus-ring:focus-visible {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-ring) 25%, transparent);
+  }
+}

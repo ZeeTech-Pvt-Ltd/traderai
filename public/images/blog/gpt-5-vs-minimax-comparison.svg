@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F0EB"/>
+  <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+    <rect width="4" height="4" x="8" y="8" fill="#ECE5DD" rx="0.5"/>
+  </pattern>
+  <rect width="960" height="540" fill="url(#dots)"/>
+
+  <!-- Left scatter -->
+  <g fill="#1a1a1a" opacity="0.08">
+    <rect x="60" y="80" width="8" height="8"/><rect x="200" y="100" width="6" height="6"/>
+    <rect x="140" y="360" width="10" height="10"/><rect x="80" y="260" width="5" height="5"/>
+    <rect x="300" y="150" width="7" height="7"/><rect x="250" y="400" width="9" height="9"/>
+    <rect x="30" y="440" width="6" height="6"/><rect x="380" y="310" width="5" height="5"/>
+    <rect x="170" y="480" width="8" height="8"/><rect x="350" y="240" width="4" height="4"/>
+    <rect x="110" y="190" width="7" height="7"/><rect x="290" y="70" width="5" height="5"/>
+  </g>
+  <g fill="#1a1a1a" opacity="0.15">
+    <rect x="120" y="130" width="6" height="6"/><rect x="50" y="320" width="8" height="8"/>
+    <rect x="230" y="280" width="5" height="5"/><rect x="180" y="50" width="4" height="4"/>
+  </g>
+
+  <!-- VS / comparison layout - two columns -->
+  <g fill="none" stroke="#1a1a1a" opacity="0.12" stroke-width="2">
+    <rect x="160" y="170" width="140" height="160" rx="6"/>
+    <rect x="340" y="170" width="140" height="160" rx="6"/>
+  </g>
+
+  <!-- VS text in middle -->
+  <text x="480" y="280" font-family="'Courier New',monospace" font-size="80" font-weight="900" fill="#f97316" opacity="0.25" text-anchor="middle">VS</text>
+
+  <!-- Left model label -->
+  <text x="230" y="370" font-family="'Courier New',monospace" font-size="14" font-weight="700" fill="#1a1a1a" opacity="0.4" text-anchor="middle">GPT-5.2</text>
+  <!-- Right model label -->
+  <text x="410" y="370" font-family="'Courier New',monospace" font-size="14" font-weight="700" fill="#1a1a1a" opacity="0.4" text-anchor="middle">MiniMax-M2.1</text>
+
+  <!-- Right side grid -->
+  <g fill="#f97316" opacity="0.85">
+    <rect x="700" y="100" width="10" height="10"/><rect x="718" y="100" width="10" height="10"/>
+    <rect x="700" y="118" width="10" height="10"/><rect x="718" y="118" width="10" height="10"/>
+    <rect x="700" y="136" width="10" height="10"/><rect x="718" y="136" width="10" height="10"/>
+    <rect x="700" y="154" width="10" height="10"/><rect x="718" y="172" width="10" height="10"/>
+    <rect x="700" y="190" width="10" height="10"/><rect x="718" y="190" width="10" height="10"/>
+    <rect x="700" y="208" width="10" height="10"/><rect x="718" y="208" width="10" height="10"/>
+    <rect x="700" y="226" width="10" height="10"/><rect x="718" y="226" width="10" height="10"/>
+    <rect x="700" y="244" width="10" height="10"/><rect x="718" y="244" width="10" height="10"/>
+    <rect x="700" y="262" width="10" height="10"/><rect x="718" y="262" width="10" height="10"/>
+    <rect x="700" y="280" width="10" height="10"/><rect x="718" y="280" width="10" height="10"/>
+  </g>
+
+  <g fill="#f97316" opacity="0.5">
+    <rect x="540" y="380" width="6" height="6"/>
+    <rect x="600" y="420" width="4" height="4"/>
+    <rect x="500" y="340" width="5" height="5"/>
+    <rect x="620" y="350" width="3" height="3"/>
+  </g>
+
+  <text x="480" y="260" font-family="'Courier New',monospace" font-size="24" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">
+    GPT-5.2 vs MiniMax-M2.1
+  </text>
+  <text x="480" y="292" font-family="'Courier New',monospace" font-size="18" font-weight="700" fill="#f97316" text-anchor="middle" letter-spacing="2">
+    AI MODEL COMPARISON
+  </text>
+  <rect x="340" y="318" width="280" height="2" fill="#f97316" opacity="0.5"/>
+</svg>

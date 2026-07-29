@@ -1,0 +1,169 @@
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+function Mail({ cn = 'w-4 h-4' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+    </svg>
+  );
+}
+function User({ cn = 'w-4 h-4' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+/* ─── intl-tel-input custom styles ─── */
+const itiStyles = `
+  .iti {
+    width: 100%;
+  }
+  .iti--separate-dial-code .iti__selected-dial-code {
+    color: #6b6b6b !important;
+    font-size: 13px;
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+  }
+  .iti__flag-container {
+    z-index: 2;
+  }
+  .iti__country-list {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+  }
+  .iti__country {
+    color: #1b1815;
+  }
+  .iti__selected-flag {
+    background: transparent !important;
+  }
+  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+    background: rgba(0,0,0,0.03) !important;
+  }
+  .iti__flag + .iti__selected-dial-code {
+    margin-left: 4px;
+  }
+`;
+
+export default function SignUp() {
+  const phoneRef = useRef(null);
+  const itiRef = useRef(null);
+
+  useEffect(() => {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = itiStyles;
+    document.head.appendChild(styleEl);
+
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js';
+    script.onload = () => {
+      const utils = document.createElement('script');
+      utils.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js';
+      utils.onload = () => {
+        if (phoneRef.current && window.intlTelInput) {
+          fetch('https://ipinfo.io/json?token=5a8c00f1abba8d')
+            .then(r => r.json())
+            .then(data => {
+              const country = data.country?.toLowerCase() || 'pk';
+              itiRef.current = window.intlTelInput(phoneRef.current, {
+                initialCountry: country,
+                separateDialCode: true,
+              });
+            })
+            .catch(() => {
+              itiRef.current = window.intlTelInput(phoneRef.current, {
+                initialCountry: 'pk',
+                separateDialCode: true,
+              });
+            });
+        }
+      };
+      document.head.appendChild(utils);
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      if (itiRef.current) itiRef.current.destroy();
+      if (styleEl.parentNode) styleEl.parentNode.removeChild(styleEl);
+    };
+  }, []);
+
+  return (
+    <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28 flex items-center justify-center px-4">
+      <div className="w-full max-w-md">
+        {/* Logo */}
+        <Link to="/" className="flex items-center justify-center gap-2.5 group mb-8">
+          <div className="grid grid-cols-3 gap-[3px]">
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              <div key={i} className={`w-[7px] h-[7px] rounded-sm transition-colors ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#ff6b2b]' : 'bg-[#4a4a4a] dark:bg-[#8a8a8a]'}`} />
+            ))}
+          </div>
+          <span className="font-mono font-bold text-lg tracking-tight text-foreground">Trader.<span className="text-primary">AI</span></span>
+        </Link>
+
+        {/* Card */}
+        <div className="bg-card border border-border rounded-xl p-6 lg:p-8 shadow-xs">
+          {/* Title */}
+          <h1 className="font-mono font-black text-2xl text-center text-foreground">Create Account</h1>
+          <p className="font-mono text-xs text-muted-foreground text-center mt-2">Get started with Trader.AI</p>
+
+          {/* Form */}
+          <form className="mt-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
+            {/* Name Fields */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">First Name</label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><User cn="w-4 h-4 text-muted-foreground/60" /></div>
+                  <input type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                </div>
+              </div>
+              <div>
+                <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Last Name</label>
+                <input type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+              </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Email</label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><Mail cn="w-4 h-4 text-muted-foreground/60" /></div>
+                <input type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+              </div>
+            </div>
+
+            {/* Phone with intl-tel-input */}
+            <div>
+              <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Phone Number</label>
+              <input
+                ref={phoneRef}
+                id="phone"
+                name="phone"
+                type="tel"
+                className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 13); }}
+                maxLength={13}
+                required
+              />
+            </div>
+
+            {/* Submit */}
+            <button type="submit" className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
+              Create Account
+            </button>
+            <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">
+              By continuing, you agree to our{' '}
+              <Link to="/legal/terms-of-service" className="text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
+              {' '}and{' '}
+              <Link to="/legal/privacy-policy" className="text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}

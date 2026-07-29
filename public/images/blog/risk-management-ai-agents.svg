@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#F5F0EB"/>
+  <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+    <rect width="4" height="4" x="8" y="8" fill="#ECE5DD" rx="0.5"/>
+  </pattern>
+  <rect width="960" height="540" fill="url(#dots)"/>
+
+  <!-- Left scatter -->
+  <g fill="#1a1a1a" opacity="0.08">
+    <rect x="50" y="70" width="8" height="8"/><rect x="160" y="40" width="10" height="10"/>
+    <rect x="90" y="300" width="6" height="6"/><rect x="240" y="380" width="9" height="9"/>
+    <rect x="70" y="180" width="5" height="5"/><rect x="310" y="210" width="7" height="7"/>
+    <rect x="180" y="460" width="8" height="8"/><rect x="360" y="120" width="6" height="6"/>
+    <rect x="210" y="280" width="4" height="4"/><rect x="130" y="430" width="7" height="7"/>
+  </g>
+  <g fill="#1a1a1a" opacity="0.15">
+    <rect x="120" y="110" width="6" height="6"/><rect x="280" y="330" width="5" height="5"/>
+    <rect x="200" y="200" width="7" height="7"/><rect x="340" y="300" width="4" height="4"/>
+  </g>
+
+  <!-- Shield shape -->
+  <g fill="none" stroke="#1a1a1a" opacity="0.15" stroke-width="2">
+    <path d="M270,170 L270,280 Q270,340 340,360 Q410,340 410,280 L410,170 Z"/>
+  </g>
+
+  <!-- Checkmark inside shield -->
+  <path d="M305,260 L325,280 L365,240" fill="none" stroke="#f97316" stroke-width="3" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Gauges/indicators -->
+  <g fill="none" stroke="#1a1a1a" opacity="0.12" stroke-width="1.5">
+    <path d="M480,300 A80,80 0 0,1 550,240"/>
+    <path d="M480,300 A80,80 0 0,1 480,220"/>
+    <path d="M480,300 A80,80 0 0,1 410,240"/>
+  </g>
+
+  <!-- Right side orange grid -->
+  <g fill="#f97316" opacity="0.85">
+    <rect x="700" y="90" width="10" height="10"/><rect x="718" y="90" width="10" height="10"/>
+    <rect x="700" y="108" width="10" height="10"/><rect x="718" y="108" width="10" height="10"/>
+    <rect x="700" y="126" width="10" height="10"/><rect x="718" y="126" width="10" height="10"/>
+    <rect x="700" y="144" width="10" height="10"/><rect x="718" y="162" width="10" height="10"/>
+    <rect x="700" y="180" width="10" height="10"/><rect x="718" y="180" width="10" height="10"/>
+    <rect x="700" y="198" width="10" height="10"/><rect x="718" y="198" width="10" height="10"/>
+    <rect x="700" y="216" width="10" height="10"/><rect x="718" y="216" width="10" height="10"/>
+    <rect x="700" y="234" width="10" height="10"/><rect x="718" y="234" width="10" height="10"/>
+    <rect x="700" y="252" width="10" height="10"/><rect x="718" y="252" width="10" height="10"/>
+    <rect x="700" y="270" width="10" height="10"/><rect x="718" y="270" width="10" height="10"/>
+    <rect x="700" y="288" width="10" height="10"/><rect x="718" y="288" width="10" height="10"/>
+  </g>
+
+  <g fill="#f97316" opacity="0.5">
+    <rect x="580" y="380" width="6" height="6"/><rect x="640" y="420" width="4" height="4"/>
+    <rect x="530" y="350" width="5" height="5"/>
+  </g>
+
+  <text x="480" y="260" font-family="'Courier New',monospace" font-size="26" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">
+    HOW AI AGENTS
+  </text>
+  <text x="480" y="294" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#f97316" text-anchor="middle" letter-spacing="2">
+    MANAGE RISK
+  </text>
+  <rect x="350" y="320" width="260" height="2" fill="#f97316" opacity="0.5"/>
+</svg>
