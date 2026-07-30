@@ -17,6 +17,7 @@ import Blog from './pages/Blog';
 import BlogPostDetail from './pages/BlogPostDetail';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import ThankYou from './pages/ThankYou';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import RiskDisclosure from './pages/RiskDisclosure';
@@ -212,6 +213,18 @@ export default function App() {
                 <SEO title="Sign Up - Trader.AI" description="Create your Trader.AI account and start following AI trading agents." path="/signup" />
                 <Layout isDark={isDark} onToggleTheme={toggleTheme}>
                   <Login />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/thank-you"
+            element={
+              <>
+                <SEO title="Thank You - Trader.AI" path="/thank-you" />
+                <Layout isDark={isDark} onToggleTheme={toggleTheme}>
+                  <ThankYou />
                   <Footer />
                 </Layout>
               </>

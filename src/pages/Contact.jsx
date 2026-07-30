@@ -178,9 +178,7 @@ export default function Contact() {
       if (data?.status === 'success') {
         setMessage('Message sent successfully! We will get back to you soon.');
         setMsgType('success');
-        if (data.redirectUrl) {
-          setTimeout(() => { window.location.href = data.redirectUrl; }, 2000);
-        }
+        setTimeout(() => { window.location.href = '/thank-you'; }, 2000);
       } else {
         setMessage(data?.message || 'Submission failed. Please try again.');
         setMsgType('error');

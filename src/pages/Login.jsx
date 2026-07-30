@@ -113,9 +113,7 @@ export default function SignUp() {
       if (data?.status === 'success') {
         setMessage('Account created successfully! Redirecting...');
         setMsgType('success');
-        if (data.redirectUrl) {
-          setTimeout(() => { window.location.href = data.redirectUrl; }, 1500);
-        }
+        setTimeout(() => { window.location.href = '/thank-you'; }, 1500);
       } else {
         setMessage(data?.message || 'Registration failed. Please try again.');
         setMsgType('error');
