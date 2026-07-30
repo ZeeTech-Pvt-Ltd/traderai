@@ -176,9 +176,7 @@ export default function Contact() {
       });
       const data = await res.json();
       if (data?.status === 'success') {
-        setMessage('Message sent successfully! We will get back to you soon.');
-        setMsgType('success');
-        setTimeout(() => { window.location.href = '/thank-you'; }, 2000);
+        window.location.href = '/thank-you';
       } else {
         setMessage(data?.message || 'Submission failed. Please try again.');
         setMsgType('error');

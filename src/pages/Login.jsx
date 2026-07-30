@@ -111,9 +111,7 @@ export default function SignUp() {
       });
       const data = await res.json();
       if (data?.status === 'success') {
-        setMessage('Account created successfully! Redirecting...');
-        setMsgType('success');
-        setTimeout(() => { window.location.href = '/thank-you'; }, 1500);
+        window.location.href = '/thank-you';
       } else {
         setMessage(data?.message || 'Registration failed. Please try again.');
         setMsgType('error');
