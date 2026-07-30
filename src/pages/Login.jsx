@@ -110,7 +110,7 @@ export default function SignUp() {
         body: JSON.stringify(payload),
         redirect: 'manual',
       });
-      if (res.ok || (res.status >= 300 && res.status < 400)) {
+      if (res.ok || res.type === 'opaqueredirect' || (res.status >= 300 && res.status < 400)) {
         window.location.href = '/thank-you';
       } else {
         const data = await res.json().catch(() => ({}));
