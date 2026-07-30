@@ -108,11 +108,12 @@ export default function SignUp() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
+        redirect: 'manual',
       });
-      const data = await res.json();
-      if (data?.status === 'success') {
+      if (res.ok || (res.status >= 300 && res.status < 400)) {
         window.location.href = '/thank-you';
       } else {
+        const data = await res.json().catch(() => ({}));
         setMessage(data?.message || 'Registration failed. Please try again.');
         setMsgType('error');
       }
