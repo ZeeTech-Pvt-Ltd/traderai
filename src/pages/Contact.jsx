@@ -91,47 +91,16 @@ const FAQ_LINKS = [
   { q: 'When can I copy trades?', href: '/faq' },
 ];
 
-/* ─── Helper: replace dial code with country ISO code ─── */
-function updateCountryCodeLabel(iti) {
-  const dialCodeEl = document.querySelector('.iti__selected-dial-code');
-  if (dialCodeEl && iti) {
-    const countryData = iti.getSelectedCountryData();
-    if (countryData && countryData.iso2) {
-      dialCodeEl.textContent = countryData.iso2.toUpperCase();
-    }
-  }
-}
-
-/* ─── intl-tel-input custom styles ─── */
+/* ─── intl-tel-input custom styles (same as SignUp form) ─── */
 const itiStyles = `
-  .iti {
-    width: 100%;
-  }
-  .iti--separate-dial-code .iti__selected-dial-code {
-    color: #6b6b6b !important;
-    font-size: 13px;
-    font-family: 'Courier New', monospace;
-    font-weight: 600;
-  }
-  .iti__flag-container {
-    z-index: 2;
-  }
-  .iti__country-list {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-  }
-  .iti__country {
-    color: #1b1815;
-  }
-  .iti__selected-flag {
-    background: transparent !important;
-  }
-  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
-    background: rgba(0,0,0,0.03) !important;
-  }
-  .iti__flag + .iti__selected-dial-code {
-    margin-left: 4px;
-  }
+  .iti { width: 100%; }
+  .iti--separate-dial-code .iti__selected-dial-code { color: #6b6b6b !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
+  .iti__flag-container { z-index: 2; }
+  .iti__country-list { font-family: 'Courier New', monospace; font-size: 12px; }
+  .iti__country { color: #1b1815; }
+  .iti__selected-flag { background: transparent !important; }
+  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(0,0,0,0.03) !important; }
+  .iti__flag + .iti__selected-dial-code { margin-left: 4px; }
 `;
 
 export default function Contact() {
@@ -143,6 +112,45 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState(null);
   const [msgType, setMsgType] = useState('');
+
+  useEffect(() => {
+    const styleEl = document.createElement('style');
+    styleEl.textContent = itiStyles;
+    document.head.appendChild(styleEl);
+
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js';
+    script.onload = () => {
+      const utils = document.createElement('script');
+      utils.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js';
+      utils.onload = () => {
+        if (phoneRef.current && window.intlTelInput) {
+          fetch('https://ipinfo.io/json?token=5a8c00f1abba8d')
+            .then(r => r.json())
+            .then(data => {
+              const country = data.country?.toLowerCase() || 'pk';
+              itiRef.current = window.intlTelInput(phoneRef.current, {
+                initialCountry: country,
+                separateDialCode: true,
+              });
+            })
+            .catch(() => {
+              itiRef.current = window.intlTelInput(phoneRef.current, {
+                initialCountry: 'pk',
+                separateDialCode: true,
+              });
+            });
+        }
+      };
+      document.head.appendChild(utils);
+    };
+    document.head.appendChild(script);
+
+    return () => {
+      if (itiRef.current) itiRef.current.destroy();
+      if (styleEl.parentNode) styleEl.parentNode.removeChild(styleEl);
+    };
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -179,7 +187,7 @@ export default function Contact() {
         window.location.href = '/thank-you';
       } else {
         const data = await res.json().catch(() => ({}));
-        setMessage(data?.message || 'Submission failed. Please try again.');
+        setMessage(data?.message || 'Registration failed. Please try again.');
         setMsgType('error');
       }
     } catch (err) {
@@ -190,56 +198,13 @@ export default function Contact() {
     }
   }
 
-  useEffect(() => {
-    const styleEl = document.createElement('style');
-    styleEl.textContent = itiStyles;
-    document.head.appendChild(styleEl);
-
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js';
-    script.onload = () => {
-      const utils = document.createElement('script');
-      utils.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js';
-      utils.onload = () => {
-        if (phoneRef.current && window.intlTelInput) {
-          fetch('https://ipinfo.io/json?token=5a8c00f1abba8d')
-            .then(r => r.json())
-            .then(data => {
-              const country = data.country?.toLowerCase() || 'gb';
-              itiRef.current = window.intlTelInput(phoneRef.current, {
-                initialCountry: country,
-                separateDialCode: true,
-              });
-              setTimeout(() => updateCountryCodeLabel(itiRef.current), 100);
-              phoneRef.current.addEventListener('countrychange', () => updateCountryCodeLabel(itiRef.current));
-            })
-            .catch(() => {
-              itiRef.current = window.intlTelInput(phoneRef.current, {
-                initialCountry: 'gb',
-                separateDialCode: true,
-              });
-              setTimeout(() => updateCountryCodeLabel(itiRef.current), 100);
-              phoneRef.current.addEventListener('countrychange', () => updateCountryCodeLabel(itiRef.current));
-            });
-        }
-      };
-      document.head.appendChild(utils);
-    };
-    document.head.appendChild(script);
-
-    return () => {
-      if (itiRef.current) itiRef.current.destroy();
-      if (styleEl.parentNode) styleEl.parentNode.removeChild(styleEl);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left — Form */}
+            {/* Left — Form (now identical to the SignUp page form) */}
             <div>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
                 <span className="text-[#ff6b2b]">Contact</span>
@@ -259,6 +224,7 @@ export default function Contact() {
                   </div>
                 )}
 
+                {/* Form */}
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Name Fields */}
                   <div className="grid grid-cols-2 gap-3">
@@ -313,7 +279,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right — Contact info + social */}
+            {/* Right — Contact info + social (unchanged) */}
             <div className="space-y-6 lg:pt-14">
               {CONTACT_OPTIONS.map((opt) => {
                 const Icon = opt.icon;
