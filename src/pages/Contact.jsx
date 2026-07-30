@@ -1,5 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+
+const API_URL = 'https://quantryxtech.com/homeMailAction.php';
 
 function ArrowRight({ cn = 'w-4 h-4' }) {
   return (
@@ -135,6 +137,61 @@ const itiStyles = `
 export default function Contact() {
   const phoneRef = useRef(null);
   const itiRef = useRef(null);
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [msgType, setMsgType] = useState('');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessage(null);
+
+    const firstName = firstNameRef.current?.value?.trim();
+    const lastName = lastNameRef.current?.value?.trim();
+    const email = emailRef.current?.value?.trim();
+    const phone = itiRef.current ? itiRef.current.getNumber() : (phoneRef.current?.value || '');
+
+    if (!firstName || !lastName || !email || !phone) {
+      setMessage('Please fill in all fields.');
+      setMsgType('error');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password: 'Lh23s3',
+        offerName: 'ClientCentral-Site',
+      };
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data?.status === 'success') {
+        setMessage('Message sent successfully! We will get back to you soon.');
+        setMsgType('success');
+        if (data.redirectUrl) {
+          setTimeout(() => { window.location.href = data.redirectUrl; }, 2000);
+        }
+      } else {
+        setMessage(data?.message || 'Submission failed. Please try again.');
+        setMsgType('error');
+      }
+    } catch (err) {
+      setMessage('An error occurred. Please try again.');
+      setMsgType('error');
+    } finally {
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
     const styleEl = document.createElement('style');
@@ -198,19 +255,26 @@ export default function Contact() {
                 <h2 className="font-mono font-bold text-base text-foreground mb-2">Get in Touch</h2>
                 <p className="font-mono text-xs text-muted-foreground mb-6">Fill in your details and we'll get back to you.</p>
 
-                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                {/* Message */}
+                {message && (
+                  <div className={`p-3 rounded-lg text-center font-mono text-xs mb-4 ${msgType === 'success' ? 'bg-[#05df72]/10 text-[#05df72] border border-[#05df72]/20' : 'bg-[#fb2c36]/10 text-[#fb2c36] border border-[#fb2c36]/20'}`}>
+                    {message}
+                  </div>
+                )}
+
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Name Fields */}
                   <div className="grid grid-cols-2 gap-3">
                     <div>
                       <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">First Name</label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><User cn="w-4 h-4 text-muted-foreground/60" /></div>
-                        <input type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                        <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                       </div>
                     </div>
                     <div>
                       <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Last Name</label>
-                      <input type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                      <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                     </div>
                   </div>
 
@@ -219,7 +283,7 @@ export default function Contact() {
                     <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Email</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><Mail cn="w-4 h-4 text-muted-foreground/60" /></div>
-                      <input type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                      <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                     </div>
                   </div>
 
@@ -239,8 +303,8 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
-                  <button type="submit" className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
-                    Create Account
+                  <button type="submit" disabled={loading} className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
+                    {loading ? 'Submitting...' : 'Create Account'}
                   </button>
                   <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">
                     By continuing, you agree to our{' '}

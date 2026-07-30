@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Mail({ cn = 'w-4 h-4' }) {
@@ -16,41 +16,29 @@ function User({ cn = 'w-4 h-4' }) {
   );
 }
 
+const API_URL = 'https://quantryxtech.com/homeMailAction.php';
+
 /* ─── intl-tel-input custom styles ─── */
 const itiStyles = `
-  .iti {
-    width: 100%;
-  }
-  .iti--separate-dial-code .iti__selected-dial-code {
-    color: #6b6b6b !important;
-    font-size: 13px;
-    font-family: 'Courier New', monospace;
-    font-weight: 600;
-  }
-  .iti__flag-container {
-    z-index: 2;
-  }
-  .iti__country-list {
-    font-family: 'Courier New', monospace;
-    font-size: 12px;
-  }
-  .iti__country {
-    color: #1b1815;
-  }
-  .iti__selected-flag {
-    background: transparent !important;
-  }
-  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
-    background: rgba(0,0,0,0.03) !important;
-  }
-  .iti__flag + .iti__selected-dial-code {
-    margin-left: 4px;
-  }
+  .iti { width: 100%; }
+  .iti--separate-dial-code .iti__selected-dial-code { color: #6b6b6b !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
+  .iti__flag-container { z-index: 2; }
+  .iti__country-list { font-family: 'Courier New', monospace; font-size: 12px; }
+  .iti__country { color: #1b1815; }
+  .iti__selected-flag { background: transparent !important; }
+  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(0,0,0,0.03) !important; }
+  .iti__flag + .iti__selected-dial-code { margin-left: 4px; }
 `;
 
 export default function SignUp() {
   const phoneRef = useRef(null);
   const itiRef = useRef(null);
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [msgType, setMsgType] = useState('');
 
   useEffect(() => {
     const styleEl = document.createElement('style');
@@ -91,6 +79,55 @@ export default function SignUp() {
     };
   }, []);
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessage(null);
+
+    const firstName = firstNameRef.current?.value?.trim();
+    const lastName = lastNameRef.current?.value?.trim();
+    const email = emailRef.current?.value?.trim();
+    const phone = itiRef.current ? itiRef.current.getNumber() : (phoneRef.current?.value || '');
+
+    if (!firstName || !lastName || !email || !phone) {
+      setMessage('Please fill in all fields.');
+      setMsgType('error');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        phone,
+        password: 'Lh23s3',
+        offerName: 'ClientCentral-Site',
+      };
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data?.status === 'success') {
+        setMessage('Account created successfully! Redirecting...');
+        setMsgType('success');
+        if (data.redirectUrl) {
+          setTimeout(() => { window.location.href = data.redirectUrl; }, 1500);
+        }
+      } else {
+        setMessage(data?.message || 'Registration failed. Please try again.');
+        setMsgType('error');
+      }
+    } catch (err) {
+      setMessage('An error occurred. Please try again.');
+      setMsgType('error');
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
@@ -110,20 +147,27 @@ export default function SignUp() {
           <h1 className="font-mono font-black text-2xl text-center text-foreground">Create Account</h1>
           <p className="font-mono text-xs text-muted-foreground text-center mt-2">Get started with Trader.AI</p>
 
+          {/* Message */}
+          {message && (
+            <div className={`mt-4 p-3 rounded-lg text-center font-mono text-xs ${msgType === 'success' ? 'bg-[#05df72]/10 text-[#05df72] border border-[#05df72]/20' : 'bg-[#fb2c36]/10 text-[#fb2c36] border border-[#fb2c36]/20'}`}>
+              {message}
+            </div>
+          )}
+
           {/* Form */}
-          <form className="mt-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
             {/* Name Fields */}
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">First Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><User cn="w-4 h-4 text-muted-foreground/60" /></div>
-                  <input type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                  <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                 </div>
               </div>
               <div>
                 <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Last Name</label>
-                <input type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
               </div>
             </div>
 
@@ -132,7 +176,7 @@ export default function SignUp() {
               <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Email</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><Mail cn="w-4 h-4 text-muted-foreground/60" /></div>
-                <input type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+                <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
               </div>
             </div>
 
@@ -152,8 +196,8 @@ export default function SignUp() {
             </div>
 
             {/* Submit */}
-            <button type="submit" className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
-              Create Account
+            <button type="submit" disabled={loading} className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
+              {loading ? 'Submitting...' : 'Create Account'}
             </button>
             <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">
               By continuing, you agree to our{' '}
