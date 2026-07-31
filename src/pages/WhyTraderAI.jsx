@@ -211,7 +211,7 @@ export default function WhyTraderAI() {
             {VALUES.map((v) => (
               <div
                 key={v.number}
-                className="bg-[#fff3ec] border border-[#ff6b2b]/15 rounded-xl p-6 lg:p-8 hover:bg-[#ff6b2b]/10 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
               >
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#ff6b2b] text-white font-mono text-sm font-bold">{v.number}</span>
                 <h3 className="font-mono font-bold text-base lg:text-lg text-[#1b1815] mt-4 mb-2">{v.title}</h3>
