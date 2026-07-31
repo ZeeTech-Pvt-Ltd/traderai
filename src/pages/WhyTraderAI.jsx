@@ -196,8 +196,11 @@ export default function WhyTraderAI() {
       </section>
 
       {/* ═══ Values Section ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ff6b2b]/[0.04] via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#ff6b2b]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Our Values</h2>
             <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
@@ -208,9 +211,9 @@ export default function WhyTraderAI() {
             {VALUES.map((v) => (
               <div
                 key={v.number}
-                className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-[#fff3ec] border border-[#ff6b2b]/15 rounded-xl p-6 lg:p-8 hover:bg-[#ff6b2b]/10 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
               >
-                <span className="font-mono text-xs font-bold text-[#6b6b6b]/60">{v.number}</span>
+                <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#ff6b2b] text-white font-mono text-sm font-bold">{v.number}</span>
                 <h3 className="font-mono font-bold text-base lg:text-lg text-[#1b1815] mt-4 mb-2">{v.title}</h3>
                 <p className="text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{v.desc}</p>
               </div>
