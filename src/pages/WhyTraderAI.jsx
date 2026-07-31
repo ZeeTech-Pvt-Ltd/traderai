@@ -95,7 +95,7 @@ const TEAM_HIGHLIGHTS = [
 /* ─── Page ─── */
 export default function WhyTraderAI() {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
+    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-20">
       {/* ═══ Hero Section ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
         {/* Box pattern background */}
@@ -258,7 +258,7 @@ export default function WhyTraderAI() {
       {/* ═══ CTA Section ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+          <div className="bg-white border border-[#e5e5e5] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
             <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815]">
               Ready to see AI trading in action?
             </h2>
