@@ -97,8 +97,13 @@ export default function WhyTraderAI() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero Section ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+        {/* Box pattern background */}
+        <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(26,26,26,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,26,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#ff6b2b]/[0.03] to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#ff6b2b]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
