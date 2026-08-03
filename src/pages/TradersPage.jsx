@@ -151,7 +151,7 @@ export default function TradersPage() {
               <article
                 key={trader.id}
                 onClick={() => navigate(`/traders/${trader.slug}`)}
-                className="border border-[#e4e5e8] dark:border-[#676767] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#ff6b2b] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
+                className="border border-[#e4e5e8] dark:border-[#676767] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#ff6b2b4d] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
               >
                 {/* Top row */}
                 <div className="flex justify-between items-start gap-[14px] mb-[22px]">
