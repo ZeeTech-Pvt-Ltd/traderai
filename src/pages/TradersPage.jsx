@@ -33,6 +33,45 @@ function money(v, signed = true) {
 
 const TABS = ['Trending', 'New', 'Low Risk', 'High Growth'];
 
+/* ─── Custom dropdown (replaces native select: dark options, orange hover, always opens down) ─── */
+function FilterDropdown({ value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative w-full h-full">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        onBlur={() => setTimeout(() => setOpen(false), 150)}
+        className="w-full h-full flex items-center justify-between px-[18px] border-0 outline-none bg-transparent text-[#403a35] dark:text-[#b1b1b1] cursor-pointer font-['Courier_New',monospace] text-xs text-left"
+      >
+        <span className="truncate">{value}</span>
+        <svg className="w-3 h-3 text-[#615a53] dark:text-[#b1b1b1] shrink-0 ml-2" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 4.5L6 8.5L10 4.5" /></svg>
+      </button>
+
+      {/* Dropdown menu — always renders downward */}
+      {open && (
+        <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[260px] overflow-y-auto border border-[#e4e5e8] dark:border-[#676767] bg-white dark:bg-[#222222] rounded-md shadow-lg">
+          {options.map((o) => (
+            <button
+              key={o}
+              type="button"
+              onMouseDown={(e) => { e.preventDefault(); onChange(o); setOpen(false); }}
+              className={`block w-full text-left px-4 py-2.5 font-['Courier_New',monospace] text-xs cursor-pointer transition-colors ${
+                o === value
+                  ? 'bg-[#ff6b2b] text-white'
+                  : 'text-[#403a35] dark:text-[#b1b1b1] hover:bg-[#ff6b2b] hover:text-white'
+              }`}
+            >
+              {o}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function TradersPage() {
   const navigate = useNavigate();
   const [tab, setTab] = useState('Trending');
@@ -96,9 +135,7 @@ export default function TradersPage() {
             { val: model, set: setModel, opts: models },
           ].map((f, i) => (
             <div key={i} className="min-h-[48px] flex items-center border-r border-[#e4e5e8] dark:border-[#676767] last:border-r-0 max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0">
-              <select value={f.val} onChange={(e) => f.set(e.target.value)} size={1} className="w-full h-full px-[18px] border-0 outline-none bg-transparent text-[#403a35] dark:text-[#b1b1b1] dark:bg-[#222222] cursor-pointer font-['Courier_New',monospace] text-xs max-sm:min-h-[48px] hover:bg-[#ff6b2b] hover:text-white transition-colors [&>option]:bg-[#fafafa] [&>option]:text-[#403a35] dark:[&>option]:bg-[#2a2a2a] dark:[&>option]:text-[#fafafa]">
-                {f.opts.map((o) => <option key={o} value={o}>{o}</option>)}
-              </select>
+              <FilterDropdown value={f.val} onChange={f.set} options={f.opts} />
             </div>
           ))}
         </div>
