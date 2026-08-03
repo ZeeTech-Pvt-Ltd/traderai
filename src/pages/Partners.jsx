@@ -195,6 +195,7 @@ export default function Partners() {
 
       {/* ═══ Partners Grid — Section 2: Soft grey gradient ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
+        <div className="absolute inset-0 hidden dark:block" style={{ background: 'linear-gradient(180deg, #111827 0%, #1A2332 100%)' }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">Our Partners</h2>
@@ -260,6 +261,7 @@ export default function Partners() {
 
       {/* ═══ CTA — Section 4: Very subtle grey gradient ═══ */}
       <section className="relative pt-16 lg:pt-24 pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
+        <div className="absolute inset-0 hidden dark:block" style={{ background: 'linear-gradient(180deg, #0F172A 0%, #162235 100%)' }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-3xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
             <HandshakeIcon cn="w-10 h-10 text-[#ff6b2b] mx-auto mb-5" />
