@@ -156,7 +156,7 @@ export default function TradersPage() {
                 {/* Top row */}
                 <div className="flex justify-between items-start gap-[14px] mb-[22px]">
                   <div className="flex items-center gap-[11px] min-w-0">
-                    <div className="w-[36px] h-[36px] flex-shrink-0 grid place-items-center bg-[#ffe4d8] dark:bg-[#ff6b2b]/20 text-[#ff6b2b] font-['Courier_New',monospace] font-bold">
+                    <div className="w-[36px] h-[36px] flex-shrink-0 grid place-items-center bg-[#ffe4d8] dark:bg-[#ff6b2b]/20 text-[#ff6b2b] font-['Courier_New',monospace] font-bold border border-[#ff6b2b85] rounded-[5px]">
                       {trader.initial}
                     </div>
                     <div className="min-w-0">
