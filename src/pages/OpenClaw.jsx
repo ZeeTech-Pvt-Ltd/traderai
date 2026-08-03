@@ -309,11 +309,11 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/*  CHAT COMMANDS                                                 */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-y border-[#3f3f3f]" style={{ background: '#1e1c1c' }}>
+      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F5F0EB]/30 border-y border-[#e5e5e5] dark:bg-[#1e1c1c] dark:border-[#3f3f3f]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-18">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-white">Chat Commands</h2>
-            <p className="mt-3 text-[#b1b1b1] text-sm lg:text-base max-w-2xl mx-auto">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-white">Chat Commands</h2>
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#b1b1b1] text-sm lg:text-base max-w-2xl mx-auto">
               Control the platform with simple, intuitive commands.
             </p>
           </div>
@@ -323,13 +323,13 @@ export default function OpenClaw() {
               return (
                 <div
                   key={c.title}
-                  className="bg-white/[0.03] border border-white/10 rounded-xl p-6 lg:p-8 hover:bg-white/[0.06] transition-all duration-300 group"
+                  className="bg-white border border-[#e5e5e5] dark:bg-white/[0.03] dark:border-white/10 rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] dark:hover:bg-white/[0.06] transition-all duration-300 group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#f97316]/15 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#f97316]/10 dark:bg-[#f97316]/15 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-base text-white mb-2">{c.title}</h3>
-                  <p className="text-sm text-[#b1b1b1] leading-relaxed">{c.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#1a1a1a] dark:text-white mb-2">{c.title}</h3>
+                  <p className="text-sm text-[#6b6b6b] dark:text-[#b1b1b1] leading-relaxed">{c.desc}</p>
                 </div>
               );
             })}
@@ -337,15 +337,15 @@ export default function OpenClaw() {
 
           {/* Command examples table */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-white/[0.03] border border-white/10 rounded-xl overflow-hidden">
-              <div className="px-6 py-4 bg-white/[0.02] border-b border-white/10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#b1b1b1]">Example Commands</p>
+            <div className="bg-white border border-[#e5e5e5] dark:bg-white/[0.03] dark:border-white/10 rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+              <div className="px-6 py-4 bg-[#F5F0EB]/50 dark:bg-white/[0.02] border-b border-[#e5e5e5] dark:border-white/10">
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#b1b1b1]">Example Commands</p>
               </div>
-              <div className="divide-y divide-white/10">
+              <div className="divide-y divide-[#e5e5e5] dark:divide-white/10">
                 {COMMANDS.map((ex) => (
-                  <div key={ex.cmd} className="flex items-center justify-between px-6 py-3.5 hover:bg-white/5 transition-colors">
+                  <div key={ex.cmd} className="flex items-center justify-between px-6 py-3.5 hover:bg-[#F5F0EB]/20 dark:hover:bg-white/5 transition-colors">
                     <code className="font-mono text-xs font-bold text-[#f97316]">{ex.cmd}</code>
-                    <span className="font-mono text-xs text-[#b1b1b1]">{ex.desc}</span>
+                    <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#b1b1b1]">{ex.desc}</span>
                   </div>
                 ))}
               </div>
