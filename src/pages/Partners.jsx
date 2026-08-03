@@ -193,13 +193,12 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* ═══ Partners Grid — Section 2: Soft grey gradient ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
-        <div className="absolute inset-0 hidden dark:block" style={{ background: 'linear-gradient(180deg, #111827 0%, #1A2332 100%)' }} />
+      {/* ═══ Partners Grid — Section 2: Black bg ═══ */}
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#3f3f3f]" style={{ background: '#1e1c1c' }}>
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">Our Partners</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-white">Our Partners</h2>
+            <p className="mt-3 text-[#b1b1b1] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
               Organizations we work with to deliver transparent AI trading.
             </p>
           </div>
@@ -207,23 +206,23 @@ export default function Partners() {
             {PARTNERS.map((p) => (
               <div
                 key={p.name}
-                className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-white/[0.03] border border-white/10 rounded-xl p-5 lg:p-6 hover:bg-white/[0.06] transition-colors duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div
                     className="w-10 h-10 rounded-lg flex items-center justify-center font-mono font-bold text-sm shrink-0"
-                    style={{ backgroundColor: `${p.color}18`, color: p.color }}
+                    style={{ backgroundColor: `${p.color}22`, color: p.color }}
                   >
                     {p.initials}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa] truncate">{p.name}</h3>
+                    <h3 className="font-mono font-bold text-sm text-white truncate">{p.name}</h3>
                     <span className={`inline-flex font-mono text-[9px] uppercase tracking-[0.1em] px-1.5 py-0.5 rounded border mt-0.5 ${TYPE_STYLES[p.type]}`}>
                       {p.type}
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{p.desc}</p>
+                <p className="text-xs text-[#b1b1b1] leading-relaxed tracking-[0.02em]">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -259,16 +258,15 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* ═══ CTA — Section 4: Very subtle grey gradient ═══ */}
-      <section className="relative pt-16 lg:pt-24 pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
-        <div className="absolute inset-0 hidden dark:block" style={{ background: 'linear-gradient(180deg, #0F172A 0%, #162235 100%)' }} />
+      {/* ═══ CTA — Section 4: Black bg ═══ */}
+      <section className="relative pt-16 lg:pt-24 pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8" style={{ background: '#1e1c1c' }}>
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-3xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+          <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 lg:p-12 text-center max-w-3xl mx-auto">
             <HandshakeIcon cn="w-10 h-10 text-[#ff6b2b] mx-auto mb-5" />
-            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
+            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-white">
               Interested in partnering?
             </h2>
-            <p className="mt-4 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
+            <p className="mt-4 text-sm text-[#b1b1b1] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
               We're always looking for innovative organizations to collaborate with. Reach out and let's build the future of AI trading together.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -281,7 +279,7 @@ export default function Partners() {
               </Link>
               <Link
                 to="/why-trader-ai"
-                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-white/20 text-white hover:bg-white hover:text-[#1b1815] hover:border-white transition-all"
               >
                 Learn More
                 <ArrowUpRight cn="w-3.5 h-3.5" />
