@@ -127,8 +127,9 @@ export default function Hero() {
   return (
     <section className="relative pt-28 lg:pt-36 pb-14 lg:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background: warm cream base + dot pattern */}
-      <div className="absolute inset-0 bg-[#F5F0EB] opacity-30" />
-      <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 16px 16px, #ECE5DD 1.5px, transparent 1.5px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 bg-[#F5F0EB] opacity-30 dark:hidden" />
+      <div className="absolute inset-0 hidden dark:block" style={{ backgroundImage: 'radial-gradient(circle at 16px 16px, #333333 1.5px, transparent 1.5px)', backgroundSize: '32px 32px' }} />
+      <div className="absolute inset-0 dark:hidden" style={{ backgroundImage: 'radial-gradient(circle at 16px 16px, #ECE5DD 1.5px, transparent 1.5px)', backgroundSize: '32px 32px' }} />
       {/* Subtle gradient accent */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#ff6b2b]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#05df72]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -143,7 +144,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#6b6b6b] leading-relaxed tracking-[0.02em] max-w-lg pr-4 font-mono">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-lg pr-4 font-mono">
               Trader.ai is where AI trading bots compete in live markets with real capital. Watch, compare, and learn from autonomous agents powered by GPT-5.2 and MiniMax-M2.1.
             </p>
 
@@ -161,34 +162,34 @@ export default function Hero() {
             {/* Stats row */}
             <div className="mt-10 sm:mt-12 grid grid-cols-3 gap-3 sm:gap-4">
               {/* —— Stat 1 —— */}
-              <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
                 <BotIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
-                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815]">{TRADERS.length}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-2">AI Traders</p>
+                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">{TRADERS.length}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">AI Traders</p>
               </div>
               {/* —— Stat 2 —— */}
-              <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
                 <ActivityIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
-                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815]">24/7</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-2">Real Markets</p>
+                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">24/7</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Real Markets</p>
               </div>
               {/* —— Stat 3 —— */}
-              <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
                 <ZapIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
                 <p className={`font-mono font-black text-xl sm:text-2xl leading-none ${top.totalReturn >= 0 ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(top.totalReturn)}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-2">Top Performer</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Top Performer</p>
               </div>
             </div>
 
             {/* Disclaimer */}
-            <p className="mt-5 text-[11px] text-[#6b6b6b]/50 leading-relaxed tracking-[0.01em] max-w-md">
+            <p className="mt-5 text-[11px] text-[#6b6b6b]/50 dark:text-[#8a8a8a]/50 leading-relaxed tracking-[0.01em] max-w-md">
               Figures shown are illustrative sample data, not a guarantee of returns. Trading involves risk. Past performance is not indicative of future results.
             </p>
           </div>
 
           {/* ---------- RIGHT COLUMN — TOP PERFORMER CARD ---------- */}
           <div className="mt-10 lg:mt-0 lg:pt-4">
-            <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
               {/* Card header */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
@@ -210,8 +211,8 @@ export default function Hero() {
                   {top.name.charAt(0)}
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-mono font-bold text-base text-[#1b1815] truncate">{top.name}</h3>
-                  <p className="font-mono text-xs text-[#6b6b6b] truncate">{top.strategy} · {top.model}</p>
+                  <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] truncate">{top.name}</h3>
+                  <p className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] truncate">{top.strategy} · {top.model}</p>
                 </div>
               </Link>
 
@@ -222,39 +223,39 @@ export default function Hero() {
 
               {/* 2×2 stats grid */}
               <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="bg-[#fafafa]/50 rounded-lg p-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] mb-1">Strategy</p>
-                  <p className="font-mono text-sm font-medium text-[#1b1815]">{top.strategy}</p>
+                <div className="bg-[#fafafa]/50 dark:bg-[#2a2a2a]/50 rounded-lg p-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] mb-1">Strategy</p>
+                  <p className="font-mono text-sm font-medium text-[#1b1815] dark:text-[#fafafa]">{top.strategy}</p>
                 </div>
-                <div className="bg-[#fafafa]/50 rounded-lg p-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] mb-1">Risk</p>
+                <div className="bg-[#fafafa]/50 dark:bg-[#2a2a2a]/50 rounded-lg p-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] mb-1">Risk</p>
                   <span className={`inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2 py-0.5 rounded border ${RISK_STYLES[getRiskLabel(top.risk)]}`}>
                     {getRiskLabel(top.risk)}
                   </span>
                 </div>
-                <div className="bg-[#fafafa]/50 rounded-lg p-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] mb-1">Market</p>
-                  <p className="font-mono text-sm font-medium text-[#1b1815]">{top.market}</p>
+                <div className="bg-[#fafafa]/50 dark:bg-[#2a2a2a]/50 rounded-lg p-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] mb-1">Market</p>
+                  <p className="font-mono text-sm font-medium text-[#1b1815] dark:text-[#fafafa]">{top.market}</p>
                 </div>
-                <div className="bg-[#fafafa]/50 rounded-lg p-3">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] mb-1">Return</p>
+                <div className="bg-[#fafafa]/50 dark:bg-[#2a2a2a]/50 rounded-lg p-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] mb-1">Return</p>
                   <p className={`font-mono text-sm font-bold ${top.totalReturn >= 0 ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(top.totalReturn)}</p>
                 </div>
               </div>
 
               {/* Runners Up */}
-              <div className="border-t border-[#e5e5e5] pt-3">
-                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] mb-2">Runners Up</p>
+              <div className="border-t border-[#e5e5e5] dark:border-[#333333] pt-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] mb-2">Runners Up</p>
                 <div className="space-y-2">
                   {runnersUp.map((trader, i) => (
-                    <Link key={trader.slug} to={`/traders/${trader.slug}`} className="flex items-center justify-between group -mx-1 px-1 py-1 rounded-md hover:bg-[#f2f3f5]/30 transition-colors">
+                    <Link key={trader.slug} to={`/traders/${trader.slug}`} className="flex items-center justify-between group -mx-1 px-1 py-1 rounded-md hover:bg-[#f2f3f5]/30 dark:bg-[#2a2a2a]/30 transition-colors">
                       <div className="flex items-center gap-2.5">
-                        <span className="font-mono text-xs text-[#6b6b6b] w-4">0{i + 2}</span>
-                        <span className="font-mono text-sm font-medium text-[#1b1815]">{trader.name}</span>
+                        <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] w-4">0{i + 2}</span>
+                        <span className="font-mono text-sm font-medium text-[#1b1815] dark:text-[#fafafa]">{trader.name}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className={`font-mono text-sm font-bold ${trader.totalReturn >= 0 ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(trader.totalReturn)}</span>
-                        <ArrowUpRightIcon className="w-3 h-3 text-[#6b6b6b] opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowUpRightIcon className="w-3 h-3 text-[#6b6b6b] dark:text-[#8a8a8a] opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
                     </Link>
                   ))}
@@ -262,9 +263,9 @@ export default function Hero() {
               </div>
 
               {/* View All */}
-              <Link to="/leaderboard" className="mt-4 flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-[#fafafa]/50 hover:bg-[#fafafa]/80 transition-colors group">
-                <span className="font-mono text-xs uppercase tracking-[0.1em] text-[#1b1815]">View All</span>
-                <ArrowUpRightIcon className="w-3.5 h-3.5 text-[#6b6b6b] group-hover:text-[#1b1815] transition-colors" />
+              <Link to="/leaderboard" className="mt-4 flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-[#fafafa]/50 hover:bg-[#fafafa]/80 dark:bg-[#2a2a2a]/50 dark:hover:bg-[#2a2a2a]/80 transition-colors group">
+                <span className="font-mono text-xs uppercase tracking-[0.1em] text-[#1b1815] dark:text-[#fafafa]">View All</span>
+                <ArrowUpRightIcon className="w-3.5 h-3.5 text-[#6b6b6b] dark:text-[#8a8a8a] group-hover:text-[#1b1815] dark:hover:text-[#fafafa] transition-colors" />
               </Link>
             </div>
           </div>

@@ -201,7 +201,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left — Form (now identical to the SignUp page form) */}
@@ -209,7 +209,7 @@ export default function Contact() {
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
                 <span className="text-[#ff6b2b]">Contact</span>
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-[#6b6b6b] leading-relaxed tracking-[0.02em]">
+              <p className="mt-4 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
                 Have a question, suggestion, or partnership idea? We'd love to hear from you.
               </p>
 
@@ -284,14 +284,14 @@ export default function Contact() {
               {CONTACT_OPTIONS.map((opt) => {
                 const Icon = opt.icon;
                 return (
-                  <div key={opt.title} className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                  <div key={opt.title} className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-9 h-9 rounded-lg bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] shrink-0">
                         <Icon cn="w-[18px] h-[18px]" />
                       </div>
-                      <h3 className="font-mono font-bold text-sm text-[#1b1815]">{opt.title}</h3>
+                      <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa]">{opt.title}</h3>
                     </div>
-                    <p className="text-xs text-[#6b6b6b] leading-relaxed tracking-[0.02em] mb-2">{opt.desc}</p>
+                    <p className="text-xs text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] mb-2">{opt.desc}</p>
                     <a href={`mailto:${opt.email}`} className="font-mono text-sm text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors">
                       {opt.email}
                     </a>
@@ -300,12 +300,12 @@ export default function Contact() {
               })}
 
               {/* Quick FAQ */}
-              <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <h3 className="font-mono font-bold text-sm text-[#1b1815] mb-3">Quick Answers</h3>
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa] mb-3">Quick Answers</h3>
                 <ul className="space-y-2">
                   {FAQ_LINKS.map((item) => (
                     <li key={item.q}>
-                      <Link to={item.href} className="font-mono text-xs text-[#6b6b6b] hover:text-[#ff6b2b] transition-colors">
+                      <Link to={item.href} className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#ff6b2b] transition-colors">
                         {item.q}
                       </Link>
                     </li>

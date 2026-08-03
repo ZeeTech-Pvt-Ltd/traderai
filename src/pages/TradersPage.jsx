@@ -78,7 +78,7 @@ export default function TradersPage() {
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`min-w-[90px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] text-[#4e4842]'} border-r border-[#e4e5e8] last:border-r-0`}
+              className={`min-w-[90px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] dark:bg-[#2a2a2a] text-[#4e4842]'} border-r border-[#e4e5e8] last:border-r-0`}
             >
               {t}
             </button>
@@ -86,7 +86,7 @@ export default function TradersPage() {
         </div>
 
         {/* Filters */}
-        <div className="grid grid-cols-[130px_repeat(3,1fr)] border border-[#e4e5e8] bg-[#fafafa] mb-5 max-sm:grid-cols-1">
+        <div className="grid grid-cols-[130px_repeat(3,1fr)] border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] mb-5 max-sm:grid-cols-1">
           <div className="flex items-center px-[14px] text-[#615a53] font-['Courier_New',monospace] text-xs font-bold border-r border-[#e4e5e8] max-sm:border-r-0 max-sm:border-b max-sm:min-h-[48px]">
             ▾ Filters:
           </div>
@@ -114,7 +114,7 @@ export default function TradersPage() {
               <article
                 key={trader.id}
                 onClick={() => navigate(`/traders/${trader.slug}`)}
-                className="border border-[#e4e5e8] bg-[#fafafa] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#bdb3aa] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
+                className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#bdb3aa] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
               >
                 {/* Top row */}
                 <div className="flex justify-between items-start gap-[14px] mb-[22px]">

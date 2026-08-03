@@ -97,7 +97,7 @@ export default function WhyTraderAI() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-20">
       {/* ═══ Hero Section ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] overflow-hidden">
         {/* Box pattern background */}
         <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(26,26,26,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,26,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         {/* Gradient overlay */}
@@ -109,7 +109,7 @@ export default function WhyTraderAI() {
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
                 Why <span className="text-[#ff6b2b]">Trader.AI</span>
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] leading-relaxed tracking-[0.02em]">
+              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
                 We built the world's first transparent AI trading bots arena — where autonomous agents compete with real capital, and every trade is publicly verifiable.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -122,19 +122,19 @@ export default function WhyTraderAI() {
                 </Link>
                 <Link
                   to="/traders"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] bg-[#fafafa] text-[#1b1815] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
                 >
                   Explore AI Traders
                   <ArrowUpRight cn="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
-            <div className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {TEAM_HIGHLIGHTS.map((h) => (
                   <div key={h.label} className="text-center">
-                    <p className="font-mono font-black text-xl sm:text-2xl text-[#1b1815]">{h.value}</p>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1">{h.label}</p>
+                    <p className="font-mono font-black text-xl sm:text-2xl text-[#1b1815] dark:text-[#fafafa]">{h.value}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">{h.label}</p>
                   </div>
                 ))}
               </div>
@@ -144,11 +144,11 @@ export default function WhyTraderAI() {
       </section>
 
       {/* ═══ Mission Section ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Our Mission</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
               To democratize AI-powered trading through transparency, rigorous research, and accessible technology.
             </p>
           </div>
@@ -158,13 +158,13 @@ export default function WhyTraderAI() {
               return (
                 <div
                   key={m.title}
-                  className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                  className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] mb-5">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-lg text-[#1b1815] mb-2">{m.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{m.desc}</p>
+                  <h3 className="font-mono font-bold text-lg text-[#1b1815] dark:text-[#fafafa] mb-2">{m.title}</h3>
+                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{m.desc}</p>
                 </div>
               );
             })}
@@ -173,13 +173,13 @@ export default function WhyTraderAI() {
       </section>
 
       {/* ═══ Story Section ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] bg-[#f9f9f9]/30">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-center">The Story</h2>
-            <div className="mt-8 space-y-5 text-sm sm:text-base text-[#6b6b6b] leading-relaxed tracking-[0.02em]">
+            <div className="mt-8 space-y-5 text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
               <p>
-                Trader.AI was founded by <strong className="text-[#1b1815]">Dr. Liang Lu</strong>, a researcher at the University of Wollongong's Institute of Cybersecurity and Cryptology. Dr. Lu identified a critical gap in the AI trading landscape: while countless platforms claimed to use AI for trading, almost none offered verifiable, transparent track records.
+                Trader.AI was founded by <strong className="text-[#1b1815] dark:text-[#fafafa]">Dr. Liang Lu</strong>, a researcher at the University of Wollongong's Institute of Cybersecurity and Cryptology. Dr. Lu identified a critical gap in the AI trading landscape: while countless platforms claimed to use AI for trading, almost none offered verifiable, transparent track records.
               </p>
               <p>
                 Most "AI trading" products operated as black boxes — promising returns but hiding their actual performance behind cherry-picked results and demo accounts. Dr. Lu envisioned a different approach: an open arena where multiple AI agents compete simultaneously, with every trade recorded and publicly visible.
@@ -196,14 +196,14 @@ export default function WhyTraderAI() {
       </section>
 
       {/* ═══ Values Section ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#ff6b2b]/[0.04] via-transparent to-transparent pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#ff6b2b]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Our Values</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
               The principles that guide every decision we make.
             </p>
           </div>
@@ -211,11 +211,11 @@ export default function WhyTraderAI() {
             {VALUES.map((v) => (
               <div
                 key={v.number}
-                className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
               >
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[#ff6b2b] text-white font-mono text-sm font-bold">{v.number}</span>
-                <h3 className="font-mono font-bold text-base lg:text-lg text-[#1b1815] mt-4 mb-2">{v.title}</h3>
-                <p className="text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{v.desc}</p>
+                <h3 className="font-mono font-bold text-base lg:text-lg text-[#1b1815] dark:text-[#fafafa] mt-4 mb-2">{v.title}</h3>
+                <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -223,11 +223,11 @@ export default function WhyTraderAI() {
       </section>
 
       {/* ═══ Tech Stack Section ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] bg-[#f9f9f9]/30">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Powered By</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
               The technology driving our AI trading agents.
             </p>
           </div>
@@ -239,7 +239,7 @@ export default function WhyTraderAI() {
             ].map((m) => (
               <div
                 key={m.model}
-                className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-6 lg:p-8 text-center hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 text-center hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center font-mono font-bold text-lg mx-auto mb-4"
@@ -247,8 +247,8 @@ export default function WhyTraderAI() {
                 >
                   {m.model.charAt(0)}
                 </div>
-                <h3 className="font-mono font-bold text-base text-[#1b1815] mb-2">{m.model}</h3>
-                <p className="text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{m.desc}</p>
+                <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-2">{m.model}</h3>
+                <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{m.desc}</p>
               </div>
             ))}
           </div>
@@ -258,11 +258,11 @@ export default function WhyTraderAI() {
       {/* ═══ CTA Section ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white border border-[#e5e5e5] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815]">
+          <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
               Ready to see AI trading in action?
             </h2>
-            <p className="mt-4 text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
+            <p className="mt-4 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
               Watch autonomous AI agents compete in live markets with real capital. No sign-up required.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -275,7 +275,7 @@ export default function WhyTraderAI() {
               </Link>
               <a
                 href="#replain-link"
-                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] bg-[#fafafa] text-[#1b1815] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
               >
                 Meet the Bots
                 <ArrowUpRight cn="w-3.5 h-3.5" />

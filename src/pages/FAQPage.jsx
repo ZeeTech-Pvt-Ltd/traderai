@@ -35,14 +35,14 @@ function MessageIcon({ className = 'w-5 h-5' }) {
 /* ─── FAQ Accordion Item ─── */
 function FAQItem({ item, isOpen, onToggle }) {
   return (
-    <div className="border border-[#e5e5e5] rounded-xl overflow-hidden bg-[#f9f9f9] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] transition-all duration-200">
+    <div className="border border-[#e5e5e5] dark:border-[#333333] rounded-xl overflow-hidden bg-[#f9f9f9] dark:bg-[#222222] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] transition-all duration-200">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-5 lg:px-6 py-4 lg:py-5 text-left hover:bg-[#f2f3f5]/30 transition-colors duration-200"
+        className="w-full flex items-center justify-between px-5 lg:px-6 py-4 lg:py-5 text-left hover:bg-[#f2f3f5]/30 dark:bg-[#2a2a2a]/30 transition-colors duration-200"
       >
-        <span className="font-mono font-bold text-sm lg:text-base text-[#1b1815] pr-4">{item.question}</span>
+        <span className="font-mono font-bold text-sm lg:text-base text-[#1b1815] dark:text-[#fafafa] pr-4">{item.question}</span>
         <ChevronDown
-          className={`w-4 h-4 shrink-0 text-[#6b6b6b] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 shrink-0 text-[#6b6b6b] dark:text-[#8a8a8a] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
       <div
@@ -50,7 +50,7 @@ function FAQItem({ item, isOpen, onToggle }) {
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <p className="px-5 lg:px-6 pb-4 lg:pb-5 text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">
+        <p className="px-5 lg:px-6 pb-4 lg:pb-5 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
           {item.answer}
         </p>
       </div>
@@ -97,51 +97,51 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight">
             Trader.AI <span className="text-[#ff6b2b]">FAQ</span>
           </h1>
-          <p className="mt-4 text-[#6b6b6b] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-xl mx-auto">
+          <p className="mt-4 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-xl mx-auto">
             Quick answers to the most common questions about Trader.AI. Can't find what you're looking for? Get in touch.
           </p>
 
           {/* Search */}
           <div className="mt-8 max-w-md mx-auto relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <SearchIcon className="w-4 h-4 text-[#6b6b6b]/60" />
+              <SearchIcon className="w-4 h-4 text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60" />
             </div>
             <input
               type="text"
               placeholder="Search questions..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full h-12 pl-11 pr-4 rounded-xl border border-[#e5e5e5] bg-[#f9f9f9] font-mono text-sm text-[#1b1815] placeholder:text-[#6b6b6b]/50 focus:outline-none focus:border-[#ff6b2b] focus:ring-2 focus:ring-[#ff6b2b]/20 transition-all"
+              className="w-full h-12 pl-11 pr-4 rounded-xl border border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9] dark:bg-[#222222] font-mono text-sm text-[#1b1815] dark:text-[#fafafa] placeholder:text-[#6b6b6b]/50 dark:text-[#8a8a8a]/50 focus:outline-none focus:border-[#ff6b2b] focus:ring-2 focus:ring-[#ff6b2b]/20 transition-all"
             />
           </div>
 
           {/* Stats */}
           <div className="mt-8 flex items-center justify-center gap-6 text-center">
             <div>
-              <p className="font-mono font-black text-2xl text-[#1b1815]">{FAQ_DATA.length}</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1">Questions</p>
+              <p className="font-mono font-black text-2xl text-[#1b1815] dark:text-[#fafafa]">{FAQ_DATA.length}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">Questions</p>
             </div>
             <div className="w-px h-10 bg-[#e5e5e5]" />
             <div>
-              <p className="font-mono font-black text-2xl text-[#1b1815]">{FAQ_CATEGORIES.length - 1}</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1">Categories</p>
+              <p className="font-mono font-black text-2xl text-[#1b1815] dark:text-[#fafafa]">{FAQ_CATEGORIES.length - 1}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">Categories</p>
             </div>
             <div className="w-px h-10 bg-[#e5e5e5]" />
             <div>
-              <p className="font-mono font-black text-2xl text-[#1b1815]">24/7</p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1">Live Trading</p>
+              <p className="font-mono font-black text-2xl text-[#1b1815] dark:text-[#fafafa]">24/7</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">Live Trading</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══ Category Tabs ═══ */}
-      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] bg-[#f9f9f9]/30 sticky top-16 lg:top-20 z-10">
+      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30 sticky top-16 lg:top-20 z-10">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-wrap items-center gap-2 justify-center">
             {FAQ_CATEGORIES.map((cat) => (
@@ -151,7 +151,7 @@ export default function FAQPage() {
                 className={`font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-md border transition-colors ${
                   activeCategory === cat.id
                     ? 'bg-[#ff6b2b] text-white border-[#ff6b2b]'
-                    : 'bg-[#f9f9f9] text-[#6b6b6b] border-[#e5e5e5] hover:bg-[#f2f3f5]'
+                    : 'bg-[#f9f9f9] dark:bg-[#222222] text-[#6b6b6b] dark:text-[#8a8a8a] border-[#e5e5e5] dark:border-[#333333] hover:bg-[#f2f3f5] dark:bg-[#2a2a2a]'
                 }`}
               >
                 {cat.label}
@@ -166,7 +166,7 @@ export default function FAQPage() {
         <div className="max-w-3xl mx-auto">
           {filtered.length === 0 ? (
             <div className="text-center py-12">
-              <p className="font-mono text-sm text-[#6b6b6b]">No questions match your search.</p>
+              <p className="font-mono text-sm text-[#6b6b6b] dark:text-[#8a8a8a]">No questions match your search.</p>
               <button
                 onClick={() => { setSearchQuery(''); setActiveCategory('all'); }}
                 className="mt-3 font-mono text-xs uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors"
@@ -190,7 +190,7 @@ export default function FAQPage() {
 
           {/* Results info */}
           <div className="mt-6 text-center">
-            <p className="font-mono text-[10px] text-[#6b6b6b]/60 tracking-[0.02em]">
+            <p className="font-mono text-[10px] text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60 tracking-[0.02em]">
               Showing {filtered.length} of {FAQ_DATA.length} questions
               {searchQuery && <span> matching &ldquo;{searchQuery}&rdquo;</span>}
               {activeCategory !== 'all' && <span> in {CAT_LABELS[activeCategory]}</span>}
@@ -200,13 +200,13 @@ export default function FAQPage() {
       </section>
 
       {/* ═══ Still have questions? ═══ */}
-      <section className="py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-[#f9f9f9]/30 border-y border-[#e5e5e5]">
+      <section className="py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-[#f9f9f9]/30 dark:bg-[#222222]/30 border-y border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-3xl mx-auto text-center">
           <MessageIcon className="w-10 h-10 text-[#ff6b2b] mx-auto mb-4" />
-          <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815]">
+          <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
             Still have questions?
           </h2>
-          <p className="mt-3 text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em] max-w-md mx-auto">
+          <p className="mt-3 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-md mx-auto">
             Can't find the answer you're looking for? Reach out to our team and we'll get back to you.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -219,7 +219,7 @@ export default function FAQPage() {
             </Link>
             <Link
               to="/why-trader-ai"
-              className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] bg-[#fafafa] text-[#1b1815] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+              className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
             >
               Learn More
             </Link>

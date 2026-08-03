@@ -150,9 +150,9 @@ const TYPE_STYLES = {
 /* ─── Page ─── */
 export default function Partners() {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
+    <div className="min-h-screen pt-16 lg:pt-20 pb-8 lg:pb-10">
       {/* ═══ Hero — Section 1: Transparent ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] overflow-hidden">
         {/* Subtle radial glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#ff6b2b]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
@@ -161,7 +161,7 @@ export default function Partners() {
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
                 <span className="text-[#ff6b2b]">Partners</span>
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] leading-relaxed tracking-[0.02em]">
+              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
                 We collaborate with leading technology providers, academic institutions, and media partners to build the most transparent AI trading platform in the world.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -174,7 +174,7 @@ export default function Partners() {
                 </Link>
               </div>
             </div>
-            <div className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
                 {[
                   { label: 'Partners', value: PARTNERS.length },
@@ -183,8 +183,8 @@ export default function Partners() {
                   { label: 'Exchange Partners', value: '1' },
                 ].map((s) => (
                   <div key={s.label} className="text-center">
-                    <p className="font-mono font-black text-2xl text-[#1b1815]">{s.value}</p>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1">{s.label}</p>
+                    <p className="font-mono font-black text-2xl text-[#1b1815] dark:text-[#fafafa]">{s.value}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -194,11 +194,11 @@ export default function Partners() {
       </section>
 
       {/* ═══ Partners Grid — Section 2: Soft grey gradient ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815]">Our Partners</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">Our Partners</h2>
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
               Organizations we work with to deliver transparent AI trading.
             </p>
           </div>
@@ -206,7 +206,7 @@ export default function Partners() {
             {PARTNERS.map((p) => (
               <div
                 key={p.name}
-                className="bg-white border border-[#e5e5e5] rounded-xl p-5 lg:p-6 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div
@@ -216,13 +216,13 @@ export default function Partners() {
                     {p.initials}
                   </div>
                   <div className="min-w-0">
-                    <h3 className="font-mono font-bold text-sm text-[#1b1815] truncate">{p.name}</h3>
+                    <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa] truncate">{p.name}</h3>
                     <span className={`inline-flex font-mono text-[9px] uppercase tracking-[0.1em] px-1.5 py-0.5 rounded border mt-0.5 ${TYPE_STYLES[p.type]}`}>
                       {p.type}
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{p.desc}</p>
+                <p className="text-xs text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -230,11 +230,11 @@ export default function Partners() {
       </section>
 
       {/* ═══ Benefits — Section 3: Transparent ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815]">Why Partner With Us</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">Why Partner With Us</h2>
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
               Join the ecosystem and help shape the future of transparent AI trading.
             </p>
           </div>
@@ -244,13 +244,13 @@ export default function Partners() {
               return (
                 <div
                   key={b.title}
-                  className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                  className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] mb-5">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-base text-[#1b1815] mb-2">{b.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em]">{b.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-2">{b.title}</h3>
+                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{b.desc}</p>
                 </div>
               );
             })}
@@ -259,14 +259,14 @@ export default function Partners() {
       </section>
 
       {/* ═══ CTA — Section 4: Very subtle grey gradient ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
+      <section className="relative pt-16 lg:pt-24 pb-10 lg:pb-12 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(180deg, #fafafa 0%, #f2f3f5 100%)' }}>
         <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="bg-white border border-[#e5e5e5] rounded-3xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+          <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-3xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
             <HandshakeIcon cn="w-10 h-10 text-[#ff6b2b] mx-auto mb-5" />
-            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815]">
+            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
               Interested in partnering?
             </h2>
-            <p className="mt-4 text-sm text-[#6b6b6b] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
+            <p className="mt-4 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
               We're always looking for innovative organizations to collaborate with. Reach out and let's build the future of AI trading together.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -279,7 +279,7 @@ export default function Partners() {
               </Link>
               <Link
                 to="/why-trader-ai"
-                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] bg-[#fafafa] text-[#1b1815] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
               >
                 Learn More
                 <ArrowUpRight cn="w-3.5 h-3.5" />

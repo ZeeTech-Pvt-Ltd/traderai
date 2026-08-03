@@ -59,7 +59,7 @@ export default function LeaderboardPage() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Page Header ═══ */}
-      <section className="relative py-12 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] overflow-hidden">
+      <section className="relative py-12 lg:py-20 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] overflow-hidden">
         {/* Subtle gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#ff6b2b]/[0.03] to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#ff6b2b]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -68,7 +68,7 @@ export default function LeaderboardPage() {
             <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight">
               Leaderboard
             </h1>
-            <p className="mt-4 text-[#6b6b6b] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
+            <p className="mt-4 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
               Compare AI trader agents by performance, model transparency, and risk across global markets.
             </p>
           </div>
@@ -79,9 +79,9 @@ export default function LeaderboardPage() {
               { label: 'Asset Classes', value: new Set(TRADERS.map((t) => t.market)).size },
               { label: 'AI Models', value: new Set(TRADERS.map((t) => t.model)).size },
             ].map((s) => (
-              <div key={s.label} className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-4 text-center shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <p className={`font-mono font-black text-2xl leading-none ${s.color || 'text-[#1b1815]'}`}>{s.value}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 mt-1.5">{s.label}</p>
+              <div key={s.label} className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 text-center shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <p className={`font-mono font-black text-2xl leading-none ${s.color || 'text-[#1b1815] dark:text-[#fafafa]'}`}>{s.value}</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1.5">{s.label}</p>
               </div>
             ))}
           </div>
@@ -89,29 +89,29 @@ export default function LeaderboardPage() {
       </section>
 
       {/* ═══ Filters ═══ */}
-      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] bg-[#f9f9f9]/30 sticky top-16 lg:top-20 z-10">
+      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30 sticky top-16 lg:top-20 z-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="flex items-center gap-2 bg-[#f9f9f9] border border-[#e5e5e5] rounded-lg px-5 py-3">
-              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] font-bold shrink-0">Market</label>
+            <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
+              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Market</label>
               <select value={marketF} onChange={(e) => setMarketF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {MARKET_GROUPS.map((m) => <option key={m} value={m}>{m}</option>)}
               </select>
             </div>
-            <div className="flex items-center gap-2 bg-[#f9f9f9] border border-[#e5e5e5] rounded-lg px-5 py-3">
-              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] font-bold shrink-0">Strategy</label>
+            <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
+              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Strategy</label>
               <select value={strategyF} onChange={(e) => setStrategyF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {STRATEGY_GROUPS.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
-            <div className="flex items-center gap-2 bg-[#f9f9f9] border border-[#e5e5e5] rounded-lg px-5 py-3">
-              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] font-bold shrink-0">Risk</label>
+            <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
+              <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Risk</label>
               <select value={riskF} onChange={(e) => setRiskF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {RISK_GROUPS.map((r) => <option key={r} value={r}>{r}</option>)}
               </select>
@@ -121,17 +121,17 @@ export default function LeaderboardPage() {
       </section>
 
       {/* ═══ Results Bar ═══ */}
-      <section className="py-3 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5]">
+      <section className="py-3 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <p className="font-mono text-xs text-[#6b6b6b] tracking-[0.02em]">
-            <span className="font-bold text-[#1b1815]">{sorted.length}</span> AI traders
+          <p className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] tracking-[0.02em]">
+            <span className="font-bold text-[#1b1815] dark:text-[#fafafa]">{sorted.length}</span> AI traders
             {(marketF !== 'All Markets' || strategyF !== 'All Strategies' || riskF !== 'All Risk') && (
-              <span className="text-[#6b6b6b]/60"> (filtered)</span>
+              <span className="text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60"> (filtered)</span>
             )}
           </p>
           <div className="flex items-center gap-3">
             <button onClick={() => setSortDir(sortDir === 'desc' ? 'asc' : 'desc')}
-              className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] hover:text-[#1b1815] transition-colors flex items-center gap-1">
+              className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#1b1815] dark:hover:text-[#fafafa] transition-colors flex items-center gap-1">
               Sort: Return {sortDir === 'desc' ? '↓' : '↑'}
             </button>
             <span className="w-px h-3 bg-[#e5e5e5]" />
@@ -144,7 +144,7 @@ export default function LeaderboardPage() {
             </div>
             <Link
               to="/traders"
-              className="hidden sm:inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors border-l border-[#e5e5e5] pl-3"
+              className="hidden sm:inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors border-l border-[#e5e5e5] dark:border-[#333333] pl-3"
             >
               AI Traders →
             </Link>
@@ -155,8 +155,8 @@ export default function LeaderboardPage() {
       {/* ═══ Desktop Table ═══ */}
       <section className="py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="hidden lg:block bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-            <div className="grid grid-cols-[44px_1.2fr_70px_120px_130px_80px_110px_100px_80px] gap-1 items-center px-5 py-3.5 bg-[#f2f3f5]/50 border-b border-[#e5e5e5] font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b]">
+          <div className="hidden lg:block bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <div className="grid grid-cols-[44px_1.2fr_70px_120px_130px_80px_110px_100px_80px] gap-1 items-center px-5 py-3.5 bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 border-b border-[#e5e5e5] dark:border-[#333333] font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a]">
               <span>Rank</span>
               <span>Trader</span>
               <span className="text-center">Trend</span>
@@ -170,7 +170,7 @@ export default function LeaderboardPage() {
             <div>
               {sorted.length === 0 ? (
                 <div className="px-5 py-12 text-center">
-                  <p className="font-mono text-sm text-[#6b6b6b]">No AI traders match your filters.</p>
+                  <p className="font-mono text-sm text-[#6b6b6b] dark:text-[#8a8a8a]">No AI traders match your filters.</p>
                   <button onClick={clearFilters} className="mt-3 font-mono text-xs uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors">Clear filters</button>
                 </div>
               ) : (
@@ -179,24 +179,24 @@ export default function LeaderboardPage() {
                   const rl = riskLabel(trader.risk);
                   return (
                     <div key={trader.id}
-                      className="grid grid-cols-[44px_1.2fr_70px_120px_130px_80px_110px_100px_80px] gap-1 items-center px-5 py-3 hover:bg-[#f2f3f5]/50 transition-colors border-b border-[#e5e5e5] last:border-0">
-                      <span className="font-mono text-xs font-bold text-[#6b6b6b]/60">{String(i + 1).padStart(2, '0')}</span>
+                      className="grid grid-cols-[44px_1.2fr_70px_120px_130px_80px_110px_100px_80px] gap-1 items-center px-5 py-3 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors border-b border-[#e5e5e5] dark:border-[#333333] last:border-0">
+                      <span className="font-mono text-xs font-bold text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60">{String(i + 1).padStart(2, '0')}</span>
                       <Link to={`/traders/${trader.slug}`} className="flex items-center gap-2.5 min-w-0">
                         <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs shrink-0 bg-[#ffe4d8] text-[#ff6b2b]">{trader.initial}</div>
                         <div className="min-w-0">
-                          <p className="font-mono text-sm font-medium leading-tight truncate text-[#1b1815]">{trader.name}</p>
-                          <p className="font-mono text-[10px] text-[#6b6b6b] leading-tight truncate">{trader.model}</p>
+                          <p className="font-mono text-sm font-medium leading-tight truncate text-[#1b1815] dark:text-[#fafafa]">{trader.name}</p>
+                          <p className="font-mono text-[10px] text-[#6b6b6b] dark:text-[#8a8a8a] leading-tight truncate">{trader.model}</p>
                         </div>
                       </Link>
                       <div className="flex items-center justify-center">
                         <LeaderboardSparkline series={trader.series} w={56} h={22} color={pos ? '#00bd68' : '#ff3d4d'} />
                       </div>
-                      <span className="font-mono text-xs text-[#6b6b6b] truncate text-center">{trader.market}</span>
-                      <span className="font-mono text-xs text-[#6b6b6b] truncate text-center">{trader.strategy}</span>
+                      <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] truncate text-center">{trader.market}</span>
+                      <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] truncate text-center">{trader.strategy}</span>
                       <div className="flex justify-center">
                         <span className={`inline-flex font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-full border ${RS[rl]}`}>{rl}</span>
                       </div>
-                      <span className="font-mono text-xs text-[#6b6b6b] truncate text-center">{trader.model}</span>
+                      <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] truncate text-center">{trader.model}</span>
                       <span className={`font-mono text-sm font-bold text-right ${pos ? 'text-[#00bd68]' : 'text-[#ff3d4d]'}`}>{percent(trader.totalReturn)}</span>
                       <div className="flex justify-center">
                         <Link to="/signup" className="inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all">Follow</Link>
@@ -212,7 +212,7 @@ export default function LeaderboardPage() {
           <div className="lg:hidden space-y-3">
             {sorted.length === 0 ? (
               <div className="text-center py-12">
-                <p className="font-mono text-sm text-[#6b6b6b]">No AI traders match your filters.</p>
+                <p className="font-mono text-sm text-[#6b6b6b] dark:text-[#8a8a8a]">No AI traders match your filters.</p>
                 <button onClick={clearFilters} className="mt-3 font-mono text-xs uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors">Clear filters</button>
               </div>
             ) : (
@@ -221,29 +221,29 @@ export default function LeaderboardPage() {
                 const rl = riskLabel(trader.risk);
                 return (
                   <div key={trader.id}
-                    className="bg-[#f9f9f9] border border-[#e5e5e5] rounded-xl p-4 hover:bg-[#f2f3f5]/50 transition-colors shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                    className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                     <Link to={`/traders/${trader.slug}`} className="block">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="font-mono text-xs font-bold text-[#6b6b6b]/60 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                          <span className="font-mono text-xs font-bold text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                           <div className="w-8 h-8 rounded-md flex items-center justify-center font-mono font-bold text-sm shrink-0 bg-[#ffe4d8] text-[#ff6b2b]">{trader.initial}</div>
                           <div className="min-w-0">
-                            <p className="font-mono text-sm font-medium leading-tight truncate text-[#1b1815]">{trader.name}</p>
-                            <p className="font-mono text-[10px] text-[#6b6b6b] leading-tight truncate">{trader.model}</p>
+                            <p className="font-mono text-sm font-medium leading-tight truncate text-[#1b1815] dark:text-[#fafafa]">{trader.name}</p>
+                            <p className="font-mono text-[10px] text-[#6b6b6b] dark:text-[#8a8a8a] leading-tight truncate">{trader.model}</p>
                           </div>
                         </div>
                         <span className={`font-mono text-sm font-bold shrink-0 ${pos ? 'text-[#00bd68]' : 'text-[#ff3d4d]'}`}>{percent(trader.totalReturn)}</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.1em]">
-                          <span className="inline-flex px-2 py-0.5 rounded-full border border-[#e5e5e5] bg-[#f2f3f5]/60 text-[#5f5852]">{trader.market}</span>
-                          <span className="inline-flex px-2 py-0.5 rounded-full border border-[#e5e5e5] bg-[#f2f3f5]/60 text-[#5f5852]">{trader.strategy}</span>
+                          <span className="inline-flex px-2 py-0.5 rounded-full border border-[#e5e5e5] dark:border-[#333333] bg-[#f2f3f5]/60 dark:bg-[#2a2a2a]/60 text-[#5f5852] dark:text-[#8a8a8a]">{trader.market}</span>
+                          <span className="inline-flex px-2 py-0.5 rounded-full border border-[#e5e5e5] dark:border-[#333333] bg-[#f2f3f5]/60 dark:bg-[#2a2a2a]/60 text-[#5f5852] dark:text-[#8a8a8a]">{trader.strategy}</span>
                           <span className={`inline-flex px-2 py-0.5 rounded-full border ${RS[rl]}`}>{rl}</span>
                         </div>
                         <LeaderboardSparkline series={trader.series} w={48} h={16} color={pos ? '#00bd68' : '#ff3d4d'} />
                       </div>
                     </Link>
-                    <div className="mt-3 pt-3 border-t border-[#e5e5e5]">
+                    <div className="mt-3 pt-3 border-t border-[#e5e5e5] dark:border-[#333333]">
                       <Link to="/signup" className="w-full inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] py-2 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all">Follow</Link>
                     </div>
                   </div>
@@ -253,7 +253,7 @@ export default function LeaderboardPage() {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="font-mono text-[10px] text-[#6b6b6b]/60 tracking-[0.02em]">
+            <p className="font-mono text-[10px] text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60 tracking-[0.02em]">
               Showing {sorted.length} of {TRADERS.length} AI traders • Data updates in real time
             </p>
           </div>

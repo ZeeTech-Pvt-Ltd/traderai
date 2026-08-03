@@ -55,7 +55,7 @@ export default function TraderProfile() {
       <div className="min-h-screen pt-16 lg:pt-20 flex items-center justify-center px-4">
         <div className="text-center max-w-md">
           <p className="font-['Courier_New',monospace] text-6xl font-black text-[#ff6b2b]">404</p>
-          <h1 className="font-['Courier_New',monospace] text-xl font-bold mt-4 text-[#1b1815]">Trader not found</h1>
+          <h1 className="font-['Courier_New',monospace] text-xl font-bold mt-4 text-[#1b1815] dark:text-[#fafafa]">Trader not found</h1>
           <Link to="/traders" className="mt-6 inline-flex items-center font-['Courier_New',monospace] text-xs uppercase tracking-[.1em] gap-2 h-12 px-8 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all">
             <ArrowLeft cn="w-4 h-4" />
             Back to Traders
@@ -91,9 +91,9 @@ export default function TraderProfile() {
           ← Back
         </Link>
 
-        <div className="bg-[#fafafa] border border-[#e4e5e8] rounded-[12px] p-5 sm:p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
+        <div className="bg-[#fafafa] dark:bg-[#2a2a2a] border border-[#e4e5e8] rounded-[12px] p-5 sm:p-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
         {/* Profile Header */}
-        <div className="flex items-center justify-between gap-5 border border-[#e4e5e8] rounded-[10px] bg-[#fafafa] p-5 mb-[18px] max-sm:flex-col max-sm:items-stretch">
+        <div className="flex items-center justify-between gap-5 border border-[#e4e5e8] rounded-[10px] bg-[#fafafa] dark:bg-[#2a2a2a] p-5 mb-[18px] max-sm:flex-col max-sm:items-stretch">
           <div className="flex items-start gap-4 min-w-0">
             <div className="w-[54px] h-[54px] flex-shrink-0 grid place-items-center bg-[#f3e6e0] text-[#ff6b2b] font-['Courier_New',monospace] text-xl font-bold rounded-[5px]">
               {trader.initial}
@@ -105,9 +105,9 @@ export default function TraderProfile() {
               </div>
               <p className="text-[#756e67] text-xs leading-relaxed mb-[10px] m-0">{trader.description}</p>
               <div className="flex flex-wrap gap-[6px]">
-                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] font-['Courier_New',monospace] text-[9px]">{trader.market}</span>
-                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] font-['Courier_New',monospace] text-[9px]">{trader.strategy}</span>
-                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] font-['Courier_New',monospace] text-[9px]">{trader.model}</span>
+                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] dark:text-[#8a8a8a] font-['Courier_New',monospace] text-[9px]">{trader.market}</span>
+                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] dark:text-[#8a8a8a] font-['Courier_New',monospace] text-[9px]">{trader.strategy}</span>
+                <span className="border border-[#e4e5e8] px-2 py-[6px] text-[#5f5852] dark:text-[#8a8a8a] font-['Courier_New',monospace] text-[9px]">{trader.model}</span>
               </div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Summary */}
-        <div className="grid grid-cols-5 border border-[#e4e5e8] rounded-[10px] bg-[#fafafa] mb-[18px] max-sm:grid-cols-2">
+        <div className="grid grid-cols-5 border border-[#e4e5e8] rounded-[10px] bg-[#fafafa] dark:bg-[#2a2a2a] mb-[18px] max-sm:grid-cols-2">
           {[
             { label: 'Total Return', val: percent(trader.totalReturn), cls: positive ? 'text-[#00bd68]' : 'text-[#ff3d4d]' },
             { label: 'Total Profit', val: money(trader.totalProfit), cls: trader.totalProfit >= 0 ? 'text-[#00bd68]' : 'text-[#ff3d4d]' },
@@ -136,10 +136,10 @@ export default function TraderProfile() {
         </div>
 
         {/* Performance Analytics */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Performance Analytics</h2>
-            <select value={range} onChange={(e) => setRange(e.target.value)} className="border border-[#e4e5e8] bg-white text-[#4d4640] px-2 py-[7px] font-['Courier_New',monospace] text-[9px]">
+            <select value={range} onChange={(e) => setRange(e.target.value)} className="border border-[#e4e5e8] bg-white dark:bg-[#222222] text-[#4d4640] px-2 py-[7px] font-['Courier_New',monospace] text-[9px]">
               <option value="7">7D</option>
               <option value="30">30D</option>
               <option value="48">90D</option>
@@ -157,7 +157,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Monthly */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Monthly</h2>
             <span className="text-[#8a827a] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.04em]">Peak in Jul</span>
@@ -195,7 +195,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Risk */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Risk</h2>
             <span className="text-[#8a827a] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.04em]">Risk Profile</span>
@@ -206,7 +206,7 @@ export default function TraderProfile() {
               <div className="absolute top-[36px] left-1/2 w-[164px] h-[82px] -translate-x-1/2 rounded-t-full" style={{
                 background: 'conic-gradient(from 270deg at 50% 100%, #16bf68 0deg 55deg, #e0cf14 55deg 105deg, #ff8a20 105deg 145deg, #ff4747 145deg 180deg, transparent 180deg 360deg)',
               }}>
-                <div className="absolute inset-[17px_17px_0] rounded-t-full bg-[#fafafa]" />
+                <div className="absolute inset-[17px_17px_0] rounded-t-full bg-[#fafafa] dark:bg-[#2a2a2a]" />
               </div>
               <div className="absolute top-[112px] left-1/2 w-[70px] h-[2px] bg-[#1a1714]" style={{ transformOrigin: '0 50%', transform: `translateX(-50%) rotate(${-90 + riskAngle}deg)` }} />
               <div className="absolute top-[107px] left-1/2 w-[11px] h-[11px] rounded-full bg-[#1a1714] -translate-x-1/2" />
@@ -231,7 +231,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Equity */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Equity</h2>
             <span className="text-[#8a827a] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.04em]">Equity Curve</span>
@@ -242,7 +242,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Trade Analysis */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Trade Analysis</h2>
             <span className="text-[#8a827a] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.04em]">{trader.trades.length} trades</span>
@@ -273,7 +273,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Price Action & Trade Signals */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Price Action &amp; Trade Signals</h2>
             <div className="flex gap-[10px] text-[#6e675f] font-['Courier_New',monospace] text-[9px]">
@@ -288,13 +288,13 @@ export default function TraderProfile() {
         </div>
 
         {/* Open Positions */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Open Positions (0)</h2>
           </div>
           <div className="w-full overflow-x-auto border border-[#e4e5e8]">
             <table className="w-full min-w-[760px] border-collapse font-['Courier_New',monospace] text-[9px]">
-              <thead><tr className="bg-[#f2f3f5]">
+              <thead><tr className="bg-[#f2f3f5] dark:bg-[#2a2a2a]">
                 {['Symbol', 'Action', 'Lots', 'Entry', 'Current', 'Unrealized PNL'].map((h) => (
                   <th key={h} className="text-left p-[10px_12px] border-b border-[#e3dcd4] text-[#8a827a] uppercase tracking-[.04em]">{h}</th>
                 ))}
@@ -305,14 +305,14 @@ export default function TraderProfile() {
         </div>
 
         {/* Recent Trades */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4 mb-[18px]">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4 mb-[18px]">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Recent Trades (Closed)</h2>
             <span className="text-[#8a827a] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.04em]">Full History</span>
           </div>
           <div className="w-full overflow-x-auto border border-[#e4e5e8]">
             <table className="w-full min-w-[760px] border-collapse font-['Courier_New',monospace] text-[9px]">
-              <thead><tr className="bg-[#f2f3f5]">
+              <thead><tr className="bg-[#f2f3f5] dark:bg-[#2a2a2a]">
                 {['Date', 'Symbol', 'Action', 'Entry', 'Exit', 'PNL'].map((h) => (
                   <th key={h} className="text-left p-[10px_12px] border-b border-[#e3dcd4] text-[#8a827a] uppercase tracking-[.04em]">{h}</th>
                 ))}
@@ -336,7 +336,7 @@ export default function TraderProfile() {
         </div>
 
         {/* Model Transparency */}
-        <div className="border border-[#e4e5e8] bg-[#fafafa] rounded-[8px] p-4">
+        <div className="border border-[#e4e5e8] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[8px] p-4">
           <div className="flex items-center justify-between gap-[14px] mb-4">
             <h2 className="font-['Courier_New',monospace] text-[13px] m-0 tracking-[.02em]">Model Transparency</h2>
           </div>

@@ -180,7 +180,7 @@ export default function OpenClaw() {
                 <span className="text-[#1a1a1a]">Open</span>
                 <span className="text-[#f97316]">Claw</span>
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] leading-relaxed max-w-lg">
+              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed max-w-lg">
                 A conversational AI interface that brings Trader.AI to your favorite messaging platforms. Monitor bots, receive alerts, and execute commands — all through natural language chat.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -193,7 +193,7 @@ export default function OpenClaw() {
                 </Link>
                 <Link
                   to="/leaderboard"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] bg-white text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white hover:border-[#1a1a1a] transition-all shadow-xs"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-white dark:bg-[#222222] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white hover:border-[#1a1a1a] transition-all shadow-xs"
                 >
                   View Leaderboard
                   <ArrowUpRight cn="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ export default function OpenClaw() {
                 {PLATFORMS.map((p) => (
                   <div key={p.name} className="text-center">
                     <p className="font-mono font-bold text-xs text-[#1a1a1a]">{p.name}</p>
-                    <p className={`font-mono text-[9px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#6b6b6b]/60'}`}>
+                    <p className={`font-mono text-[9px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60'}`}>
                       {p.status}
                     </p>
                   </div>
@@ -224,15 +224,15 @@ export default function OpenClaw() {
                 </div>
               </div>
 
-              <div className="bg-white border border-[#e5e5e5] rounded-2xl p-6 lg:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] relative">
+              <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-2xl p-6 lg:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] relative">
                 {/* Chat header */}
-                <div className="flex items-center gap-2 pb-4 mb-4 border-b border-[#e5e5e5]">
+                <div className="flex items-center gap-2 pb-4 mb-4 border-b border-[#e5e5e5] dark:border-[#333333]">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#fb2c36]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#fcbb00]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#05df72]" />
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] ml-2">OpenClaw Chat</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] ml-2">OpenClaw Chat</span>
                 </div>
 
                 <div className="space-y-4">
@@ -241,7 +241,7 @@ export default function OpenClaw() {
                     <div className="w-8 h-8 rounded-lg bg-[#f97316]/15 flex items-center justify-center font-mono font-bold text-xs text-[#f97316] shrink-0">OC</div>
                     <div className="bg-[#F5F0EB] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
                       <p className="text-sm text-[#1a1a1a] leading-relaxed">Good morning! Here's your daily summary:</p>
-                      <p className="text-sm text-[#6b6b6b] mt-2 leading-relaxed">
+                      <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] mt-2 leading-relaxed">
                         • {topTraders[0].name}: +{Math.abs(topTraders[0].totalReturn * 0.1).toFixed(1)}% today ({marketMap[topTraders[0].market] || topTraders[0].market})<br />
                         • {topTraders[1].name}: +{Math.abs(topTraders[1].totalReturn * 0.15).toFixed(1)}% today ({marketMap[topTraders[1].market] || topTraders[1].market})<br />
                         • {topTraders[2].name}: {topTraders[2].totalReturn >= 0 ? '+' : ''}{(-Math.abs(topTraders[2].totalReturn * 0.05)).toFixed(1)}% today ({marketMap[topTraders[2].market] || topTraders[2].market})
@@ -260,7 +260,7 @@ export default function OpenClaw() {
                     <div className="w-8 h-8 rounded-lg bg-[#f97316]/15 flex items-center justify-center font-mono font-bold text-xs text-[#f97316] shrink-0">OC</div>
                     <div className="bg-[#F5F0EB] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
                       <p className="text-sm text-[#1a1a1a] leading-relaxed">Top 3 this week:</p>
-                      <p className="text-sm text-[#6b6b6b] mt-2 leading-relaxed">
+                      <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] mt-2 leading-relaxed">
                         1. {topTraders[0].name} — {percent(topTraders[0].totalReturn)} ({topTraders[0].market})<br />
                         2. {topTraders[1].name} — {percent(topTraders[1].totalReturn)} ({topTraders[1].market})<br />
                         3. {topTraders[2].name} — {percent(topTraders[2].totalReturn)} ({topTraders[2].market})
@@ -281,7 +281,7 @@ export default function OpenClaw() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-18">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a]">Key Features</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-2xl mx-auto">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
               Everything you love about Trader.AI, now accessible through natural conversation.
             </p>
           </div>
@@ -291,13 +291,13 @@ export default function OpenClaw() {
               return (
                 <div
                   key={f.title}
-                  className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                  className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
                 >
                   <div className="w-11 h-11 rounded-xl bg-[#f97316]/10 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
                     <Icon cn="w-5 h-5" />
                   </div>
                   <h3 className="font-mono font-bold text-base text-[#1a1a1a] mb-2">{f.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] leading-relaxed">{f.desc}</p>
+                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed">{f.desc}</p>
                 </div>
               );
             })}
@@ -308,11 +308,11 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/*  CHAT COMMANDS                                                 */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F5F0EB]/30 border-y border-[#e5e5e5]">
+      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F5F0EB]/30 border-y border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-18">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a]">Chat Commands</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-2xl mx-auto">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
               Control the platform with simple, intuitive commands.
             </p>
           </div>
@@ -322,13 +322,13 @@ export default function OpenClaw() {
               return (
                 <div
                   key={c.title}
-                  className="bg-white border border-[#e5e5e5] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                  className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
                 >
                   <div className="w-11 h-11 rounded-xl bg-[#f97316]/10 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
                     <Icon cn="w-5 h-5" />
                   </div>
                   <h3 className="font-mono font-bold text-base text-[#1a1a1a] mb-2">{c.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] leading-relaxed">{c.desc}</p>
+                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed">{c.desc}</p>
                 </div>
               );
             })}
@@ -336,15 +336,15 @@ export default function OpenClaw() {
 
           {/* Command examples table */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-white border border-[#e5e5e5] rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-              <div className="px-6 py-4 bg-[#F5F0EB]/50 border-b border-[#e5e5e5]">
-                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b]">Example Commands</p>
+            <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+              <div className="px-6 py-4 bg-[#F5F0EB]/50 border-b border-[#e5e5e5] dark:border-[#333333]">
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a]">Example Commands</p>
               </div>
               <div className="divide-y divide-[#e5e5e5]">
                 {COMMANDS.map((ex) => (
                   <div key={ex.cmd} className="flex items-center justify-between px-6 py-3.5 hover:bg-[#F5F0EB]/20 transition-colors">
                     <code className="font-mono text-xs font-bold text-[#f97316]">{ex.cmd}</code>
-                    <span className="font-mono text-xs text-[#6b6b6b]">{ex.desc}</span>
+                    <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a]">{ex.desc}</span>
                   </div>
                 ))}
               </div>
@@ -360,7 +360,7 @@ export default function OpenClaw() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-18">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a]">Getting Started</h2>
-            <p className="mt-3 text-[#6b6b6b] text-sm lg:text-base max-w-2xl mx-auto">
+            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
               Connect OpenClaw to your preferred chat platform in minutes.
             </p>
           </div>
@@ -373,13 +373,13 @@ export default function OpenClaw() {
               <div key={s.step} className="relative text-center">
                 {/* Step connector line */}
                 {i < 2 && (
-                  <div className="hidden sm:block absolute top-6 left-[60%] w-[80%] h-px border-t border-dashed border-[#e5e5e5]" />
+                  <div className="hidden sm:block absolute top-6 left-[60%] w-[80%] h-px border-t border-dashed border-[#e5e5e5] dark:border-[#333333]" />
                 )}
                 <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#f97316] text-white mb-5 shadow-[0_4px_12px_rgba(249,115,22,0.25)]">
                   <span className="font-mono font-bold text-base">{s.step}</span>
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#1a1a1a] mb-2">{s.title}</h3>
-                <p className="text-sm text-[#6b6b6b] leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>
