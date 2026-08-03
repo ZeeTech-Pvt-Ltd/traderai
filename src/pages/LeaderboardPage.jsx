@@ -89,13 +89,13 @@ export default function LeaderboardPage() {
       </section>
 
       {/* ═══ Filters ═══ */}
-      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30 sticky top-16 lg:top-20 z-10">
+      <section className="py-4 sm:py-5 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Market</label>
               <select value={marketF} onChange={(e) => setMarketF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {MARKET_GROUPS.map((m) => <option key={m} value={m}>{m}</option>)}
               </select>
@@ -103,7 +103,7 @@ export default function LeaderboardPage() {
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Strategy</label>
               <select value={strategyF} onChange={(e) => setStrategyF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {STRATEGY_GROUPS.map((s) => <option key={s} value={s}>{s}</option>)}
               </select>
@@ -111,7 +111,7 @@ export default function LeaderboardPage() {
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Risk</label>
               <select value={riskF} onChange={(e) => setRiskF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2"
+                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
                 {RISK_GROUPS.map((r) => <option key={r} value={r}>{r}</option>)}
               </select>
