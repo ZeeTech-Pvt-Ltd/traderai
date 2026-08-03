@@ -37,6 +37,45 @@ const MARKET_GROUPS = ['All Markets', ...new Set(TRADERS.map((t) => t.market))];
 const STRATEGY_GROUPS = ['All Strategies', ...new Set(TRADERS.map((t) => t.strategy))];
 const RISK_GROUPS = ['All Risk', 'Low', 'Medium', 'High'];
 
+/* ─── Custom dropdown (same as /traders page) ─── */
+function FilterDropdown({ value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="relative w-full">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        onBlur={() => setTimeout(() => setOpen(false), 150)}
+        className="w-full flex items-center justify-between border-0 outline-none bg-transparent text-[#403a35] dark:text-[#b1b1b1] cursor-pointer font-['Courier_New',monospace] text-xs text-left"
+      >
+        <span className="truncate">{value}</span>
+        <svg className="w-3 h-3 text-[#615a53] dark:text-[#b1b1b1] shrink-0 ml-2" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 4.5L6 8.5L10 4.5" /></svg>
+      </button>
+
+      {/* Dropdown menu — always renders downward */}
+      {open && (
+        <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[260px] overflow-y-auto border border-[#e4e5e8] dark:border-[#333] bg-white dark:bg-[#222222] rounded-md shadow-lg">
+          {options.map((o) => (
+            <button
+              key={o}
+              type="button"
+              onMouseDown={(e) => { e.preventDefault(); onChange(o); setOpen(false); }}
+              className={`block w-full text-left px-4 py-2.5 font-['Courier_New',monospace] text-xs cursor-pointer transition-colors ${
+                o === value
+                  ? 'bg-[#ff6b2b]/10 text-[#ff6b2b]'
+                  : 'text-[#403a35] dark:text-[#b1b1b1] hover:bg-[#f2f3f5] dark:hover:bg-white/10'
+              }`}
+            >
+              {o}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─── Page ─── */
 export default function LeaderboardPage() {
   const [marketF, setMarketF] = useState('All Markets');
@@ -94,27 +133,15 @@ export default function LeaderboardPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Market</label>
-              <select value={marketF} onChange={(e) => setMarketF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
-                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
-                {MARKET_GROUPS.map((m) => <option key={m} value={m}>{m}</option>)}
-              </select>
+              <FilterDropdown value={marketF} onChange={setMarketF} options={MARKET_GROUPS} />
             </div>
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Strategy</label>
-              <select value={strategyF} onChange={(e) => setStrategyF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
-                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
-                {STRATEGY_GROUPS.map((s) => <option key={s} value={s}>{s}</option>)}
-              </select>
+              <FilterDropdown value={strategyF} onChange={setStrategyF} options={STRATEGY_GROUPS} />
             </div>
             <div className="flex items-center gap-2 bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-lg px-5 py-3">
               <label className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] font-bold shrink-0">Risk</label>
-              <select value={riskF} onChange={(e) => setRiskF(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none font-mono text-xs text-[#1b1815] dark:text-[#fafafa] cursor-pointer appearance-none py-1.5 px-2 [&>option]:bg-white [&>option]:text-[#1b1815] [&>option]:hover:bg-[#ff6b2b] dark:[&>option]:bg-[#222222] dark:[&>option]:text-[#fafafa]"
-                style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b6b6b' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")", backgroundRepeat: 'no-repeat', backgroundPosition: 'right center', paddingRight: '28px' }}>
-                {RISK_GROUPS.map((r) => <option key={r} value={r}>{r}</option>)}
-              </select>
+              <FilterDropdown value={riskF} onChange={setRiskF} options={RISK_GROUPS} />
             </div>
           </div>
         </div>
