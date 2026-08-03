@@ -112,12 +112,12 @@ export default function TradersPage() {
         </div>
 
         {/* Tabs */}
-        <div className="inline-flex border border-[#e4e5e8] dark:border-[#676767] mb-[18px]" style={{ background: '#eee8e1' }}>
+        <div className="inline-flex flex-wrap border border-[#e4e5e8] dark:border-[#676767] mb-[18px]" style={{ background: '#eee8e1' }}>
           {TABS.map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`min-w-[90px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] dark:bg-[#2a2a2a] text-[#4e4842] dark:text-[#b1b1b1]'} border-r border-[#e4e5e8] dark:border-[#676767] last:border-r-0`}
+              className={`flex-1 min-w-[100px] sm:min-w-[110px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] dark:bg-[#2a2a2a] text-[#4e4842] dark:text-[#b1b1b1]'} border-r border-[#e4e5e8] dark:border-[#676767] last:border-r-0`}
             >
               {t}
             </button>

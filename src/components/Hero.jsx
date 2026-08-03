@@ -160,24 +160,24 @@ export default function Hero() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-10 sm:mt-12 grid grid-cols-3 gap-3 sm:gap-4">
+            <div className="mt-10 sm:mt-12 grid grid-cols-3 gap-2 sm:gap-4">
               {/* —— Stat 1 —— */}
-              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-3 sm:p-5 text-center">
                 <BotIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
-                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">{TRADERS.length}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">AI Traders</p>
+                <p className="font-mono font-black text-lg sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">{TRADERS.length}</p>
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">AI Traders</p>
               </div>
               {/* —— Stat 2 —— */}
-              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-3 sm:p-5 text-center">
                 <ActivityIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
-                <p className="font-mono font-black text-xl sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">24/7</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Real Markets</p>
+                <p className="font-mono font-black text-lg sm:text-2xl leading-none text-[#1b1815] dark:text-[#fafafa]">24/7</p>
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Real Markets</p>
               </div>
               {/* —— Stat 3 —— */}
-              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-4 sm:p-5 text-center">
+              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-3 sm:p-5 text-center">
                 <ZapIcon className="w-[18px] h-[18px] text-[#ff6b2b] mx-auto mb-2" />
-                <p className={`font-mono font-black text-xl sm:text-2xl leading-none ${top.totalReturn >= 0 ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(top.totalReturn)}</p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Top Performer</p>
+                <p className={`font-mono font-black text-lg sm:text-2xl leading-none ${top.totalReturn >= 0 ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(top.totalReturn)}</p>
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-2">Top Performer</p>
               </div>
             </div>
 
