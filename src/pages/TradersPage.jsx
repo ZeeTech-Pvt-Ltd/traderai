@@ -51,7 +51,7 @@ function FilterDropdown({ value, onChange, options }) {
 
       {/* Dropdown menu — always renders downward */}
       {open && (
-        <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[260px] overflow-y-auto border border-[#e4e5e8] dark:border-[#676767] bg-white dark:bg-[#222222] rounded-md shadow-lg">
+        <div className="absolute top-full left-0 right-0 z-30 mt-1 max-h-[260px] overflow-y-auto border border-[#e4e5e8] dark:border-[#333] bg-white dark:bg-[#222222] rounded-md shadow-lg">
           {options.map((o) => (
             <button
               key={o}
@@ -59,8 +59,8 @@ function FilterDropdown({ value, onChange, options }) {
               onMouseDown={(e) => { e.preventDefault(); onChange(o); setOpen(false); }}
               className={`block w-full text-left px-4 py-2.5 font-['Courier_New',monospace] text-xs cursor-pointer transition-colors ${
                 o === value
-                  ? 'bg-[#ff6b2b] text-white'
-                  : 'text-[#403a35] dark:text-[#b1b1b1] hover:bg-[#ff6b2b] hover:text-white'
+                  ? 'bg-[#ff6b2b]/10 text-[#ff6b2b]'
+                  : 'text-[#403a35] dark:text-[#b1b1b1] hover:bg-[#f2f3f5] dark:hover:bg-white/10'
               }`}
             >
               {o}
@@ -112,12 +112,12 @@ export default function TradersPage() {
         </div>
 
         {/* Tabs */}
-        <div className="inline-flex flex-wrap border border-[#e4e5e8] dark:border-[#676767] mb-[18px]" style={{ background: '#eee8e1' }}>
+        <div className="inline-flex flex-wrap border border-[#e4e5e8] dark:border-[#333] mb-[18px]" style={{ background: '#eee8e1' }}>
           {TABS.map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`flex-1 min-w-[100px] sm:min-w-[110px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] dark:bg-[#2a2a2a] text-[#4e4842] dark:text-[#b1b1b1]'} border-r border-[#e4e5e8] dark:border-[#676767] last:border-r-0`}
+              className={`flex-1 min-w-[100px] sm:min-w-[110px] border-0 px-4 py-[10px] cursor-pointer font-['Courier_New',monospace] text-xs transition-colors ${tab === t ? 'bg-[#ff6b2b] text-white' : 'bg-[#fafafa] dark:bg-[#2a2a2a] text-[#4e4842] dark:text-[#b1b1b1]'} border-r border-[#e4e5e8] dark:border-[#333] last:border-r-0`}
             >
               {t}
             </button>
@@ -125,8 +125,8 @@ export default function TradersPage() {
         </div>
 
         {/* Filters */}
-        <div className="grid grid-cols-[130px_repeat(3,1fr)] border border-[#e4e5e8] dark:border-[#676767] bg-[#fafafa] dark:bg-[#2a2a2a] mb-5 max-sm:grid-cols-1">
-          <div className="flex items-center px-[14px] text-[#615a53] dark:text-[#b1b1b1] font-['Courier_New',monospace] text-xs font-bold border-r border-[#e4e5e8] dark:border-[#676767] max-sm:border-r-0 max-sm:border-b max-sm:min-h-[48px]">
+        <div className="sticky top-16 lg:top-20 z-20 grid grid-cols-[130px_repeat(3,1fr)] border border-[#e4e5e8] dark:border-[#333] bg-[#fafafa] dark:bg-[#2a2a2a] mb-5 max-sm:grid-cols-1">
+          <div className="flex items-center px-[14px] text-[#615a53] dark:text-[#b1b1b1] font-['Courier_New',monospace] text-xs font-bold border-r border-[#e4e5e8] dark:border-[#333] max-sm:border-r-0 max-sm:border-b max-sm:min-h-[48px]">
             ▾ Filters:
           </div>
           {[
@@ -134,7 +134,7 @@ export default function TradersPage() {
             { val: strategy, set: setStrategy, opts: strategies },
             { val: model, set: setModel, opts: models },
           ].map((f, i) => (
-            <div key={i} className="min-h-[48px] flex items-center border-r border-[#e4e5e8] dark:border-[#676767] last:border-r-0 max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0">
+            <div key={i} className="min-h-[48px] flex items-center border-r border-[#e4e5e8] dark:border-[#333] last:border-r-0 max-sm:border-r-0 max-sm:border-b max-sm:last:border-b-0">
               <FilterDropdown value={f.val} onChange={f.set} options={f.opts} />
             </div>
           ))}
@@ -151,7 +151,7 @@ export default function TradersPage() {
               <article
                 key={trader.id}
                 onClick={() => navigate(`/traders/${trader.slug}`)}
-                className="border border-[#e4e5e8] dark:border-[#676767] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#ff6b2b4d] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
+                className="border border-[#e4e5e8] dark:border-[#333] bg-[#fafafa] dark:bg-[#2a2a2a] rounded-[10px] p-4 cursor-pointer transition-all duration-[180ms] hover:-translate-y-[3px] hover:border-[#ff6b2b4d] hover:shadow-[0_12px_28px_rgba(50,39,29,0.08)]"
               >
                 {/* Top row */}
                 <div className="flex justify-between items-start gap-[14px] mb-[22px]">
@@ -179,14 +179,14 @@ export default function TradersPage() {
                 </div>
 
                 {/* Stats grid */}
-                <div className="grid grid-cols-2 border border-[#e4e5e8] dark:border-[#676767] mb-[13px]">
+                <div className="grid grid-cols-2 border border-[#e4e5e8] dark:border-[#333] mb-[13px]">
                   {[
                     { label: 'Total Profit', val: trader.totalProfit, clr: trader.totalProfit >= 0 ? 'text-[#00bd68]' : 'text-[#ff3d4d]' },
                     { label: 'Floating PNL', val: trader.floatingPnl, clr: trader.floatingPnl >= 0 ? 'text-[#00bd68]' : 'text-[#ff3d4d]' },
                     { label: 'Max Drawdown', val: `${trader.maxDrawdown.toFixed(2)}%`, clr: 'text-[#ff3d4d]' },
                     { label: 'Win Rate', val: `${trader.winRate.toFixed(2)}%`, clr: trader.winRate >= 50 ? 'text-[#00bd68]' : 'text-[#ff3d4d]' },
                   ].map((s, i) => (
-                    <div key={i} className="p-3 border-r border-[#e4e5e8] dark:border-[#676767] border-b last:border-r-0" style={{ borderRight: i % 2 === 1 ? 'none' : undefined, borderBottom: i > 1 ? 'none' : undefined }}>
+                    <div key={i} className="p-3 border-r border-[#e4e5e8] dark:border-[#333] border-b last:border-r-0" style={{ borderRight: i % 2 === 1 ? 'none' : undefined, borderBottom: i > 1 ? 'none' : undefined }}>
                       <span className="block text-[#8a827a] dark:text-[#b1b1b1] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.03em]">{s.label}</span>
                       <strong className={`block mt-[7px] font-['Courier_New',monospace] text-[13px] whitespace-nowrap overflow-hidden text-ellipsis ${s.clr}`}>{s.val}</strong>
                     </div>
