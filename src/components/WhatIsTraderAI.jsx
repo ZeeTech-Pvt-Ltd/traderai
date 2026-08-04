@@ -47,7 +47,7 @@ export default function WhatIsTraderAI() {
 
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
-        <div className="text-center mb-14 lg:mb-18">
+        <div className="text-center mb-14 lg:mb-16">
           <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] text-[#ff6b2b] mb-4 bg-[#ff6b2b]/8 px-3 py-1 rounded-full border border-[#ff6b2b]/15">
             Overview
           </span>

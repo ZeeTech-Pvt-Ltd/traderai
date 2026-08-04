@@ -280,7 +280,7 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14 lg:mb-18">
+          <div className="text-center mb-14 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-[#fafafa]">Key Features</h2>
             <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
               Everything you love about Trader.AI, now accessible through natural conversation.
@@ -311,7 +311,7 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F5F0EB]/30 border-y border-[#e5e5e5] dark:bg-[#1e1c1c] dark:border-[#3f3f3f]">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14 lg:mb-18">
+          <div className="text-center mb-14 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-white">Chat Commands</h2>
             <p className="mt-3 text-[#6b6b6b] dark:text-[#b1b1b1] text-sm lg:text-base max-w-2xl mx-auto">
               Control the platform with simple, intuitive commands.
@@ -359,7 +359,7 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14 lg:mb-18">
+          <div className="text-center mb-14 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-[#fafafa]">Getting Started</h2>
             <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
               Connect OpenClaw to your preferred chat platform in minutes.

@@ -76,6 +76,7 @@ export default function Blog() {
             <input
               type="text"
               placeholder="Search articles..."
+              aria-label="Search articles"
               className="w-full h-12 pl-11 pr-4 rounded-xl border border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9] dark:bg-[#222222] font-mono text-sm text-[#1b1815] dark:text-[#fafafa] placeholder:text-[#6b6b6b]/50 dark:text-[#8a8a8a]/50 focus:outline-none focus:border-[#ff6b2b] focus:ring-2 focus:ring-[#ff6b2b]/20 transition-all"
             />
           </div>
@@ -127,7 +128,7 @@ export default function Blog() {
             <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
               {FEATURED.image && (
                 <div className="w-full h-48 lg:h-64 overflow-hidden bg-[#F5F0EB] border-b border-[#e5e5e5] dark:border-[#333333]">
-                  <img src={FEATURED.image} alt="" className="w-full h-full object-cover" />
+                  <img src={FEATURED.image} alt={FEATURED.title} className="w-full h-full object-cover" />
                 </div>
               )}
               <div className="p-6 lg:p-10">
@@ -185,7 +186,7 @@ export default function Blog() {
               >
                 {post.image && (
                   <div className="w-full h-36 overflow-hidden bg-[#F5F0EB] border-b border-[#e5e5e5] dark:border-[#333333]">
-                    <img src={post.image} alt="" className="w-full h-full object-cover" />
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
                   </div>
                 )}
                 <div className="p-5 lg:p-6">
@@ -236,6 +237,7 @@ export default function Blog() {
             <input
               type="email"
               placeholder="Enter your email"
+              aria-label="Email for newsletter subscription"
               className="flex-1 h-12 px-4 rounded-xl border border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9] dark:bg-[#222222] font-mono text-sm text-[#1b1815] dark:text-[#fafafa] placeholder:text-[#6b6b6b]/50 dark:text-[#8a8a8a]/50 focus:outline-none focus:border-[#ff6b2b] focus:ring-2 focus:ring-[#ff6b2b]/20 transition-all"
             />
             <button className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-6 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all shadow-xs shrink-0">

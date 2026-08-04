@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL = 'https://traderai-xdib.onrender.com';
+const SITE_URL = 'https://ai-trader.trade';
 const DEFAULT_IMAGE = `${SITE_URL}/icon.svg`;
 
 export default function SEO({ title, description, path = '' }) {

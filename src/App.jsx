@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
 import SEO from './components/SEO';
 import HomePage from './pages/HomePage';
@@ -51,6 +52,7 @@ export default function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ErrorBoundary>
         <div className="min-h-screen bg-background text-foreground flex flex-col">
           <Routes>
             <Route
@@ -271,7 +273,8 @@ export default function App() {
             }
           />
         </Routes>
-      </div>
+        </div>
+        </ErrorBoundary>
     </BrowserRouter>
     </HelmetProvider>
   );

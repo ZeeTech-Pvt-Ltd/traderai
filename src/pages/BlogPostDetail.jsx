@@ -105,7 +105,7 @@ export default function BlogPostDetail() {
 
           {post.image && (
             <div className="mt-8 w-full h-56 sm:h-72 lg:h-96 overflow-hidden bg-[#F5F0EB] border border-[#e5e5e5] dark:border-[#333333] rounded-xl">
-              <img src={post.image} alt="" className="w-full h-full object-cover" />
+              <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
             </div>
           )}
         </div>

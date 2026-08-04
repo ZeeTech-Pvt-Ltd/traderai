@@ -84,6 +84,8 @@ export default function Navbar({ isDark, onToggleTheme }) {
               className="lg:hidden p-2 text-foreground hover:text-muted-foreground transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -93,10 +95,12 @@ export default function Navbar({ isDark, onToggleTheme }) {
 
       {/* Mobile Menu */}
       <div
+        id="mobile-menu"
         className={cn(
           'lg:hidden overflow-hidden transition-all duration-300 ease-in-out',
-          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 invisible pointer-events-none'
         )}
+        aria-hidden={!mobileOpen}
       >
         <div className="border-t border-border bg-background px-4 py-4 space-y-3">
           {NAV_LINKS.map((link) => {
@@ -114,7 +118,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
               </Link>
             );
           })}
-          <Link to="/login" className="block w-full text-center font-mono text-xs uppercase tracking-widest gap-2 h-12 leading-[48px] px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all mt-4">Sign Up</Link>
+          <Link to="/signup" className="block w-full text-center font-mono text-xs uppercase tracking-widest gap-2 h-12 leading-[48px] px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all mt-4">Sign Up</Link>
         </div>
       </div>
     </nav>
