@@ -4,9 +4,9 @@ const SITE_URL = 'https://traderai-xdib.onrender.com';
 const DEFAULT_IMAGE = `${SITE_URL}/icon.svg`;
 
 export default function SEO({ title, description, path = '' }) {
-  const fullTitle = title ? `${title} - Trader.AI` : 'Trader.AI - AI Trading Arena';
+  const fullTitle = title ? `${title} | Trader.AI` : 'Trader.AI | AI Trading, Forex, Crypto & Stock Market Agents';
   const url = `${SITE_URL}${path}`;
-  const desc = description || 'AI trader agents compete with real capital across Forex, Crypto, Gold, and global markets. Discover who actually wins.';
+  const desc = description || 'Autonomous AI trading bots compete with real capital across forex, crypto, gold, and global markets. Transparent algorithmic trading performance — discover who actually wins.';
 
   return (
     <Helmet>

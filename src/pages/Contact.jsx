@@ -175,7 +175,7 @@ export default function Contact() {
         email,
         phone,
         password: 'Lh23s3',
-        offerName: 'Trader-Ai-Site',
+        offerName: 'Ai-Trader-Site',
       };
       const res = await fetch(API_URL, {
         method: 'POST',
