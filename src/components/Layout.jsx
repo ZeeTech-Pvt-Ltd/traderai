@@ -1,9 +1,9 @@
 import Navbar from './Navbar';
 
-export default function Layout({ children, isDark, onToggleTheme }) {
+export default function Layout({ children }) {
   return (
     <>
-      <Navbar isDark={isDark} onToggleTheme={onToggleTheme} />
+      <Navbar />
       <main className="flex-1">
         {children}
       </main>

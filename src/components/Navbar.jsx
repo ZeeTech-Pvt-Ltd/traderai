@@ -12,7 +12,9 @@ const NAV_LINKS = [
   { label: 'OpenClaw', href: '/openclaw' },
 ];
 
-export default function Navbar({ isDark, onToggleTheme }) {
+const GRAD = 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)';
+
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
@@ -22,7 +24,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
   }, [location.pathname]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 nav-blur border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: 'rgba(5,7,15,0.88)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.08)' }}>
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -31,14 +33,11 @@ export default function Navbar({ isDark, onToggleTheme }) {
               {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                 <div
                   key={i}
-                  className={cn(
-                    'w-[7px] h-[7px] rounded-sm transition-colors duration-200',
-                    [0, 2, 4, 6, 8].includes(i) ? 'bg-[#ff6b2b]' : 'bg-[#4a4a4a] dark:bg-[#8a8a8a]'
-                  )}
+                  className={cn('w-[7px] h-[7px] rounded-sm transition-colors duration-200', [0, 2, 4, 6, 8].includes(i) ? 'bg-[#7b5cff]' : 'bg-[#6b7086]')}
                 />
               ))}
             </div>
-            <span className="font-mono font-bold text-lg tracking-tight">Trader.<span className="text-primary">AI</span></span>
+            <span className="font-mono font-bold text-lg tracking-tight" style={{ color: '#f5f6fa' }}>Trader.<span className="text-[#7b5cff]">AI</span></span>
           </Link>
 
           {/* Desktop Nav */}
@@ -49,10 +48,10 @@ export default function Navbar({ isDark, onToggleTheme }) {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={cn(
-                    'font-mono text-xs uppercase tracking-widest transition-colors duration-200',
-                    isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
-                  )}
+                  className={cn('font-mono text-xs uppercase tracking-widest transition-colors duration-200', isActive ? '' : '')}
+                  style={{ color: isActive ? '#f5f6fa' : '#9aa0b4' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#f5f6fa')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? '#f5f6fa' : '#9aa0b4')}
                 >
                   {link.label}
                 </Link>
@@ -62,26 +61,19 @@ export default function Navbar({ isDark, onToggleTheme }) {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Theme Toggle */}
-            <button
-              onClick={onToggleTheme}
-              className="font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground transition-colors duration-200 px-3 py-2"
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDark ? 'Light' : 'Dark'}
-            </button>
-
             {/* Desktop CTA */}
             <Link
               to="/signup"
-              className="hidden lg:inline-flex items-center justify-center font-mono text-xs uppercase tracking-widest gap-2 h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-xs"
+              className="hidden lg:inline-flex items-center justify-center font-mono text-xs uppercase tracking-widest gap-2 h-12 px-8 rounded-md text-white transition-all shadow-lg"
+              style={{ background: GRAD }}
             >
               Sign Up
             </Link>
 
             {/* Mobile hamburger */}
             <button
-              className="lg:hidden p-2 text-foreground hover:text-muted-foreground transition-colors"
+              className="lg:hidden p-2 transition-colors"
+              style={{ color: '#f5f6fa' }}
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
@@ -102,23 +94,21 @@ export default function Navbar({ isDark, onToggleTheme }) {
         )}
         aria-hidden={!mobileOpen}
       >
-        <div className="border-t border-border bg-background px-4 py-4 space-y-3">
+        <div className="border-t px-4 py-4 space-y-3" style={{ borderColor: 'rgba(255,255,255,0.08)', background: '#0d1120' }}>
           {NAV_LINKS.map((link) => {
             const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
             return (
               <Link
                 key={link.href}
                 to={link.href}
-                className={cn(
-                  'block font-mono text-xs uppercase tracking-widest transition-colors duration-200 py-2',
-                  isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
-                )}
+                className="block font-mono text-xs uppercase tracking-widest transition-colors duration-200 py-2"
+                style={{ color: isActive ? '#f5f6fa' : '#9aa0b4' }}
               >
                 {link.label}
               </Link>
             );
           })}
-          <Link to="/signup" className="block w-full text-center font-mono text-xs uppercase tracking-widest gap-2 h-12 leading-[48px] px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all mt-4">Sign Up</Link>
+          <Link to="/signup" className="block w-full text-center font-mono text-xs uppercase tracking-widest gap-2 h-12 leading-[48px] px-8 rounded-md text-white transition-all mt-4" style={{ background: GRAD }}>Sign Up</Link>
         </div>
       </div>
     </nav>

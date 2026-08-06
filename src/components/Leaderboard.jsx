@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from './ui/Icons';
 import { TRADERS } from '../data/traders';
 import Sparkline from './Sparkline';
+import { T, secHeader, grad } from './homeTheme';
 
 function percent(v) {
   return `${v > 0 ? '+' : ''}${v.toFixed(2)}%`;
@@ -14,68 +15,62 @@ function riskLabel(v) {
 }
 
 function getColor(returnVal) {
-  return returnVal >= 0 ? '#05df72' : '#fb2c36';
+  return returnVal >= 0 ? T.green : T.red;
 }
 
-const AVATAR_COLORS = [
-  '#ff6b2b', '#3080ff', '#05df72', '#fcbb00', '#8d54ff',
-  '#fb2c36', '#54a2ff', '#00bb7f', '#edb200', '#ff6b2b',
-];
+const AVATAR_COLORS = [T.violet, T.blue, T.green, T.deepBlue, T.amber, T.red, '#54a2ff', '#00bb7f', T.violet2, T.violet];
 
 const RISK_COLORS = {
-  Low: 'bg-[#05df72]/10 text-[#05df72] border-[#05df72]/20',
-  Medium: 'bg-[#fcbb00]/10 text-[#fcbb00] border-[#fcbb00]/20',
-  High: 'bg-[#fb2c36]/10 text-[#fb2c36] border-[#fb2c36]/20',
+  Low: 'rgba(5,223,114,0.12)',
+  Medium: 'rgba(252,187,0,0.12)',
+  High: 'rgba(251,44,54,0.12)',
 };
+const RISK_TEXT = { Low: T.green, Medium: T.amber, High: T.red };
 
 const sortedTraders = [...TRADERS].sort((a, b) => b.totalReturn - a.totalReturn).slice(0, 10);
 
 function LeaderboardRow({ trader, rank }) {
   const color = AVATAR_COLORS[rank % AVATAR_COLORS.length];
+  const rl = riskLabel(trader.risk);
   return (
     <div
-      className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-2.5 hover:bg-accent/50 transition-colors border-b border-border last:border-0 group"
+      className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-2.5 transition-colors border-b last:border-0 group"
+      style={{ borderColor: T.border }}
     >
-      {/* Rank */}
-      <span className="font-mono text-xs font-bold text-muted-foreground/60">0{rank}</span>
+      <span className="font-mono text-xs font-bold" style={{ color: T.muted }}>0{rank}</span>
 
-      {/* Trader */}
       <Link to={`/traders/${trader.slug}`} className="flex items-center gap-2.5 min-w-0">
-        <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs shrink-0" style={{ backgroundColor: `${color}20`, color }}>
+        <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs shrink-0" style={{ backgroundColor: `${color}22`, color }}>
           {trader.name.charAt(0)}
         </div>
         <div className="min-w-0">
-          <p className="font-mono text-sm font-medium leading-tight truncate">{trader.name}</p>
-          <p className="font-mono text-[10px] text-muted-foreground leading-tight truncate">{trader.model}</p>
+          <p className="font-mono text-sm font-medium leading-tight truncate" style={{ color: T.text }}>{trader.name}</p>
+          <p className="font-mono text-[10px] leading-tight truncate" style={{ color: T.muted }}>{trader.model}</p>
         </div>
       </Link>
 
-      {/* Sparkline */}
       <div className="flex items-center justify-center">
         <Sparkline data={trader.series} width={60} height={24} color={getColor(trader.totalReturn)} area />
       </div>
 
-      {/* Market */}
-      <span className="font-mono text-xs text-muted-foreground truncate">{trader.market}</span>
+      <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.market}</span>
+      <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.strategy}</span>
 
-      {/* Strategy */}
-      <span className="font-mono text-xs text-muted-foreground truncate">{trader.strategy}</span>
-
-      {/* Risk */}
-      <span className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border text-center justify-self-center ${RISK_COLORS[riskLabel(trader.risk)]}`}>
-        {riskLabel(trader.risk)}
+      <span
+        className="inline-flex items-center justify-self-center font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border"
+        style={{ color: RISK_TEXT[rl], background: RISK_COLORS[rl], borderColor: RISK_TEXT[rl] + '33' }}
+      >
+        {rl}
       </span>
 
-      {/* Model */}
-      <span className="font-mono text-xs text-muted-foreground truncate">{trader.model}</span>
+      <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.model}</span>
 
-      {/* Return */}
-      <span className={`font-mono text-sm font-bold text-right ${trader.totalReturn >= 0 ? 'text-trader-green' : 'text-trader-red'}`}>{percent(trader.totalReturn)}</span>
+      <span className="font-mono text-sm font-bold text-right" style={{ color: getColor(trader.totalReturn) }}>{percent(trader.totalReturn)}</span>
 
-      {/* Follow */}
       <Link
         to="/signup"
-        className="inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all text-center"
+        className="inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 rounded-md text-white transition-all text-center"
+        style={{ background: grad }}
       >
         Follow
       </Link>
@@ -85,37 +80,39 @@ function LeaderboardRow({ trader, rank }) {
 
 function MobileBotCard({ trader, rank }) {
   const color = AVATAR_COLORS[rank % AVATAR_COLORS.length];
+  const rl = riskLabel(trader.risk);
   return (
-    <div className="bg-card border border-border rounded-lg p-4 hover:bg-accent/50 transition-colors group">
+    <div className="rounded-lg p-4 transition-colors group" style={{ background: T.card, border: `1px solid ${T.border}` }}>
       <Link to={`/traders/${trader.slug}`} className="block">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5 min-w-0">
-            <span className="font-mono text-xs font-bold text-muted-foreground/60 shrink-0">0{rank}</span>
-            <div className="w-8 h-8 rounded-md flex items-center justify-center font-mono font-bold text-sm shrink-0" style={{ backgroundColor: `${color}20`, color }}>
+            <span className="font-mono text-xs font-bold shrink-0" style={{ color: T.muted }}>0{rank}</span>
+            <div className="w-8 h-8 rounded-md flex items-center justify-center font-mono font-bold text-sm shrink-0" style={{ backgroundColor: `${color}22`, color }}>
               {trader.name.charAt(0)}
             </div>
             <div className="min-w-0">
-              <p className="font-mono text-sm font-medium leading-tight truncate">{trader.name}</p>
-              <p className="font-mono text-[10px] text-muted-foreground leading-tight truncate">{trader.model}</p>
+              <p className="font-mono text-sm font-medium leading-tight truncate" style={{ color: T.text }}>{trader.name}</p>
+              <p className="font-mono text-[10px] leading-tight truncate" style={{ color: T.muted }}>{trader.model}</p>
             </div>
           </div>
-          <span className={`font-mono text-sm font-bold shrink-0 ${trader.totalReturn >= 0 ? 'text-trader-green' : 'text-trader-red'}`}>{percent(trader.totalReturn)}</span>
+          <span className="font-mono text-sm font-bold shrink-0" style={{ color: getColor(trader.totalReturn) }}>{percent(trader.totalReturn)}</span>
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest" style={{ color: T.muted }}>
             <span>{trader.market}</span>
-            <span className="w-1 h-1 rounded-full bg-border" />
+            <span className="w-1 h-1 rounded-full" style={{ background: T.border }} />
             <span>{trader.strategy}</span>
-            <span className="w-1 h-1 rounded-full bg-border" />
-            <span className={`px-1.5 py-0.5 rounded border ${RISK_COLORS[riskLabel(trader.risk)]}`}>{riskLabel(trader.risk)}</span>
+            <span className="w-1 h-1 rounded-full" style={{ background: T.border }} />
+            <span className="px-1.5 py-0.5 rounded border" style={{ color: RISK_TEXT[rl], background: RISK_COLORS[rl], borderColor: RISK_TEXT[rl] + '33' }}>{rl}</span>
           </div>
           <Sparkline data={trader.series} width={48} height={16} color={getColor(trader.totalReturn)} />
         </div>
       </Link>
-      <div className="mt-3 pt-3 border-t border-border">
+      <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${T.border}` }}>
         <Link
           to="/signup"
-          className="w-full inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] py-2 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all"
+          className="w-full inline-flex items-center justify-center font-mono text-[10px] uppercase tracking-[0.1em] py-2 rounded-md text-white transition-all"
+          style={{ background: grad }}
         >
           Follow
         </Link>
@@ -126,29 +123,26 @@ function MobileBotCard({ trader, rank }) {
 
 export default function Leaderboard() {
   return (
-    <section className="py-16 lg:py-24 px-4 lg:px-8" id="leaderboard">
+    <section className="py-16 lg:py-24 px-4 lg:px-8" id="leaderboard" style={{ background: T.bg }}>
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-10 lg:mb-14">
-          <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">AI Bot Leaderboard</h2>
-          <p className="mt-3 text-muted-foreground text-sm lg:text-base max-w-xl mx-auto tracking-normal">
-            Compare AI trader agents by performance, model transparency, and risk across global markets.
-          </p>
-        </div>
+        {secHeader(
+          'Live Rankings',
+          'AI Bot Leaderboard',
+          'Compare AI trader agents by performance, model transparency, and risk across global markets.'
+        )}
 
         {/* Live Rankings Badge */}
         <div className="flex items-center justify-center gap-2 mb-6">
           <span className="relative flex h-2 w-2">
-            <span className="live-ping absolute inline-flex h-full w-full rounded-full bg-trader-green opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-trader-green" />
+            <span className="live-ping absolute inline-flex h-full w-full rounded-full bg-[#05df72] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#05df72]" />
           </span>
-          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">Live Rankings</span>
+          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: T.sub }}>Live Rankings</span>
         </div>
 
         {/* Desktop Table */}
-        <div className="hidden lg:block bg-card border border-border rounded-xl overflow-hidden shadow-xs">
-          {/* Table Header */}
-          <div className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-3 bg-muted/50 border-b border-border font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+        <div className="hidden lg:block rounded-xl overflow-hidden" style={{ background: T.card, border: `1px solid ${T.border}` }}>
+          <div className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-3 font-mono text-[10px] uppercase tracking-widest border-b" style={{ borderColor: T.border, background: T.card2, color: T.muted }}>
             <span>Rank</span>
             <span>Trader</span>
             <span className="text-center">Trend</span>
@@ -177,7 +171,8 @@ export default function Leaderboard() {
         <div className="mt-8 text-center">
           <Link
             to="/leaderboard"
-            className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all shadow-xs focus-ring group"
+            className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-white transition-all group"
+            style={{ background: grad }}
           >
             View Full Leaderboard
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

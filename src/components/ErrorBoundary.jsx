@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 export default class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, error: null };
   }
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
   }
 
   componentDidCatch(error, info) {
@@ -17,7 +17,7 @@ export default class ErrorBoundary extends Component {
   }
 
   handleReset = () => {
-    this.setState({ hasError: false });
+    this.setState({ hasError: false, error: null });
   };
 
   render() {
@@ -32,6 +32,11 @@ export default class ErrorBoundary extends Component {
             <p className="text-[#6b6b6b] dark:text-[#8a8a8a] mt-4 leading-relaxed text-sm">
               An unexpected error occurred. Please refresh the page or return to the home page.
             </p>
+            {this.state.error && (
+              <p className="mt-3 font-mono text-[10px] text-[#fb2c36] break-all px-4">
+                {String(this.state.error.message || this.state.error)}
+              </p>
+            )}
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <button
                 onClick={this.handleReset}

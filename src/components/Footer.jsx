@@ -27,7 +27,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-card/50">
+    <footer style={{ background: '#05070f', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
         {/* Top Section */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -38,13 +38,13 @@ export default function Footer() {
                 {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                   <div
                     key={i}
-                    className={`w-[7px] h-[7px] rounded-sm transition-colors duration-200 ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#ff6b2b]' : 'bg-[#4a4a4a] dark:bg-[#8a8a8a]'}`}
+                    className={`w-[7px] h-[7px] rounded-sm transition-colors duration-200 ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#7b5cff]' : 'bg-[#6b7086]'}`}
                   />
                 ))}
               </div>
-              <span className="font-mono font-bold text-lg tracking-tight">Trader.<span className="text-primary">AI</span></span>
+              <span className="font-mono font-bold text-lg tracking-tight" style={{ color: '#f5f6fa' }}>Trader.<span className="text-[#7b5cff]">AI</span></span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs tracking-normal">
+            <p className="text-sm leading-relaxed max-w-xs tracking-normal" style={{ color: '#9aa0b4' }}>
               AI-powered trading intelligence platform. Analyze, simulate, and make informed decisions.
             </p>
           </div>
@@ -52,13 +52,16 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(FOOTER_LINKS).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-mono text-xs font-bold uppercase tracking-widest mb-4">{category}</h4>
+              <h4 className="font-mono text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#f5f6fa' }}>{category}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link
                       to={link.href}
-                      className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors duration-200"
+                      className="font-mono text-xs transition-colors duration-200"
+                      style={{ color: '#9aa0b4' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#f5f6fa')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#9aa0b4')}
                     >
                       {link.label}
                     </Link>
@@ -70,15 +73,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-mono text-[11px] text-muted-foreground mx-auto">
+        <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          <p className="font-mono text-[11px] mx-auto" style={{ color: '#6b7086' }}>
             &copy; {currentYear} Trader.ai. All rights reserved.
           </p>
         </div>
 
         {/* Risk Disclaimer */}
-        <div className="mt-6 pt-4 border-t border-border/50">
-          <p className="text-[10px] text-muted-foreground/60 leading-relaxed tracking-normal">
+        <div className="mt-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          <p className="text-[10px] leading-relaxed tracking-normal" style={{ color: '#6b7086' }}>
             Trading involves risk. Past performance is not indicative of future results. The AI agents and trading strategies shown on this platform are for informational and educational purposes only. They do not constitute financial advice. You should consult with a qualified financial advisor before making any trading decisions.
           </p>
         </div>
