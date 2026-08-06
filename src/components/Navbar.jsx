@@ -28,16 +28,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group shrink-0">
-            <div className="grid grid-cols-3 gap-[3px]">
-              {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <div
-                  key={i}
-                  className={cn('w-[7px] h-[7px] rounded-sm transition-colors duration-200', [0, 2, 4, 6, 8].includes(i) ? 'bg-[#7b5cff]' : 'bg-[#6b7086]')}
-                />
-              ))}
-            </div>
-            <span className="font-mono font-bold text-lg tracking-tight" style={{ color: '#f5f6fa' }}>Trader.<span className="text-[#7b5cff]">AI</span></span>
+          <Link to="/" className="flex items-center group shrink-0">
+            <img src="/logo.webp" alt="Trader.AI" className="h-8 lg:h-10 w-auto max-w-[140px] sm:max-w-none" loading="eager" />
           </Link>
 
           {/* Desktop Nav */}

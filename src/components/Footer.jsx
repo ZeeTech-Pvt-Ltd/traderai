@@ -33,16 +33,8 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex items-center gap-2.5 group mb-4">
-              <div className="grid grid-cols-3 gap-[3px] shrink-0">
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <div
-                    key={i}
-                    className={`w-[7px] h-[7px] rounded-sm transition-colors duration-200 ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#7b5cff]' : 'bg-[#6b7086]'}`}
-                  />
-                ))}
-              </div>
-              <span className="font-mono font-bold text-lg tracking-tight" style={{ color: '#f5f6fa' }}>Trader.<span className="text-[#7b5cff]">AI</span></span>
+            <Link to="/" className="inline-flex items-center group mb-4">
+              <img src="/logo.webp" alt="Trader.AI" className="h-8 w-auto max-w-[150px]" loading="lazy" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs tracking-normal" style={{ color: '#9aa0b4' }}>
               AI-powered trading intelligence platform. Analyze, simulate, and make informed decisions.
