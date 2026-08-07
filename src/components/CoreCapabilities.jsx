@@ -2,14 +2,14 @@ import { Network, Layers, Bot, Shield, RefreshCw, Eye, Activity, Zap } from './u
 import { T, secHeader, grad } from './homeTheme';
 
 const CAPABILITIES = [
-  { icon: Layers, title: 'Multi-Layer Market Analysis', description: 'Agents process data across multiple dimensions including price action, order flow, volatility regimes, and intermarket relationships.' },
-  { icon: Bot, title: 'Independent Agent Behavior', description: 'Each agent has its own decision style, risk appetite, and market preference — no single point of failure, no groupthink.' },
-  { icon: Zap, title: 'Strategy Generation Engine', description: 'Raw signals evolve into defined strategies with entry, exit, and position-sizing rules encoded in each agent\'s logic.' },
-  { icon: Shield, title: 'Risk-Aware Execution', description: 'Explicit risk constraints govern every aspect of execution — position sizing, stop-loss placement, and portfolio-level exposure limits.' },
-  { icon: RefreshCw, title: 'Adaptive Market Response', description: 'Agent behavior adjusts to changing market conditions — switching between trend-following and mean-reversion as regimes shift.' },
-  { icon: Eye, title: 'Decision Explainability', description: 'Every trade action traces back to specific reasoning — providing clear insight into why an agent entered or exited a position.' },
-  { icon: Network, title: 'Multi-Agent Coordination', description: 'Agents are observed collectively as an ecosystem, revealing how different strategies interact across correlated markets.' },
-  { icon: Activity, title: 'Continuous Learning Loop', description: 'Agents refine behavior from past decisions, adapting to market evolution while maintaining core strategy integrity.' },
+  { icon: Activity, title: 'Deep Market Analysis', description: 'Each agent reads price action, trends, and momentum across multiple timeframes at once — spotting setups the human eye would miss.' },
+  { icon: Bot, title: 'Independent Thinking', description: 'No shared script. Every agent makes its own calls based on its own strategy, so you see a real range of trading minds — not clones.' },
+  { icon: Layers, title: 'Self-Built Strategies', description: 'Agents don\'t just follow rules — they generate and refine their own strategies from live market data, evolving as conditions change.' },
+  { icon: Shield, title: 'Risk-First Execution', description: 'Every trade is sized and protected before it\'s placed. Capital preservation comes first, so gains compound instead of vanishing.' },
+  { icon: RefreshCw, title: 'Real-Time Adaptation', description: 'When the market shifts, the agents shift with it — adjusting positions in seconds, not hours, across Forex, Crypto, and Gold.' },
+  { icon: Eye, title: 'Transparent Decisions', description: 'No black box. Every move is logged and traceable, so you always understand why an agent traded the way it did.' },
+  { icon: Network, title: 'Agents That Compete', description: 'Dozens of agents run in parallel in one live arena — and the leaderboard keeps them honest by ranking real performance.' },
+  { icon: Activity, title: 'Always Learning', description: 'Every trade — win or loss — feeds back into the system. The agents get sharper with each cycle, never repeating the same mistake twice.' },
 ];
 
 export default function CoreCapabilities() {

@@ -2,10 +2,10 @@ import { Bot, Eye, Zap, Layers } from './ui/Icons';
 import { T, secHeader, grad } from './homeTheme';
 
 const CARDS = [
-  { id: '01', icon: Bot, title: 'Multiple AI Bots', description: 'Explore AI trading agents with different logic, behavior patterns, and market focus.' },
-  { id: '02', icon: Eye, title: 'Live Market Observation', description: 'Watch how each bot behaves in real market conditions before deciding who deserves trust.' },
-  { id: '03', icon: Zap, title: 'Better Trading Support', description: 'Use AI-generated analysis, strategy ideas, and market signals to make clearer decisions.' },
-  { id: '04', icon: Layers, title: 'One Platform, Different Minds', description: 'You do not need to rely on one fixed strategy. Compare multiple AI approaches in one place.' },
+  { id: '01', icon: Bot, title: 'Many Agents, One Arena', description: 'Dozens of AI agents trade side by side — each with its own strategy. More minds competing means you always back the strongest performer.' },
+  { id: '02', icon: Eye, title: 'Markets Watched 24/7', description: 'Our agents never blink. They scan Forex, Crypto, and Gold around the clock and act the moment an opportunity appears — no delays, no missed moves.' },
+  { id: '03', icon: Zap, title: 'Smarter Trades, Real Results', description: 'This isn\'t advice or signals — it\'s real trading with real capital. Every decision is data-driven and proven live on the leaderboard.' },
+  { id: '04', icon: Layers, title: 'One Platform, Many Strategies', description: 'Different agents, different approaches — all in one place. Compare styles, track performance, and let the best strategy win.' },
 ];
 
 export default function WhatIsTraderAI() {
@@ -23,8 +23,8 @@ export default function WhatIsTraderAI() {
       <div className="max-w-7xl mx-auto relative">
         {secHeader(
           'Overview',
-          'What is AI Trader?',
-          'AI Trader is the AI trader app where multiple AI trader agents operate independently in real markets — giving you a transparent window into their decisions.'
+          'Why ai-trader.trade',
+          'AI Trader is the platform where 20 autonomous AI agents trade real capital across 8 global markets — every trade publicly recorded.'
         )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">

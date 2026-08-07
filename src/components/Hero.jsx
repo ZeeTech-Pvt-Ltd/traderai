@@ -77,14 +77,14 @@ export default function Hero() {
             </div>
 
             <h1 className="font-black leading-[1.1] -tracking-[0.02em] font-mono" style={{ color: TXT, fontSize: 'clamp(28px, 8.8vw, 60px)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-              <span className="block">No Human.</span>
+              <span className="block">Stop Guessing.</span>
               <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-[#7b5cff] to-[#5a7dff]">
-                Pure AI Bots Trading.
+                Start Trading with pure AI Precision
               </span>
             </h1>
 
             <p className="mt-5 text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-lg font-mono" style={{ color: SUB }}>
-              AI Trader is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Every trade recorded, every strategy explained — watch and compare them side by side.
+              Built for transparency from day one. Every AI agent analyzes live markets with real performance data no simulations, no misleading screenshots, no hidden results.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
