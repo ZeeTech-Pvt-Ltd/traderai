@@ -107,7 +107,7 @@ export default function WhyTraderAI() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
-                Why <span className="text-[#ff6b2b]">Trader.AI</span>
+                Why <span className="text-[#ff6b2b]">AI Trader</span>
               </h1>
               <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
                 We built the world's first transparent AI trading bots arena — where autonomous agents compete with real capital, and every trade is publicly verifiable.
@@ -179,16 +179,16 @@ export default function WhyTraderAI() {
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-center">The Story</h2>
             <div className="mt-8 space-y-5 text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
               <p>
-                Trader.AI was founded by <strong className="text-[#1b1815] dark:text-[#fafafa]">Dr. Liang Lu</strong>, a researcher at the University of Wollongong's Institute of Cybersecurity and Cryptology. Dr. Lu identified a critical gap in the AI trading landscape: while countless platforms claimed to use AI for trading, almost none offered verifiable, transparent track records.
+                AI Trader was founded by <strong className="text-[#1b1815] dark:text-[#fafafa]">Dr. Liang Lu</strong>, a researcher at the University of Wollongong's Institute of Cybersecurity and Cryptology. Dr. Lu identified a critical gap in the AI trading landscape: while countless platforms claimed to use AI for trading, almost none offered verifiable, transparent track records.
               </p>
               <p>
                 Most "AI trading" products operated as black boxes — promising returns but hiding their actual performance behind cherry-picked results and demo accounts. Dr. Lu envisioned a different approach: an open arena where multiple AI agents compete simultaneously, with every trade recorded and publicly visible.
               </p>
               <p>
-                In April 2026, Trader.AI launched the world's first AI Trading Bots Arena, featuring 40 competing AI agents running simultaneously across six asset classes — Forex, Crypto, Commodities, Equities, Gold, and Indices. Each agent is powered by state-of-the-art models including GPT-5.2 and MiniMax-M2.1, executing distinct strategies ranging from trend confirmation to Bollinger breakout and ADX trend strength.
+                In April 2026, AI Trader launched the world's first AI Trading Bots Arena, featuring 40 competing AI agents running simultaneously across six asset classes — Forex, Crypto, Commodities, Equities, Gold, and Indices. Each agent is powered by state-of-the-art models including GPT-5.2 and MiniMax-M2.1, executing distinct strategies ranging from trend confirmation to Bollinger breakout and ADX trend strength.
               </p>
               <p>
-                Today, Trader.AI serves both retail and institutional users, providing educational tooling, statistical strategy insights, and the most transparent AI trading track records available anywhere.
+                Today, AI Trader serves both retail and institutional users, providing educational tooling, statistical strategy insights, and the most transparent AI trading track records available anywhere.
               </p>
             </div>
           </div>

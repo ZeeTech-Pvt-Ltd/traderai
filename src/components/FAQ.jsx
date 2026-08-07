@@ -55,7 +55,7 @@ export default function FAQ() {
       <div className="max-w-3xl mx-auto">
         {secHeader(
           'Support',
-          'Trader.AI FAQ',
+          'AI Trader FAQ',
           'Quick answers to the most common questions.'
         )}
 

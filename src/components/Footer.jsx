@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const FOOTER_LINKS = {
-  'Why Trader.AI': [
+  'Why AI Trader': [
     { label: 'About Us', href: '/why-trader-ai' },
     { label: 'Partners', href: '/partners' },
     { label: 'Contact', href: '/contact' },
@@ -34,7 +34,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center group mb-4">
-              <img src="/logo.webp" alt="Trader.AI" className="h-8 w-auto max-w-[150px]" loading="lazy" />
+              <img src="/logo.webp" alt="AI Trader" className="h-8 w-auto max-w-[150px]" loading="lazy" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs tracking-normal" style={{ color: '#9aa0b4' }}>
               AI-powered trading intelligence platform. Analyze, simulate, and make informed decisions.
@@ -67,7 +67,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p className="font-mono text-[11px] mx-auto" style={{ color: '#6b7086' }}>
-            &copy; {currentYear} Trader.ai. All rights reserved.
+            &copy; {currentYear} AI Trader. All rights reserved.
           </p>
         </div>
 

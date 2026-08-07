@@ -100,10 +100,10 @@ export default function FAQPage() {
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight">
-            Trader.AI <span className="text-[#ff6b2b]">FAQ</span>
+            AI Trader <span className="text-[#ff6b2b]">FAQ</span>
           </h1>
           <p className="mt-4 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-xl mx-auto">
-            Quick answers to the most common questions about Trader.AI. Can't find what you're looking for? Get in touch.
+            Quick answers to the most common questions about AI Trader. Can't find what you're looking for? Get in touch.
           </p>
 
           {/* Search */}

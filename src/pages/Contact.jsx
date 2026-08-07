@@ -73,7 +73,7 @@ const CONTACT_OPTIONS = [
   {
     icon: HandshakeIcon,
     title: 'Partnerships',
-    desc: 'Interested in partnering with Trader.AI? Reach out to our partnerships team.',
+    desc: 'Interested in partnering with AI Trader? Reach out to our partnerships team.',
     email: 'partners@trader.ai',
   },
   {
@@ -85,7 +85,7 @@ const CONTACT_OPTIONS = [
 ];
 
 const FAQ_LINKS = [
-  { q: 'What is Trader.AI?', href: '/faq' },
+  { q: 'What is AI Trader?', href: '/faq' },
   { q: 'Is the AI trading with real money?', href: '/faq' },
   { q: 'How do I follow a bot?', href: '/faq' },
   { q: 'When can I copy trades?', href: '/faq' },

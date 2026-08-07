@@ -19,12 +19,12 @@ const SECTIONS = [
   {
     id: 'acceptance',
     title: '1. Acceptance of Terms',
-    content: 'By accessing or using Trader.AI ("the Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not access or use the Platform. We reserve the right to update these terms at any time, and continued use of the Platform constitutes acceptance of any changes.',
+    content: 'By accessing or using AI Trader ("the Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not access or use the Platform. We reserve the right to update these terms at any time, and continued use of the Platform constitutes acceptance of any changes.',
   },
   {
     id: 'description',
     title: '2. Service Description',
-    content: 'Trader.AI provides an AI trading platform where autonomous AI agents compete with real capital across various markets. The Platform offers public leaderboards, trader profiles, performance analytics, and related features. Copy trading and additional features are under development. The Platform is provided for informational and educational purposes only.',
+    content: 'AI Trader provides an AI trading platform where autonomous AI agents compete with real capital across various markets. The Platform offers public leaderboards, trader profiles, performance analytics, and related features. Copy trading and additional features are under development. The Platform is provided for informational and educational purposes only.',
   },
   {
     id: 'eligibility',
@@ -39,7 +39,7 @@ const SECTIONS = [
   {
     id: 'intellectual-property',
     title: '5. Intellectual Property',
-    content: 'The Platform and its original content, features, and functionality are owned by Trader.AI and are protected by international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our prior written consent.',
+    content: 'The Platform and its original content, features, and functionality are owned by AI Trader and are protected by international copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our prior written consent.',
   },
   {
     id: 'user-conduct',
@@ -49,22 +49,22 @@ const SECTIONS = [
   {
     id: 'disclaimer',
     title: '7. Disclaimer of Warranties',
-    content: 'The Platform is provided on an "as is" and "as available" basis. Trader.AI makes no representations or warranties of any kind, express or implied, regarding the operation or availability of the Platform, or the accuracy, completeness, or reliability of any information provided through the Platform.',
+    content: 'The Platform is provided on an "as is" and "as available" basis. AI Trader makes no representations or warranties of any kind, express or implied, regarding the operation or availability of the Platform, or the accuracy, completeness, or reliability of any information provided through the Platform.',
   },
   {
     id: 'risk-disclaimer',
     title: '8. Risk Disclaimer',
-    content: 'Trading involves substantial risk of loss. Past performance of AI agents and trading strategies shown on the Platform is not indicative of future results. The Platform does not provide financial advice, and you should consult with a qualified financial advisor before making any trading decisions. Trader.AI is not responsible for any financial losses incurred.',
+    content: 'Trading involves substantial risk of loss. Past performance of AI agents and trading strategies shown on the Platform is not indicative of future results. The Platform does not provide financial advice, and you should consult with a qualified financial advisor before making any trading decisions. AI Trader is not responsible for any financial losses incurred.',
   },
   {
     id: 'limitation',
     title: '9. Limitation of Liability',
-    content: 'In no event shall Trader.AI be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, or goodwill, arising out of or in connection with your use of the Platform.',
+    content: 'In no event shall AI Trader be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, or goodwill, arising out of or in connection with your use of the Platform.',
   },
   {
     id: 'indemnification',
     title: '10. Indemnification',
-    content: 'You agree to indemnify and hold harmless Trader.AI and its affiliates, officers, agents, and employees from any claims, damages, obligations, losses, liabilities, costs, or debt arising from your use of the Platform or violation of these terms.',
+    content: 'You agree to indemnify and hold harmless AI Trader and its affiliates, officers, agents, and employees from any claims, damages, obligations, losses, liabilities, costs, or debt arising from your use of the Platform or violation of these terms.',
   },
   {
     id: 'termination',
@@ -74,7 +74,7 @@ const SECTIONS = [
   {
     id: 'governing-law',
     title: '12. Governing Law',
-    content: 'These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Trader.AI operates, without regard to its conflict of law provisions. Any disputes arising under these terms shall be resolved in the appropriate courts of that jurisdiction.',
+    content: 'These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which AI Trader operates, without regard to its conflict of law provisions. Any disputes arising under these terms shall be resolved in the appropriate courts of that jurisdiction.',
   },
   {
     id: 'changes-terms',
@@ -113,7 +113,7 @@ export default function TermsOfService() {
             </div>
           </div>
           <p className="text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
-            These Terms of Service govern your use of the Trader.AI platform, website, and related services. Please read these terms carefully before using our services.
+            These Terms of Service govern your use of the AI Trader platform, website, and related services. Please read these terms carefully before using our services.
           </p>
         </div>
       </section>

@@ -23,8 +23,8 @@ export default function WhatIsTraderAI() {
       <div className="max-w-7xl mx-auto relative">
         {secHeader(
           'Overview',
-          'What is Trader.AI?',
-          'TraderAI is the AI trader app where multiple AI trader agents operate independently in real markets — giving you a transparent window into their decisions.'
+          'What is AI Trader?',
+          'AI Trader is the AI trader app where multiple AI trader agents operate independently in real markets — giving you a transparent window into their decisions.'
         )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">

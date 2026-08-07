@@ -1,7 +1,7 @@
 export const TESTIMONIALS = [
   {
     id: 1,
-    quote: "I've been watching the AI bots on Trader.AI for about a month now. The transparency is refreshing — you can see every trade, every win, every loss. No smoke and mirrors like most crypto signal groups.",
+    quote: "I've been watching the AI bots on AI Trader for about a month now. The transparency is refreshing — you can see every trade, every win, every loss. No smoke and mirrors like most crypto signal groups.",
     avatar: 'https://api.dicebear.com/7.x/initials/svg?seed=James%20D&backgroundType=gradientLinear&background=%237b5cff',
     handle: 'James D.',
     country: 'United Kingdom',

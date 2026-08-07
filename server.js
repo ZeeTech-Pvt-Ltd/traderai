@@ -50,5 +50,5 @@ app.use((req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Trader.AI server running on port ${PORT} — serving ${distDir}`);
+  console.log(`AI Trader server running on port ${PORT} — serving ${distDir}`);
 });

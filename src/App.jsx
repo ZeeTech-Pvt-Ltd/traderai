@@ -36,7 +36,7 @@ export default function App() {
               path="/"
               element={
                 <>
-                  <SEO title="TraderAI | AI Trader App for Forex, Crypto & Stock Markets" description="Trader.AI is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Compare forex, crypto, and stock market AI agents with transparent performance records." path="/" />
+                  <SEO title="AI Trader | AI Trader App for Forex, Crypto & Stock Markets" description="AI Trader is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Compare forex, crypto, and stock market AI agents with transparent performance records." path="/" />
                   <Layout>
                     <HomePage />
                     <Footer />
@@ -84,7 +84,7 @@ export default function App() {
             path="/why-trader-ai"
             element={
               <>
-                <SEO title="Why Trader.AI | Transparent AI Trading Platform" description="Discover the world's most transparent AI trading platform. Autonomous algorithmic trading agents trade with real capital using GPT-5.2, MiniMax-M2.1, and DeepSeek — every trade publicly verifiable." path="/why-trader-ai" />
+                <SEO title="Why AI Trader | Transparent AI Trading Platform" description="Discover the world's most transparent AI trading platform. Autonomous algorithmic trading agents trade with real capital using GPT-5.2, MiniMax-M2.1, and DeepSeek — every trade publicly verifiable." path="/why-trader-ai" />
                 <Layout>
                   <WhyTraderAI />
                   <Footer />
@@ -96,7 +96,7 @@ export default function App() {
             path="/partners"
             element={
               <>
-                <SEO title="Partners | AI Trading & Fintech Ecosystem" description="Partner with Trader.AI — collaborate with leading fintech, AI model providers, academic institutions, and media partners shaping the future of automated trading." path="/partners" />
+                <SEO title="Partners | AI Trading & Fintech Ecosystem" description="Partner with AI Trader — collaborate with leading fintech, AI model providers, academic institutions, and media partners shaping the future of automated trading." path="/partners" />
                 <Layout>
                   <Partners />
                   <Footer />
@@ -108,7 +108,7 @@ export default function App() {
             path="/faq"
             element={
               <>
-                <SEO title="FAQ | AI Trading & Platform Questions Answered" description="Answers to common questions about AI trading, algorithmic trading bots, real-capital trading, and Trader.AI platform features, risk management, and performance verification." path="/faq" />
+                <SEO title="FAQ | AI Trading & Platform Questions Answered" description="Answers to common questions about AI trading, algorithmic trading bots, real-capital trading, and AI Trader platform features, risk management, and performance verification." path="/faq" />
                 <Layout>
                   <FAQPage />
                   <Footer />
@@ -120,7 +120,7 @@ export default function App() {
             path="/resources/verification"
             element={
               <>
-                <SEO title="Verification | AI Trading Performance Records" description="Verify AI trading bot performance and trading records with Trader.AI's transparent, cryptographically verifiable system. Real results, real capital, no hidden track records." path="/resources/verification" />
+                <SEO title="Verification | AI Trading Performance Records" description="Verify AI trading bot performance and trading records with AI Trader's transparent, cryptographically verifiable system. Real results, real capital, no hidden track records." path="/resources/verification" />
                 <Layout>
                   <Verification />
                   <Footer />
@@ -144,7 +144,7 @@ export default function App() {
             path="/resources/blog"
             element={
               <>
-                <SEO title="AI Trading Blog | Insights, Research & Updates" description="Insights, research, and platform updates on AI trading, algorithmic strategies, and autonomous trading agents from the Trader.AI team." path="/resources/blog" />
+                <SEO title="AI Trading Blog | Insights, Research & Updates" description="Insights, research, and platform updates on AI trading, algorithmic strategies, and autonomous trading agents from the AI Trader team." path="/resources/blog" />
                 <Layout>
                   <Blog />
                   <Footer />
@@ -156,7 +156,7 @@ export default function App() {
             path="/resources/blog/:id"
             element={
               <>
-                <SEO title="AI Trading Insights | Blog Article - Trader.AI" description="Read the latest AI trading insights from Trader.AI — algorithmic strategies, market analysis, and updates on autonomous trading agents." path="/resources/blog" />
+                <SEO title="AI Trading Insights | Blog Article - AI Trader" description="Read the latest AI trading insights from AI Trader — algorithmic strategies, market analysis, and updates on autonomous trading agents." path="/resources/blog" />
                 <Layout>
                   <BlogPostDetail />
                   <Footer />
@@ -168,7 +168,7 @@ export default function App() {
             path="/contact"
             element={
               <>
-                <SEO title="Contact Us | AI Trading Platform Support" description="Get in touch with the Trader.AI team. Questions about AI trading bots, algorithmic trading, partnerships, or platform support — we're here to help." path="/contact" />
+                <SEO title="Contact Us | AI Trading Platform Support" description="Get in touch with the AI Trader team. Questions about AI trading bots, algorithmic trading, partnerships, or platform support — we're here to help." path="/contact" />
                 <Layout>
                   <Contact />
                   <Footer />
@@ -180,7 +180,7 @@ export default function App() {
             path="/signup"
             element={
               <>
-                <SEO title="Sign Up | Start AI Trading with Trader.AI" description="Create your Trader.AI account to follow AI trading bots, compare algorithmic trading performance, and access transparent market data across forex, crypto, and stocks." path="/signup" />
+                <SEO title="Sign Up | Start AI Trading with AI Trader" description="Create your AI Trader account to follow AI trading bots, compare algorithmic trading performance, and access transparent market data across forex, crypto, and stocks." path="/signup" />
                 <Layout>
                   <Login />
                   <Footer />
@@ -192,7 +192,7 @@ export default function App() {
             path="/thank-you"
             element={
               <>
-                <SEO title="Thank You | Trader.AI" description="Thank you for reaching out to Trader.AI. Your submission has been received — our team will get back to you shortly." path="/thank-you" />
+                <SEO title="Thank You | AI Trader" description="Thank you for reaching out to AI Trader. Your submission has been received — our team will get back to you shortly." path="/thank-you" />
                 <Layout>
                   <ThankYou />
                   <Footer />
@@ -204,7 +204,7 @@ export default function App() {
             path="/legal/privacy-policy"
             element={
               <>
-                <SEO title="Privacy Policy | Trader.AI" description="How Trader.AI collects, uses, and protects your personal data on our AI trading platform. Read our full privacy policy for transparent data practices." path="/legal/privacy-policy" />
+                <SEO title="Privacy Policy | AI Trader" description="How AI Trader collects, uses, and protects your personal data on our AI trading platform. Read our full privacy policy for transparent data practices." path="/legal/privacy-policy" />
                 <Layout>
                   <PrivacyPolicy />
                   <Footer />
@@ -216,7 +216,7 @@ export default function App() {
             path="/legal/terms-of-service"
             element={
               <>
-                <SEO title="Terms of Service | Trader.AI" description="Terms and conditions governing your use of the Trader.AI AI trading platform, automated trading services, and algorithmic trading tools." path="/legal/terms-of-service" />
+                <SEO title="Terms of Service | AI Trader" description="Terms and conditions governing your use of the AI Trader AI trading platform, automated trading services, and algorithmic trading tools." path="/legal/terms-of-service" />
                 <Layout>
                   <TermsOfService />
                   <Footer />
@@ -241,7 +241,7 @@ export default function App() {
             path="*"
             element={
               <>
-                <SEO title="Page Not Found | Trader.AI" description="The page you're looking for doesn't exist. Return to Trader.AI to explore AI trading bots, leaderboards, and algorithmic trading analytics." />
+                <SEO title="Page Not Found | AI Trader" description="The page you're looking for doesn't exist. Return to AI Trader to explore AI trading bots, leaderboards, and algorithmic trading analytics." />
                 <Layout>
                   <NotFound />
                   <Footer />

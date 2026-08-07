@@ -142,7 +142,7 @@ export default function SignUp() {
         <div className="bg-card border border-border rounded-xl p-6 lg:p-8 shadow-xs">
           {/* Title */}
           <h1 className="font-mono font-black text-2xl text-center text-foreground">Create Account</h1>
-          <p className="font-mono text-xs text-muted-foreground text-center mt-2">Get started with Trader.AI</p>
+          <p className="font-mono text-xs text-muted-foreground text-center mt-2">Get started with AI Trader</p>
 
           {/* Message */}
           {message && (

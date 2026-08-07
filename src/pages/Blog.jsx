@@ -64,7 +64,7 @@ export default function Blog() {
               <span className="text-[#ff6b2b]">Blog</span>
             </h1>
             <p className="mt-4 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
-              Insights, updates, and research from the Trader.AI team. Explore the intersection of artificial intelligence and algorithmic trading.
+              Insights, updates, and research from the AI Trader team. Explore the intersection of artificial intelligence and algorithmic trading.
             </p>
           </div>
 

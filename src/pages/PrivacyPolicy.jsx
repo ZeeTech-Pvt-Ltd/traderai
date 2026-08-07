@@ -106,7 +106,7 @@ export default function PrivacyPolicy() {
             </div>
           </div>
           <p className="text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
-            This Privacy Policy describes how Trader.AI ("we," "us," or "our") collects, uses, and discloses your personal information when you use our website, platform, and related services.
+            This Privacy Policy describes how AI Trader ("we," "us," or "our") collects, uses, and discloses your personal information when you use our website, platform, and related services.
           </p>
         </div>
       </section>

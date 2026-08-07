@@ -182,7 +182,7 @@ export default function OpenClaw() {
                 <span className="text-[#f97316]">Claw</span>
               </h1>
               <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed max-w-lg">
-                A conversational AI interface that brings Trader.AI to your favorite messaging platforms. Monitor bots, receive alerts, and execute commands — all through natural language chat.
+                A conversational AI interface that brings AI Trader to your favorite messaging platforms. Monitor bots, receive alerts, and execute commands — all through natural language chat.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -283,7 +283,7 @@ export default function OpenClaw() {
           <div className="text-center mb-14 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-[#fafafa]">Key Features</h2>
             <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
-              Everything you love about Trader.AI, now accessible through natural conversation.
+              Everything you love about AI Trader, now accessible through natural conversation.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
@@ -368,7 +368,7 @@ export default function OpenClaw() {
           <div className="relative max-w-5xl mx-auto grid sm:grid-cols-3 gap-8 lg:gap-12">
             {[
               { step: '01', title: 'Choose Platform', desc: 'Select your preferred messaging platform — Discord, Telegram, or others.' },
-              { step: '02', title: 'Connect Account', desc: 'Authorize OpenClaw to access your Trader.AI preferences and settings.' },
+              { step: '02', title: 'Connect Account', desc: 'Authorize OpenClaw to access your AI Trader preferences and settings.' },
               { step: '03', title: 'Start Chatting', desc: 'Begin interacting with AI trading agents through natural language commands.' },
             ].map((s, i) => (
               <div key={s.step} className="relative text-center">

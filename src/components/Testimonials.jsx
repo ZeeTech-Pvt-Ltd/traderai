@@ -16,7 +16,7 @@ export default function Testimonials() {
         {secHeader(
           'Testimonials',
           'Voices',
-          'What early users are saying about Trader.ai.'
+          'What early users are saying about AI Trader.'
         )}
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

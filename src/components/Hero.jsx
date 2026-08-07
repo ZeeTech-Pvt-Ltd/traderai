@@ -84,7 +84,7 @@ export default function Hero() {
             </h1>
 
             <p className="mt-5 text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-lg font-mono" style={{ color: SUB }}>
-              Trader.AI is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Every trade recorded, every strategy explained — watch and compare them side by side.
+              AI Trader is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Every trade recorded, every strategy explained — watch and compare them side by side.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">

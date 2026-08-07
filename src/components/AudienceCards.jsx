@@ -33,7 +33,7 @@ export default function AudienceCards() {
           ))}
         </div>
         <p className="mt-6 text-center text-[10px]" style={{ color: T.muted }}>
-          Trader.AI may not be appropriate for users who do not understand or cannot afford the risks of trading.
+          AI Trader may not be appropriate for users who do not understand or cannot afford the risks of trading.
         </p>
       </div>
     </section>

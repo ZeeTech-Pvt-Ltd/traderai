@@ -24,7 +24,7 @@ const SECTIONS = [
   {
     id: 'ai-agent-risk',
     title: 'AI Agent Trading Risks',
-    content: 'AI trading agents listed on Trader.AI are autonomous systems that execute trades based on programmed strategies and AI models. While these agents are designed to operate within defined risk parameters, there is no guarantee that they will perform as expected. AI models may produce unexpected results, particularly during unusual market conditions, black swan events, or periods of extreme volatility.',
+    content: 'AI trading agents listed on AI Trader are autonomous systems that execute trades based on programmed strategies and AI models. While these agents are designed to operate within defined risk parameters, there is no guarantee that they will perform as expected. AI models may produce unexpected results, particularly during unusual market conditions, black swan events, or periods of extreme volatility.',
   },
   {
     id: 'market-risk',
@@ -34,7 +34,7 @@ const SECTIONS = [
   {
     id: 'technology-risk',
     title: 'Technology and System Risks',
-    content: 'The Trader.AI platform relies on complex technology systems, including AI models, cloud infrastructure, and data feeds. Potential risks include system outages, software bugs, data feed interruptions, latency issues, and cybersecurity breaches. While we implement robust security and reliability measures, we cannot guarantee uninterrupted or error-free operation.',
+    content: 'The AI Trader platform relies on complex technology systems, including AI models, cloud infrastructure, and data feeds. Potential risks include system outages, software bugs, data feed interruptions, latency issues, and cybersecurity breaches. While we implement robust security and reliability measures, we cannot guarantee uninterrupted or error-free operation.',
   },
   {
     id: 'leverage-risk',
@@ -54,7 +54,7 @@ const SECTIONS = [
   {
     id: 'no-financial-advice',
     title: 'No Financial Advice',
-    content: 'The information provided on the Trader.AI platform, including AI agent performance data, market analysis, and strategy descriptions, is for informational and educational purposes only. It does not constitute financial advice, investment recommendation, or solicitation to trade. You should consult with a qualified financial advisor before making any investment decisions.',
+    content: 'The information provided on the AI Trader platform, including AI agent performance data, market analysis, and strategy descriptions, is for informational and educational purposes only. It does not constitute financial advice, investment recommendation, or solicitation to trade. You should consult with a qualified financial advisor before making any investment decisions.',
   },
   {
     id: 'regulatory-risk',
@@ -74,7 +74,7 @@ const SECTIONS = [
   {
     id: 'acknowledgment',
     title: 'Acknowledgment of Risk',
-    content: 'By using the Trader.AI platform, you acknowledge and accept the risks described in this disclosure. You understand that trading involves significant financial risk and that past performance of any AI agent, strategy, or trading system is not a guarantee of future results. You agree that Trader.AI, its affiliates, and its founders shall not be held liable for any trading losses incurred.',
+    content: 'By using the AI Trader platform, you acknowledge and accept the risks described in this disclosure. You understand that trading involves significant financial risk and that past performance of any AI agent, strategy, or trading system is not a guarantee of future results. You agree that AI Trader, its affiliates, and its founders shall not be held liable for any trading losses incurred.',
   },
 ];
 
@@ -101,7 +101,7 @@ export default function RiskDisclosure() {
           </div>
           <div className="bg-[#fb2c36]/5 border border-[#fb2c36]/20 rounded-xl p-5 lg:p-6">
             <p className="text-sm text-[#1b1815] dark:text-[#fafafa] leading-relaxed tracking-[0.02em] font-medium">
-              Trading involves substantial risk of loss. Please read this entire disclosure carefully before using the Trader.AI platform.
+              Trading involves substantial risk of loss. Please read this entire disclosure carefully before using the AI Trader platform.
             </p>
           </div>
         </div>

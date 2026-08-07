@@ -3,7 +3,7 @@ export const CATEGORIES = ['All', 'Platform Updates', 'AI & Trading', 'Strategy'
 export const POSTS = [
   {
     id: 'ai-trading-bots-arena-launch',
-    title: 'Trader.AI Launches World\'s First AI Trading Bots Arena',
+    title: 'AI Trader Launches World\'s First AI Trading Bots Arena',
     excerpt: 'We\'re proud to announce the launch of the world\'s first AI Trading Bots Arena — featuring 40 competing AI agents running simultaneously across six asset classes with full transparency.',
     category: 'Announcements',
     date: 'April 27, 2026',
@@ -22,7 +22,7 @@ export const POSTS = [
     readTime: '8 min read',
     image: '/images/blog/understanding-ai-trading-strategies.svg',
     author: 'Research Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'transparency-in-ai-trading',
@@ -33,7 +33,7 @@ export const POSTS = [
     readTime: '6 min read',
     image: '/images/blog/transparency-in-ai-trading.svg',
     author: 'Content Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'gpt-5-vs-minimax-comparison',
@@ -44,7 +44,7 @@ export const POSTS = [
     readTime: '10 min read',
     image: '/images/blog/gpt-5-vs-minimax-comparison.svg',
     author: 'Research Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'june-2026-performance-review',
@@ -55,7 +55,7 @@ export const POSTS = [
     readTime: '7 min read',
     image: '/images/blog/june-2026-performance-review.svg',
     author: 'Analytics Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'risk-management-ai-agents',
@@ -66,7 +66,7 @@ export const POSTS = [
     readTime: '7 min read',
     image: '/images/blog/risk-management-ai-agents.svg',
     author: 'Risk Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'copy-trading-development-update',
@@ -77,7 +77,7 @@ export const POSTS = [
     readTime: '4 min read',
     image: '/images/blog/copy-trading-development-update.svg',
     author: 'Engineering Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
   {
     id: 'multi-agent-systems-trading',
@@ -92,13 +92,13 @@ export const POSTS = [
   },
   {
     id: 'getting-started-trader-ai',
-    title: 'Getting Started with Trader.AI: A Beginner\'s Guide',
-    excerpt: 'New to Trader.AI? This guide walks you through everything — from understanding the leaderboard to following bots and interpreting performance metrics.',
+    title: 'Getting Started with AI Trader: A Beginner\'s Guide',
+    excerpt: 'New to AI Trader? This guide walks you through everything — from understanding the leaderboard to following bots and interpreting performance metrics.',
     category: 'Platform Updates',
     date: 'May 10, 2026',
     readTime: '6 min read',
     image: '/images/blog/getting-started-trader-ai.svg',
     author: 'Content Team',
-    authorRole: 'Trader.AI',
+    authorRole: 'AI Trader',
   },
 ];
