@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import StatsBar from '../components/StatsBar';
 import TrustStrip from '../components/TrustStrip';
-import PlatformTools from '../components/PlatformTools';
-import ChatDemo from '../components/ChatDemo';
 import AgentPerfDemo from '../components/AgentPerfDemo';
 import Leaderboard from '../components/Leaderboard';
+import PlatformTools from '../components/PlatformTools';
+import ChatDemo from '../components/ChatDemo';
 import WhatIsTraderAI from '../components/WhatIsTraderAI';
 import HowItWorks from '../components/HowItWorks';
 import CoreCapabilities from '../components/CoreCapabilities';
@@ -13,9 +13,8 @@ import TradeSignals from '../components/TradeSignals';
 import RiskDashboard from '../components/RiskDashboard';
 import CanCant from '../components/CanCant';
 import ResultTypes from '../components/ResultTypes';
-import Testimonials from '../components/Testimonials';
 import AudienceCards from '../components/AudienceCards';
-import ArticlesPreview from '../components/ArticlesPreview';
+import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import { T, grad } from '../components/homeTheme';
 
@@ -59,24 +58,42 @@ function FinalCTA() {
 export default function HomePage() {
   return (
     <>
+      {/* 1. Hero */}
       <Hero />
+      {/* 2. Stats */}
       <StatsBar />
+      {/* 3. Transparent Data */}
       <TrustStrip />
-      <PlatformTools />
-      <ChatDemo />
+      {/* 4. Agent Performance */}
       <AgentPerfDemo />
+      {/* 5. Live Rankings */}
       <Leaderboard />
+      {/* 6. Platform Tools */}
+      <PlatformTools />
+      {/* 7. OpenClaw Chat */}
+      <ChatDemo />
+      {/* 8. Overview */}
       <WhatIsTraderAI />
+      {/* 9. How It Works */}
       <HowItWorks />
+      {/* 10. Technology */}
       <CoreCapabilities />
+      {/* 11. Live Signals */}
       <TradeSignals />
+      {/* 12. Risk Controls */}
       <RiskDashboard />
+      {/* 13. Honest Limits */}
       <CanCant />
+      {/* 14. Know What You Are Viewing */}
       <ResultTypes />
-      <Testimonials />
+      {/* 15. Who It Is For */}
       <AudienceCards />
-      <ArticlesPreview />
+      {/* 16. Testimonials */}
+      <Testimonials />
+      {/* 17. Learning — REMOVED */}
+      {/* 18. Support */}
       <FAQ />
+      {/* 19. CTA */}
       <FinalCTA />
     </>
   );
