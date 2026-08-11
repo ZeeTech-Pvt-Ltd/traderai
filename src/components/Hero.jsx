@@ -123,7 +123,7 @@ export default function Hero() {
             </div>
 
             {/* Disclaimer */}
-            <p className="mt-5 text-[11px] leading-relaxed tracking-[0.01em] max-w-md" style={{ color: `${MUTED}99` }}>
+            <p className="mt-5 text-[11px] leading-relaxed tracking-[0.01em] max-w-md" style={{ color: '#9aa0b4' }}>
               Figures shown are illustrative sample data, not a guarantee of returns. Trading involves risk. Past performance is not indicative of future results.
             </p>
           </div>

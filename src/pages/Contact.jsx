@@ -94,10 +94,10 @@ const FAQ_LINKS = [
 /* ─── intl-tel-input custom styles (same as SignUp form) ─── */
 const itiStyles = `
   .iti { width: 100%; }
-  .iti--separate-dial-code .iti__selected-dial-code { color: #6b6b6b !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
+  .iti--separate-dial-code .iti__selected-dial-code { color: #9aa0b4 !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
   .iti__flag-container { z-index: 2; }
   .iti__country-list { font-family: 'Courier New', monospace; font-size: 12px; }
-  .iti__country { color: #1b1815; }
+  .iti__country { color: #f5f6fa; }
   .iti__selected-flag { background: transparent !important; }
   .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(0,0,0,0.03) !important; }
   .iti__flag + .iti__selected-dial-code { margin-left: 4px; }
@@ -201,15 +201,15 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left — Form (now identical to the SignUp page form) */}
             <div>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
-                <span className="text-[#ff6b2b]">Contact</span>
+                <span className="text-[#7b5cff]">Contact</span>
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
+              <p className="mt-4 text-base sm:text-lg text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
                 Have a question, suggestion, or partnership idea? We'd love to hear from you.
               </p>
 
@@ -232,12 +232,12 @@ export default function Contact() {
                       <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">First Name</label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><User cn="w-4 h-4 text-muted-foreground/60" /></div>
-                        <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                        <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                       </div>
                     </div>
                     <div>
                       <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Last Name</label>
-                      <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                      <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                     </div>
                   </div>
 
@@ -246,7 +246,7 @@ export default function Contact() {
                     <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Email</label>
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><Mail cn="w-4 h-4 text-muted-foreground/60" /></div>
-                      <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                      <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                     </div>
                   </div>
 
@@ -258,7 +258,7 @@ export default function Contact() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                      className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                       onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 13); }}
                       maxLength={13}
                       required
@@ -266,7 +266,7 @@ export default function Contact() {
                   </div>
 
                   {/* Submit */}
-                  <button type="submit" disabled={loading} className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
+                  <button type="submit" disabled={loading} className="w-full h-12 rounded-lg text-white hover:opacity-90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>
                     {loading ? 'Submitting...' : 'Create Account'}
                   </button>
                   <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">
@@ -284,15 +284,15 @@ export default function Contact() {
               {CONTACT_OPTIONS.map((opt) => {
                 const Icon = opt.icon;
                 return (
-                  <div key={opt.title} className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                  <div key={opt.title} className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] shrink-0">
+                      <div className="w-9 h-9 rounded-lg bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
                         <Icon cn="w-[18px] h-[18px]" />
                       </div>
-                      <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa]">{opt.title}</h3>
+                      <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">{opt.title}</h3>
                     </div>
-                    <p className="text-xs text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] mb-2">{opt.desc}</p>
-                    <a href={`mailto:${opt.email}`} className="font-mono text-sm text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors">
+                    <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em] mb-2">{opt.desc}</p>
+                    <a href={`mailto:${opt.email}`} className="font-mono text-sm text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors">
                       {opt.email}
                     </a>
                   </div>
@@ -300,18 +300,18 @@ export default function Contact() {
               })}
 
               {/* Quick FAQ */}
-              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <h3 className="font-mono font-bold text-sm text-[#1b1815] dark:text-[#fafafa] mb-3">Quick Answers</h3>
+              <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa] mb-3">Quick Answers</h3>
                 <ul className="space-y-2">
                   {FAQ_LINKS.map((item) => (
                     <li key={item.q}>
-                      <Link to={item.href} className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#ff6b2b] transition-colors">
+                      <Link to={item.href} className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#7b5cff] transition-colors">
                         {item.q}
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <Link to="/faq" className="mt-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors">
+                <Link to="/faq" className="mt-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors">
                   View All FAQ
                   <ArrowRight cn="w-3 h-3" />
                 </Link>

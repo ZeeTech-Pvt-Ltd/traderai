@@ -18,7 +18,7 @@ function getColor(returnVal) {
   return returnVal >= 0 ? T.green : T.red;
 }
 
-const AVATAR_COLORS = [T.violet, T.blue, T.green, T.deepBlue, T.amber, T.red, '#54a2ff', '#00bb7f', T.violet2, T.violet];
+const AVATAR_COLORS = [T.violet, T.blue, T.green, T.deepBlue, T.amber, T.red, T.blue, T.green, T.violet2, T.violet];
 
 const RISK_COLORS = {
   Low: 'rgba(5,223,114,0.12)',

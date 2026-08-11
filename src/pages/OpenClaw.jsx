@@ -166,35 +166,35 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="relative py-20 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background pattern */}
-        <div className="absolute inset-0 bg-[#F5F0EB] opacity-40 dark:hidden" />
-        <div className="absolute inset-0 hidden dark:block" style={{ backgroundImage: 'radial-gradient(circle at 15px 15px, #333333 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }} />
+        <div className="absolute inset-0 bg-[#10152a] opacity-40 dark:hidden" />
+        <div className="absolute inset-0 hidden dark:block" style={{ backgroundImage: 'radial-gradient(circle at 15px 15px, rgba(255,255,255,0.08) 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }} />
         <div className="absolute inset-0 dark:hidden" style={{ backgroundImage: 'radial-gradient(circle at 15px 15px, #ECE5DD 1.5px, transparent 1.5px)', backgroundSize: '30px 30px' }} />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left */}
             <div>
-              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-md border bg-[#f97316]/10 text-[#f97316] border-[#f97316]/20 mb-5">
+              <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-md border bg-[#7b5cff]/10 text-[#7b5cff] border-[#7b5cff]/20 mb-5">
                 Coming Soon
               </div>
               <h1 className="font-mono font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.92]">
-                <span className="text-[#1a1a1a] dark:text-[#fafafa]">Open</span>
-                <span className="text-[#f97316]">Claw</span>
+                <span className="text-[#f5f6fa] dark:text-[#f5f6fa]">Open</span>
+                <span className="text-[#7b5cff]">Claw</span>
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed max-w-lg">
+              <p className="mt-6 text-base sm:text-lg text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed max-w-lg">
                 A conversational AI interface that brings AI Trader to your favorite messaging platforms. Monitor bots, receive alerts, and execute commands — all through natural language chat.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md bg-[#f97316] text-white hover:bg-[#f97316]/90 transition-all shadow-xs"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-white hover:opacity-90 transition-all shadow-xs" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
                   Join Waitlist
                   <ArrowRight cn="w-4 h-4" />
                 </Link>
                 <Link
                   to="/leaderboard"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-white dark:bg-[#222222] text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white hover:border-[#1a1a1a] transition-all shadow-xs"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[rgba(255,255,255,0.15)] text-[#f5f6fa] hover:border-[rgba(255,255,255,0.35)] transition-all"
                 >
                   View Leaderboard
                   <ArrowUpRight cn="w-3.5 h-3.5" />
@@ -205,8 +205,8 @@ export default function OpenClaw() {
               <div className="mt-10 flex items-center gap-4">
                 {PLATFORMS.map((p) => (
                   <div key={p.name} className="text-center">
-                    <p className="font-mono font-bold text-xs text-[#1a1a1a] dark:text-[#fafafa]">{p.name}</p>
-                    <p className={`font-mono text-[9px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#6b6b6b]/60 dark:text-[#8a8a8a]/60'}`}>
+                    <p className="font-mono font-bold text-xs text-[#f5f6fa] dark:text-[#f5f6fa]">{p.name}</p>
+                    <p className={`font-mono text-[9px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#9aa0b4]'}`}>
                       {p.status}
                     </p>
                   </div>
@@ -220,29 +220,29 @@ export default function OpenClaw() {
               <div className="absolute -top-6 -right-6 hidden lg:block">
                 <div className="grid grid-cols-4 gap-2">
                   {Array.from({ length: 20 }).map((_, i) => (
-                    <div key={i} className="w-2.5 h-2.5 rounded-sm bg-[#f97316] opacity-60" />
+                    <div key={i} className="w-2.5 h-2.5 rounded-sm bg-[#7b5cff] opacity-60" />
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-2xl p-6 lg:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] relative">
+              <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-2xl p-6 lg:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] relative">
                 {/* Chat header */}
-                <div className="flex items-center gap-2 pb-4 mb-4 border-b border-[#e5e5e5] dark:border-[#333333]">
+                <div className="flex items-center gap-2 pb-4 mb-4 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-[#fb2c36]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#fcbb00]" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#05df72]" />
                   </div>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] ml-2">OpenClaw Chat</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] dark:text-[#9aa0b4] ml-2">OpenClaw Chat</span>
                 </div>
 
                 <div className="space-y-4">
                   {/* Bot message */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#f97316]/15 flex items-center justify-center font-mono font-bold text-xs text-[#f97316] shrink-0">OC</div>
-                    <div className="bg-[#F5F0EB] dark:bg-[#2a2a2a] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
-                      <p className="text-sm text-[#1a1a1a] dark:text-[#fafafa] leading-relaxed">Good morning! Here's your daily summary:</p>
-                      <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] mt-2 leading-relaxed">
+                    <div className="w-8 h-8 rounded-lg bg-[#7b5cff]/15 flex items-center justify-center font-mono font-bold text-xs text-[#7b5cff] shrink-0">OC</div>
+                    <div className="bg-[#10152a] dark:bg-[#10152a] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
+                      <p className="text-sm text-[#f5f6fa] dark:text-[#f5f6fa] leading-relaxed">Good morning! Here's your daily summary:</p>
+                      <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] mt-2 leading-relaxed">
                         • {topTraders[0].name}: +{Math.abs(topTraders[0].totalReturn * 0.1).toFixed(1)}% today ({marketMap[topTraders[0].market] || topTraders[0].market})<br />
                         • {topTraders[1].name}: +{Math.abs(topTraders[1].totalReturn * 0.15).toFixed(1)}% today ({marketMap[topTraders[1].market] || topTraders[1].market})<br />
                         • {topTraders[2].name}: {topTraders[2].totalReturn >= 0 ? '+' : ''}{(-Math.abs(topTraders[2].totalReturn * 0.05)).toFixed(1)}% today ({marketMap[topTraders[2].market] || topTraders[2].market})
@@ -251,17 +251,17 @@ export default function OpenClaw() {
                   </div>
                   {/* User message */}
                   <div className="flex items-start gap-3 justify-end">
-                    <div className="bg-[#f97316]/10 rounded-xl rounded-tr-none px-4 py-3 max-w-[85%]">
-                      <p className="text-sm text-[#1a1a1a] dark:text-[#fafafa] leading-relaxed">Show me the top 3 bots this week</p>
+                    <div className="bg-[#7b5cff]/10 rounded-xl rounded-tr-none px-4 py-3 max-w-[85%]">
+                      <p className="text-sm text-[#f5f6fa] dark:text-[#f5f6fa] leading-relaxed">Show me the top 3 bots this week</p>
                     </div>
-                    <div className="w-8 h-8 rounded-lg bg-[#1a1a1a]/10 dark:bg-white/10 flex items-center justify-center font-mono font-bold text-xs text-[#1a1a1a] dark:text-[#fafafa] shrink-0">U</div>
+                    <div className="w-8 h-8 rounded-lg bg-[#f5f6fa]/10 dark:bg-white/10 flex items-center justify-center font-mono font-bold text-xs text-[#f5f6fa] dark:text-[#f5f6fa] shrink-0">U</div>
                   </div>
                   {/* Bot response */}
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-[#f97316]/15 flex items-center justify-center font-mono font-bold text-xs text-[#f97316] shrink-0">OC</div>
-                    <div className="bg-[#F5F0EB] dark:bg-[#2a2a2a] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
-                      <p className="text-sm text-[#1a1a1a] dark:text-[#fafafa] leading-relaxed">Top 3 this week:</p>
-                      <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] mt-2 leading-relaxed">
+                    <div className="w-8 h-8 rounded-lg bg-[#7b5cff]/15 flex items-center justify-center font-mono font-bold text-xs text-[#7b5cff] shrink-0">OC</div>
+                    <div className="bg-[#10152a] dark:bg-[#10152a] rounded-xl rounded-tl-none px-4 py-3 max-w-[85%]">
+                      <p className="text-sm text-[#f5f6fa] dark:text-[#f5f6fa] leading-relaxed">Top 3 this week:</p>
+                      <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] mt-2 leading-relaxed">
                         1. {topTraders[0].name} — {percent(topTraders[0].totalReturn)} ({topTraders[0].market})<br />
                         2. {topTraders[1].name} — {percent(topTraders[1].totalReturn)} ({topTraders[1].market})<br />
                         3. {topTraders[2].name} — {percent(topTraders[2].totalReturn)} ({topTraders[2].market})
@@ -281,8 +281,8 @@ export default function OpenClaw() {
       <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-[#fafafa]">Key Features</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">Key Features</h2>
+            <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-2xl mx-auto">
               Everything you love about AI Trader, now accessible through natural conversation.
             </p>
           </div>
@@ -292,13 +292,13 @@ export default function OpenClaw() {
               return (
                 <div
                   key={f.title}
-                  className="bg-white dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
+                  className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all duration-300 group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#f97316]/10 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] mb-5 group-hover:bg-gradient-to-r group-hover:from-[#7b5cff] group-hover:to-[#5a7dff] group-hover:text-white transition-colors duration-300">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-base text-[#1a1a1a] dark:text-[#fafafa] mb-2">{f.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed">{f.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-2">{f.title}</h3>
+                  <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed">{f.desc}</p>
                 </div>
               );
             })}
@@ -309,11 +309,11 @@ export default function OpenClaw() {
       {/* ═══════════════════════════════════════════════════════════════ */}
       {/*  CHAT COMMANDS                                                 */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F5F0EB]/30 border-y border-[#e5e5e5] dark:bg-[#1e1c1c] dark:border-[#3f3f3f]">
+      <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#10152a]/30 border-y border-[rgba(255,255,255,0.08)] dark:bg-[#05070f] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-white">Chat Commands</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#b1b1b1] text-sm lg:text-base max-w-2xl mx-auto">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#f5f6fa] dark:text-white">Chat Commands</h2>
+            <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-2xl mx-auto">
               Control the platform with simple, intuitive commands.
             </p>
           </div>
@@ -323,13 +323,13 @@ export default function OpenClaw() {
               return (
                 <div
                   key={c.title}
-                  className="bg-white border border-[#e5e5e5] dark:bg-white/[0.03] dark:border-white/10 rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] dark:hover:bg-white/[0.06] transition-all duration-300 group"
+                  className="bg-[#0d1120] border border-[rgba(255,255,255,0.08)] dark:bg-white/[0.03] dark:border-white/10 rounded-xl p-6 lg:p-8 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] dark:hover:bg-white/[0.06] transition-all duration-300 group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#f97316]/10 dark:bg-[#f97316]/15 flex items-center justify-center text-[#f97316] mb-5 group-hover:bg-[#f97316] group-hover:text-white transition-colors duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 dark:bg-[#7b5cff]/15 flex items-center justify-center text-[#7b5cff] mb-5 group-hover:bg-gradient-to-r group-hover:from-[#7b5cff] group-hover:to-[#5a7dff] group-hover:text-white transition-colors duration-300">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-base text-[#1a1a1a] dark:text-white mb-2">{c.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#b1b1b1] leading-relaxed">{c.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-white mb-2">{c.title}</h3>
+                  <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed">{c.desc}</p>
                 </div>
               );
             })}
@@ -337,15 +337,15 @@ export default function OpenClaw() {
 
           {/* Command examples table */}
           <div className="mt-12 max-w-3xl mx-auto">
-            <div className="bg-white border border-[#e5e5e5] dark:bg-white/[0.03] dark:border-white/10 rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-              <div className="px-6 py-4 bg-[#F5F0EB]/50 dark:bg-white/[0.02] border-b border-[#e5e5e5] dark:border-white/10">
-                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#b1b1b1]">Example Commands</p>
+            <div className="bg-[#0d1120] border border-[rgba(255,255,255,0.08)] dark:bg-white/[0.03] dark:border-white/10 rounded-xl overflow-hidden shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+              <div className="px-6 py-4 bg-[#10152a]/50 dark:bg-white/[0.02] border-b border-[rgba(255,255,255,0.08)] dark:border-white/10">
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] dark:text-[#9aa0b4]">Example Commands</p>
               </div>
-              <div className="divide-y divide-[#e5e5e5] dark:divide-white/10">
+              <div className="divide-y divide-[rgba(255,255,255,0.08)] dark:divide-white/10">
                 {COMMANDS.map((ex) => (
-                  <div key={ex.cmd} className="flex items-center justify-between px-6 py-3.5 hover:bg-[#F5F0EB]/20 dark:hover:bg-white/5 transition-colors">
-                    <code className="font-mono text-xs font-bold text-[#f97316]">{ex.cmd}</code>
-                    <span className="font-mono text-xs text-[#6b6b6b] dark:text-[#b1b1b1]">{ex.desc}</span>
+                  <div key={ex.cmd} className="flex items-center justify-between px-6 py-3.5 hover:bg-[#10152a]/20 dark:hover:bg-white/5 transition-colors">
+                    <code className="font-mono text-xs font-bold text-[#7b5cff]">{ex.cmd}</code>
+                    <span className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4]">{ex.desc}</span>
                   </div>
                 ))}
               </div>
@@ -360,8 +360,8 @@ export default function OpenClaw() {
       <section className="py-20 lg:py-28 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 lg:mb-16">
-            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#1a1a1a] dark:text-[#fafafa]">Getting Started</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto">
+            <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">Getting Started</h2>
+            <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-2xl mx-auto">
               Connect OpenClaw to your preferred chat platform in minutes.
             </p>
           </div>
@@ -374,13 +374,13 @@ export default function OpenClaw() {
               <div key={s.step} className="relative text-center">
                 {/* Step connector line */}
                 {i < 2 && (
-                  <div className="hidden sm:block absolute top-6 left-[60%] w-[80%] h-px border-t border-dashed border-[#e5e5e5] dark:border-[#333333]" />
+                  <div className="hidden sm:block absolute top-6 left-[60%] w-[80%] h-px border-t border-dashed border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]" />
                 )}
-                <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#f97316] text-white mb-5 shadow-[0_4px_12px_rgba(249,115,22,0.25)]">
+                <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-xl text-white mb-5 shadow-[0_4px_12px_rgba(123,92,255,0.35)]" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>
                   <span className="font-mono font-bold text-base">{s.step}</span>
                 </div>
-                <h3 className="font-mono font-bold text-base text-[#1a1a1a] dark:text-[#fafafa] mb-2">{s.title}</h3>
-                <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed max-w-xs mx-auto">{s.desc}</p>
+                <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-2">{s.title}</h3>
+                <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </div>
             ))}
           </div>

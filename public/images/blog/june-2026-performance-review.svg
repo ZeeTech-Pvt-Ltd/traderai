@@ -1,25 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
-  <rect width="960" height="540" fill="#F5F0EB"/>
+  <rect width="960" height="540" fill="#10152a"/>
   <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-    <rect width="4" height="4" x="8" y="8" fill="#ECE5DD" rx="0.5"/>
+    <rect width="4" height="4" x="8" y="8" fill="#0d1120" rx="0.5"/>
   </pattern>
   <rect width="960" height="540" fill="url(#dots)"/>
 
   <!-- Left scatter -->
-  <g fill="#1a1a1a" opacity="0.08">
+  <g fill="#f5f6fa" opacity="0.08">
     <rect x="40" y="100" width="8" height="8"/><rect x="180" y="60" width="10" height="10"/>
     <rect x="120" y="320" width="6" height="6"/><rect x="260" y="400" width="9" height="9"/>
     <rect x="80" y="190" width="5" height="5"/><rect x="320" y="230" width="7" height="7"/>
     <rect x="150" y="460" width="8" height="8"/><rect x="370" y="130" width="6" height="6"/>
     <rect x="220" y="290" width="4" height="4"/><rect x="30" y="380" width="7" height="7"/>
   </g>
-  <g fill="#1a1a1a" opacity="0.15">
+  <g fill="#f5f6fa" opacity="0.15">
     <rect x="100" y="140" width="6" height="6"/><rect x="290" y="350" width="5" height="5"/>
     <rect x="200" y="230" width="7" height="7"/><rect x="340" y="310" width="4" height="4"/>
   </g>
 
   <!-- Bar chart -->
-  <g fill="#1a1a1a" opacity="0.15">
+  <g fill="#f5f6fa" opacity="0.15">
     <rect x="180" y="210" width="18" height="90" rx="2"/>
     <rect x="206" y="180" width="18" height="120" rx="2"/>
     <rect x="232" y="230" width="18" height="70" rx="2"/>
@@ -30,13 +30,13 @@
   </g>
 
   <!-- Orange highlight on tallest bar -->
-  <rect x="284" y="160" width="18" height="140" rx="2" fill="#f97316" opacity="0.6"/>
+  <rect x="284" y="160" width="18" height="140" rx="2" fill="#7b5cff" opacity="0.6"/>
 
   <!-- Baseline -->
-  <line x1="170" y1="300" x2="360" y2="300" stroke="#1a1a1a" opacity="0.1" stroke-width="1"/>
+  <line x1="170" y1="300" x2="360" y2="300" stroke="#f5f6fa" opacity="0.1" stroke-width="1"/>
 
   <!-- Right side orange grid -->
-  <g fill="#f97316" opacity="0.85">
+  <g fill="#7b5cff" opacity="0.85">
     <rect x="700" y="100" width="10" height="10"/><rect x="718" y="100" width="10" height="10"/>
     <rect x="700" y="118" width="10" height="10"/><rect x="718" y="118" width="10" height="10"/>
     <rect x="700" y="136" width="10" height="10"/><rect x="718" y="154" width="10" height="10"/>
@@ -49,16 +49,16 @@
     <rect x="700" y="280" width="10" height="10"/><rect x="718" y="280" width="10" height="10"/>
   </g>
 
-  <g fill="#f97316" opacity="0.5">
+  <g fill="#7b5cff" opacity="0.5">
     <rect x="560" y="380" width="6" height="6"/><rect x="620" y="420" width="4" height="4"/>
     <rect x="510" y="340" width="5" height="5"/><rect x="580" y="450" width="3" height="3"/>
   </g>
 
-  <text x="480" y="260" font-family="'Courier New',monospace" font-size="26" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">
+  <text x="480" y="260" font-family="'Courier New',monospace" font-size="26" font-weight="900" fill="#f5f6fa" text-anchor="middle" letter-spacing="2">
     JUNE 2026
   </text>
-  <text x="480" y="294" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#f97316" text-anchor="middle" letter-spacing="2">
+  <text x="480" y="294" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#7b5cff" text-anchor="middle" letter-spacing="2">
     PERFORMANCE REVIEW
   </text>
-  <rect x="330" y="320" width="300" height="2" fill="#f97316" opacity="0.5"/>
+  <rect x="330" y="320" width="300" height="2" fill="#7b5cff" opacity="0.5"/>
 </svg>

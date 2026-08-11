@@ -92,27 +92,27 @@ export default function TermsOfService() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* Hero */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#1b1815] dark:hover:text-[#fafafa] transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#f5f6fa] dark:hover:text-[#f5f6fa] transition-colors mb-8"
           >
             <ArrowLeft cn="w-3.5 h-3.5" />
             Back to Home
           </Link>
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
               <FileIcon cn="w-6 h-6" />
             </div>
             <div>
-              <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
-                Terms of <span className="text-[#ff6b2b]">Service</span>
+              <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">
+                Terms of <span className="text-[#7b5cff]">Service</span>
               </h1>
-              <p className="mt-1 font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a]">Last updated: June 1, 2026</p>
+              <p className="mt-1 font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4]">Last updated: June 1, 2026</p>
             </div>
           </div>
-          <p className="text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
+          <p className="text-sm sm:text-base text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
             These Terms of Service govern your use of the AI Trader platform, website, and related services. Please read these terms carefully before using our services.
           </p>
         </div>
@@ -124,11 +124,11 @@ export default function TermsOfService() {
           <div className="grid lg:grid-cols-[220px_1fr] gap-10 lg:gap-14">
             {/* Sidebar */}
             <nav className="hidden lg:block sticky top-28 self-start">
-              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mb-4">On this page</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9aa0b4] mb-4">On this page</p>
               <ul className="space-y-2.5">
                 {SECTIONS.map((s) => (
                   <li key={s.id}>
-                    <a href={`#${s.id}`} className="font-mono text-xs text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#ff6b2b] transition-colors leading-relaxed">{s.title}</a>
+                    <a href={`#${s.id}`} className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#7b5cff] transition-colors leading-relaxed">{s.title}</a>
                   </li>
                 ))}
               </ul>
@@ -139,23 +139,23 @@ export default function TermsOfService() {
               <div className="space-y-10">
                 {SECTIONS.map((s) => (
                   <div key={s.id} id={s.id}>
-                    <h2 className="font-mono font-bold text-lg text-[#1b1815] dark:text-[#fafafa] mb-3">{s.title}</h2>
-                    <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{s.content}</p>
+                    <h2 className="font-mono font-bold text-lg text-[#f5f6fa] dark:text-[#f5f6fa] mb-3">{s.title}</h2>
+                    <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{s.content}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="my-12 border-t border-[#e5e5e5] dark:border-[#333333]" />
+              <div className="my-12 border-t border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]" />
 
-              <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-4">Related Documents</h3>
+              <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-4">Related Documents</h3>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
                     { label: 'Privacy Policy', href: '/legal/privacy-policy' },
                     { label: 'Risk Disclosure', href: '/legal/risk-disclosure' },
                     { label: 'Cookie Policy', href: '/legal/cookie-policy' },
                   ].map((doc) => (
-                    <Link key={doc.label} to={doc.href} className="font-mono text-xs uppercase tracking-[0.1em] text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50">{doc.label}</Link>
+                    <Link key={doc.label} to={doc.href} className="font-mono text-xs uppercase tracking-[0.1em] text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#10152a]/50 dark:bg-[#10152a]/50">{doc.label}</Link>
                   ))}
                 </div>
               </div>

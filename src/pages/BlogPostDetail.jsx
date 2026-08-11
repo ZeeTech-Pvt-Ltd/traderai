@@ -25,10 +25,10 @@ function ClockIcon({ cn = 'w-3.5 h-3.5' }) {
 }
 
 const CAT_STYLES = {
-  'Announcements': 'bg-[#ff6b2b]/10 text-[#ff6b2b] border-[#ff6b2b]/20',
-  'Platform Updates': 'bg-[#3080ff]/10 text-[#3080ff] border-[#3080ff]/20',
+  'Announcements': 'bg-[#7b5cff]/10 text-[#7b5cff] border-[#7b5cff]/20',
+  'Platform Updates': 'bg-[#5a7dff]/10 text-[#5a7dff] border-[#5a7dff]/20',
   'Strategy': 'bg-[#05df72]/10 text-[#05df72] border-[#05df72]/20',
-  'Research': 'bg-[#8d54ff]/10 text-[#8d54ff] border-[#8d54ff]/20',
+  'Research': 'bg-[#5a7dff]/10 text-[#5a7dff] border-[#5a7dff]/20',
   'AI & Trading': 'bg-[#fcbb00]/10 text-[#fcbb00] border-[#fcbb00]/20',
 };
 
@@ -66,16 +66,16 @@ export default function BlogPostDetail() {
   }
 
   const paragraphs = generateContent(post, FULL_TEXTS);
-  const catStyle = CAT_STYLES[post.category] || 'bg-[#f2f3f5] dark:bg-[#2a2a2a] text-[#6b6b6b] dark:text-[#8a8a8a] border-[#e5e5e5] dark:border-[#333333]';
+  const catStyle = CAT_STYLES[post.category] || 'bg-[#10152a] dark:bg-[#10152a] text-[#9aa0b4] dark:text-[#9aa0b4] border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]';
 
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* Hero */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/resources/blog"
-            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-[#6b6b6b] dark:text-[#8a8a8a] hover:text-[#1b1815] dark:hover:text-[#fafafa] transition-colors mb-8"
+            className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#f5f6fa] dark:hover:text-[#f5f6fa] transition-colors mb-8"
           >
             <ArrowLeft cn="w-3.5 h-3.5" />
             Back to Blog
@@ -87,11 +87,11 @@ export default function BlogPostDetail() {
             </span>
           </div>
 
-          <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#1b1815] dark:text-[#fafafa] leading-[1.05]">
+          <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa] leading-[1.05]">
             {post.title}
           </h1>
 
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-[10px] font-mono uppercase tracking-[0.1em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-[10px] font-mono uppercase tracking-[0.1em] text-[#9aa0b4]">
             <span className="flex items-center gap-1.5">
               <CalendarIcon cn="w-3.5 h-3.5" />
               {post.date}
@@ -104,7 +104,7 @@ export default function BlogPostDetail() {
           </div>
 
           {post.image && (
-            <div className="mt-8 w-full h-56 sm:h-72 lg:h-96 overflow-hidden bg-[#F5F0EB] border border-[#e5e5e5] dark:border-[#333333] rounded-xl">
+            <div className="mt-8 w-full h-56 sm:h-72 lg:h-96 overflow-hidden bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl">
               <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
             </div>
           )}
@@ -116,22 +116,22 @@ export default function BlogPostDetail() {
         <div className="max-w-3xl mx-auto">
           <div className="space-y-6">
             {paragraphs.map((para, i) => (
-              <p key={i} className="text-sm sm:text-base text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
+              <p key={i} className="text-sm sm:text-base text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
                 {para}
               </p>
             ))}
           </div>
 
-          <div className="my-12 border-t border-[#e5e5e5] dark:border-[#333333]" />
+          <div className="my-12 border-t border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]" />
 
-          <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-            <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-4">More Articles</h3>
+          <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-4">More Articles</h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {POSTS.filter((p) => p.id !== post.id).slice(0, 4).map((p) => (
                 <Link
                   key={p.id}
                   to={`/resources/blog/${p.id}`}
-                  className="font-mono text-xs text-[#ff6b2b] hover:text-[#ff6b2b]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50"
+                  className="font-mono text-xs text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#10152a]/50 dark:bg-[#10152a]/50"
                 >
                   {p.title}
                 </Link>

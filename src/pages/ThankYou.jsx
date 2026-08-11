@@ -14,13 +14,8 @@ export default function ThankYou() {
     <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28 flex items-center justify-center px-4">
       <div className="w-full max-w-md text-center">
         {/* Logo */}
-        <Link to="/" className="inline-flex items-center justify-center gap-2.5 group mb-8">
-          <div className="grid grid-cols-3 gap-[3px]">
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className={`w-[7px] h-[7px] rounded-sm transition-colors ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#ff6b2b]' : 'bg-[#4a4a4a] dark:bg-[#8a8a8a]'}`} />
-            ))}
-          </div>
-          <span className="font-mono font-bold text-lg tracking-tight text-foreground">Trader.<span className="text-primary">AI</span></span>
+        <Link to="/" className="inline-flex items-center justify-center group mb-8">
+          <img src="/logo.webp" alt="AI Trader" className="h-10 lg:h-12 w-auto max-w-[220px]" loading="eager" />
         </Link>
 
         <div className="bg-card border border-border rounded-xl p-8 lg:p-10 shadow-xs">
@@ -34,7 +29,7 @@ export default function ThankYou() {
           <div className="mt-8 space-y-3">
             <Link
               to="/"
-              className="block w-full h-12 leading-[48px] rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs"
+              className="block w-full h-12 leading-[48px] rounded-lg text-white hover:opacity-90 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
               Back to Home
             </Link>

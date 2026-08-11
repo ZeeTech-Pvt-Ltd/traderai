@@ -26,17 +26,17 @@ for (const [id, base] of Object.entries(SPARKLINE_BASES)) {
 }
 
 export const BOTS = [
-  { id: 'atlas', name: 'Atlas', title: 'AI Macro Trader', market: 'EUR/USD', strategy: 'Trend', model: 'GPT-5.2', risk: 'Medium', return: '+8.2%', color: '#ff6b2b' },
+  { id: 'atlas', name: 'Atlas', title: 'AI Macro Trader', market: 'EUR/USD', strategy: 'Trend', model: 'GPT-5.2', risk: 'Medium', return: '+8.2%', color: '#7b5cff' },
   { id: 'helios', name: 'Helios', title: 'AI Volatility Trader', market: 'XAU/USD', strategy: 'Breakout', model: 'MiniMax-M2.1', risk: 'High', return: '+5.7%', color: '#fcbb00' },
   { id: 'nova', name: 'Nova', title: 'AI Crypto Momentum Trader', market: 'BTC/USD', strategy: 'Trend', model: 'GPT-5.2', risk: 'High', return: '+12.3%', color: '#05df72' },
-  { id: 'deltaforge', name: 'DeltaForge', title: 'AI Arbitrage Specialist', market: 'EUR/GBP', strategy: 'Mean Reversion', model: 'MiniMax-M2.1', risk: 'Low', return: '+3.1%', color: '#3080ff' },
-  { id: 'sigma', name: 'Sigma', title: 'AI Index Trend Trader', market: 'SPX500', strategy: 'Swing', model: 'GPT-5.2', risk: 'Medium', return: '+6.8%', color: '#8d54ff' },
-  { id: 'sentinel', name: 'Sentinel', title: 'AI Social Sentiment Trader', market: 'SOL/USD', strategy: 'Scalping', model: 'MiniMax-M2.1', risk: 'High', return: '+9.4%', color: '#00bb7f' },
+  { id: 'deltaforge', name: 'DeltaForge', title: 'AI Arbitrage Specialist', market: 'EUR/GBP', strategy: 'Mean Reversion', model: 'MiniMax-M2.1', risk: 'Low', return: '+3.1%', color: '#5a7dff' },
+  { id: 'sigma', name: 'Sigma', title: 'AI Index Trend Trader', market: 'SPX500', strategy: 'Swing', model: 'GPT-5.2', risk: 'Medium', return: '+6.8%', color: '#5a7dff' },
+  { id: 'sentinel', name: 'Sentinel', title: 'AI Social Sentiment Trader', market: 'SOL/USD', strategy: 'Scalping', model: 'MiniMax-M2.1', risk: 'High', return: '+9.4%', color: '#05df72' },
   { id: 'blaze', name: 'Blaze', title: 'AI Trend Detection Specialist', market: 'USD/JPY', strategy: 'Trend', model: 'GPT-5.2', risk: 'Medium', return: '+4.5%', color: '#fb2c36' },
-  { id: 'nexus', name: 'Nexus', title: 'AI Gaming Sector Trader', market: 'NAS100', strategy: 'Breakout', model: 'GPT-5.2', risk: 'High', return: '+11.2%', color: '#54a2ff' },
-  { id: 'flux', name: 'Flux', title: 'AI Payment Flow Analyst', market: 'USD/CHF', strategy: 'Mean Reversion', model: 'MiniMax-M2.1', risk: 'Low', return: '+2.8%', color: '#edb200' },
+  { id: 'nexus', name: 'Nexus', title: 'AI Gaming Sector Trader', market: 'NAS100', strategy: 'Breakout', model: 'GPT-5.2', risk: 'High', return: '+11.2%', color: '#5a7dff' },
+  { id: 'flux', name: 'Flux', title: 'AI Payment Flow Analyst', market: 'USD/CHF', strategy: 'Mean Reversion', model: 'MiniMax-M2.1', risk: 'Low', return: '+2.8%', color: '#fcbb00' },
   { id: 'scholar', name: 'Scholar', title: 'AI Research Alpha Trader', market: 'GBP/USD', strategy: 'Swing', model: 'GPT-5.2', risk: 'Medium', return: '+7.1%', color: '#05df72' },
-  { id: 'cipher', name: 'Cipher', title: 'AI NLP Sentiment Trader', market: 'XAG/USD', strategy: 'Scalping', model: 'MiniMax-M2.1', risk: 'Medium', return: '+5.5%', color: '#ff6b2b' },
+  { id: 'cipher', name: 'Cipher', title: 'AI NLP Sentiment Trader', market: 'XAG/USD', strategy: 'Scalping', model: 'MiniMax-M2.1', risk: 'Medium', return: '+5.5%', color: '#7b5cff' },
   { id: 'razor', name: 'Razor-0x01', title: 'AI Commodities Specialist', market: 'XAU/USD', strategy: 'Breakout', model: 'GPT-5.2', risk: 'High', return: '+20.6%', color: '#fcbb00' },
 ];
 

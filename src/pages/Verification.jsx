@@ -151,7 +151,7 @@ export default function Verification() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
       {/* ═══ Hero ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -159,22 +159,22 @@ export default function Verification() {
                 Trust & Transparency
               </div>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
-                <span className="text-[#ff6b2b]">Verification</span>
+                <span className="text-[#7b5cff]">Verification</span>
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">
+              <p className="mt-6 text-base sm:text-lg text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
                 We believe trust is earned through complete transparency. Every trade, every metric, every strategy — all publicly verifiable in real time.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/leaderboard"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all shadow-xs"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-white hover:opacity-90 transition-all shadow-xs" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
                   View Live Data
                   <ArrowRight cn="w-4 h-4" />
                 </Link>
               </div>
             </div>
-            <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-6 lg:p-8 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
               <div className="grid grid-cols-2 gap-5">
                 {[
                   { label: 'Live Agents', value: '12' },
@@ -183,8 +183,8 @@ export default function Verification() {
                   { label: 'Uptime', value: '99.9%' },
                 ].map((s) => (
                   <div key={s.label} className="text-center">
-                    <p className="font-mono font-black text-2xl text-[#1b1815] dark:text-[#fafafa]">{s.value}</p>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#6b6b6b]/70 dark:text-[#8a8a8a]/70 mt-1">{s.label}</p>
+                    <p className="font-mono font-black text-2xl text-[#f5f6fa] dark:text-[#f5f6fa]">{s.value}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#9aa0b4] mt-1">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -194,11 +194,11 @@ export default function Verification() {
       </section>
 
       {/* ═══ Pillars ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Verification Pillars</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
+            <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
               Six fundamental principles that ensure every piece of data on our platform can be trusted.
             </p>
           </div>
@@ -208,13 +208,13 @@ export default function Verification() {
               return (
                 <div
                   key={p.title}
-                  className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-6 lg:p-8 hover:bg-[#f2f3f5]/50 dark:bg-[#2a2a2a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                  className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-6 lg:p-8 hover:bg-[#10152a]/50 dark:bg-[#10152a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#ff6b2b]/10 flex items-center justify-center text-[#ff6b2b] mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] mb-5">
                     <Icon cn="w-5 h-5" />
                   </div>
-                  <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-2">{p.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{p.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-2">{p.title}</h3>
+                  <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{p.desc}</p>
                 </div>
               );
             })}
@@ -223,11 +223,11 @@ export default function Verification() {
       </section>
 
       {/* ═══ How It Works ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333] bg-[#f9f9f9]/30 dark:bg-[#222222]/30">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] bg-[#0d1120]/30 dark:bg-[#10152a]/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">How Verification Works</h2>
-            <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
+            <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-2xl mx-auto tracking-[0.02em]">
               From broker integration to public publishing — every step ensures data integrity.
             </p>
           </div>
@@ -235,16 +235,16 @@ export default function Verification() {
             {VERIFICATION_STEPS.map((s, i) => (
               <div key={s.step} className="flex gap-5 lg:gap-8">
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-xl bg-[#ff6b2b]/10 flex items-center justify-center shrink-0">
-                    <span className="font-mono font-bold text-sm text-[#ff6b2b]">{s.step}</span>
+                  <div className="w-10 h-10 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center shrink-0">
+                    <span className="font-mono font-bold text-sm text-[#7b5cff]">{s.step}</span>
                   </div>
                   {i < VERIFICATION_STEPS.length - 1 && (
-                    <div className="w-px flex-1 bg-[#e5e5e5] mt-2" />
+                    <div className="w-px flex-1 bg-[rgba(255,255,255,0.08)] mt-2" />
                   )}
                 </div>
                 <div className="pb-6">
-                  <h3 className="font-mono font-bold text-base text-[#1b1815] dark:text-[#fafafa] mb-1">{s.title}</h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{s.desc}</p>
+                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-1">{s.title}</h3>
+                  <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -253,12 +253,12 @@ export default function Verification() {
       </section>
 
       {/* ═══ FAQ ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#e5e5e5] dark:border-[#333333]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight">Verification FAQ</h2>
-              <p className="mt-3 text-[#6b6b6b] dark:text-[#8a8a8a] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
+              <p className="mt-3 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm lg:text-base max-w-xl mx-auto tracking-[0.02em]">
                 Common questions about our verification process.
               </p>
             </div>
@@ -266,10 +266,10 @@ export default function Verification() {
               {FAQ_VERIFICATION.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
+                  className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]"
                 >
-                  <h3 className="font-mono font-bold text-sm lg:text-base text-[#1b1815] dark:text-[#fafafa] mb-2">{item.q}</h3>
-                  <p className="text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em]">{item.a}</p>
+                  <h3 className="font-mono font-bold text-sm lg:text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-2">{item.q}</h3>
+                  <p className="text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{item.a}</p>
                 </div>
               ))}
             </div>
@@ -280,25 +280,25 @@ export default function Verification() {
       {/* ═══ CTA ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-[#f9f9f9] dark:bg-[#222222] border border-[#e5e5e5] dark:border-[#333333] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-            <ShieldIcon cn="w-10 h-10 text-[#ff6b2b] mx-auto mb-5" />
-            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#1b1815] dark:text-[#fafafa]">
+          <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-8 lg:p-12 text-center max-w-3xl mx-auto shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+            <ShieldIcon cn="w-10 h-10 text-[#7b5cff] mx-auto mb-5" />
+            <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">
               See the data for yourself
             </h2>
-            <p className="mt-4 text-sm text-[#6b6b6b] dark:text-[#8a8a8a] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
+            <p className="mt-4 text-sm text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em] max-w-lg mx-auto">
               Every trade, every strategy, every metric — all publicly visible. No account required.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 to="/leaderboard"
-                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md bg-[#ff6b2b] text-white hover:bg-[#ff6b2b]/90 transition-all shadow-xs"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-white hover:opacity-90 transition-all shadow-xs" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
               >
                 View Leaderboard
                 <ArrowRight cn="w-4 h-4" />
               </Link>
               <Link
                 to="/traders"
-                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[#e5e5e5] dark:border-[#333333] bg-[#fafafa] dark:bg-[#2a2a2a] text-[#1b1815] dark:text-[#fafafa] hover:bg-[#1b1815] hover:text-[#fafafa] hover:border-[#1b1815] transition-all shadow-xs"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md border border-[rgba(255,255,255,0.15)] text-[#f5f6fa] hover:border-[rgba(255,255,255,0.35)] transition-all"
               >
                 Explore AI Traders
                 <ArrowUpRight cn="w-3.5 h-3.5" />

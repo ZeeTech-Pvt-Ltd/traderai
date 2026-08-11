@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
-  <rect width="960" height="540" fill="#F5F0EB"/>
+  <rect width="960" height="540" fill="#10152a"/>
   <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
-    <rect width="4" height="4" x="8" y="8" fill="#ECE5DD" rx="0.5"/>
+    <rect width="4" height="4" x="8" y="8" fill="#0d1120" rx="0.5"/>
   </pattern>
   <rect width="960" height="540" fill="url(#dots)"/>
 
   <!-- Left scatter -->
-  <g fill="#1a1a1a" opacity="0.08">
+  <g fill="#f5f6fa" opacity="0.08">
     <rect x="50" y="100" width="8" height="8"/><rect x="180" y="60" width="10" height="10"/>
     <rect x="120" y="300" width="6" height="6"/><rect x="250" y="380" width="9" height="9"/>
     <rect x="80" y="180" width="5" height="5"/><rect x="300" y="220" width="7" height="7"/>
@@ -14,13 +14,13 @@
     <rect x="220" y="480" width="4" height="4"/><rect x="30" y="380" width="7" height="7"/>
     <rect x="400" y="280" width="5" height="5"/><rect x="270" y="150" width="9" height="9"/>
   </g>
-  <g fill="#1a1a1a" opacity="0.15">
+  <g fill="#f5f6fa" opacity="0.15">
     <rect x="140" y="130" width="6" height="6"/><rect x="70" y="400" width="5" height="5"/>
     <rect x="200" y="240" width="7" height="7"/><rect x="330" y="340" width="4" height="4"/>
   </g>
 
   <!-- Flow chart / branching strategy diagram -->
-  <g fill="none" stroke="#1a1a1a" opacity="0.2" stroke-width="2">
+  <g fill="none" stroke="#f5f6fa" opacity="0.2" stroke-width="2">
     <!-- Main branch -->
     <polyline points="200,270 300,270 300,200"/>
     <polyline points="300,200 400,160"/>
@@ -31,7 +31,7 @@
   </g>
 
   <!-- Nodes -->
-  <g fill="#1a1a1a" opacity="0.25">
+  <g fill="#f5f6fa" opacity="0.25">
     <circle cx="200" cy="270" r="8"/>
     <circle cx="300" cy="200" r="6"/>
     <circle cx="300" cy="270" r="6"/>
@@ -39,7 +39,7 @@
   </g>
 
   <!-- End nodes orange -->
-  <g fill="#f97316" opacity="0.85">
+  <g fill="#7b5cff" opacity="0.85">
     <rect x="395" y="155" width="10" height="10"/>
     <rect x="395" y="235" width="10" height="10"/>
     <rect x="395" y="295" width="10" height="10"/>
@@ -47,7 +47,7 @@
   </g>
 
   <!-- Right side vertical orange grid -->
-  <g fill="#f97316" opacity="0.85">
+  <g fill="#7b5cff" opacity="0.85">
     <rect x="700" y="100" width="10" height="10"/><rect x="718" y="100" width="10" height="10"/>
     <rect x="700" y="118" width="10" height="10"/><rect x="718" y="118" width="10" height="10"/>
     <rect x="700" y="136" width="10" height="10"/><rect x="718" y="136" width="10" height="10"/>
@@ -60,17 +60,17 @@
     <rect x="700" y="280" width="10" height="10"/><rect x="718" y="280" width="10" height="10"/>
   </g>
 
-  <g fill="#f97316" opacity="0.5">
+  <g fill="#7b5cff" opacity="0.5">
     <rect x="480" y="360" width="6" height="6"/>
     <rect x="550" y="320" width="4" height="4"/>
     <rect x="430" y="400" width="5" height="5"/>
   </g>
 
-  <text x="480" y="280" font-family="'Courier New',monospace" font-size="26" font-weight="900" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">
+  <text x="480" y="280" font-family="'Courier New',monospace" font-size="26" font-weight="900" fill="#f5f6fa" text-anchor="middle" letter-spacing="2">
     UNDERSTANDING
   </text>
-  <text x="480" y="314" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#f97316" text-anchor="middle" letter-spacing="2">
+  <text x="480" y="314" font-family="'Courier New',monospace" font-size="22" font-weight="700" fill="#7b5cff" text-anchor="middle" letter-spacing="2">
     AI TRADING STRATEGIES
   </text>
-  <rect x="340" y="340" width="280" height="2" fill="#f97316" opacity="0.5"/>
+  <rect x="340" y="340" width="280" height="2" fill="#7b5cff" opacity="0.5"/>
 </svg>

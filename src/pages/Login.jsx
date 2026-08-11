@@ -21,10 +21,10 @@ const API_URL = 'https://quantryxtech.com/homeMailAction.php';
 /* ─── intl-tel-input custom styles ─── */
 const itiStyles = `
   .iti { width: 100%; }
-  .iti--separate-dial-code .iti__selected-dial-code { color: #6b6b6b !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
+  .iti--separate-dial-code .iti__selected-dial-code { color: #9aa0b4 !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
   .iti__flag-container { z-index: 2; }
   .iti__country-list { font-family: 'Courier New', monospace; font-size: 12px; }
-  .iti__country { color: #1b1815; }
+  .iti__country { color: #f5f6fa; }
   .iti__selected-flag { background: transparent !important; }
   .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(0,0,0,0.03) !important; }
   .iti__flag + .iti__selected-dial-code { margin-left: 4px; }
@@ -129,13 +129,8 @@ export default function SignUp() {
     <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <Link to="/" className="flex items-center justify-center gap-2.5 group mb-8">
-          <div className="grid grid-cols-3 gap-[3px]">
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className={`w-[7px] h-[7px] rounded-sm transition-colors ${[0, 2, 4, 6, 8].includes(i) ? 'bg-[#ff6b2b]' : 'bg-[#4a4a4a] dark:bg-[#8a8a8a]'}`} />
-            ))}
-          </div>
-          <span className="font-mono font-bold text-lg tracking-tight text-foreground">Trader.<span className="text-primary">AI</span></span>
+        <Link to="/" className="flex items-center justify-center group mb-8">
+          <img src="/logo.webp" alt="AI Trader" className="h-10 lg:h-12 w-auto max-w-[220px]" loading="eager" />
         </Link>
 
         {/* Card */}
@@ -159,12 +154,12 @@ export default function SignUp() {
                 <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">First Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><User cn="w-4 h-4 text-muted-foreground/60" /></div>
-                  <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                  <input ref={firstNameRef} type="text" placeholder="John" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
                 </div>
               </div>
               <div>
                 <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Last Name</label>
-                <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                <input ref={lastNameRef} type="text" placeholder="Doe" className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
               </div>
             </div>
 
@@ -173,7 +168,7 @@ export default function SignUp() {
               <label className="block font-mono text-[10px] uppercase tracking-[0.1em] text-muted-foreground mb-1.5">Email</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none"><Mail cn="w-4 h-4 text-muted-foreground/60" /></div>
-                <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
+                <input ref={emailRef} type="email" placeholder="you@example.com" className="w-full h-11 pl-10 pr-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" required />
               </div>
             </div>
 
@@ -185,7 +180,7 @@ export default function SignUp() {
                 id="phone"
                 name="phone"
                 type="tel"
-                className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                className="w-full h-11 px-4 rounded-lg border border-border bg-background font-mono text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
                 onInput={(e) => { e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 13); }}
                 maxLength={13}
                 required
@@ -193,7 +188,7 @@ export default function SignUp() {
             </div>
 
             {/* Submit */}
-            <button type="submit" disabled={loading} className="w-full h-12 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2">
+            <button type="submit" disabled={loading} className="w-full h-12 rounded-lg text-white hover:opacity-90 disabled:opacity-60 transition-all font-mono text-xs uppercase tracking-[0.1em] shadow-xs mt-2" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>
               {loading ? 'Submitting...' : 'Create Account'}
             </button>
             <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">

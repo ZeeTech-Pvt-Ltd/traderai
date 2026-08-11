@@ -102,9 +102,9 @@ export const TRADERS = rawTraders.map((item, i) => {
 });
 
 export const RISK_COLORS = {
-  Low: 'bg-[#00bd68]/10 text-[#00bd68] border-[#00bd68]/20',
+  Low: 'bg-[#05df72]/10 text-[#05df72] border-[#05df72]/20',
   Medium: 'bg-[#fcbb00]/10 text-[#fcbb00] border-[#fcbb00]/20',
-  High: 'bg-[#ff3d4d]/10 text-[#ff3d4d] border-[#ff3d4d]/20',
+  High: 'bg-[#fb2c36]/10 text-[#fb2c36] border-[#fb2c36]/20',
 };
 
 export function getTraderBySlug(slug) {
