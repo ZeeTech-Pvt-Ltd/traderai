@@ -118,6 +118,11 @@ export default function Contact() {
     styleEl.textContent = itiStyles;
     document.head.appendChild(styleEl);
 
+    const linkEl = document.createElement('link');
+    linkEl.rel = 'stylesheet';
+    linkEl.href = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css';
+    document.head.appendChild(linkEl);
+
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js';
     script.onload = () => {
@@ -149,6 +154,7 @@ export default function Contact() {
     return () => {
       if (itiRef.current) itiRef.current.destroy();
       if (styleEl.parentNode) styleEl.parentNode.removeChild(styleEl);
+      if (linkEl.parentNode) linkEl.parentNode.removeChild(linkEl);
     };
   }, []);
 

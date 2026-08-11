@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -25,10 +24,35 @@
     }
     </script>
     <script>
+      /* Lazy-load the Replain chat widget — it only downloads after the visitor
+         first interacts (scroll/click/touch/keys) or the page is idle for a few
+         seconds. Keeps the ~100KB widget off the critical path without changing
+         how/when the chat bubble appears. */
       window.replainSettings = { id: 'c6366b02-2531-4ee7-b3e1-7cc6f93d7e57' };
-      (function(u){var s=document.createElement('script');s.async=true;s.src=u;
-      var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
-      })('https://widget.replain.cc/dist/client.js');
+      (function () {
+        var loaded = false;
+        function load() {
+          if (loaded) return;
+          loaded = true;
+          cleanup();
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://widget.replain.cc/dist/client.js';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(s, x);
+        }
+        var evts = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
+        function onEvent() { load(); }
+        function cleanup() {
+          for (var i = 0; i < evts.length; i++) window.removeEventListener(evts[i], onEvent);
+          if ('cancelIdleCallback' in window) window.cancelIdleCallback(idleId);
+          else clearTimeout(idleId);
+        }
+        for (var i = 0; i < evts.length; i++) window.addEventListener(evts[i], onEvent, { passive: true });
+        var idleId = ('requestIdleCallback' in window)
+          ? window.requestIdleCallback(load, { timeout: 8000 })
+          : setTimeout(load, 8000);
+      })();
     </script>
   </head>
   <body class="font-sans antialiased bg-background text-foreground">

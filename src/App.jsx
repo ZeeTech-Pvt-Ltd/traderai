@@ -1,28 +1,43 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
 import Layout from './components/Layout';
 import SEO from './components/SEO';
-import HomePage from './pages/HomePage';
-import TradersPage from './pages/TradersPage';
-import TraderProfile from './pages/TraderProfile';
-import LeaderboardPage from './pages/LeaderboardPage';
-import WhyTraderAI from './pages/WhyTraderAI';
-import Partners from './pages/Partners';
-import FAQPage from './pages/FAQPage';
-import Verification from './pages/Verification';
-import OpenClaw from './pages/OpenClaw';
-import Blog from './pages/Blog';
-import BlogPostDetail from './pages/BlogPostDetail';
-import Contact from './pages/Contact';
-import Login from './pages/Login';
-import ThankYou from './pages/ThankYou';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import RiskDisclosure from './pages/RiskDisclosure';
-import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
+
+/* ─── Route-level code splitting ─────────────────────────────────────────────
+   Each page is lazy-loaded so the initial visit only downloads the code it
+   actually needs. The shared shell (Layout/Navbar/Footer/SEO) stays in the
+   main bundle. UI, routing and content are identical. */
+const HomePage = lazy(() => import('./pages/HomePage'));
+const TradersPage = lazy(() => import('./pages/TradersPage'));
+const TraderProfile = lazy(() => import('./pages/TraderProfile'));
+const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
+const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
+const Partners = lazy(() => import('./pages/Partners'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const Verification = lazy(() => import('./pages/Verification'));
+const OpenClaw = lazy(() => import('./pages/OpenClaw'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPostDetail = lazy(() => import('./pages/BlogPostDetail'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Login = lazy(() => import('./pages/Login'));
+const ThankYou = lazy(() => import('./pages/ThankYou'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const RiskDisclosure = lazy(() => import('./pages/RiskDisclosure'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+/* Minimal loader shown briefly while a page chunk downloads. */
+function RouteFallback() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="w-8 h-8 rounded-full border-2 border-[#7b5cff]/30 border-t-[#7b5cff] animate-spin" />
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -31,6 +46,7 @@ export default function App() {
         <ScrollToTop />
         <ErrorBoundary>
         <div className="min-h-screen bg-background text-foreground flex flex-col">
+          <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route
               path="/"
@@ -249,10 +265,11 @@ export default function App() {
               </>
             }
           />
-        </Routes>
+          </Routes>
+          </Suspense>
         </div>
         </ErrorBoundary>
-    </BrowserRouter>
+      </BrowserRouter>
     </HelmetProvider>
   );
 }
