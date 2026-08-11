@@ -14,6 +14,7 @@ import RiskDashboard from '../components/RiskDashboard';
 import CanCant from '../components/CanCant';
 import ResultTypes from '../components/ResultTypes';
 import AudienceCards from '../components/AudienceCards';
+import ExplorePlatform from '../components/ExplorePlatform';
 import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import { T, grad } from '../components/homeTheme';
@@ -88,7 +89,9 @@ export default function HomePage() {
       <ResultTypes />
       {/* 15. Who It Is For */}
       <AudienceCards />
-      {/* 16. Testimonials */}
+      {/* 16. Explore Platform */}
+      <ExplorePlatform />
+      {/* 17. Testimonials */}
       <Testimonials />
       {/* 17. Learning — REMOVED */}
       {/* 18. Support */}
