@@ -28,7 +28,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer style={{ background: '#05070f', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+    <footer style={{ background: '#0a0e1a' }}>
+      {/* Gradient separator line — makes the footer feel visually distinct */}
+      <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(123,92,255,0.45) 25%, rgba(90,125,255,0.45) 75%, transparent)' }} />
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
         {/* Top Section */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
