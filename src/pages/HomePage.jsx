@@ -45,7 +45,7 @@ function FinalCTA() {
                 Create Free Account
               </Link>
             </div>
-            <p className="mt-5 text-[10px]" style={{ color: T.muted }}>
+            <p className="mt-5 text-[10px]" style={{ color: T.sub }}>
               Trading involves risk. Past performance is not indicative of future results.
             </p>
           </div>
