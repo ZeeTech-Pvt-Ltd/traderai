@@ -27,6 +27,7 @@ const Login = lazy(() => import('./pages/Login'));
 const ThankYou = lazy(() => import('./pages/ThankYou'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const RiskDisclosure = lazy(() => import('./pages/RiskDisclosure'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -247,6 +248,18 @@ export default function App() {
                 <SEO title="Risk Disclosure | AI Trading & Financial Markets" description="Important risk information for AI trading, algorithmic trading, and financial markets. Understand the risks before using automated trading agents." path="/legal/risk-disclosure" />
                 <Layout>
                   <RiskDisclosure />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/legal/cookie-policy"
+            element={
+              <>
+                <SEO title="Cookie Policy | AI Trader" description="How AI Trader uses cookies and similar technologies on our AI trading platform — what cookies we set, why we use them, and how you can manage or disable them." path="/legal/cookie-policy" />
+                <Layout>
+                  <CookiePolicy />
                   <Footer />
                 </Layout>
               </>

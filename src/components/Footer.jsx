@@ -20,6 +20,7 @@ const FOOTER_LINKS = {
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },
     { label: 'Terms of Service', href: '/legal/terms-of-service' },
     { label: 'Risk Disclosure', href: '/legal/risk-disclosure' },
+    { label: 'Cookie Policy', href: '/legal/cookie-policy' },
   ],
 };
 
