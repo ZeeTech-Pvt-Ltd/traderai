@@ -12,28 +12,34 @@ const PORT = process.env.PORT || 10000;
 /* Compress HTML/JS/CSS/SVG responses (Render web services don't auto-compress) */
 app.use(compression());
 
-/* Static assets with explicit, correct cache headers */
+/* Static assets with explicit, correct cache headers.
+   Strategy (intentionally different per file type):
+   - index.html / robots.txt / sitemap.xml  → revalidate every request (no-cache),
+     so a new deploy's fresh hashed asset names are picked up immediately.
+   - dist/assets/* (Vite content-hashed JS/CSS) → cache forever + immutable, safe
+     because the filename changes whenever the file content changes.
+   - everything else (images, icons, fonts, non-hashed files) → normal short cache
+     with ETag revalidation, so files stay cached but can still be updated. */
 app.use(
   express.static(distDir, {
     etag: true,
     setHeaders: (res, filePath) => {
       const base = path.basename(filePath);
 
-      // Entry documents — always revalidate so new deploys propagate immediately.
-      // Browsers send conditional GET (If-None-Match) → server replies 304 when unchanged.
+      // Entry documents + SEO metadata files — revalidate on every request.
       if (base.endsWith('.html') || base === 'robots.txt' || base === 'sitemap.xml') {
         res.setHeader('Cache-Control', 'no-cache, must-revalidate');
         return;
       }
 
-      // Content-hashed JS/CSS (dist/assets/index-*.js, *.css) — filename changes on
-      // every build, so these can be cached forever without ever going stale.
-      if (filePath.split(path.sep).includes('assets')) {
+      // Content-hashed JS/CSS under dist/assets/ — immutable, long-term cache.
+      if (filePath.includes(path.join('dist', 'assets'))) {
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
         return;
       }
 
-      // Other public assets (images, icons) — short cache with ETag revalidation.
+      // All other public assets (images, SVGs, icons, manifest, etc.) — normal
+      // caching (1 day) with ETag revalidation so updates propagate within a day.
       res.setHeader('Cache-Control', 'public, max-age=86400');
     },
   })
