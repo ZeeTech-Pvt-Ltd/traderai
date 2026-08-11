@@ -6,6 +6,7 @@ import { cn } from '../utils/cn';
 const NAV_LINKS = [
   { label: 'Traders', href: '/traders' },
   { label: 'Leaderboard', href: '/leaderboard' },
+  { label: 'AI Trading Platform', href: '/ai-trading-platform' },
   { label: 'About', href: '/why-trader-ai' },
   { label: 'Partners', href: '/partners' },
   { label: 'FAQ', href: '/faq' },
@@ -33,7 +34,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {NAV_LINKS.map((link) => {
               const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
               return (

@@ -14,6 +14,7 @@ const FOOTER_LINKS = {
   Product: [
     { label: 'AI Traders', href: '/traders' },
     { label: 'Leaderboard', href: '/leaderboard' },
+    { label: 'AI Trading Platform', href: '/ai-trading-platform' },
     { label: 'OpenClaw', href: '/openclaw' },
   ],
   Legal: [

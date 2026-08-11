@@ -13,6 +13,7 @@ import Footer from './components/Footer';
    main bundle. UI, routing and content are identical. */
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TradersPage = lazy(() => import('./pages/TradersPage'));
+const AITradingPlatform = lazy(() => import('./pages/AITradingPlatform'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -68,6 +69,18 @@ export default function App() {
                 <SEO title="AI Trading Bots | Compare Automated Trading Agents" description="Browse and compare AI trading bots and algorithmic trading agents. Analyze performance, strategies, AI models, and risk profiles across forex, crypto, stocks, and commodities." path="/traders" />
                 <Layout>
                   <TradersPage />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/ai-trading-platform"
+            element={
+              <>
+                <SEO title="AI Trading Platform | Automated Trading Made Simple" description="AI Trader is an automated AI trading platform that scans the markets 24/7, spots setups matching your rules, and acts for you — simple enough for anyone. Set your plan, the system runs it." path="/ai-trading-platform" />
+                <Layout>
+                  <AITradingPlatform />
                   <Footer />
                 </Layout>
               </>
