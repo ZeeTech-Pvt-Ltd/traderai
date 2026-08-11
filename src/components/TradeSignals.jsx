@@ -62,7 +62,7 @@ export default function TradeSignals() {
           </div>
         </div>
 
-        <p className="mt-4 text-[10px] text-center" style={{ color: T.muted }}>
+        <p className="mt-4 text-[10px] text-center" style={{ color: T.sub }}>
           Illustrative signals shown for demonstration — not live trading recommendations.
         </p>
         <div className="mt-6 text-center">
