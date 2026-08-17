@@ -246,7 +246,7 @@ export default function AITradingPlatform() {
 
       {/* ═══ Why AI Beats Manual Trading ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
           <SectionHeader kicker="The Difference" title="Why AI Beats Manual" accent="Trading?" />
           <div className="space-y-5 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
             <p>Let's be honest about people.</p>
