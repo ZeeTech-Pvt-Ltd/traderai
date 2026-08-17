@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 const HomePage = lazy(() => import('./pages/HomePage'));
 const TradersPage = lazy(() => import('./pages/TradersPage'));
 const AITradingPlatform = lazy(() => import('./pages/AITradingPlatform'));
+const AITradingAssistant = lazy(() => import('./pages/AITradingAssistant'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -81,6 +82,18 @@ export default function App() {
                 <SEO title="AI Trading Platform | Automated Trading Made Simple" description="AI Trader is an automated AI trading platform that scans the markets 24/7, spots setups matching your rules, and acts for you — simple enough for anyone. Set your plan, the system runs it." path="/ai-trading-platform" />
                 <Layout>
                   <AITradingPlatform />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/ai-trading-assistant"
+            element={
+              <>
+                <SEO title="AI Trading Assistant | Markets Explained in Plain Language" description="The AI Trader assistant reads the market, checks your risk limits, and answers in plain language. Ask anything, get daily briefings, and make calmer decisions — your call, always." path="/ai-trading-assistant" />
+                <Layout>
+                  <AITradingAssistant />
                   <Footer />
                 </Layout>
               </>
