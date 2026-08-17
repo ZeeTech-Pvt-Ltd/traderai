@@ -95,7 +95,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
+    <div className="min-h-screen pt-16 lg:pt-20">
       {/* ═══ Hero ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-3xl mx-auto text-center">
@@ -200,7 +200,7 @@ export default function FAQPage() {
       </section>
 
       {/* ═══ Still have questions? ═══ */}
-      <section className="py-10 lg:py-14 px-4 sm:px-6 lg:px-8 bg-[#0d1120]/30 dark:bg-[#10152a]/30 border-y border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#0d1120]/30 dark:bg-[#10152a]/30 border-y border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-3xl mx-auto text-center">
           <MessageIcon className="w-10 h-10 text-[#7b5cff] mx-auto mb-4" />
           <h2 className="font-mono font-black text-2xl lg:text-3xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">

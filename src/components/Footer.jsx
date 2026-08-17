@@ -2,12 +2,11 @@ import { Link } from 'react-router-dom';
 
 const FOOTER_LINKS = {
   'Why AI Trader': [
-    { label: 'About Us', href: '/why-trader-ai' },
-    { label: 'Partners', href: '/partners' },
+    { label: 'Home', href: '/' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Sign Up', href: '/signup' },
   ],
   Resources: [
-    { label: 'FAQ', href: '/faq' },
     { label: 'Blog', href: '/resources/blog' },
     { label: 'Verification', href: '/resources/verification' },
   ],
@@ -15,7 +14,6 @@ const FOOTER_LINKS = {
     { label: 'AI Traders', href: '/traders' },
     { label: 'Leaderboard', href: '/leaderboard' },
     { label: 'AI Trading Platform', href: '/ai-trading-platform' },
-    { label: 'OpenClaw', href: '/openclaw' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },

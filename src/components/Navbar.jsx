@@ -7,10 +7,8 @@ const NAV_LINKS = [
   { label: 'Traders', href: '/traders' },
   { label: 'Leaderboard', href: '/leaderboard' },
   { label: 'AI Trading Platform', href: '/ai-trading-platform' },
-  { label: 'About', href: '/why-trader-ai' },
-  { label: 'Partners', href: '/partners' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'OpenClaw', href: '/openclaw' },
+  { label: 'Blog', href: '/resources/blog' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const GRAD = 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)';

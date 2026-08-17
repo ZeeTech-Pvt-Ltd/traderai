@@ -156,7 +156,7 @@ export default function AITradingPlatform() {
   const [openId, setOpenId] = useState(null);
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
+    <div className="min-h-screen pt-16 lg:pt-20">
       {/* ═══ Hero ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#7b5cff]/5 rounded-full blur-3xl pointer-events-none" />

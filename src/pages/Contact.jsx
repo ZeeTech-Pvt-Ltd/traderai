@@ -205,7 +205,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-16 lg:pb-24">
+    <div className="min-h-screen pt-16 lg:pt-20">
       {/* ═══ Hero ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
