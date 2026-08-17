@@ -1,17 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FAQ_DATA } from '../data/faq';
 import { cn } from '../utils/cn';
 import { T, secHeader, grad } from './homeTheme';
-
-function ArrowRightIcon({ className = 'w-4 h-4' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
 
 function FAQItem({ item, isOpen, onToggle }) {
   return (
@@ -70,16 +60,6 @@ export default function FAQ() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <Link
-            to="/faq"
-            className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-white transition-all group"
-            style={{ background: grad }}
-          >
-            View all questions
-            <ArrowRightIcon className="w-4 h-4 ml-0.5 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -5,7 +5,6 @@ import TrustStrip from '../components/TrustStrip';
 import AgentPerfDemo from '../components/AgentPerfDemo';
 import Leaderboard from '../components/Leaderboard';
 import PlatformTools from '../components/PlatformTools';
-import ChatDemo from '../components/ChatDemo';
 import WhatIsTraderAI from '../components/WhatIsTraderAI';
 import HowItWorks from '../components/HowItWorks';
 import CoreCapabilities from '../components/CoreCapabilities';
@@ -71,9 +70,7 @@ export default function HomePage() {
       <Leaderboard />
       {/* 6. Platform Tools */}
       <PlatformTools />
-      {/* 7. OpenClaw Chat */}
-      <ChatDemo />
-      {/* 8. Overview */}
+      {/* 7. Overview */}
       <WhatIsTraderAI />
       {/* 9. How It Works */}
       <HowItWorks />
