@@ -15,6 +15,7 @@ const HomePage = lazy(() => import('./pages/HomePage'));
 const TradersPage = lazy(() => import('./pages/TradersPage'));
 const AITradingPlatform = lazy(() => import('./pages/AITradingPlatform'));
 const AITradingAssistant = lazy(() => import('./pages/AITradingAssistant'));
+const AIChartAnalyser = lazy(() => import('./pages/AIChartAnalyser'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -94,6 +95,18 @@ export default function App() {
                 <SEO title="AI Trading Assistant | Smarter Decisions in Plain Language" description="Your AI trading assistant for smarter decisions — automatic chart analysis, AI-powered signals, risk management, and 24/7 monitoring. Free to start." path="/ai-trading-assistant" />
                 <Layout>
                   <AITradingAssistant />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/ai-chart-analyser"
+            element={
+              <>
+                <SEO title="AI Chart Analyser | Instant Technical Analysis" description="Upload any trading chart and get instant AI analysis — trend direction, support & resistance levels, trade scenarios, and confidence ratings. Free to start." path="/ai-chart-analyser" />
+                <Layout>
+                  <AIChartAnalyser />
                   <Footer />
                 </Layout>
               </>

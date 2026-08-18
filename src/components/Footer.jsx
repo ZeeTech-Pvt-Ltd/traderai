@@ -15,6 +15,7 @@ const FOOTER_LINKS = {
     { label: 'Leaderboard', href: '/leaderboard' },
     { label: 'AI Trading Platform', href: '/ai-trading-platform' },
     { label: 'AI Trading Assistant', href: '/ai-trading-assistant' },
+    { label: 'AI Chart Analyser', href: '/ai-chart-analyser' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },
