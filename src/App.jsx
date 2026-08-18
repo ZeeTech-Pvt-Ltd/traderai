@@ -104,7 +104,7 @@ export default function App() {
             path="/ai-chart-analyser"
             element={
               <>
-                <SEO title="AI Chart Analyser | Instant Technical Analysis" description="Upload any trading chart and get instant AI analysis — trend direction, support & resistance levels, trade scenarios, and confidence ratings. Free to start." path="/ai-chart-analyser" />
+                <SEO title="AI Chart Analyser | Read Any Chart Instantly" description="Upload a chart image and let AI read the trend, mark key support and resistance, and outline trade scenarios with confidence scores. Free to start." path="/ai-chart-analyser" />
                 <Layout>
                   <AIChartAnalyser />
                   <Footer />

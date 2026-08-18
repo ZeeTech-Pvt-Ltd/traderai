@@ -66,32 +66,32 @@ function ReportIcon({ cn = 'w-[22px] h-[22px]' }) {
 
 /* ─── Data ─── */
 const STATS = [
-  { icon: Zap, title: 'Instant analysis', desc: 'Results in seconds' },
-  { icon: GlobeIcon, title: 'All markets', desc: 'Forex, crypto, stocks' },
-  { icon: LevelsIcon, title: 'S/R levels', desc: 'Key zones identified' },
-  { icon: Shield, title: 'Risk-aware', desc: 'Clear limitations' },
+  { icon: Zap, title: 'Lightning fast', desc: 'Breakdown in moments' },
+  { icon: GlobeIcon, title: 'Every market', desc: 'Forex, crypto, stocks & more' },
+  { icon: LevelsIcon, title: 'Price zones', desc: 'Support & resistance mapped' },
+  { icon: Shield, title: 'Honest limits', desc: 'Risks always flagged' },
 ];
 
 const STEPS = [
-  { num: '01', title: 'Upload a screenshot', desc: 'Take a screenshot of any chart from your trading platform and upload it. PNG, JPG, JPEG, or WEBP — up to 10 MB.' },
-  { num: '02', title: 'AI analyses it', desc: 'The AI reads the chart — price action, trend direction, support/resistance levels, and potential setups.' },
-  { num: '03', title: 'Get your report', desc: 'Receive a structured report with key levels, bullish and bearish scenarios, invalidation levels, risk notes, and a confidence rating.' },
+  { num: '01', title: 'Share a chart', desc: 'Grab a screenshot from your trading platform and drop it into the analyser. PNG, JPG, JPEG, or WEBP — up to 10 MB.' },
+  { num: '02', title: 'AI reads it', desc: 'The system studies price action, trend direction, support and resistance levels, and anything else worth noticing.' },
+  { num: '03', title: 'Read your report', desc: 'You get a tidy breakdown: key price zones, two possible scenarios, invalidation points, risk notes, and a confidence rating.' },
 ];
 
 const WHY_USE = [
-  { icon: RefreshCw, title: 'Save time', desc: 'What takes an hour by hand takes seconds with the analyser. Upload and get a full technical breakdown instantly.' },
-  { icon: Eye, title: 'Clear insights', desc: 'No vague commentary. Every report gives you concrete levels, scenarios, and invalidation points you can act on.' },
-  { icon: Bot, title: 'Learn as you go', desc: 'Each report explains what the AI sees and why it matters — building your chart-reading skills over time.' },
-  { icon: Shield, title: 'Risk-aware analysis', desc: 'Every report includes invalidation levels and confidence ratings. No false certainty — just clear, honest analysis.' },
+  { icon: RefreshCw, title: 'Hours saved', desc: 'A manual chart review that takes an hour is done in seconds — upload once and read the full breakdown instantly.' },
+  { icon: Eye, title: 'Straight to the point', desc: 'No fluffy commentary. Every report hands you concrete levels, scenarios, and invalidation points you can actually act on.' },
+  { icon: Bot, title: 'Sharpen your eye', desc: 'Each report explains the reasoning behind the read, so your own charting instincts improve with every use.' },
+  { icon: Shield, title: 'Risk first', desc: 'Every report lists invalidation levels and a confidence score — no false certainty, just an honest read.' },
 ];
 
 const FEATURES = [
-  { icon: Zap, title: 'Fast analysis', desc: 'Chart breakdown in seconds, not hours.' },
-  { icon: TrendIcon, title: 'Trend detection', desc: 'Identifies direction and momentum shifts.' },
-  { icon: LevelsIcon, title: 'S/R mapping', desc: 'Key support and resistance zones found.' },
-  { icon: ScenariosIcon, title: 'Trade scenarios', desc: 'Entry, stop loss, targets, and invalidation.' },
-  { icon: GlobeIcon, title: 'Cross-market support', desc: 'Forex, crypto, stocks, indices, and more.' },
-  { icon: ReportIcon, title: 'Structured reports', desc: 'Consistent format — levels, scenarios, risk notes.' },
+  { icon: Zap, title: 'Instant reads', desc: 'A complete breakdown in seconds, not hours.' },
+  { icon: TrendIcon, title: 'Trend spotting', desc: 'Sees direction and spots when momentum shifts.' },
+  { icon: LevelsIcon, title: 'Level mapping', desc: 'Finds the support and resistance zones that matter.' },
+  { icon: ScenariosIcon, title: 'Trade setups', desc: 'Suggested entry, stop, targets, and invalidation.' },
+  { icon: GlobeIcon, title: 'All asset classes', desc: 'Forex, crypto, stocks, indices, and more.' },
+  { icon: ReportIcon, title: 'Clear format', desc: 'Every report follows the same layout — levels, scenarios, risk notes.' },
 ];
 
 const MARKETS = ['Forex', 'Indices', 'Commodities', 'Crypto', 'Stocks', 'ETFs'];
@@ -99,15 +99,15 @@ const TIMEFRAMES = ['1-Minute', '5-Minute', '15-Minute', '1-Hour', '4-Hour', 'Da
 const FOCUS = ['Market Structure', 'Trend Analysis', 'Support & Resistance', 'Momentum', 'Comprehensive'];
 
 const SAMPLE = {
-  label: 'EUR/USD — Daily',
-  sub: 'Comprehensive analysis',
-  confidence: 'Moderate confidence',
-  structure: ['Bullish structure', ' on the daily — higher highs and higher lows intact. Price consolidating above the 50-day moving average.'],
-  support: '1.0780',
-  resistance: '1.0920',
-  bullish: 'Break above 1.0920 opens a run toward 1.1000. Invalidation: daily close below 1.0840.',
-  bearish: 'Rejection at 1.0920 risks a slide back to 1.0780. Below that, structure shifts bearish toward 1.0700.',
-  risk: 'Tight range — false breakouts possible. Position sizing matters; consider waiting for a daily close confirmation.',
+  label: 'GBP/USD — 4-Hour',
+  sub: 'Full analysis',
+  confidence: 'Medium confidence',
+  structure: ['Uptrend intact', ' on the 4-hour — price keeps printing higher highs and lows, holding above the 50-period average.'],
+  support: '1.2640',
+  resistance: '1.2820',
+  bullish: 'If 1.2820 gives way, the pair could push toward 1.2950. The idea is cancelled if price closes back under 1.2720.',
+  bearish: 'A rejection at 1.2820 could send price back to 1.2640; losing that level flips the view bearish toward 1.2550.',
+  risk: 'Price is compressed, so breakouts may fail. Keep position size modest and wait for a clean close past the zone before acting.',
 };
 
 /* ─── Section Header (kicker + title + accent) ─── */
@@ -193,7 +193,7 @@ function ChartForm() {
       <div className="mb-6">
         <div className="flex items-center gap-2.5 mb-3">
           <span className="w-6 h-6 rounded-full text-white flex items-center justify-center font-mono text-xs font-bold shrink-0" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>1</span>
-          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Upload your chart</span>
+          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Add your chart image</span>
         </div>
         <label
           className="block border-2 border-dashed border-[rgba(255,255,255,0.12)] hover:border-[#7b5cff]/50 rounded-xl p-8 text-center cursor-pointer transition-colors"
@@ -207,19 +207,19 @@ function ChartForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
-              Analysing chart image…
+              Reading your chart…
             </div>
           ) : preview ? (
             <div>
               <img src={preview} alt={fileName || 'Uploaded chart'} className="max-h-64 mx-auto rounded-lg border border-[rgba(255,255,255,0.1)]" />
               <div className="text-[#05df72] font-mono font-semibold text-sm mt-3 mb-1">✓ {fileName}</div>
-              <div className="font-mono text-xs text-[#7c829c]">Click to replace</div>
+              <div className="font-mono text-xs text-[#7c829c]">Tap to pick a different image</div>
             </div>
           ) : (
             <div>
               <UploadIcon cn="w-8 h-8 mx-auto mb-3 text-[#7c829c]" />
-              <div className="font-mono font-bold text-sm text-[#f5f6fa]">Click to browse or drag and drop</div>
-              <div className="font-mono text-xs text-[#7c829c] mt-1">PNG, JPG, JPEG, WEBP — max 10 MB</div>
+              <div className="font-mono font-bold text-sm text-[#f5f6fa]">Drop your chart here or browse files</div>
+              <div className="font-mono text-xs text-[#7c829c] mt-1">Supports PNG, JPG, JPEG & WEBP — up to 10 MB</div>
             </div>
           )}
         </label>
@@ -229,7 +229,7 @@ function ChartForm() {
       <div className="mb-6">
         <div className="flex items-center gap-2.5 mb-3">
           <span className="w-6 h-6 rounded-full text-white flex items-center justify-center font-mono text-xs font-bold shrink-0" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>2</span>
-          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Configure analysis</span>
+          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Set your preferences</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
@@ -251,17 +251,17 @@ function ChartForm() {
       <div>
         <div className="flex items-center gap-2.5 mb-3">
           <span className="w-6 h-6 rounded-full text-white flex items-center justify-center font-mono text-xs font-bold shrink-0" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}>3</span>
-          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Submit</span>
+          <span className="font-mono font-bold text-sm text-[#f5f6fa]">Run analysis</span>
         </div>
         <Link
           to="/signup"
           className={`inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 w-full rounded-md text-white transition-all ${preview ? 'hover:opacity-90 shadow-lg' : 'opacity-50 pointer-events-none'}`}
           style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
         >
-          Submit for Deep Analysis
+          Run Full Analysis
           <ArrowRight cn="w-4 h-4" />
         </Link>
-        {!preview && <p className="font-mono text-xs text-[#7c829c] text-center mt-2">Upload a chart to continue</p>}
+        {!preview && <p className="font-mono text-xs text-[#7c829c] text-center mt-2">Add a chart image to continue</p>}
       </div>
     </div>
   );
@@ -287,7 +287,7 @@ function SampleOutput() {
 
         <div className="space-y-4">
           <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Market Structure</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Market View</div>
             <p className="text-sm text-[#f5f6fa] leading-relaxed tracking-[0.02em]">
               <span className="text-[#05df72] font-bold">{SAMPLE.structure[0]}</span>
               {SAMPLE.structure[1]}
@@ -296,32 +296,32 @@ function SampleOutput() {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Key Support</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Support Zone</div>
               <div className="font-mono text-lg font-bold text-[#05df72]">{SAMPLE.support}</div>
             </div>
             <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Key Resistance</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Resistance Zone</div>
               <div className="font-mono text-lg font-bold text-[#fb2c36]">{SAMPLE.resistance}</div>
             </div>
           </div>
 
           <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Bullish Scenario</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Up Scenario</div>
             <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{SAMPLE.bullish}</p>
           </div>
           <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Bearish Scenario</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Down Scenario</div>
             <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{SAMPLE.bearish}</p>
           </div>
 
           <div className="rounded-lg p-3.5" style={{ background: 'rgba(252,187,0,0.05)', border: '1px solid rgba(252,187,0,0.2)' }}>
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#fcbb00] font-bold mb-1.5">Risk Considerations</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#fcbb00] font-bold mb-1.5">Things to Watch</div>
             <p className="text-xs text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{SAMPLE.risk}</p>
           </div>
         </div>
       </div>
       <p className="font-mono text-xs text-[#7c829c] mt-4 text-center">
-        ⚠ <span className="font-bold text-[#fcbb00]">Sample Output</span> — demonstration only. Actual results vary. AI analysis can be incomplete or incorrect.
+        ⚠ <span className="font-bold text-[#fcbb00]">Example Report</span> — shown for illustration only. Your results will differ. AI analysis can be wrong.
       </p>
     </div>
   );
@@ -340,18 +340,18 @@ export default function AIChartAnalyser() {
             AI Chart Analyser
           </span>
           <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.05] text-[#f5f6fa]">
-            AI Trading Chart Analyzer for{' '}
-            <span className="block text-[#7b5cff]">Better Trading Decisions</span>
+            Read Any Chart in Seconds{' '}
+            <span className="block text-[#7b5cff]">and Trade With More Clarity</span>
           </h1>
           <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[600px] mx-auto">
-            Upload any trading chart and get an instant breakdown — price action, trend direction, support and resistance levels, and potential setups with confidence scoring.
+            Drop in a screenshot of any chart and our AI walks you through it — trend direction, key price zones, and likely setups, each with a confidence score so you know how much weight to give it.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#analyzer"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Analyze Your Chart
+              Try the Analyser Now
               <ArrowRight cn="w-4 h-4" />
             </a>
             <Link
@@ -361,7 +361,7 @@ export default function AIChartAnalyser() {
               Create Free Account
             </Link>
           </div>
-          <p className="font-mono text-xs text-[#7c829c] mt-5">No guaranteed returns. Trading involves risk.</p>
+          <p className="font-mono text-xs text-[#7c829c] mt-5">Results are not guaranteed. All trading carries risk.</p>
         </div>
       </section>
 
@@ -385,7 +385,7 @@ export default function AIChartAnalyser() {
       {/* ═══ Analyzer ═══ */}
       <section id="analyzer" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] scroll-mt-20 lg:scroll-mt-24" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Analyze a Chart" title="Upload. Configure." accent="Get your analysis." />
+          <SectionHeader kicker="The Analyser" title="Upload. Choose." accent="Get the breakdown." />
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-start">
             <ChartForm />
             <SampleOutput />
@@ -396,7 +396,7 @@ export default function AIChartAnalyser() {
       {/* ═══ How It Works ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="How It Works" title="Three Steps to" accent="Clearer Charts." />
+          <SectionHeader kicker="How It Works" title="Analysis in" accent="Three Easy Steps" />
           <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
             {STEPS.map((s) => (
               <div key={s.num} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
@@ -415,7 +415,7 @@ export default function AIChartAnalyser() {
       {/* ═══ Why Use This Tool ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Why Use This Tool" title="Your Charts," accent="Decoded in Seconds." />
+          <SectionHeader kicker="Why Use This Tool" title="Why Traders" accent="Keep It Handy" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {WHY_USE.map((w) => <FeatureCard key={w.title} {...w} />)}
           </div>
@@ -425,7 +425,7 @@ export default function AIChartAnalyser() {
       {/* ═══ Features ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Features" title="Everything in" accent="One Analysis." />
+          <SectionHeader kicker="Features" title="One Tool," accent="Every Angle" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {FEATURES.map((f) => <FeatureCard key={f.title} {...f} />)}
           </div>
@@ -437,14 +437,14 @@ export default function AIChartAnalyser() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.12) 0%, transparent 60%)' }} />
         <div className="max-w-[640px] mx-auto relative z-10">
           <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa] mb-5" style={{ lineHeight: '1.35' }}>
-            Ready to Analyze Your <span className="text-[#7b5cff]">Next Trading Chart?</span>
+            Want a Second Set of Eyes <span className="text-[#7b5cff]">on Your Chart?</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             <a
               href="#analyzer"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Analyze Chart Now
+              Analyze a Chart Now
               <ArrowRight cn="w-4 h-4" />
             </a>
             <Link
@@ -454,7 +454,7 @@ export default function AIChartAnalyser() {
               Create Free Account
             </Link>
           </div>
-          <p className="font-mono text-xs text-[#7c829c] max-w-[480px] mx-auto leading-relaxed">AI analysis can be incorrect. Trading involves risk — only trade with capital you can afford to lose.</p>
+          <p className="font-mono text-xs text-[#7c829c] max-w-[480px] mx-auto leading-relaxed">AI analysis may be wrong. Trading is risky — never trade money you can't afford to lose.</p>
         </div>
       </section>
     </div>
