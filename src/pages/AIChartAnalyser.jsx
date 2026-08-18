@@ -267,6 +267,97 @@ function ChartForm() {
   );
 }
 
+/* ─── Support / Resistance mini chart ───
+   Hand-drawn candlestick chart with the support and resistance zones
+   marked directly on the price axis — replaces the plain number cards. */
+function toY(price) {
+  // Compact chart: price axis 1.2860 (top) → 1.2580 (bottom) onto 170 units
+  return Math.round(((1.286 - price) / (1.286 - 1.258)) * 170);
+}
+
+const ZCANDLES = [
+  { o: 1.2700, c: 1.2690, h: 1.2715, l: 1.2675 },
+  { o: 1.2690, c: 1.2705, h: 1.2720, l: 1.2680 },
+  { o: 1.2705, c: 1.2695, h: 1.2718, l: 1.2688 },
+  { o: 1.2695, c: 1.2718, h: 1.2730, l: 1.2690 },
+  { o: 1.2718, c: 1.2725, h: 1.2740, l: 1.2708 },
+  { o: 1.2725, c: 1.2738, h: 1.2752, l: 1.2720 },
+  { o: 1.2738, c: 1.2728, h: 1.2746, l: 1.2722 },
+  { o: 1.2728, c: 1.2742, h: 1.2756, l: 1.2724 },
+  { o: 1.2742, c: 1.2735, h: 1.2750, l: 1.2728 },
+  { o: 1.2735, c: 1.2745, h: 1.2758, l: 1.2730 },
+];
+// candle centers — plot area starts after the left price gutter
+const ZCANDLE_X = [70, 103, 136, 169, 202, 235, 268, 301, 334, 367];
+const PLOT_X0 = 62;
+const PLOT_X1 = 398;
+
+function ZoneChart() {
+  const supportY = toY(1.2640);
+  const resistanceY = toY(1.2820);
+  const currentY = toY(1.2745);
+  return (
+    <div className="rounded-xl p-4" style={{ background: '#05070f', border: '1px solid rgba(255,255,255,0.08)' }}>
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold">Price Action</span>
+        <div className="flex items-center gap-3">
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#05df72]">
+            <span className="w-2.5 h-0.5 rounded" style={{ background: '#05df72' }} /> Support
+          </span>
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#fb2c36]">
+            <span className="w-2.5 h-0.5 rounded" style={{ background: '#fb2c36' }} /> Resistance
+          </span>
+        </div>
+      </div>
+      <svg viewBox="0 0 400 170" className="w-full h-auto max-h-[240px]" role="img" aria-label="Price chart showing support and resistance zones">
+        <defs>
+          <linearGradient id="rangeGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7b5cff" stopOpacity="0.14" />
+            <stop offset="100%" stopColor="#7b5cff" stopOpacity="0.03" />
+          </linearGradient>
+        </defs>
+
+        {/* trading-range fill */}
+        <rect x={PLOT_X0} y={resistanceY} width={PLOT_X1 - PLOT_X0} height={supportY - resistanceY} fill="url(#rangeGrad)" />
+
+        {/* horizontal grid lines */}
+        {[1.2800, 1.2730, 1.2660].map((p) => (
+          <line key={p} x1={PLOT_X0} x2={PLOT_X1} y1={toY(p)} y2={toY(p)} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+        ))}
+
+        {/* candles */}
+        {ZCANDLES.map((c, i) => {
+          const up = c.c >= c.o;
+          const color = up ? '#05df72' : '#fb2c36';
+          const x = ZCANDLE_X[i];
+          const oy = toY(c.o);
+          const cy = toY(c.c);
+          return (
+            <g key={i}>
+              <line x1={x} x2={x} y1={toY(c.h)} y2={toY(c.l)} stroke={color} strokeWidth="1.5" opacity="0.85" />
+              <rect x={x - 5} y={Math.min(oy, cy)} width="10" height={Math.max(2, Math.abs(cy - oy))} rx="1.5" fill={color} opacity="0.9" />
+            </g>
+          );
+        })}
+
+        {/* resistance zone — label in left gutter, clear of chart edges */}
+        <line x1={PLOT_X0} x2={PLOT_X1} y1={resistanceY} y2={resistanceY} stroke="#fb2c36" strokeWidth="1.5" strokeDasharray="6 5" opacity="0.9" />
+        <rect x={PLOT_X0} y={resistanceY} width={PLOT_X1 - PLOT_X0} height="3" fill="#fb2c36" opacity="0.15" />
+        <text x="6" y={resistanceY + 4} fontSize="10" fontFamily="monospace" fill="#fb2c36" fontWeight="bold">R 1.2820</text>
+
+        {/* support zone */}
+        <line x1={PLOT_X0} x2={PLOT_X1} y1={supportY} y2={supportY} stroke="#05df72" strokeWidth="1.5" strokeDasharray="6 5" opacity="0.9" />
+        <rect x={PLOT_X0} y={supportY - 3} width={PLOT_X1 - PLOT_X0} height="3" fill="#05df72" opacity="0.15" />
+        <text x="6" y={supportY - 4} fontSize="10" fontFamily="monospace" fill="#05df72" fontWeight="bold">S 1.2640</text>
+
+        {/* current price */}
+        <line x1={PLOT_X0} x2={PLOT_X1} y1={currentY} y2={currentY} stroke="#7b5cff" strokeWidth="1" strokeDasharray="2 4" opacity="0.7" />
+        <text x="6" y={currentY - 4} fontSize="10" fontFamily="monospace" fill="#7b5cff" fontWeight="bold">1.2745</text>
+      </svg>
+    </div>
+  );
+}
+
 /* ─── Sample Output Card ─── */
 function SampleOutput() {
   return (
@@ -294,25 +385,7 @@ function SampleOutput() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Support Zone</div>
-              <div className="font-mono text-lg font-bold text-[#05df72]">{SAMPLE.support}</div>
-            </div>
-            <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-              <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Resistance Zone</div>
-              <div className="font-mono text-lg font-bold text-[#fb2c36]">{SAMPLE.resistance}</div>
-            </div>
-          </div>
-
-          <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Up Scenario</div>
-            <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{SAMPLE.bullish}</p>
-          </div>
-          <div className="bg-[#05070f] border border-[rgba(255,255,255,0.08)] rounded-lg p-4">
-            <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#7c829c] font-bold mb-2">Down Scenario</div>
-            <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{SAMPLE.bearish}</p>
-          </div>
+          <ZoneChart />
 
           <div className="rounded-lg p-3.5" style={{ background: 'rgba(252,187,0,0.05)', border: '1px solid rgba(252,187,0,0.2)' }}>
             <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#fcbb00] font-bold mb-1.5">Things to Watch</div>
