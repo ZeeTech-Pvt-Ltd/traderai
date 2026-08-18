@@ -367,7 +367,7 @@ export default function AIChartAnalyser() {
 
       {/* ═══ Stats Band ═══ */}
       <section className="py-10 lg:py-14 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {STATS.map((s) => (
             <div key={s.title} className="flex items-center gap-4 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-xl p-4 lg:p-5">
               <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
