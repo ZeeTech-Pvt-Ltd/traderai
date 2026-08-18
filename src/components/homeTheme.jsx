@@ -9,7 +9,7 @@ export const T = {
   // Text
   text: '#f5f6fa',
   sub: '#9aa0b4',
-  muted: '#6b7086',
+  muted: '#7c829c',
 
   // Accent gradient
   violet: '#7b5cff',

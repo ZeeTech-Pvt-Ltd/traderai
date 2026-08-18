@@ -69,14 +69,14 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-10 lg:mt-12 pt-6 lg:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-          <p className="font-mono text-[11px] mx-auto" style={{ color: '#6b7086' }}>
+          <p className="font-mono text-[11px] mx-auto" style={{ color: '#7c829c' }}>
             &copy; {currentYear} AI Trader. All rights reserved.
           </p>
         </div>
 
         {/* Risk Disclaimer */}
         <div className="mt-6 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <p className="text-[10px] leading-relaxed tracking-normal" style={{ color: '#6b7086' }}>
+          <p className="text-[10px] leading-relaxed tracking-normal" style={{ color: '#7c829c' }}>
             Trading involves risk. Past performance is not indicative of future results. The AI agents and trading strategies shown on this platform are for informational and educational purposes only. They do not constitute financial advice. You should consult with a qualified financial advisor before making any trading decisions.
           </p>
         </div>

@@ -34,7 +34,7 @@ export default function RiskDashboard() {
           {['Low', 'Medium', 'High'].map((l) => (
             <div key={l} className="rounded-xl p-3 sm:p-5 text-center min-w-0" style={{ background: T.card, border: `1px solid ${T.border}` }}>
               <p className="font-mono font-black text-2xl sm:text-3xl leading-none" style={{ color: riskColor(l) }}>{split[l]}</p>
-              <p className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: T.muted }}>{l} Risk Agents</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: T.muted }}>{l} Risk Agents</p>
             </div>
           ))}
         </div>

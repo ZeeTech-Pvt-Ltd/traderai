@@ -34,7 +34,7 @@ function LeaderboardRow({ trader, rank }) {
   const rl = riskLabel(trader.risk);
   return (
     <div
-      className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-2.5 transition-colors border-b last:border-0 group"
+      className="grid grid-cols-[40px_1fr_80px_100px_150px_70px_120px_80px_90px] gap-3 items-center px-4 py-2.5 transition-colors border-b last:border-0 group"
       style={{ borderColor: T.border }}
     >
       <span className="font-mono text-xs font-bold" style={{ color: T.muted }}>0{rank}</span>
@@ -54,7 +54,7 @@ function LeaderboardRow({ trader, rank }) {
       </div>
 
       <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.market}</span>
-      <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.strategy}</span>
+      <span className="font-mono text-xs leading-snug" style={{ color: T.sub }}>{trader.strategy}</span>
 
       <span
         className="inline-flex items-center justify-self-center font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 rounded border"
@@ -63,7 +63,7 @@ function LeaderboardRow({ trader, rank }) {
         {rl}
       </span>
 
-      <span className="font-mono text-xs truncate" style={{ color: T.sub }}>{trader.model}</span>
+      <span className="font-mono text-xs leading-snug" style={{ color: T.sub }}>{trader.model}</span>
 
       <span className="font-mono text-sm font-bold text-right" style={{ color: getColor(trader.totalReturn) }}>{percent(trader.totalReturn)}</span>
 
@@ -98,7 +98,7 @@ function MobileBotCard({ trader, rank }) {
           <span className="font-mono text-sm font-bold shrink-0" style={{ color: getColor(trader.totalReturn) }}>{percent(trader.totalReturn)}</span>
         </div>
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest" style={{ color: T.muted }}>
+          <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-widest" style={{ color: T.muted }}>
             <span>{trader.market}</span>
             <span className="w-1 h-1 rounded-full" style={{ background: T.border }} />
             <span>{trader.strategy}</span>
@@ -142,7 +142,7 @@ export default function Leaderboard() {
 
         {/* Desktop Table */}
         <div className="hidden lg:block rounded-xl overflow-hidden" style={{ background: T.card, border: `1px solid ${T.border}` }}>
-          <div className="grid grid-cols-[40px_1fr_80px_100px_90px_70px_90px_80px_90px] gap-3 items-center px-4 py-3 font-mono text-[10px] uppercase tracking-widest border-b" style={{ borderColor: T.border, background: T.card2, color: T.muted }}>
+          <div className="grid grid-cols-[40px_1fr_80px_100px_150px_70px_120px_80px_90px] gap-3 items-center px-4 py-3 font-mono text-[10px] uppercase tracking-widest border-b" style={{ borderColor: T.border, background: T.card2, color: T.muted }}>
             <span>Rank</span>
             <span>Trader</span>
             <span className="text-center">Trend</span>

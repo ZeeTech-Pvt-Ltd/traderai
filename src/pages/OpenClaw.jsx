@@ -206,7 +206,7 @@ export default function OpenClaw() {
                 {PLATFORMS.map((p) => (
                   <div key={p.name} className="text-center">
                     <p className="font-mono font-bold text-xs text-[#f5f6fa] dark:text-[#f5f6fa]">{p.name}</p>
-                    <p className={`font-mono text-[9px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#9aa0b4]'}`}>
+                    <p className={`font-mono text-[10px] uppercase tracking-[0.1em] ${p.status === 'Available' ? 'text-[#05df72]' : 'text-[#9aa0b4]'}`}>
                       {p.status}
                     </p>
                   </div>

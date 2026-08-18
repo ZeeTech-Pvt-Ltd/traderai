@@ -175,7 +175,7 @@ function Gauge({ value = 72, className = 'w-16 h-9' }) {
         <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="9" strokeLinecap="round" pathLength="100" />
         <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#05df72" strokeWidth="9" strokeLinecap="round" pathLength="100" strokeDasharray={`${value} 100`} />
       </svg>
-      <span className="absolute inset-x-0 bottom-0 text-center font-mono text-[9px] font-bold" style={{ color: '#f5f6fa' }}>{value}%</span>
+      <span className="absolute inset-x-0 bottom-0 text-center font-mono text-[10px] font-bold" style={{ color: '#f5f6fa' }}>{value}%</span>
     </div>
   );
 }
@@ -194,7 +194,7 @@ function WidgetRow({ icon, title, subtitle, chart, value, valueSub, valueColor =
         <BlueIcon>{icon}</BlueIcon>
         <div className="min-w-0">
           <p className="font-mono text-xs font-bold truncate" style={{ color: '#f5f6fa' }}>{title}</p>
-          <p className="font-mono text-[9px] uppercase tracking-[0.1em] truncate mt-0.5" style={{ color: '#6b7086' }}>{subtitle}</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.1em] leading-snug mt-0.5" style={{ color: '#7c829c' }}>{subtitle}</p>
         </div>
       </div>
       <div className="flex-1 min-w-0 flex justify-center">{chart}</div>
@@ -218,7 +218,7 @@ function AssistantDashboard() {
             </span>
             <span className="font-mono font-bold text-sm tracking-[0.08em] truncate" style={{ color: '#f5f6fa' }}>AI Assistant</span>
           </div>
-          <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.12em] px-2.5 py-1 rounded-md shrink-0" style={{ color: '#05df72', background: 'rgba(5,223,114,0.1)', border: '1px solid rgba(5,223,114,0.25)' }}>
+          <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] px-2.5 py-1 rounded-md shrink-0" style={{ color: '#05df72', background: 'rgba(5,223,114,0.1)', border: '1px solid rgba(5,223,114,0.25)' }}>
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#05df72] opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#05df72]" />
@@ -280,33 +280,33 @@ function AssistantDashboard() {
         {/* Latest Recommendation */}
         <div className="mt-3 rounded-xl p-4" style={{ background: 'linear-gradient(135deg, rgba(123,92,255,0.10) 0%, rgba(90,125,255,0.06) 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 0 28px rgba(123,92,255,0.10)' }}>
           <div className="flex items-center justify-between gap-3 mb-2.5">
-            <span className="font-mono text-[9px] font-bold uppercase tracking-[0.14em]" style={{ color: '#7b5cff' }}>Latest Recommendation</span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.08em] shrink-0" style={{ color: '#6b7086' }}>2 min ago</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: '#7b5cff' }}>Latest Recommendation</span>
+            <span className="font-mono text-[10px] uppercase tracking-[0.08em] shrink-0" style={{ color: '#7c829c' }}>2 min ago</span>
           </div>
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
               <p className="font-mono text-sm font-bold" style={{ color: '#f5f6fa' }}>BTC/USD — Momentum breakout detected</p>
-              <p className="font-mono text-[10px] mt-1.5 truncate" style={{ color: '#9aa0b4' }}>
+              <p className="font-mono text-[10px] mt-1.5 leading-relaxed" style={{ color: '#9aa0b4' }}>
                 Entry <span style={{ color: '#05df72' }}>68,420</span>
-                <span className="mx-1" style={{ color: '#6b7086' }}>·</span>
+                <span className="mx-1" style={{ color: '#7c829c' }}>·</span>
                 Stop <span style={{ color: '#fb2c36' }}>65,800</span>
-                <span className="mx-1" style={{ color: '#6b7086' }}>·</span>
+                <span className="mx-1" style={{ color: '#7c829c' }}>·</span>
                 Target <span style={{ color: '#05df72' }}>72,100</span>
               </p>
             </div>
             <div className="shrink-0 text-right">
               <p className="font-mono text-lg font-black leading-none" style={{ color: '#7b5cff' }}>78%</p>
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] mt-1" style={{ color: '#6b7086' }}>Confidence</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-1" style={{ color: '#7c829c' }}>Confidence</p>
             </div>
           </div>
         </div>
 
         {/* Bottom stats */}
-        <div className="mt-4 pt-4 grid grid-cols-4 gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-4 gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           {DASH_STATS.map((s) => (
             <div key={s.l} className="text-center min-w-0">
               <p className="font-mono text-sm font-black truncate" style={{ color: s.c || '#f5f6fa' }}>{s.v}</p>
-              <p className="font-mono text-[8px] uppercase tracking-[0.06em] mt-1 truncate" style={{ color: '#6b7086' }}>{s.l}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.06em] mt-1" style={{ color: '#7c829c' }}>{s.l}</p>
             </div>
           ))}
         </div>
@@ -379,14 +379,14 @@ export default function AITradingAssistant() {
           {STATS.map((s) => (
             <div key={s.l} className="bg-[#0d1120] py-8 px-6 text-center">
               <div className="font-mono font-black text-3xl lg:text-4xl" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>{s.v}</div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.12em] mt-2 text-[#6b7086]">{s.l}</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.12em] mt-2 text-[#7c829c]">{s.l}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ═══ How It Works — 3 Steps ═══ */}
-      <section id="how-it-works" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
+      <section id="how-it-works" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] scroll-mt-20 lg:scroll-mt-24" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
           <SectionHeader kicker="How It Works" title="Capture. Analyse." accent="Act with confidence." />
           <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
@@ -435,7 +435,7 @@ export default function AITradingAssistant() {
               <div key={t.tf} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-mono text-sm font-bold" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>{t.tf}</span>
-                  <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-[#6b7086] border border-[rgba(255,255,255,0.08)] rounded-full px-2 py-0.5">{t.tag}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#7c829c] border border-[rgba(255,255,255,0.08)] rounded-full px-2 py-0.5">{t.tag}</span>
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-2">{t.name}</h3>
                 <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{t.desc}</p>
@@ -518,7 +518,7 @@ export default function AITradingAssistant() {
             Get Started Free
             <ArrowRight cn="w-4 h-4" />
           </Link>
-          <p className="text-xs text-[#6b7086] mt-6 max-w-[480px] mx-auto leading-relaxed">AI analysis can be incorrect. Trading involves risk — only trade with capital you can afford to lose.</p>
+          <p className="text-xs text-[#7c829c] mt-6 max-w-[480px] mx-auto leading-relaxed">AI analysis can be incorrect. Trading involves risk — only trade with capital you can afford to lose.</p>
         </div>
       </section>
     </div>

@@ -218,7 +218,7 @@ export default function Partners() {
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-white truncate">{p.name}</h3>
-                    <span className={`inline-flex font-mono text-[9px] uppercase tracking-[0.1em] px-1.5 py-0.5 rounded border mt-0.5 ${TYPE_STYLES[p.type]}`}>
+                    <span className={`inline-flex font-mono text-[10px] uppercase tracking-[0.1em] px-1.5 py-0.5 rounded border mt-0.5 ${TYPE_STYLES[p.type]}`}>
                       {p.type}
                     </span>
                   </div>

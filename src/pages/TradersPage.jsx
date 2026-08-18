@@ -161,16 +161,16 @@ export default function TradersPage() {
                     </div>
                     <div className="min-w-0">
                       <h2 className="font-['Courier_New',monospace] font-bold text-[15px] m-0 whitespace-nowrap overflow-hidden text-ellipsis dark:text-[#f5f6fa]">{trader.name}</h2>
-                      <p className="text-[#9aa0b4] dark:text-[#9aa0b4] text-[9px] m-0 whitespace-nowrap overflow-hidden text-ellipsis">{trader.model} &nbsp;•&nbsp; {trader.market}</p>
+                      <p className="text-[#9aa0b4] dark:text-[#9aa0b4] text-[10px] m-0 whitespace-nowrap overflow-hidden text-ellipsis">{trader.model} &nbsp;•&nbsp; {trader.market}</p>
                     </div>
                   </div>
-                  <span className="flex-shrink-0 bg-[rgba(123,92,255,0.15)] dark:bg-[#0049BB]/15 dark:text-[#7b5cff] text-[#5a7dff] px-2 py-[6px] font-['Courier_New',monospace] text-[9px]">{trader.days} days</span>
+                  <span className="flex-shrink-0 bg-[rgba(123,92,255,0.15)] dark:bg-[#0049BB]/15 dark:text-[#7b5cff] text-[#5a7dff] px-2 py-[6px] font-['Courier_New',monospace] text-[10px]">{trader.days} days</span>
                 </div>
 
                 {/* Return + Sparkline */}
                 <div className="flex justify-between items-center gap-[14px] mb-[15px]">
                   <div>
-                    <span className="block text-[#9aa0b4] dark:text-[#9aa0b4] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.03em]">Total Return</span>
+                    <span className="block text-[#9aa0b4] dark:text-[#9aa0b4] uppercase font-['Courier_New',monospace] text-[10px] tracking-[.03em]">Total Return</span>
                     <strong className={`block mt-[7px] font-['Courier_New',monospace] text-[23px] ${positive ? 'text-[#05df72]' : 'text-[#fb2c36]'}`}>{percent(trader.totalReturn)}</strong>
                   </div>
                   <div className="w-[118px] h-[62px] flex-shrink-0">
@@ -187,7 +187,7 @@ export default function TradersPage() {
                     { label: 'Win Rate', val: `${trader.winRate.toFixed(2)}%`, clr: trader.winRate >= 50 ? 'text-[#05df72]' : 'text-[#fb2c36]' },
                   ].map((s, i) => (
                     <div key={i} className="p-3 border-r border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] border-b last:border-r-0" style={{ borderRight: i % 2 === 1 ? 'none' : undefined, borderBottom: i > 1 ? 'none' : undefined }}>
-                      <span className="block text-[#9aa0b4] dark:text-[#9aa0b4] uppercase font-['Courier_New',monospace] text-[8px] tracking-[.03em]">{s.label}</span>
+                      <span className="block text-[#9aa0b4] dark:text-[#9aa0b4] uppercase font-['Courier_New',monospace] text-[10px] tracking-[.03em]">{s.label}</span>
                       <strong className={`block mt-[7px] font-['Courier_New',monospace] text-[13px] whitespace-nowrap overflow-hidden text-ellipsis ${s.clr}`}>{s.val}</strong>
                     </div>
                   ))}

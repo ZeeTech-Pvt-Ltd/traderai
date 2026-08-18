@@ -66,7 +66,7 @@ export default function CryptoChart({ height = 300 }) {
   return (
     <div className="rounded-xl p-4" style={{ width: '100%', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="flex items-center justify-between mb-3">
-        <p className="font-mono text-[10px] uppercase tracking-[0.1em]" style={{ color: '#6b7086' }}>Live Crypto Prices · CoinGecko</p>
+        <p className="font-mono text-[10px] uppercase tracking-[0.1em]" style={{ color: '#7c829c' }}>Live Crypto Prices · CoinGecko</p>
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#05df72] opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-[#05df72]" />
@@ -87,7 +87,7 @@ export default function CryptoChart({ height = 300 }) {
                   <span className="w-2 h-2 rounded-full shrink-0" style={{ background: c.color }} />
                   <div className="min-w-0">
                     <p className="font-mono text-xs font-bold truncate" style={{ color: '#f5f6fa' }}>{c.symbol}</p>
-                    <p className="font-mono text-[9px] truncate hidden sm:block" style={{ color: '#6b7086' }}>{c.label}</p>
+                    <p className="font-mono text-[10px] truncate hidden sm:block" style={{ color: '#7c829c' }}>{c.label}</p>
                   </div>
                 </div>
                 <Sparkline data={sparkData(c.id)} color={up ? '#05df72' : '#fb2c36'} />

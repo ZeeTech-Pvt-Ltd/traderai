@@ -206,7 +206,7 @@ export default function LeaderboardPage() {
                   const rl = riskLabel(trader.risk);
                   return (
                     <div key={trader.id}
-                      className="grid grid-cols-[44px_1.2fr_70px_120px_130px_80px_110px_100px_80px] gap-1 items-center px-5 py-3 hover:bg-[#10152a]/50 dark:bg-[#10152a]/50 transition-colors border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] last:border-0">
+                      className="grid grid-cols-[44px_1.2fr_70px_120px_190px_80px_140px_100px_80px] gap-1 items-center px-5 py-3 hover:bg-[#10152a]/50 dark:bg-[#10152a]/50 transition-colors border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] last:border-0">
                       <span className="font-mono text-xs font-bold text-[#9aa0b4]">{String(i + 1).padStart(2, '0')}</span>
                       <Link to={`/traders/${trader.slug}`} className="flex items-center gap-2.5 min-w-0">
                         <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs shrink-0 bg-[rgba(123,92,255,0.15)] text-[#7b5cff]">{trader.initial}</div>
@@ -219,7 +219,7 @@ export default function LeaderboardPage() {
                         <LeaderboardSparkline series={trader.series} w={56} h={22} color={pos ? '#05df72' : '#fb2c36'} />
                       </div>
                       <span className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] truncate text-center">{trader.market}</span>
-                      <span className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] truncate text-center">{trader.strategy}</span>
+                      <span className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-snug text-center">{trader.strategy}</span>
                       <div className="flex justify-center">
                         <span className={`inline-flex font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-full border ${RS[rl]}`}>{rl}</span>
                       </div>

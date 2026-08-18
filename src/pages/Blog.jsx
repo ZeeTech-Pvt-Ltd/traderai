@@ -191,7 +191,7 @@ export default function Blog() {
                 )}
                 <div className="p-5 lg:p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className={`inline-flex items-center font-mono text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 rounded border ${
+                  <span className={`inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2 py-0.5 rounded border ${
                     post.category === 'Announcements' ? 'bg-[#7b5cff]/10 text-[#7b5cff] border-[#7b5cff]/20' :
                     post.category === 'Platform Updates' ? 'bg-[#5a7dff]/10 text-[#5a7dff] border-[#5a7dff]/20' :
                     post.category === 'Strategy' ? 'bg-[#05df72]/10 text-[#05df72] border-[#05df72]/20' :

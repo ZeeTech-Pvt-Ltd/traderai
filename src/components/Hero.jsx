@@ -31,7 +31,7 @@ const CARD = '#0d1120';
 const CARD2 = '#10152a';
 const TXT = '#f5f6fa';
 const SUB = '#9aa0b4';
-const MUTED = '#6b7086';
+const MUTED = '#7c829c';
 const VIOLET = '#7b5cff';
 const BORDER = 'rgba(255,255,255,0.08)';
 
@@ -68,7 +68,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
           {/* ---------- LEFT ---------- */}
           <div className="min-w-0">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.12em] mb-6" style={{ background: 'rgba(123,92,255,0.12)', border: `1px solid rgba(123,92,255,0.3)`, color: VIOLET }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full font-mono text-[10px] uppercase tracking-[0.12em] mb-6" style={{ background: 'rgba(123,92,255,0.12)', border: `1px solid rgba(123,92,255,0.3)`, color: VIOLET }}>
               <span className="relative flex h-1.5 w-1.5 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7b5cff] opacity-75" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#7b5cff]" />
@@ -110,15 +110,15 @@ export default function Hero() {
             <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-3">
               <div className="rounded-xl p-2 sm:p-4 text-center min-w-0" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                 <p className="font-mono font-black text-base sm:text-2xl leading-none" style={{ color: TXT }}>{TRADERS.length}</p>
-                <p className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>AI Agents</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>AI Agents</p>
               </div>
               <div className="rounded-xl p-2 sm:p-4 text-center min-w-0" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                 <p className="font-mono font-black text-base sm:text-2xl leading-none" style={{ color: TXT }}>24/7</p>
-                <p className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>Live Markets</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>Live Markets</p>
               </div>
               <div className="rounded-xl p-2 sm:p-4 text-center min-w-0" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                 <p className="font-mono font-black text-base sm:text-2xl leading-none" style={{ color }}>{percent(top.totalReturn)}</p>
-                <p className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>Top Performer</p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-2 truncate" style={{ color: MUTED }}>Top Performer</p>
               </div>
             </div>
 
