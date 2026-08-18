@@ -44,64 +44,64 @@ function SectionHeader({ kicker, title, accent, sub }) {
 }
 
 /* ─── Data ─── */
-const HERO_FEATURES = ['Auto Chart Analysis', 'AI-Powered Signals', 'Risk Management', '24/7 Monitoring'];
+const HERO_FEATURES = ['Automatic chart reading', 'AI-curated trade signals', 'Risk controls built in', 'Keeps watch 24/7'];
 
 const STATS = [
-  { v: '+23%', l: 'Win rate improvement' },
-  { v: '50ms', l: 'Signal-to-alert latency' },
-  { v: '94%', l: 'Pattern recognition accuracy' },
-  { v: '2–3 hrs', l: 'Saved per day' },
+  { v: '+23%', l: 'Better win rate' },
+  { v: '50ms', l: 'Alert delivery speed' },
+  { v: '94%', l: 'Chart-read accuracy' },
+  { v: '2–3 hrs', l: 'Time saved each day' },
 ];
 
 const STEPS = [
-  { num: '01', title: 'Auto Capture', desc: 'Connect your trading platform or let it scan your markets. The assistant captures and monitors everything automatically — no manual data entry.' },
-  { num: '02', title: 'AI Analysis', desc: 'The AI identifies patterns, support and resistance levels, trend direction, and momentum shifts — with a confidence score on every finding.' },
-  { num: '03', title: 'Get Signals', desc: 'Receive structured recommendations with entry price, stop-loss, take-profit, and risk/reward ratio. Act on them or ignore them — you decide.' },
+  { num: '01', title: 'Auto Capture', desc: 'Link your broker or let the assistant scan on its own. Every market, price, and pattern it tracks is captured automatically — no manual data entry.' },
+  { num: '02', title: 'AI Analysis', desc: 'The assistant reads the price action — patterns, support and resistance, trend direction, and momentum shifts — with a confidence score on every single read.' },
+  { num: '03', title: 'Get Signals', desc: 'You get clear recommendations with an entry price, a stop-loss, a take-profit, and the risk/reward on each trade. Follow them or skip them — the final call is always yours.' },
 ];
 
 const WHY_CHOOSE = [
   {
     icon: RefreshCw,
-    title: '24/7 Monitoring',
-    desc: 'Around-the-clock market coverage. The AI never sleeps, never fatigues, and never misses a setup because it was away from the screen.',
+    title: 'Always Watching',
+    desc: 'Non-stop market coverage. The assistant has no rest shifts, no tired eyes, and it never looks away at the wrong moment.',
   },
   {
     icon: Zap,
-    title: 'Instant Analysis',
-    desc: 'Chart analysis in seconds, not hours. Get a full technical breakdown while your coffee is still warm.',
+    title: 'Fast Reads',
+    desc: 'A full technical breakdown in seconds instead of hours — done before your coffee even cools.',
   },
   {
     icon: Shield,
-    title: 'Risk Management',
-    desc: 'Stop-loss and position sizing recommendations built into every signal. The AI protects your capital as it searches for opportunity.',
+    title: 'Risk Guardrails',
+    desc: 'Every signal comes with a suggested stop-loss and position size, so your account is protected while the assistant hunts for opportunity.',
   },
   {
     icon: DevicesIcon,
-    title: 'Multi-Platform',
-    desc: 'Works alongside TradingView, MetaTrader, Interactive Brokers, and other major platforms. One assistant for every market you trade.',
+    title: 'Works Anywhere',
+    desc: 'Plays nicely with TradingView, MetaTrader, Interactive Brokers, and other major platforms — one assistant across every market you trade.',
   },
 ];
 
 const TIMEFRAMES = [
-  { tf: '1–5 min', name: 'Scalping', tag: 'Fastest', desc: 'Micro-patterns, momentum shifts, and tight support and resistance. Ideal for fast execution and short holds.' },
-  { tf: '5–30 min', name: 'Intraday', tag: 'Most popular', desc: 'Trend structure, VWAP relationships, and key levels. The sweet spot for most active traders.' },
-  { tf: '1–4 hr', name: 'Swing Setup', tag: 'Swing', desc: 'Multi-day structures, trend channels, and flag patterns for trades held across sessions.' },
-  { tf: 'Daily+', name: 'Position', tag: 'Long-term', desc: 'Major trend direction, weekly levels, and long-term formations for patient traders.' },
+  { tf: '1–5 min', name: 'Scalping', tag: 'Fastest', desc: 'Small patterns, quick momentum changes, and tight levels — built for fast entries and short holds.' },
+  { tf: '5–30 min', name: 'Intraday', tag: 'Most popular', desc: 'Trend structure, VWAP, and the levels that matter — the sweet spot for busy traders.' },
+  { tf: '1–4 hr', name: 'Swing Setup', tag: 'Swing', desc: 'Multi-day setups, trend channels, and flag patterns for positions held across sessions.' },
+  { tf: 'Daily+', name: 'Position', tag: 'Long-term', desc: 'Bigger-picture direction, weekly levels, and long-term patterns for patient traders.' },
 ];
 
 const AI_VS_MANUAL = [
-  { type: 'problem', title: 'The problem: attention limits', desc: 'Visual attention degrades after 20–30 minutes of chart watching. The setups you miss after hour two are often the best ones of the day.' },
-  { type: 'problem', title: 'The problem: inconsistency', desc: 'After a win you trade too big. After a loss you hesitate. Emotions change your methodology — and your results show it.' },
-  { type: 'solution', title: 'The solution: AI + human', desc: 'The AI handles scanning and level detection — like a tireless junior analyst. You provide context and make the final call. The best of both.' },
+  { type: 'problem', title: 'Attention runs out', desc: 'After twenty or thirty minutes of staring at charts, focus fades — and the setups that slip past in hour two are often the best of the day.' },
+  { type: 'problem', title: 'Emotions change the rules', desc: 'Win big and you start trading larger; take a loss and you hold back. Feelings rewrite your method — and your results pay for it.' },
+  { type: 'solution', title: 'The answer: AI + you', desc: 'The assistant does the scanning and level-spotting like a tireless analyst. You bring the judgment and make the final call — the best of both worlds.' },
 ];
 
 const FAQS = [
-  { question: 'What is an AI trading assistant?', answer: 'An AI trading assistant is software that watches the markets for you — analysing charts, spotting patterns, and delivering structured trade recommendations with entry points, stop-losses, and risk guidance. It does the searching; you make the final call.' },
-  { question: 'How does it work?', answer: 'The assistant continuously monitors your charts and market data. When it spots a setup, it analyses the pattern, identifies support and resistance levels, and builds a complete trade plan with entry, exit, and risk levels — delivered to your dashboard in seconds.' },
-  { question: 'Does it replace manual trading?', answer: 'No. The assistant is a research tool, not a replacement for your judgment. It handles the scanning and analysis so you can focus on decision-making. You always stay in control of every trade.' },
-  { question: 'Which platforms does it work with?', answer: 'It works alongside TradingView, MetaTrader, Interactive Brokers, and other major trading platforms. Chart uploads are also supported — upload a screenshot and get analysis in seconds.' },
-  { question: 'How accurate is the AI analysis?', answer: 'Our pattern recognition is validated at 94% accuracy on standard technical formations. But no tool is right every time — every signal includes a confidence score, and risk management is built into every recommendation.' },
-  { question: 'Which markets are covered?', answer: 'Stocks, crypto, forex, commodities, indices, ETFs, and CFDs. The assistant analyses 26+ indicators across multiple timeframes for every market you trade.' },
+  { question: 'What exactly is an AI trading assistant?', answer: 'It is software that keeps watch over the markets for you — reading charts, catching patterns, and turning them into clear trade ideas with entry points, stop-losses, and risk guidance. It handles the heavy lifting; you stay in charge.' },
+  { question: 'How does the assistant work?', answer: 'It watches your charts and market data non-stop. When something interesting appears, it studies the pattern, maps the support and resistance, and builds a complete plan — entry, exit, and risk — delivered to your dashboard in seconds.' },
+  { question: 'Will it take over my trading?', answer: 'No. It is a research tool that supports your judgment, not a replacement. The assistant handles the scanning and analysis so you can spend your energy on decisions. You are in control of every trade.' },
+  { question: 'Which platforms can I use it with?', answer: 'TradingView, MetaTrader, Interactive Brokers, and other major platforms. You can also upload a chart image directly — drop in a screenshot and get a read in seconds.' },
+  { question: 'How reliable is the analysis?', answer: 'On standard technical formations, our pattern recognition runs at around 94% accuracy. No tool is perfect though — every signal carries a confidence score, and risk management is part of every recommendation.' },
+  { question: 'What markets does it cover?', answer: 'Stocks, crypto, forex, commodities, indices, ETFs, and CFDs. The assistant works through 26+ indicators across multiple timeframes for any market you trade.' },
 ];
 
 /* ─── Hero Dashboard ─── */
@@ -181,10 +181,10 @@ function Gauge({ value = 72, className = 'w-16 h-9' }) {
 }
 
 const DASH_STATS = [
-  { v: '78%', l: 'Success Rate' },
-  { v: '128', l: 'Total Signals' },
-  { v: '+6.42%', l: 'Avg. Return', c: '#05df72' },
-  { v: '12.5 hrs', l: 'Time Saved' },
+  { v: '78%', l: 'Hit Rate' },
+  { v: '128', l: 'Alerts Sent' },
+  { v: '+6.42%', l: 'Avg. Gain', c: '#05df72' },
+  { v: '12.5 hrs', l: 'Hours Saved' },
 ];
 
 function WidgetRow({ icon, title, subtitle, chart, value, valueSub, valueColor = '#05df72' }) {
@@ -231,7 +231,7 @@ function AssistantDashboard() {
         <div className="space-y-2.5">
           <WidgetRow
             icon={<TrendIcon cn="w-4 h-4" />}
-            title="Market Overview"
+            title="Market Snapshot"
             subtitle="BTC/USD · 1H"
             chart={<LineChart points="0,32 8,30 16,33 24,26 32,28 40,22 48,25 56,18 64,21 72,14 80,17 88,10 96,13 100,8" />}
             value="65,420.50"
@@ -239,15 +239,15 @@ function AssistantDashboard() {
           />
           <WidgetRow
             icon={<Activity className="w-4 h-4" />}
-            title="Trading Signals"
-            subtitle="3 new signals this session"
+            title="Trade Alerts"
+            subtitle="3 fresh alerts this session"
             chart={<BarChart />}
             value="3"
             valueSub="New"
           />
           <WidgetRow
             icon={<SentimentIcon cn="w-4 h-4" />}
-            title="Market Sentiment"
+            title="Market Mood"
             subtitle="Bullish"
             chart={<Gauge />}
             value="Bullish"
@@ -256,7 +256,7 @@ function AssistantDashboard() {
           />
           <WidgetRow
             icon={<AnalyticsIcon cn="w-4 h-4" />}
-            title="Volatility Index"
+            title="Volatility Gauge"
             subtitle="24H"
             chart={<LineChart points="0,28 7,16 14,24 21,8 28,22 35,14 42,26 49,10 56,24 63,16 70,26 77,12 84,22 91,16 98,24" />}
             value="18.7"
@@ -265,8 +265,8 @@ function AssistantDashboard() {
           />
           <WidgetRow
             icon={<Shield className="w-4 h-4" />}
-            title="Risk Check"
-            subtitle="All positions within limits"
+            title="Risk Monitor"
+            subtitle="Positions within limits"
             chart={
               <div className="w-full h-2 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
                 <div className="h-full rounded-full" style={{ width: '80%', background: 'linear-gradient(90deg, #05df72, #3be896)' }} />
@@ -277,15 +277,15 @@ function AssistantDashboard() {
           />
         </div>
 
-        {/* Latest Recommendation */}
+        {/* Top Pick */}
         <div className="mt-3 rounded-xl p-4" style={{ background: 'linear-gradient(135deg, rgba(123,92,255,0.10) 0%, rgba(90,125,255,0.06) 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 0 28px rgba(123,92,255,0.10)' }}>
           <div className="flex items-center justify-between gap-3 mb-2.5">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: '#7b5cff' }}>Latest Recommendation</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: '#7b5cff' }}>Today's Top Pick</span>
             <span className="font-mono text-[10px] uppercase tracking-[0.08em] shrink-0" style={{ color: '#7c829c' }}>2 min ago</span>
           </div>
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
-              <p className="font-mono text-sm font-bold" style={{ color: '#f5f6fa' }}>BTC/USD — Momentum breakout detected</p>
+              <p className="font-mono text-sm font-bold" style={{ color: '#f5f6fa' }}>BTC/USD — Breakout building</p>
               <p className="font-mono text-[10px] mt-1.5 leading-relaxed" style={{ color: '#9aa0b4' }}>
                 Entry <span style={{ color: '#05df72' }}>68,420</span>
                 <span className="mx-1" style={{ color: '#7c829c' }}>·</span>
@@ -333,18 +333,18 @@ export default function AITradingAssistant() {
               </span>
               <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.02] text-[#f5f6fa] dark:text-[#f5f6fa]">
                 Your AI Trading Assistant{' '}
-                <span className="text-[#7b5cff]">for smarter decisions.</span>
+                <span className="text-[#7b5cff]">for Clarity in Every Trade.</span>
               </h1>
               <p className="mt-6 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
-                Fragmented charts, endless news feeds, and hours of manual analysis — replaced by one assistant. AI Trader watches your markets, spots the setups, and delivers structured trade plans with confidence scores.
+                Scattered charts, a never-ending feed of news, and long nights of manual charting — one assistant takes care of it all. AI Trader keeps an eye on your markets, flags the interesting setups, and hands you a clear trade plan with a confidence score on every call.
               </p>
               <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
                 <Link
                   to="/signup"
                   className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
-                  Start Trading Smarter
-                  <ArrowRight cn="w-4 h-4" />
+                  Start Trading Free
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="#how-it-works"
@@ -388,12 +388,12 @@ export default function AITradingAssistant() {
       {/* ═══ How It Works — 3 Steps ═══ */}
       <section id="how-it-works" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] scroll-mt-20 lg:scroll-mt-24" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="How It Works" title="Capture. Analyse." accent="Act with confidence." />
+          <SectionHeader kicker="How It Works" title="Scan. Understand." accent="Act with Confidence." />
           <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
             {STEPS.map((s) => (
               <div key={s.num} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                <div className="w-12 h-12 mx-auto rounded-full flex items-center justify-center font-mono font-bold text-sm text-white" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', boxShadow: '0 0 24px rgba(123,92,255,0.3)' }}>
+                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-white" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', boxShadow: '0 0 24px rgba(123,92,255,0.3)' }}>
                   {s.num}
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] mt-4 mb-2">{s.title}</h3>
@@ -407,7 +407,7 @@ export default function AITradingAssistant() {
       {/* ═══ Why Choose AI Trader ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Why Choose AI Trader" title="An Assistant That" accent="Never Clocks Out" />
+          <SectionHeader kicker="Why Choose AI Trader" title="A Partner That" accent="Never Sleeps" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {WHY_CHOOSE.map((w) => {
               const Icon = w.icon;
@@ -429,7 +429,7 @@ export default function AITradingAssistant() {
       {/* ═══ Timeframe Analysis ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Timeframe Analysis" title="Built for Every" accent="Trading Style" />
+          <SectionHeader kicker="Timeframe Analysis" title="Works for Every" accent="Trading Style" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {TIMEFRAMES.map((t) => (
               <div key={t.tf} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
@@ -443,8 +443,8 @@ export default function AITradingAssistant() {
             ))}
           </div>
           <div className="mt-8 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 max-w-3xl mx-auto">
-            <h3 className="font-mono font-bold text-sm text-[#f5f6fa] mb-2">Multi-timeframe best practice</h3>
-            <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">Use the higher timeframe to read the trend and the lower timeframe to time your entry. The assistant analyses both simultaneously — so every signal comes with the full picture, not just one window.</p>
+            <h3 className="font-mono font-bold text-sm text-[#f5f6fa] mb-2">Combine timeframes like a pro</h3>
+            <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">Read the trend on the higher timeframe and time the entry on the lower one. The assistant watches both at once, so every signal arrives with the full picture — not just a single window.</p>
           </div>
         </div>
       </section>
@@ -452,7 +452,7 @@ export default function AITradingAssistant() {
       {/* ═══ AI vs Manual ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="AI vs Manual" title="Your Attention Has Limits." accent="Your Assistant Doesn't." />
+          <SectionHeader kicker="AI vs Manual" title="You Can't Watch All Day." accent="The Assistant Can." />
           <div className="grid md:grid-cols-3 gap-4 lg:gap-5">
             {AI_VS_MANUAL.map((c) => {
               const isProblem = c.type === 'problem';
@@ -465,7 +465,7 @@ export default function AITradingAssistant() {
                       : 'border border-[#7b5cff]/30 bg-[#7b5cff]/5 hover:border-[#7b5cff]/60'
                   }`}
                 >
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-mono font-bold text-sm mb-4 ${isProblem ? 'bg-[#fb2c36]/15 text-[#fb2c36]' : 'bg-[#7b5cff]/15 text-[#7b5cff]'}`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-mono font-bold text-sm mb-4 ${isProblem ? 'bg-[#fb2c36]/15 text-[#fb2c36]' : 'bg-[#7b5cff]/15 text-[#7b5cff]'}`}>
                     {isProblem ? '!' : '✓'}
                   </div>
                   <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-2">{c.title}</h3>
@@ -480,7 +480,7 @@ export default function AITradingAssistant() {
       {/* ═══ FAQ ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-3xl mx-auto">
-          <SectionHeader kicker="Questions" title="AI Trading Assistant" accent="Questions" />
+          <SectionHeader kicker="FAQ" title="Common Questions," accent="Honest Answers" />
           <div className="space-y-3">
             {FAQS.map((item, i) => {
               const isOpen = openId === i;
@@ -491,7 +491,7 @@ export default function AITradingAssistant() {
                     className="w-full flex items-center justify-between px-5 lg:px-6 py-4 lg:py-5 text-left hover:bg-[#10152a]/30 transition-colors duration-200"
                   >
                     <span className="font-mono font-bold text-sm lg:text-base text-[#f5f6fa] pr-4">{item.question}</span>
-                    <ChevronDown cn={`w-4 h-4 shrink-0 text-[#9aa0b4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-4 h-4 shrink-0 text-[#9aa0b4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div className={`overflow-hidden transition-all duration-200 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                     <p className="px-5 lg:px-6 pb-4 lg:pb-5 text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{item.answer}</p>
@@ -508,17 +508,17 @@ export default function AITradingAssistant() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.12) 0%, transparent 60%)' }} />
         <div className="max-w-[640px] mx-auto relative z-10">
           <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa] mb-5" style={{ lineHeight: '1.35' }}>
-            Ready to Get Your <span className="text-[#7b5cff]">AI Trading Assistant?</span>
+            Get Your Own <span className="text-[#7b5cff]">AI Trading Assistant Today</span>
           </h2>
-          <p className="text-[#9aa0b4] text-sm sm:text-base mb-8">Free to start. No credit card required.</p>
+          <p className="text-[#9aa0b4] text-sm sm:text-base mb-8">Start free — no credit card needed.</p>
           <Link
             to="/signup"
             className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
           >
             Get Started Free
-            <ArrowRight cn="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" />
           </Link>
-          <p className="text-xs text-[#7c829c] mt-6 max-w-[480px] mx-auto leading-relaxed">AI analysis can be incorrect. Trading involves risk — only trade with capital you can afford to lose.</p>
+          <p className="text-xs text-[#7c829c] mt-6 max-w-[480px] mx-auto leading-relaxed">AI analysis may be wrong. Trading is risky — only trade with money you can afford to lose.</p>
         </div>
       </section>
     </div>

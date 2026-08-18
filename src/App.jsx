@@ -92,7 +92,7 @@ export default function App() {
             path="/ai-trading-assistant"
             element={
               <>
-                <SEO title="AI Trading Assistant | Smarter Decisions in Plain Language" description="Your AI trading assistant for smarter decisions — automatic chart analysis, AI-powered signals, risk management, and 24/7 monitoring. Free to start." path="/ai-trading-assistant" />
+                <SEO title="AI Trading Assistant | Smarter Decisions in Plain Language" description="Your AI trading copilot reads charts, spots setups, and hands you clear trade plans with confidence scores around the clock. Free to start — no credit card needed." path="/ai-trading-assistant" />
                 <Layout>
                   <AITradingAssistant />
                   <Footer />
