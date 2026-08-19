@@ -3,24 +3,14 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ChevronDown,
-  Activity,
   Zap,
   Shield,
   RefreshCw,
   Bot,
-  Layers,
   Eye,
-  Network,
 } from '../components/ui/Icons';
 
 /* ─── Inline Icons (not in shared set) ─── */
-function CheckIcon({ cn = 'w-3.5 h-3.5' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <polyline points="4 10 8 14 16 6" />
-    </svg>
-  );
-}
 function UploadIcon({ cn = 'w-4 h-4' }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
@@ -103,10 +93,6 @@ const SAMPLE = {
   sub: 'Full analysis',
   confidence: 'Medium confidence',
   structure: ['Uptrend intact', ' on the 4-hour — price keeps printing higher highs and lows, holding above the 50-period average.'],
-  support: '1.2640',
-  resistance: '1.2820',
-  bullish: 'If 1.2820 gives way, the pair could push toward 1.2950. The idea is cancelled if price closes back under 1.2720.',
-  bearish: 'A rejection at 1.2820 could send price back to 1.2640; losing that level flips the view bearish toward 1.2550.',
   risk: 'Price is compressed, so breakouts may fail. Keep position size modest and wait for a clean close past the zone before acting.',
 };
 
@@ -145,6 +131,23 @@ function FeatureCard({ icon: Icon, title, desc, badge }) {
   );
 }
 
+/* ─── Select field (defined outside ChartForm so it isn't re-created on
+   every render — re-creating it would remount the <select> and lose focus) ─── */
+function SelectField({ value, onChange, options }) {
+  return (
+    <div className="relative">
+      <select
+        value={value}
+        onChange={onChange}
+        className="w-full bg-[#0d1120] border border-[rgba(255,255,255,0.1)] rounded-lg px-3 py-2.5 pr-9 text-sm text-[#f5f6fa] focus:border-[#7b5cff] outline-none cursor-pointer appearance-none"
+      >
+        {options.map((o) => <option key={o}>{o}</option>)}
+      </select>
+      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7c829c] pointer-events-none" />
+    </div>
+  );
+}
+
 /* ─── Chart Upload & Config Form ─── */
 function ChartForm() {
   const [preview, setPreview] = useState(null);
@@ -172,21 +175,6 @@ function ChartForm() {
     applyFile(file);
   }
 
-  function SelectField({ value, onChange, options }) {
-    return (
-      <div className="relative">
-        <select
-          value={value}
-          onChange={onChange}
-          className="w-full bg-[#0d1120] border border-[rgba(255,255,255,0.1)] rounded-lg px-3 py-2.5 pr-9 text-sm text-[#f5f6fa] focus:border-[#7b5cff] outline-none cursor-pointer appearance-none"
-        >
-          {options.map((o) => <option key={o}>{o}</option>)}
-        </select>
-        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7c829c] pointer-events-none" />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 md:p-8 shadow-[0_24px_60px_rgba(0,0,0,0.3)]">
       {/* Step 1 — Upload */}
@@ -200,7 +188,7 @@ function ChartForm() {
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleDrop}
         >
-          <input type="file" accept=".png,.jpg,.jpeg,.webp" className="hidden" onChange={handleChange} />
+          <input type="file" accept=".png,.jpg,.jpeg,.webp" className="sr-only" onChange={handleChange} aria-label="Upload a chart image (PNG, JPG, JPEG or WEBP)" />
           {loading ? (
             <div className="text-[#7b5cff] font-mono font-semibold text-sm flex items-center justify-center gap-2">
               <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
@@ -211,7 +199,7 @@ function ChartForm() {
             </div>
           ) : preview ? (
             <div>
-              <img src={preview} alt={fileName || 'Uploaded chart'} className="max-h-64 mx-auto rounded-lg border border-[rgba(255,255,255,0.1)]" />
+              <img src={preview} alt={fileName || 'Uploaded chart'} loading="lazy" decoding="async" className="max-h-64 mx-auto rounded-lg border border-[rgba(255,255,255,0.1)]" />
               <div className="text-[#05df72] font-mono font-semibold text-sm mt-3 mb-1">✓ {fileName}</div>
               <div className="font-mono text-xs text-[#7c829c]">Tap to pick a different image</div>
             </div>
@@ -309,7 +297,7 @@ function ZoneChart() {
           </span>
         </div>
       </div>
-      <svg viewBox="0 0 400 170" className="w-full h-auto max-h-[240px]" role="img" aria-label="Price chart showing support and resistance zones">
+      <svg viewBox="0 0 400 170" className="w-full h-auto max-h-[240px]" role="img" aria-label="Price chart showing the support zone at 1.2640 and the resistance zone at 1.2820">
         <defs>
           <linearGradient id="rangeGrad" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#7b5cff" stopOpacity="0.14" />
