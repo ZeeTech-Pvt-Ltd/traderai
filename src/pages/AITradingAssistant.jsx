@@ -515,7 +515,7 @@ export default function AITradingAssistant() {
         <div className="max-w-5xl mx-auto">
           <SectionHeader
             title="Exactly What You Get Back"
-            sub={'No vague "looks bullish." Every read comes back in the same seven blocks, so you can compare setups like for like.'}
+            sub={'No vague "looks bullish." Every read comes back in the same six blocks, so you can compare setups like for like.'}
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {GET_BACK.map((b, i) => (
