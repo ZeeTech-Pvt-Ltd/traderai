@@ -393,7 +393,7 @@ export default function AITradingAssistant() {
             {STEPS.map((s) => (
               <div key={s.num} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-white" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', boxShadow: '0 0 24px rgba(123,92,255,0.3)' }}>
+                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-[#7b5cff] bg-[#7b5cff]/10">
                   {s.num}
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] mt-4 mb-2">{s.title}</h3>
