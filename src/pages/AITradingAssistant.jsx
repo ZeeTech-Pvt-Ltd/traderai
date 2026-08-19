@@ -130,7 +130,6 @@ const GET_BACK = [
   { title: 'Trade map', desc: 'Entry zone, stop idea, targets, and the risk-to-reward' },
   { title: 'Risk flags', desc: 'Thin volume, extended move, news gap, wide spread' },
   { title: 'Sentiment', desc: 'Bullish, bearish, or neutral — with the reason, not just a label' },
-  { title: 'Verdict', desc: 'Wait, watch, or act-if. Never a promise.' },
 ];
 
 const FEATURES = [
@@ -511,7 +510,7 @@ export default function AITradingAssistant() {
         </div>
       </section>
 
-      {/* ═══ Exactly What You Get Back — 7-block table ═══ */}
+      {/* ═══ Exactly What You Get Back — 6-block cards ═══ */}
       <section id="what-you-get-back" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] scroll-mt-20 lg:scroll-mt-24" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-5xl mx-auto">
           <SectionHeader
@@ -519,7 +518,7 @@ export default function AITradingAssistant() {
             sub={'No vague "looks bullish." Every read comes back in the same seven blocks, so you can compare setups like for like.'}
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-            {GET_BACK.slice(0, 6).map((b, i) => (
+            {GET_BACK.map((b, i) => (
               <div key={b.title} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
                 <div className="flex items-center gap-3 mb-3">
@@ -529,17 +528,6 @@ export default function AITradingAssistant() {
                 <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{b.desc}</p>
               </div>
             ))}
-            {/* Verdict — full-width highlight */}
-            <div className="sm:col-span-2 lg:col-span-3 rounded-2xl p-6 lg:p-8 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(123,92,255,0.12) 0%, rgba(90,125,255,0.06) 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 8px 30px rgba(123,92,255,0.10)' }}>
-              <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <span className="w-10 h-10 rounded-lg flex items-center justify-center font-mono font-bold text-sm text-[#7b5cff] bg-[#7b5cff]/15 shrink-0">07</span>
-                <div className="min-w-0">
-                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-1.5">Verdict</h3>
-                  <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">Wait, watch, or act-if. Never a promise.</p>
-                </div>
-              </div>
-            </div>
           </div>
           <p className="mt-8 text-center text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
             Every read is saved. Come back a week later and see whether the level actually held.
