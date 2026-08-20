@@ -87,7 +87,7 @@ export default function BlogPostDetail() {
             </span>
           </div>
 
-          <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa] leading-[1.05]">
+          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
             {post.title}
           </h1>
 

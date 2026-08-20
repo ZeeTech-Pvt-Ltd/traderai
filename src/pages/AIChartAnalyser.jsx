@@ -400,7 +400,7 @@ export default function AIChartAnalyser() {
             <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
             AI Chart Analyser
           </span>
-          <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.05] text-[#f5f6fa]">
+          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
             Read Any Chart in Seconds{' '}
             <span className="block text-[#7b5cff]">and Trade With More Clarity</span>
           </h1>

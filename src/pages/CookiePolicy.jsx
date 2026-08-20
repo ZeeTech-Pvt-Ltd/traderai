@@ -80,7 +80,7 @@ export default function CookiePolicy() {
               <CookieIcon cn="w-6 h-6" />
             </div>
             <div>
-              <h1 className="font-mono font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]">
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
                 Cookie <span className="text-[#7b5cff]">Policy</span>
               </h1>
               <p className="mt-1 font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4]">Last updated: June 1, 2026</p>

@@ -60,7 +60,7 @@ export default function Blog() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#7b5cff]/5 to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto">
-            <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight">
+            <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
               <span className="text-[#7b5cff]">Blog</span>
             </h1>
             <p className="mt-4 text-[#9aa0b4] dark:text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em]">

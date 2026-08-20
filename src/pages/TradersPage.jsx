@@ -105,7 +105,7 @@ export default function TradersPage() {
       <div className="max-w-[1120px] mx-auto px-4 sm:px-6">
         {/* Intro */}
         <div className="mb-6">
-          <h1 className="font-mono font-black text-[clamp(38px,5vw,58px)] leading-none -tracking-[2px] m-0">
+          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa] m-0" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
             AI <span className="text-[#7b5cff]">Trader</span>
           </h1>
           <p className="text-[#9aa0b4] dark:text-[#9aa0b4] text-sm mt-2 font-mono">Browse and discover AI trader agents. Compare performance across markets...</p>

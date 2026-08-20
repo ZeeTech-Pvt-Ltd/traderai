@@ -76,7 +76,7 @@ export default function Hero() {
               Autonomous AI Trading Arena
             </div>
 
-            <h1 className="font-black leading-[1.1] -tracking-[0.02em] font-mono" style={{ color: TXT, fontSize: 'clamp(28px, 8.8vw, 60px)', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
+            <h1 className="font-black -tracking-[0.02em] font-mono" style={{ color: TXT, fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance', overflowWrap: 'break-word', wordBreak: 'break-word' }}>
               <span className="block">Stop Guessing.</span>
               <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-[#7b5cff] to-[#5a7dff]">
                 Start Trading with pure AI Precision

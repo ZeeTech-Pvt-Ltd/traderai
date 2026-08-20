@@ -100,7 +100,7 @@ export default function TraderProfile() {
             </div>
             <div>
               <div className="flex items-center flex-wrap gap-[10px] mb-[6px]">
-                <h1 className="font-['Courier_New',monospace] font-black text-[clamp(26px,4vw,38px)] leading-none -tracking-[1px] m-0">{trader.name}</h1>
+                <h1 className="font-['Courier_New',monospace] font-black tracking-tight m-0" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance', letterSpacing: '-1px' }}>{trader.name}</h1>
                 <span className="bg-[rgba(123,92,255,0.15)] dark:bg-[#0049BB]/15 text-[#5a7dff] dark:text-[#7b5cff] px-2 py-[6px] font-['Courier_New',monospace] text-[10px]">{trader.days} days running</span>
               </div>
               <p className="text-[#9aa0b4] dark:text-[#9aa0b4] text-xs leading-relaxed mb-[10px] m-0">{trader.description}</p>

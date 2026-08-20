@@ -158,7 +158,7 @@ export default function Verification() {
               <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-md border bg-[#05df72]/10 text-[#05df72] border-[#05df72]/20 mb-5">
                 Trust & Transparency
               </div>
-              <h1 className="font-mono font-black text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[0.95]">
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
                 <span className="text-[#7b5cff]">Verification</span>
               </h1>
               <p className="mt-6 text-base sm:text-lg text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">

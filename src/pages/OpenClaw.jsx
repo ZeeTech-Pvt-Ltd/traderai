@@ -177,7 +177,7 @@ export default function OpenClaw() {
               <div className="inline-flex items-center font-mono text-[10px] uppercase tracking-[0.1em] px-2.5 py-1 rounded-md border bg-[#7b5cff]/10 text-[#7b5cff] border-[#7b5cff]/20 mb-5">
                 Coming Soon
               </div>
-              <h1 className="font-mono font-black text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.92]">
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
                 <span className="text-[#f5f6fa] dark:text-[#f5f6fa]">Open</span>
                 <span className="text-[#7b5cff]">Claw</span>
               </h1>
