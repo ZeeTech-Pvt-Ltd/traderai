@@ -52,7 +52,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group shrink-0">
-            <img src="/logo.webp" alt="AI Trader" className="h-8 lg:h-10 w-auto max-w-[140px] sm:max-w-none" loading="eager" />
+            <img src="/logo.webp" alt="AI Trader" width={720} height={128} className="w-auto h-auto max-h-8 lg:max-h-10 max-w-[140px] sm:max-w-none" loading="eager" />
           </Link>
 
           {/* Desktop Nav */}

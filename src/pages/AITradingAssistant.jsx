@@ -97,11 +97,11 @@ function SectionHeader({ kicker, title, accent, sub }) {
   return (
     <div className="text-center mb-12 lg:mb-16">
       {kicker && (
-        <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#7b5cff' }}>
+        <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
           {kicker}
         </span>
       )}
-      <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ lineHeight: '1.35' }}>
+      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
       {sub && <p className="mt-4 text-sm lg:text-base max-w-2xl mx-auto leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4]">{sub}</p>}
@@ -290,19 +290,19 @@ const DASH_STATS = [
 
 function WidgetRow({ icon, title, subtitle, chart, value, valueSub, valueColor = '#05df72' }) {
   return (
-    <div className="flex items-center gap-3 px-3 py-3 rounded-xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
-      <div className="flex items-center gap-2.5 min-w-0 flex-[1.2]">
+    <div className="grid grid-cols-[1fr_auto] sm:grid-cols-[1.2fr_1fr_auto] items-center gap-x-3 gap-y-2.5 px-3 py-3 rounded-xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}>
+      <div className="flex items-center gap-2.5 min-w-0 order-1">
         <BlueIcon>{icon}</BlueIcon>
         <div className="min-w-0">
-          <p className="font-mono text-xs font-bold truncate" style={{ color: '#f5f6fa' }}>{title}</p>
+          <p className="font-mono text-xs font-bold leading-snug break-words" style={{ color: '#f5f6fa' }}>{title}</p>
           <p className="font-mono text-[10px] uppercase tracking-[0.1em] leading-snug mt-0.5 break-words" style={{ color: '#7c829c' }}>{subtitle}</p>
         </div>
       </div>
-      <div className="flex-1 min-w-0 flex justify-center">{chart}</div>
-      <div className="shrink-0 text-right">
-        <p className="font-mono text-sm font-bold leading-none" style={{ color: '#f5f6fa' }}>{value}</p>
+      <div className="order-2 sm:order-3 shrink-0 text-right">
+        <p className="font-mono text-sm sm:text-base font-bold leading-none" style={{ color: '#f5f6fa' }}>{value}</p>
         <p className="font-mono text-[10px] font-bold mt-1" style={{ color: valueColor }}>{valueSub}</p>
       </div>
+      <div className="order-3 sm:order-2 col-span-2 sm:col-span-1 min-w-0 sm:flex sm:justify-center">{chart}</div>
     </div>
   );
 }
@@ -317,7 +317,7 @@ function AssistantDashboard() {
             <span className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0" style={{ background: 'linear-gradient(135deg, rgba(123,92,255,0.28), rgba(90,125,255,0.28))', color: '#f5f6fa' }}>
               <Bot className="w-3.5 h-3.5" />
             </span>
-            <span className="font-mono font-bold text-sm tracking-[0.08em] truncate" style={{ color: '#f5f6fa' }}>AI Assistant</span>
+            <span className="font-mono font-bold text-sm tracking-[0.08em] break-words" style={{ color: '#f5f6fa' }}>AI Assistant</span>
           </div>
           <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] px-2.5 py-1 rounded-md shrink-0" style={{ color: '#05df72', background: 'rgba(5,223,114,0.1)', border: '1px solid rgba(5,223,114,0.25)' }}>
             <span className="relative flex h-1.5 w-1.5">
@@ -381,13 +381,13 @@ function AssistantDashboard() {
         {/* Top Pick */}
         <div className="mt-3 rounded-xl p-4" style={{ background: 'linear-gradient(135deg, rgba(123,92,255,0.10) 0%, rgba(90,125,255,0.06) 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 0 28px rgba(123,92,255,0.10)' }}>
           <div className="flex items-center justify-between gap-3 mb-2.5">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: '#7b5cff' }}>Today's Top Pick</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em]" style={{ color: '#a78bfa' }}>Today's Top Pick</span>
             <span className="font-mono text-[10px] uppercase tracking-[0.08em] shrink-0" style={{ color: '#7c829c' }}>2 min ago</span>
           </div>
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="min-w-0">
-              <p className="font-mono text-sm font-bold" style={{ color: '#f5f6fa' }}>BTC/USD — Breakout building</p>
-              <p className="font-mono text-[10px] mt-1.5 leading-relaxed" style={{ color: '#9aa0b4' }}>
+              <p className="font-mono text-sm font-bold break-words" style={{ color: '#f5f6fa' }}>BTC/USD — Breakout building</p>
+              <p className="font-mono text-[10px] mt-1.5 leading-relaxed break-words" style={{ color: '#9aa0b4' }}>
                 Entry <span style={{ color: '#05df72' }}>68,420</span>
                 <span className="mx-1" style={{ color: '#7c829c' }}>·</span>
                 Stop <span style={{ color: '#fb2c36' }}>65,800</span>
@@ -395,8 +395,8 @@ function AssistantDashboard() {
                 Target <span style={{ color: '#05df72' }}>72,100</span>
               </p>
             </div>
-            <div className="shrink-0 text-right">
-              <p className="font-mono text-lg font-black leading-none" style={{ color: '#7b5cff' }}>78%</p>
+            <div className="shrink-0 text-left sm:text-right">
+              <p className="font-mono text-lg font-black leading-none" style={{ color: '#a78bfa' }}>78%</p>
               <p className="font-mono text-[10px] uppercase tracking-[0.1em] mt-1" style={{ color: '#7c829c' }}>Confidence</p>
             </div>
           </div>
@@ -406,7 +406,7 @@ function AssistantDashboard() {
         <div className="mt-4 pt-4 grid grid-cols-2 sm:grid-cols-4 gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           {DASH_STATS.map((s) => (
             <div key={s.l} className="text-center min-w-0">
-              <p className="font-mono text-sm font-black truncate" style={{ color: s.c || '#f5f6fa' }}>{s.v}</p>
+              <p className="font-mono text-sm sm:text-base font-black truncate" style={{ color: s.c || '#f5f6fa' }}>{s.v}</p>
               <p className="font-mono text-[10px] uppercase tracking-[0.06em] mt-1" style={{ color: '#7c829c' }}>{s.l}</p>
             </div>
           ))}
@@ -426,11 +426,11 @@ export default function AITradingAssistant() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 items-center">
             <div className="min-w-0 text-center lg:text-left">
-              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#7b5cff' }}>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
                 AI Trading Assistant
               </span>
-              <h1 className="font-mono font-black tracking-tight leading-[1.02] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: '2.75rem' }}>
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
                 Your AI Trading Assistant{' '}
                 <span className="text-[#7b5cff]">for Faster, Calmer Chart Decisions</span>
               </h1>
@@ -443,21 +443,21 @@ export default function AITradingAssistant() {
               <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
                 <Link
                   to="/signup"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
+                  className="inline-flex items-center justify-center w-full sm:w-auto font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
                   Start Trading Smarter
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
                   href="#what-you-get-back"
-                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-[#f5f6fa] hover:opacity-80 transition-all border border-[rgba(255,255,255,0.15)]"
+                  className="inline-flex items-center justify-center w-full sm:w-auto font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-[#f5f6fa] hover:opacity-80 transition-all border border-[rgba(255,255,255,0.15)]"
                 >
                   See a Sample Read
                 </a>
               </div>
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-w-md mx-auto lg:mx-0">
                 {HERO_FEATURES.map((f) => (
-                  <div key={f} className="flex items-center gap-2 text-sm text-[#9aa0b4]">
+                  <div key={f} className="flex items-center gap-2 text-sm sm:text-base text-[#9aa0b4]">
                     <span className="w-4 h-4 rounded-full bg-[#05df72]/15 flex items-center justify-center shrink-0 text-[#05df72]">
                       <CheckIcon cn="w-2.5 h-2.5" />
                     </span>
@@ -499,11 +499,11 @@ export default function AITradingAssistant() {
             {STEPS.map((s) => (
               <div key={s.num} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-[#7b5cff] bg-[#7b5cff]/10">
+                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-[#a78bfa] bg-[#7b5cff]/10">
                   {s.num}
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] mt-4 mb-2">{s.title}</h3>
-                <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{s.desc}</p>
+                <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -522,14 +522,14 @@ export default function AITradingAssistant() {
               <div key={b.title} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                 <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-9 h-9 rounded-lg flex items-center justify-center font-mono font-bold text-xs text-[#7b5cff] bg-[#7b5cff]/10">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="w-9 h-9 rounded-lg flex items-center justify-center font-mono font-bold text-xs text-[#a78bfa] bg-[#7b5cff]/10">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="font-mono font-bold text-base text-[#f5f6fa]">{b.title}</h3>
                 </div>
-                <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{b.desc}</p>
+                <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{b.desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+          <p className="mt-8 text-center text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
             Every read is saved. Come back a week later and see whether the level actually held.
           </p>
         </div>
@@ -545,14 +545,14 @@ export default function AITradingAssistant() {
               return (
                 <div key={f.title} className="group relative overflow-hidden rounded-2xl p-6 lg:p-8 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                   <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] mb-4">
+                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
                     <Icon />
                   </div>
                   <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-4">{f.title}</h3>
                   <ul className="space-y-2.5">
                     {f.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2.5 text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
-                        <span className="w-4 h-4 rounded-full bg-[#7b5cff]/15 flex items-center justify-center shrink-0 text-[#7b5cff] mt-0.5">
+                      <li key={b} className="flex items-start gap-2.5 text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+                        <span className="w-4 h-4 rounded-full bg-[#7b5cff]/15 flex items-center justify-center shrink-0 text-[#a78bfa] mt-0.5">
                           <CheckIcon cn="w-2.5 h-2.5" />
                         </span>
                         {b}
@@ -578,11 +578,11 @@ export default function AITradingAssistant() {
                   <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#7c829c] border border-[rgba(255,255,255,0.08)] rounded-full px-2 py-0.5">{t.name}</span>
                 </div>
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-2">{t.name}</h3>
-                <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{t.focus}</p>
+                <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{t.focus}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 text-center text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+          <p className="mt-8 text-center text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
             Works on anything with candles: stocks, crypto, forex, indices, commodities, ETFs, and futures.
           </p>
         </div>
@@ -602,7 +602,7 @@ export default function AITradingAssistant() {
               </div>
               <ul className="space-y-3">
                 {GOOD_FIT.map((g) => (
-                  <li key={g} className="flex items-start gap-2.5 text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+                  <li key={g} className="flex items-start gap-2.5 text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
                     <span className="w-4 h-4 rounded-full bg-[#05df72]/15 flex items-center justify-center shrink-0 text-[#05df72] mt-0.5">
                       <CheckIcon cn="w-2.5 h-2.5" />
                     </span>
@@ -620,7 +620,7 @@ export default function AITradingAssistant() {
               </div>
               <ul className="space-y-3">
                 {NOT_FIT.map((n) => (
-                  <li key={n} className="flex items-start gap-2.5 text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+                  <li key={n} className="flex items-start gap-2.5 text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
                     <span className="w-4 h-4 rounded-full bg-[#fb2c36]/15 flex items-center justify-center shrink-0 text-[#fb2c36] mt-0.5">
                       <X className="w-2.5 h-2.5" />
                     </span>
@@ -648,7 +648,7 @@ export default function AITradingAssistant() {
                   <div className="w-10 h-10 rounded-xl bg-[#fb2c36]/10 flex items-center justify-center text-[#fb2c36] mb-4">
                     <Icon />
                   </div>
-                  <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{w.text}</p>
+                  <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{w.text}</p>
                 </div>
               );
             })}
@@ -668,7 +668,7 @@ export default function AITradingAssistant() {
                   <div className="w-11 h-11 rounded-full bg-[#05df72]/10 flex items-center justify-center text-[#05df72] mb-4">
                     <Icon />
                   </div>
-                  <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{c.text}</p>
+                  <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{c.text}</p>
                 </div>
               );
             })}
@@ -680,13 +680,13 @@ export default function AITradingAssistant() {
       <section className="relative py-[100px] text-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.12) 0%, transparent 60%)' }} />
         <div className="max-w-[640px] mx-auto relative z-10">
-          <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa] mb-5" style={{ lineHeight: '1.35' }}>
+          <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] mb-5" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
             Stop Second-Guessing <span className="text-[#7b5cff]">Your Own Charts</span>
           </h2>
           <p className="text-[#9aa0b4] text-sm sm:text-base mb-8 leading-relaxed tracking-[0.02em]">Upload one chart. See what a full read looks like in fifteen seconds. It is free to try.</p>
           <Link
             to="/signup"
-            className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
+            className="inline-flex items-center justify-center w-full sm:w-auto font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
           >
             Start Free
             <ArrowRight className="w-4 h-4" />

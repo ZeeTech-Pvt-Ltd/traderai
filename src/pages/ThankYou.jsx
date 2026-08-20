@@ -15,7 +15,7 @@ export default function ThankYou() {
       <div className="w-full max-w-md text-center">
         {/* Logo */}
         <Link to="/" className="inline-flex items-center justify-center group mb-8">
-          <img src="/logo.webp" alt="AI Trader" className="h-10 lg:h-12 w-auto max-w-[220px]" loading="eager" />
+          <img src="/logo.webp" alt="AI Trader" width={720} height={128} className="w-auto h-auto max-w-[220px]" loading="eager" />
         </Link>
 
         <div className="bg-card border border-border rounded-xl p-8 lg:p-10 shadow-xs">

@@ -136,7 +136,7 @@ export default function SignUp() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center group mb-8">
-          <img src="/logo.webp" alt="AI Trader" className="h-10 lg:h-12 w-auto max-w-[220px]" loading="eager" />
+          <img src="/logo.webp" alt="AI Trader" width={720} height={128} className="w-auto h-auto max-w-[220px]" loading="eager" />
         </Link>
 
         {/* Card */}

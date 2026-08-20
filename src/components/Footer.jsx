@@ -38,7 +38,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center group mb-4">
-              <img src="/logo.webp" alt="AI Trader" className="h-8 w-auto max-w-[150px]" loading="lazy" />
+              <img src="/logo.webp" alt="AI Trader" width={720} height={128} className="w-auto h-auto max-w-[150px]" loading="lazy" />
             </Link>
             <p className="text-sm leading-relaxed max-w-xs tracking-normal" style={{ color: '#9aa0b4' }}>
               AI-powered trading intelligence platform. Analyze, simulate, and make informed decisions.
@@ -48,7 +48,7 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(FOOTER_LINKS).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-mono text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#f5f6fa' }}>{category}</h4>
+              <h3 className="font-mono text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#f5f6fa' }}>{category}</h3>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
