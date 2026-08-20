@@ -1,0 +1,18 @@
+/* Self-hosted fonts — Roboto + Roboto Mono (variable, latin subset).
+   Replaces the render-blocking Google Fonts <link>. Same family names and
+   weights as before, so all existing font-sans / font-mono styles keep working. */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/fonts/roboto.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/roboto-mono.woff2') format('woff2');
+}
