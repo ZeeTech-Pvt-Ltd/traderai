@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   ChevronDown,
-  Zap,
   Shield,
-  RefreshCw,
-  Bot,
-  Eye,
+  Activity,
+  Zap,
 } from '../components/ui/Icons';
 
 /* ─── Inline Icons (not in shared set) ─── */
@@ -39,10 +37,10 @@ function TrendIcon({ cn = 'w-[22px] h-[22px]' }) {
     </svg>
   );
 }
-function ScenariosIcon({ cn = 'w-[22px] h-[22px]' }) {
+function FlagIcon({ cn = 'w-[22px] h-[22px]' }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
+      <path d="M5 21V4" /><path d="M5 4h12l-3 3 3 3H5" />
     </svg>
   );
 }
@@ -54,7 +52,7 @@ function ReportIcon({ cn = 'w-[22px] h-[22px]' }) {
   );
 }
 
-/* ─── Data ─── */
+/* ─── Data — exact Google Doc content ─── */
 const STATS = [
   { icon: Zap, title: 'Lightning fast', desc: 'Breakdown in moments' },
   { icon: GlobeIcon, title: 'Every market', desc: 'Forex, crypto, stocks & more' },
@@ -62,31 +60,22 @@ const STATS = [
   { icon: Shield, title: 'Honest limits', desc: 'Risks always flagged' },
 ];
 
+const LOOKS_AT = [
+  { icon: FlagIcon, title: 'Chart patterns', desc: 'flags, triangles, double tops, head & shoulders, and 30+ more' },
+  { icon: LevelsIcon, title: 'Support and resistance', desc: 'the exact levels price keeps respecting' },
+  { icon: TrendIcon, title: 'Trend structure', desc: 'higher highs, lower lows, or a flat range' },
+  { icon: Shield, title: 'Smart money zones', desc: 'order blocks, fair value gaps, break of structure' },
+  { icon: Activity, title: 'Volume behaviour', desc: 'whether the move has real buyers behind it' },
+  { icon: ReportIcon, title: 'Trade idea', desc: 'entry, stop loss, and a measured take-profit target' },
+];
+
 const STEPS = [
-  { num: '01', title: 'Share a chart', desc: 'Grab a screenshot from your trading platform and drop it into the analyser. PNG, JPG, JPEG, or WEBP — up to 10 MB.' },
-  { num: '02', title: 'AI reads it', desc: 'The system studies price action, trend direction, support and resistance levels, and anything else worth noticing.' },
-  { num: '03', title: 'Read your report', desc: 'You get a tidy breakdown: key price zones, two possible scenarios, invalidation points, risk notes, and a confidence rating.' },
+  { num: '01', lead: 'Drop your chart image', rest: ' (PNG or JPG).' },
+  { num: '02', lead: 'The AI scans the price action', rest: ' and marks what matters.' },
+  { num: '03', lead: 'You get a plain-English breakdown', rest: ' you can act on.' },
 ];
 
-const WHY_USE = [
-  { icon: RefreshCw, title: 'Hours saved', desc: 'A manual chart review that takes an hour is done in seconds — upload once and read the full breakdown instantly.' },
-  { icon: Eye, title: 'Straight to the point', desc: 'No fluffy commentary. Every report hands you concrete levels, scenarios, and invalidation points you can actually act on.' },
-  { icon: Bot, title: 'Sharpen your eye', desc: 'Each report explains the reasoning behind the read, so your own charting instincts improve with every use.' },
-  { icon: Shield, title: 'Risk first', desc: 'Every report lists invalidation levels and a confidence score — no false certainty, just an honest read.' },
-];
-
-const FEATURES = [
-  { icon: Zap, title: 'Instant reads', desc: 'A complete breakdown in seconds, not hours.' },
-  { icon: TrendIcon, title: 'Trend spotting', desc: 'Sees direction and spots when momentum shifts.' },
-  { icon: LevelsIcon, title: 'Level mapping', desc: 'Finds the support and resistance zones that matter.' },
-  { icon: ScenariosIcon, title: 'Trade setups', desc: 'Suggested entry, stop, targets, and invalidation.' },
-  { icon: GlobeIcon, title: 'All asset classes', desc: 'Forex, crypto, stocks, indices, and more.' },
-  { icon: ReportIcon, title: 'Clear format', desc: 'Every report follows the same layout — levels, scenarios, risk notes.' },
-];
-
-const MARKETS = ['Forex', 'Indices', 'Commodities', 'Crypto', 'Stocks', 'ETFs'];
-const TIMEFRAMES = ['1-Minute', '5-Minute', '15-Minute', '1-Hour', '4-Hour', 'Daily', 'Weekly'];
-const FOCUS = ['Market Structure', 'Trend Analysis', 'Support & Resistance', 'Momentum', 'Comprehensive'];
+const STEP_ICONS = [UploadIcon, Activity, ReportIcon];
 
 const SAMPLE = {
   label: 'GBP/USD — 4-Hour',
@@ -96,37 +85,31 @@ const SAMPLE = {
   risk: 'Price is compressed, so breakouts may fail. Keep position size modest and wait for a clean close past the zone before acting.',
 };
 
-/* ─── Section Header (kicker + title + accent) ─── */
-function SectionHeader({ kicker, title, accent }) {
+const MARKETS_TEXT =
+  'Forex, crypto, stocks, indices, commodities, futures — one engine, all of them. Scalpers run it on the 1-minute. Swing traders run it on the daily. Both walk away with the same clarity.';
+
+const OPINION_TEXT =
+  "Better trading isn't about more indicators. It's about fewer doubts. This AI chart analyzer gives you an unbiased read before you click buy or sell — no emotion, no revenge trade, no wishful thinking.";
+
+const CLOSING_LINE = "You still make the call. The AI just makes sure you aren't missing something obvious.";
+
+const MARKETS = ['Forex', 'Indices', 'Commodities', 'Crypto', 'Stocks', 'ETFs'];
+const TIMEFRAMES = ['1-Minute', '5-Minute', '15-Minute', '1-Hour', '4-Hour', 'Daily', 'Weekly'];
+const FOCUS = ['Market Structure', 'Trend Analysis', 'Support & Resistance', 'Momentum', 'Comprehensive'];
+
+/* ─── Section Header (kicker + title + sub) ─── */
+function SectionHeader({ kicker, title, accent, sub }) {
   return (
     <div className="text-center mb-12 lg:mb-16">
       {kicker && (
-        <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#7b5cff' }}>
+        <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
           {kicker}
         </span>
       )}
-      <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa]" style={{ lineHeight: '1.35' }}>
+      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
-    </div>
-  );
-}
-
-/* ─── Reusable card shell (keeps section grids consistent) ─── */
-function FeatureCard({ icon: Icon, title, desc, badge }) {
-  return (
-    <div className="group relative overflow-hidden rounded-xl p-6 lg:p-7 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-      <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-      {badge ? (
-        <div className="flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff]"><Icon /></div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#7c829c] border border-[rgba(255,255,255,0.08)] rounded-full px-2 py-0.5">{badge}</span>
-        </div>
-      ) : (
-        <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] mb-4"><Icon /></div>
-      )}
-      <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-2">{title}</h3>
-      <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{desc}</p>
+      {sub && <p className="mt-4 text-sm lg:text-base max-w-2xl mx-auto leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4]">{sub}</p>}
     </div>
   );
 }
@@ -393,26 +376,28 @@ export default function AIChartAnalyser() {
   return (
     <div className="min-h-screen pt-16 lg:pt-20 pb-8 lg:pb-10">
       {/* ═══ Hero ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[rgba(255,255,255,0.08)]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#7b5cff]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#7b5cff' }}>
+          <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
             <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
             AI Chart Analyser
           </span>
-          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
-            Read Any Chart in Seconds{' '}
-            <span className="block text-[#7b5cff]">and Trade With More Clarity</span>
+          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
+            Read Any Chart in Seconds
           </h1>
           <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[600px] mx-auto">
-            Drop in a screenshot of any chart and our AI walks you through it — trend direction, key price zones, and likely setups, each with a confidence score so you know how much weight to give it.
+            Just upload the screenshot and let the AI chart analyzer do the reading. Pattern, key levels, trend bias, and a confidence score — in about three seconds.
+          </p>
+          <p className="mt-4 font-mono text-xs sm:text-sm text-[#7c829c] leading-relaxed max-w-[640px] mx-auto">
+            Works with screenshots from TradingView, MT4/MT5, NinjaTrader, or any platform you already use. No plugin, no setup.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="#analyzer"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Try the Analyser Now
+              Analyze Your Chart
               <ArrowRight cn="w-4 h-4" />
             </a>
             <Link
@@ -431,22 +416,22 @@ export default function AIChartAnalyser() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {STATS.map((s) => (
             <div key={s.title} className="flex items-center gap-4 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-xl p-4 lg:p-5">
-              <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] shrink-0">
                 <s.icon />
               </div>
               <div className="min-w-0">
                 <div className="font-mono font-bold text-sm text-[#f5f6fa]">{s.title}</div>
-                <div className="font-mono text-xs text-[#7c829c] mt-0.5">{s.desc}</div>
+                <div className="font-mono text-xs text-[#7c829c] mt-0.5 leading-relaxed">{s.desc}</div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ═══ Analyzer ═══ */}
+      {/* ═══ Analyzer — form + sample (2-col, like the reference) ═══ */}
       <section id="analyzer" className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] scroll-mt-20 lg:scroll-mt-24" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="The Analyser" title="Upload. Choose." accent="Get the breakdown." />
+          <SectionHeader kicker="The Analyser" title="Just Upload the Screenshot" />
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-start">
             <ChartForm />
             <SampleOutput />
@@ -454,58 +439,89 @@ export default function AIChartAnalyser() {
         </div>
       </section>
 
-      {/* ═══ How It Works ═══ */}
+      {/* ═══ Three Steps, No Learning Curve ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="How It Works" title="Analysis in" accent="Three Easy Steps" />
-          <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
-            {STEPS.map((s) => (
-              <div key={s.num} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 text-center relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                <div className="w-12 h-12 mx-auto rounded-xl flex items-center justify-center font-mono font-bold text-sm text-[#7b5cff] bg-[#7b5cff]/10">
-                  {s.num}
-                </div>
-                <h3 className="font-mono font-bold text-base text-[#f5f6fa] mt-4 mb-2">{s.title}</h3>
-                <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{s.desc}</p>
-              </div>
-            ))}
+          <SectionHeader kicker="How It Works" title="Three Steps, No Learning Curve" />
+          <div className="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-3">
+            {STEPS.map((s, i) => {
+              const Icon = STEP_ICONS[i];
+              return (
+                <Fragment key={s.num}>
+                  <div className="group relative flex-1 min-w-0 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-2xl p-6 lg:p-8 text-center overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+                    <span className="absolute top-4 right-5 font-mono font-black text-5xl lg:text-6xl leading-none text-white/[0.04] group-hover:text-white/[0.09] transition-colors duration-300 select-none pointer-events-none">{s.num}</span>
+                    <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl text-white mb-4" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', boxShadow: '0 10px 28px rgba(123,92,255,0.35)' }}>
+                      <Icon cn="w-6 h-6" />
+                    </div>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#a78bfa] font-bold mb-3">Step {s.num}</div>
+                    <p className="text-sm sm:text-base text-[#f5f6fa] leading-relaxed tracking-[0.02em]">
+                      <span className="font-bold">{s.lead}</span>
+                      <span className="text-[#9aa0b4]">{s.rest}</span>
+                    </p>
+                  </div>
+                  {i < STEPS.length - 1 && (
+                    <div className="hidden lg:flex self-center shrink-0 w-9 h-9 rounded-full items-center justify-center border border-[rgba(255,255,255,0.12)] bg-[#10152a] text-[#7b5cff] z-10" style={{ boxShadow: '0 4px 16px rgba(0,0,0,0.4)' }}>
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                    </div>
+                  )}
+                </Fragment>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ═══ Why Use This Tool ═══ */}
+      {/* ═══ What the AI Actually Looks At — 6 cards ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Why Use This Tool" title="Why Traders" accent="Keep It Handy" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-            {WHY_USE.map((w) => <FeatureCard key={w.title} {...w} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ Features ═══ */}
-      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Features" title="One Tool," accent="Every Angle" />
+          <SectionHeader kicker="Features" title="What the AI Actually Looks At" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-            {FEATURES.map((f) => <FeatureCard key={f.title} {...f} />)}
+            {LOOKS_AT.map((l) => {
+              const Icon = l.icon;
+              return (
+                <div key={l.title} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                  <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
+                    <Icon />
+                  </div>
+                  <h3 className="font-mono font-bold text-base text-[#f5f6fa] mb-2">{l.title}</h3>
+                  <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{l.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ═══ Final CTA ═══ */}
-      <section className="relative py-[100px] text-center px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.12) 0%, transparent 60%)' }} />
-        <div className="max-w-[640px] mx-auto relative z-10">
-          <h2 className="font-mono font-black text-3xl lg:text-4xl tracking-tight leading-[1.35] text-[#f5f6fa] mb-5" style={{ lineHeight: '1.35' }}>
-            Want a Second Set of Eyes <span className="text-[#7b5cff]">on Your Chart?</span>
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
+      {/* ═══ Built for Every Market ═══ */}
+      <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader kicker="Markets" title="Built for Every Market" />
+          <div className="rounded-2xl p-6 lg:p-8 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #10152a 0%, #0d1120 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 8px 30px rgba(123,92,255,0.10)' }}>
+            <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+            <p className="font-mono text-sm sm:text-base text-[#f5f6fa] leading-relaxed text-center tracking-[0.02em]">{MARKETS_TEXT}</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ A Second Opinion, Not a Signal Service + Final CTA ═══ */}
+      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader title="A Second Opinion, Not a Signal Service" />
+          <p className="text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] text-center">
+            {OPINION_TEXT}
+          </p>
+          <div className="mt-8 rounded-2xl p-6 lg:p-8 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #10152a 0%, #0d1120 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 8px 30px rgba(123,92,255,0.10)' }}>
+            <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+            <p className="font-mono text-base sm:text-lg font-bold text-center text-[#f5f6fa] leading-relaxed tracking-[0.02em]">{CLOSING_LINE}</p>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#analyzer"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Analyze a Chart Now
+              Analyze Chart Now
               <ArrowRight cn="w-4 h-4" />
             </a>
             <Link
@@ -515,7 +531,7 @@ export default function AIChartAnalyser() {
               Create Free Account
             </Link>
           </div>
-          <p className="font-mono text-xs text-[#7c829c] max-w-[480px] mx-auto leading-relaxed">AI analysis may be wrong. Trading is risky — never trade money you can't afford to lose.</p>
+          <p className="font-mono text-xs text-[#7c829c] text-center mt-6">AI analysis may be wrong. Trading is risky — never trade money you can't afford to lose.</p>
         </div>
       </section>
     </div>
