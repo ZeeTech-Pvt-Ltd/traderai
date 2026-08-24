@@ -51,6 +51,21 @@ function ReportIcon({ cn = 'w-[22px] h-[22px]' }) {
     </svg>
   );
 }
+function UserIcon({ cn = 'w-5 h-5' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+function CheckIcon({ cn = 'w-5 h-5' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
 
 /* ─── Data — exact Google Doc content ─── */
 const STATS = [
@@ -92,6 +107,7 @@ const OPINION_TEXT =
   "Better trading isn't about more indicators. It's about fewer doubts. This AI chart analyzer gives you an unbiased read before you click buy or sell — no emotion, no revenge trade, no wishful thinking.";
 
 const CLOSING_LINE = "You still make the call. The AI just makes sure you aren't missing something obvious.";
+const [CALL_LINE, AI_LINE] = CLOSING_LINE.split('. ');
 
 const MARKETS = ['Forex', 'Indices', 'Commodities', 'Crypto', 'Stocks', 'ETFs'];
 const TIMEFRAMES = ['1-Minute', '5-Minute', '15-Minute', '1-Hour', '4-Hour', 'Daily', 'Weekly'];
@@ -263,6 +279,97 @@ const ZCANDLE_X = [70, 103, 136, 169, 202, 235, 268, 301, 334, 367];
 const PLOT_X0 = 62;
 const PLOT_X1 = 398;
 
+/* ─── Second Opinion visual — AI scan mock dashboard ─── */
+function SecondOpinionVisual() {
+  const W = 520;
+  const H = 300;
+  const PAD = 16;
+  const MIN = 1.26;
+  const MAX = 1.285;
+  const R = 1.2820;
+  const S = 1.2640;
+  const prices = [1.2652, 1.2668, 1.2659, 1.2676, 1.269, 1.2684, 1.2701, 1.2712, 1.2706, 1.2728, 1.2735, 1.274, 1.2745];
+  const toX = (i) => PAD + (i / (prices.length - 1)) * (W - PAD * 2);
+  const toY = (p) => PAD + ((MAX - p) / (MAX - MIN)) * (H - PAD * 2);
+  const line = prices.map((p, i) => `${i === 0 ? 'M' : 'L'}${toX(i).toFixed(1)},${toY(p).toFixed(1)}`).join(' ');
+  const area = `${line} L${toX(prices.length - 1).toFixed(1)},${(H - PAD).toFixed(1)} L${toX(0).toFixed(1)},${(H - PAD).toFixed(1)} Z`;
+  const cur = prices[prices.length - 1];
+  return (
+    <div className="w-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[#05070f] p-5 sm:p-6">
+      {/* header */}
+      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+        <div className="flex items-center gap-2.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[#7b5cff] opacity-60 animate-ping" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#7b5cff]" />
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#9aa0b4] font-bold">AI Scan</span>
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#a78bfa] font-bold">Chart Read</span>
+      </div>
+
+      {/* chart */}
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto block" role="img" aria-label="AI chart read marking support and resistance zones">
+        <defs>
+          <linearGradient id="soFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#7b5cff" stopOpacity="0.32" />
+            <stop offset="100%" stopColor="#7b5cff" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="soLine" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#5a7dff" />
+            <stop offset="100%" stopColor="#7b5cff" />
+          </linearGradient>
+        </defs>
+
+        {/* faint grid */}
+        {[0.33, 0.66].map((f, i) => {
+          const y = PAD + f * (H - PAD * 2);
+          return <line key={i} x1={PAD} x2={W - PAD} y1={y} y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />;
+        })}
+
+        {/* zone band */}
+        <rect x={PAD} y={toY(R)} width={W - PAD * 2} height={toY(S) - toY(R)} rx="8" fill="rgba(123,92,255,0.08)" stroke="rgba(123,92,255,0.16)" strokeWidth="1" />
+
+        {/* R / S lines */}
+        <line x1={PAD} x2={W - PAD} y1={toY(R)} y2={toY(R)} stroke="rgba(123,92,255,0.45)" strokeWidth="1" strokeDasharray="4 5" />
+        <line x1={PAD} x2={W - PAD} y1={toY(S)} y2={toY(S)} stroke="rgba(5,223,114,0.45)" strokeWidth="1" strokeDasharray="4 5" />
+        <text x={W - PAD} y={toY(R) - 7} textAnchor="end" fill="#a78bfa" fontSize="12" fontFamily="Roboto Mono, monospace" fontWeight="700">R 1.2820</text>
+        <text x={PAD} y={toY(S) + 18} textAnchor="start" fill="#05df72" fontSize="12" fontFamily="Roboto Mono, monospace" fontWeight="700">S 1.2640</text>
+
+        {/* price line + area */}
+        <path d={area} fill="url(#soFill)" />
+        <path d={line} fill="none" stroke="url(#soLine)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+
+        {/* current price */}
+        <circle cx={toX(prices.length - 1)} cy={toY(cur)} r="9" fill="rgba(123,92,255,0.25)" />
+        <circle cx={toX(prices.length - 1)} cy={toY(cur)} r="3.5" fill="#f5f6fa" />
+        <text x={toX(prices.length - 1) + 13} y={toY(cur) + 4} fill="#f5f6fa" fontSize="11" fontFamily="Roboto Mono, monospace" fontWeight="700">1.2745</text>
+      </svg>
+
+      {/* what the AI marks */}
+      <div className="mt-4 flex flex-wrap gap-2">
+        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] px-2.5 py-1.5 rounded-md text-[#a78bfa]" style={{ background: 'rgba(123,92,255,0.10)', border: '1px solid rgba(123,92,255,0.22)' }}>
+          <LevelsIcon cn="w-3.5 h-3.5" /> Zones mapped
+        </span>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] px-2.5 py-1.5 rounded-md text-[#fb2c36]" style={{ background: 'rgba(251,44,54,0.08)', border: '1px solid rgba(251,44,54,0.22)' }}>
+          <Shield cn="w-3.5 h-3.5" /> Risks flagged
+        </span>
+      </div>
+
+      {/* your call */}
+      <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.08)] flex items-center justify-between flex-wrap gap-2">
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#9aa0b4] font-bold">Your call</span>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] font-bold text-[#05df72]">
+          <span className="w-5 h-5 rounded-full flex items-center justify-center" style={{ background: 'rgba(5,223,114,0.14)', border: '1px solid rgba(5,223,114,0.3)' }}>
+            <CheckIcon cn="w-3 h-3" />
+          </span>
+          You decide
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function ZoneChart() {
   const supportY = toY(1.2640);
   const resistanceY = toY(1.2820);
@@ -374,7 +481,7 @@ function SampleOutput() {
 /* ─── Page ─── */
 export default function AIChartAnalyser() {
   return (
-    <div className="min-h-screen pt-16 lg:pt-20 pb-8 lg:pb-10">
+    <div className="min-h-screen">
       {/* ═══ Hero ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[rgba(255,255,255,0.08)]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#7b5cff]/5 rounded-full blur-3xl pointer-events-none" />
@@ -507,15 +614,55 @@ export default function AIChartAnalyser() {
 
       {/* ═══ A Second Opinion, Not a Signal Service + Final CTA ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
-        <div className="max-w-3xl mx-auto">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.10) 0%, transparent 60%)' }} />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <SectionHeader title="A Second Opinion, Not a Signal Service" />
-          <p className="text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] text-center">
-            {OPINION_TEXT}
-          </p>
-          <div className="mt-8 rounded-2xl p-6 lg:p-8 relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #10152a 0%, #0d1120 100%)', border: '1px solid rgba(123,92,255,0.35)', boxShadow: '0 8px 30px rgba(123,92,255,0.10)' }}>
-            <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-            <p className="font-mono text-base sm:text-lg font-bold text-center text-[#f5f6fa] leading-relaxed tracking-[0.02em]">{CLOSING_LINE}</p>
+
+          {/* Two roles — text left, AI scan visual right */}
+          <div className="rounded-3xl overflow-hidden">
+            <div className="sm:flex sm:items-stretch">
+              {/* The text — A Second Opinion + Your call */}
+              <div className="relative flex-1 min-w-0 p-6 lg:p-10 overflow-hidden flex flex-col justify-center">
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="w-10 h-10 rounded-xl flex items-center justify-center text-[#a78bfa] shrink-0" style={{ background: 'rgba(123,92,255,0.12)', border: '1px solid rgba(123,92,255,0.25)' }}>
+                        <Shield cn="w-5 h-5" />
+                      </span>
+                      <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#a78bfa] font-bold">A Second Opinion</div>
+                    </div>
+                    <p className="text-sm sm:text-base text-[#f5f6fa] leading-relaxed tracking-[0.02em]">
+                      {OPINION_TEXT}
+                    </p>
+                  </div>
+
+                  <div className="relative h-px my-6 lg:my-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.12) 50%, transparent)' }} />
+
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="w-10 h-10 rounded-xl flex items-center justify-center text-[#05df72] shrink-0" style={{ background: 'rgba(5,223,114,0.12)', border: '1px solid rgba(5,223,114,0.25)' }}>
+                        <UserIcon cn="w-5 h-5" />
+                      </span>
+                      <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#05df72] font-bold">You Make the Call</div>
+                    </div>
+                    <p className="font-mono text-sm sm:text-base font-bold text-[#f5f6fa] leading-relaxed tracking-[0.02em]">
+                      {CALL_LINE}.{' '}
+                      <span className="text-[#05df72]">{AI_LINE}</span>
+                    </p>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="hidden sm:block w-px shrink-0 self-stretch" style={{ background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.12) 50%, transparent)' }} />
+                <div className="sm:hidden h-px mx-8" style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.12) 50%, transparent)' }} />
+
+                {/* The visual — AI scan dashboard */}
+                <div className="relative flex-1 min-w-0 p-6 lg:p-8 flex flex-col justify-center overflow-hidden">
+                  <SecondOpinionVisual />
+                </div>
+            </div>
           </div>
+
+          {/* Buttons */}
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a
               href="#analyzer"
