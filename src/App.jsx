@@ -17,6 +17,7 @@ const AITradingPlatform = lazy(() => import('./pages/AITradingPlatform'));
 const AITradingAssistant = lazy(() => import('./pages/AITradingAssistant'));
 const AIChartAnalyser = lazy(() => import('./pages/AIChartAnalyser'));
 const AIStrategyBuilder = lazy(() => import('./pages/AIStrategyBuilder'));
+const AITradingIdeas = lazy(() => import('./pages/AITradingIdeas'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -120,6 +121,18 @@ export default function App() {
                 <SEO title="AI Strategy Builder | Turn Trading Ideas Into Tested Systems" description="Describe your trading idea in plain English and the AI Strategy Builder turns it into a structured, rule-based strategy you can test, edit, and run. No coding needed." path="/ai-strategy-builder" />
                 <Layout>
                   <AIStrategyBuilder />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/ai-trading-ideas"
+            element={
+              <>
+                <SEO title="AI Trading Ideas | Scanned 24/7 for Stocks, Crypto & Forex" description="Ready-made AI trading ideas for stocks, crypto and forex — every signal includes entry zone, stop loss, target, risk-to-reward and confidence score. Scanned 24/7 across every market and timeframe." path="/ai-trading-ideas" />
+                <Layout>
+                  <AITradingIdeas />
                   <Footer />
                 </Layout>
               </>
