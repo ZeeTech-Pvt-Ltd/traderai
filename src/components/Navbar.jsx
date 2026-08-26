@@ -10,6 +10,7 @@ const NAV_LINKS = [
     children: [
       { label: 'AI Trading Assistant', href: '/ai-trading-assistant' },
       { label: 'AI Chart Analyser', href: '/ai-chart-analyser' },
+      { label: 'AI Strategy Builder', href: '/ai-strategy-builder' },
     ],
   },
   { label: 'Traders', href: '/traders' },

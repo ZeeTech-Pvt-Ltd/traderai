@@ -16,6 +16,7 @@ const TradersPage = lazy(() => import('./pages/TradersPage'));
 const AITradingPlatform = lazy(() => import('./pages/AITradingPlatform'));
 const AITradingAssistant = lazy(() => import('./pages/AITradingAssistant'));
 const AIChartAnalyser = lazy(() => import('./pages/AIChartAnalyser'));
+const AIStrategyBuilder = lazy(() => import('./pages/AIStrategyBuilder'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -107,6 +108,18 @@ export default function App() {
                 <SEO title="AI Chart Analyser | Read Any Chart Instantly" description="Upload a chart image and let AI read the trend, mark key support and resistance, and outline trade scenarios with confidence scores. Free to start." path="/ai-chart-analyser" />
                 <Layout>
                   <AIChartAnalyser />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/ai-strategy-builder"
+            element={
+              <>
+                <SEO title="AI Strategy Builder | Turn Trading Ideas Into Tested Systems" description="Describe your trading idea in plain English and the AI Strategy Builder turns it into a structured, rule-based strategy you can test, edit, and run. No coding needed." path="/ai-strategy-builder" />
+                <Layout>
+                  <AIStrategyBuilder />
                   <Footer />
                 </Layout>
               </>
