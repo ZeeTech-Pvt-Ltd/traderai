@@ -82,7 +82,7 @@ function TagIcon({ cn = 'w-[22px] h-[22px]' }) {
 }
 
 /* ─── Section Header (kicker + title + sub) ─── */
-function SectionHeader({ kicker, title, accent, sub }) {
+function SectionHeader({ kicker, title, accent, sub, compact }) {
   return (
     <div className="text-center mb-12 lg:mb-16">
       {kicker && (
@@ -90,7 +90,7 @@ function SectionHeader({ kicker, title, accent, sub }) {
           {kicker}
         </span>
       )}
-      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
+      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: compact ? 'clamp(1.5rem, 3.75vw, 2.25rem)' : 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
       {sub && <p className="mt-4 text-sm lg:text-base max-w-2xl mx-auto leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4]">{sub}</p>}
@@ -259,29 +259,35 @@ export default function AITradingIdeas() {
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-3xl mx-auto">
           <SectionHeader kicker="Signal Structure" title="What Every Idea" accent="Includes" sub={IDEAS_INTRO} />
-          <div className="space-y-3">
-            {IDEAS.map((c) => {
-              const Icon = c.icon;
-              return (
-                <div key={c.title} className="flex items-center gap-4 rounded-xl p-4 bg-[#0d1120]/60 border border-[rgba(255,255,255,0.08)]">
-                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] shrink-0">
-                    <Icon cn="w-[22px] h-[22px]" />
+          <div className="relative bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.25)]">
+            <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+            <div className="divide-y divide-[rgba(255,255,255,0.06)]">
+              {IDEAS.map((c, i) => {
+                const Icon = c.icon;
+                return (
+                  <div key={c.title} className="flex items-center gap-4 px-6 lg:px-8 py-5">
+                    <span className="font-mono text-[11px] text-[#7c829c] w-6 shrink-0">0{i + 1}</span>
+                    <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] shrink-0">
+                      <Icon cn="w-[22px] h-[22px]" />
+                    </div>
+                    <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{c.title}</h3>
                   </div>
-                  <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{c.title}</h3>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
+            <div className="px-6 lg:px-8 py-5 border-t border-[rgba(255,255,255,0.06)]" style={{ background: 'rgba(123,92,255,0.06)' }}>
+              <p className="text-center text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em]">
+                {IDEAS_OUTRO}
+              </p>
+            </div>
           </div>
-          <p className="mt-8 text-center text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-xl mx-auto">
-            {IDEAS_OUTRO}
-          </p>
         </div>
       </section>
 
       {/* ═══ Built for Every Style ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Who It's For" title="Built for" accent="Every Style" />
+          <SectionHeader kicker="Who It's For" title="Built for Every Style" compact />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {STYLE.map((s, i) => {
               const Icon = STYLE_ICONS[i];
@@ -303,7 +309,7 @@ export default function AITradingIdeas() {
       {/* ═══ Transparent by Design ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-5xl mx-auto">
-          <SectionHeader kicker="Verification" title="Transparent" accent="by Design" sub={TRANSPARENT_INTRO} />
+          <SectionHeader kicker="Verification" title="Transparent by Design" compact sub={TRANSPARENT_INTRO} />
           <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
             {TRANSPARENT.map((t) => {
               const Icon = t.icon;
