@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  Bot,
   Activity,
   RefreshCw,
 } from '../components/ui/Icons';
@@ -12,6 +11,19 @@ function MessageIcon({ cn = 'w-[22px] h-[22px]' }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={cn}>
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  );
+}
+function BotIcon({ cn = 'w-[22px] h-[22px]' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <rect x="4" y="5" width="16" height="15" rx="3" />
+      <path d="M12 5V2.5" />
+      <circle cx="9" cy="11" r="1.3" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="11" r="1.3" fill="currentColor" stroke="none" />
+      <path d="M2 13.5h2" />
+      <path d="M20 13.5h2" />
+      <path d="M9 16.5h6" />
     </svg>
   );
 }
@@ -88,9 +100,10 @@ function KeyIcon({ cn = 'w-[22px] h-[22px]' }) {
 }
 
 /* ─── Section Header (kicker + title + sub) ─── */
-function SectionHeader({ kicker, title, accent, sub }) {
+function SectionHeader({ kicker, title, accent, sub, align = 'center', className = '' }) {
+  const left = align === 'left';
   return (
-    <div className="text-center mb-12 lg:mb-16">
+    <div className={`${left ? 'text-left' : 'text-center'} mb-12 lg:mb-16 ${className}`}>
       {kicker && (
         <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-4 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
           {kicker}
@@ -99,7 +112,155 @@ function SectionHeader({ kicker, title, accent, sub }) {
       <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
-      {sub && <p className="mt-4 text-sm lg:text-base max-w-2xl mx-auto leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4]">{sub}</p>}
+      {sub && <p className={`mt-4 text-sm lg:text-base ${left ? '' : 'max-w-2xl mx-auto'} leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4]`}>{sub}</p>}
+    </div>
+  );
+}
+
+/* ─── Small shared pieces for the report visuals ─── */
+function CheckChip({ label }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full border border-[rgba(255,255,255,0.1)] text-[#9aa0b4]">
+      <svg className="w-3 h-3 text-[#05df72]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+      {label}
+    </span>
+  );
+}
+
+/* ─── Backtest Report visual (hero right side) ─── */
+function BacktestReport() {
+  const W = 560;
+  const H = 300;
+  const PAD = 18;
+  const strat = [100, 101.2, 103.5, 102.8, 105.1, 107.8, 106.9, 109.4, 112.2, 111.3, 114.8, 117.5, 118.9];
+  const bench = [100, 100.6, 101.2, 101.9, 102.4, 103.1, 103.7, 104.2, 104.8, 105.3, 105.8, 106.3, 106.8];
+  const MIN = 96;
+  const MAX = 123;
+  const toX = (i) => PAD + (i / (strat.length - 1)) * (W - PAD * 2);
+  const toY = (v) => H - PAD - ((v - MIN) / (MAX - MIN)) * (H - PAD * 2);
+  const stratLine = strat.map((v, i) => `${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+  const benchLine = bench.map((v, i) => `${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+  const stratArea = `M ${toX(0).toFixed(1)},${H - PAD} L ${stratLine.split(' ').join(' L ')} L ${toX(strat.length - 1).toFixed(1)},${H - PAD} Z`;
+  const lastX = toX(strat.length - 1);
+  const lastY = toY(strat[strat.length - 1]);
+  const gridYs = [0.2, 0.4, 0.6, 0.8].map((f) => PAD + f * (H - PAD * 2));
+  const stats = [
+    { label: 'Total Return', value: '+18.9%', green: true },
+    { label: 'Win Rate', value: '61.2%', green: false },
+    { label: 'Max Drawdown', value: '-4.2%', green: false },
+    { label: 'Profit Factor', value: '1.87', green: false },
+  ];
+  return (
+    <div className="relative bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 lg:p-8 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <div className="font-mono text-xs font-bold text-[#f5f6fa]">Backtest Report</div>
+          <div className="font-mono text-[10px] text-[#7c829c] mt-0.5">Gold Momentum · 7 years · 1,248 trades</div>
+        </div>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full border border-[#05df72]/30 text-[#05df72]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#05df72] animate-pulse" />
+          Backtesting
+        </span>
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="Backtest equity curve">
+        <defs>
+          <linearGradient id="brArea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#05df72" stopOpacity="0.22" />
+            <stop offset="100%" stopColor="#05df72" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {gridYs.map((gy, i) => (
+          <line key={i} x1={PAD} x2={W - PAD} y1={gy} y2={gy} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+        ))}
+        <polyline points={benchLine} fill="none" stroke="#7c829c" strokeWidth="1.5" strokeDasharray="4 4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={stratArea} fill="url(#brArea)" />
+        <polyline points={stratLine} fill="none" stroke="#05df72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx={lastX} cy={lastY} r="7" fill="#05df72" opacity="0.18" />
+        <circle cx={lastX} cy={lastY} r="3" fill="#05df72" />
+        <text x={lastX} y={lastY - 12} textAnchor="middle" fill="#05df72" fontSize="13" fontFamily="monospace" fontWeight="700">118.9</text>
+      </svg>
+      <div className="flex items-center justify-center gap-5 mt-3">
+        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[#05df72]"><span className="w-3 h-0.5 bg-[#05df72] rounded-full" /> Strategy</span>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[#7c829c]"><span className="w-3 h-0.5 bg-[#7c829c] rounded-full" /> Market</span>
+      </div>
+      <div className="grid grid-cols-4 gap-2 mt-5">
+        {stats.map((s) => (
+          <div key={s.label} className="rounded-lg px-2 py-3 text-center" style={{ background: 'rgba(255,255,255,0.03)' }}>
+            <div className={`font-mono font-bold text-sm sm:text-base ${s.green ? 'text-[#05df72]' : 'text-[#f5f6fa]'}`}>{s.value}</div>
+            <div className="font-mono text-[9px] sm:text-[10px] text-[#7c829c] mt-1 leading-tight">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-wrap justify-center gap-2 mt-5">
+        <CheckChip label="Out-of-sample" />
+        <CheckChip label="Walk-forward" />
+        <CheckChip label="Monte Carlo" />
+      </div>
+    </div>
+  );
+}
+
+/* ─── Stress Test visual (guardrails right side) ─── */
+function StressPanel() {
+  const W = 520;
+  const H = 280;
+  const PAD = 16;
+  const durable = [100, 101.4, 103.1, 102.2, 105, 108.2, 106.9, 110.4, 113.1, 111.8, 115.6, 118.3];
+  const fragile = [100, 105.2, 111, 117.6, 124.3, 130.1, 121.4, 110.2, 98.5, 89.2, 83.4, 78.8];
+  const MIN = 70;
+  const MAX = 138;
+  const toX = (i) => PAD + (i / (durable.length - 1)) * (W - PAD * 2);
+  const toY = (v) => H - PAD - ((v - MIN) / (MAX - MIN)) * (H - PAD * 2);
+  const line = (arr) => arr.map((v, i) => `${toX(i).toFixed(1)},${toY(v).toFixed(1)}`).join(' ');
+  const area = (arr) => `M ${toX(0).toFixed(1)},${H - PAD} L ${line(arr).split(' ').join(' L ')} L ${toX(arr.length - 1).toFixed(1)},${H - PAD} Z`;
+  const gridYs = [0.2, 0.4, 0.6, 0.8].map((f) => PAD + f * (H - PAD * 2));
+  const fragileEnd = fragile[fragile.length - 1];
+  const fragileEndX = toX(fragile.length - 1);
+  const fragileEndY = toY(fragileEnd);
+  return (
+    <div className="relative bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 lg:p-8 overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <div className="font-mono text-xs font-bold text-[#f5f6fa]">Stress Test</div>
+          <div className="font-mono text-[10px] text-[#7c829c] mt-0.5">Same idea · two histories</div>
+        </div>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full border border-[#05df72]/30 text-[#05df72]">
+          <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+          Passed
+        </span>
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="Durable versus curve-fit equity curves">
+        <defs>
+          <linearGradient id="spGreen" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#05df72" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#05df72" stopOpacity="0" />
+          </linearGradient>
+          <linearGradient id="spRed" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#fb2c36" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#fb2c36" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+        {gridYs.map((gy, i) => (
+          <line key={i} x1={PAD} x2={W - PAD} y1={gy} y2={gy} stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+        ))}
+        <path d={area(fragile)} fill="url(#spRed)" />
+        <polyline points={line(fragile)} fill="none" stroke="#fb2c36" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d={area(durable)} fill="url(#spGreen)" />
+        <polyline points={line(durable)} fill="none" stroke="#05df72" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <text x={fragileEndX} y={fragileEndY - 12} textAnchor="middle" fill="#fb2c36" fontSize="13" fontFamily="monospace" fontWeight="700">78.8</text>
+      </svg>
+      <div className="flex items-center justify-center gap-5 mt-3">
+        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[#05df72]"><span className="w-3 h-0.5 bg-[#05df72] rounded-full" /> Durable</span>
+        <span className="inline-flex items-center gap-1.5 font-mono text-[11px] text-[#fb2c36]"><span className="w-3 h-0.5 bg-[#fb2c36] rounded-full" /> Curve-fit</span>
+      </div>
+      <div className="flex flex-wrap justify-center gap-2 mt-5">
+        <CheckChip label="Out-of-sample" />
+        <CheckChip label="Walk-forward" />
+        <CheckChip label="Monte Carlo" />
+        <CheckChip label="Sensitivity" />
+      </div>
     </div>
   );
 }
@@ -109,11 +270,11 @@ const INTRO_1 = "Most traders don't lose because they run out of ideas. They los
 const INTRO_2 = "Our AI Strategy Builder closes that gap. Describe your idea in plain English, and the AI turns it into a structured, rule-based strategy you can test, edit, and run. No coding needed.";
 
 const STEPS = [
-  { num: '01', lead: 'Describe it.', rest: '"Buy gold when momentum turns up and volatility stays low." That\'s enough to begin.' },
-  { num: '02', lead: 'Let the AI build it.', rest: 'Entries, exits, filters, sizing, and risk rules are assembled from validated components — not invented code.' },
-  { num: '03', lead: 'Test before you trust it.', rest: 'Every strategy runs against years of real market data, with fees, spreads, and slippage included.' },
+  { num: '01', lead: 'Describe it.', text: '"Buy gold when momentum turns up and volatility stays low." That\'s enough to begin.' },
+  { num: '02', lead: 'Let the AI build it.', text: 'Entries, exits, filters, sizing, and risk rules are assembled from validated components — not invented code.' },
+  { num: '03', lead: 'Test before you trust it.', text: 'Every strategy runs against years of real market data, with fees, spreads, and slippage included.' },
 ];
-const STEP_ICONS = [MessageIcon, Bot, FlaskIcon];
+const STEP_ICONS = [MessageIcon, BotIcon, FlaskIcon];
 
 const GUARDRAIL_INTRO = 'A pretty equity curve is easy. A durable one is not. Each strategy is stress-tested automatically:';
 
@@ -146,36 +307,45 @@ export default function AIStrategyBuilder() {
   return (
     <div className="min-h-screen">
       {/* ═══ Hero ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[rgba(255,255,255,0.08)]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#7b5cff]/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
-            AI Strategy Builder
-          </span>
-          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
-            Turn a Trading Idea Into a Tested System
-          </h1>
-          <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[600px] mx-auto">
-            {INTRO_1}
-          </p>
-          <p className="mt-4 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[640px] mx-auto">
-            {INTRO_2}
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/signup"
-              className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
-            >
-              Build Your First Strategy
-              <ArrowRight cn="w-4 h-4" />
-            </Link>
-            <Link
-              to="/signup"
-              className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-[#f5f6fa] hover:opacity-80 transition-all border border-[rgba(255,255,255,0.15)]"
-            >
-              Create Free Account
-            </Link>
+      <section className="relative pt-28 lg:pt-36 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[rgba(255,255,255,0.08)]">
+        <div className="absolute top-0 left-0 right-0 h-full pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)', backgroundSize: '44px 44px', maskImage: 'radial-gradient(ellipse 90% 65% at 50% 0%, black 30%, transparent 100%)', WebkitMaskImage: 'radial-gradient(ellipse 90% 65% at 50% 0%, black 30%, transparent 100%)' }} />
+        <div className="absolute -top-20 right-0 w-[620px] h-[520px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(123,92,255,0.10) 0%, transparent 60%)' }} />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
+            <div className="text-center xl:text-left">
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
+                AI Strategy Builder
+              </span>
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.15', textWrap: 'balance' }}>
+                <span className="block">Turn a Trading Idea</span>
+                <span className="block text-[#7b5cff]">Into a Tested System</span>
+              </h1>
+              <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[520px] mx-auto xl:mx-0">
+                {INTRO_1}
+              </p>
+              <p className="mt-4 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] max-w-[540px] mx-auto xl:mx-0">
+                {INTRO_2}
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center xl:justify-start gap-3">
+                <Link
+                  to="/signup"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
+                >
+                  Build Your First Strategy
+                  <ArrowRight cn="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/signup"
+                  className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-8 rounded-md text-[#f5f6fa] hover:opacity-80 transition-all border border-[rgba(255,255,255,0.15)]"
+                >
+                  Create Free Account
+                </Link>
+              </div>
+            </div>
+            <div className="max-w-xl xl:max-w-none mx-auto xl:mx-0 xl:pl-4">
+              <BacktestReport />
+            </div>
           </div>
         </div>
       </section>
@@ -183,7 +353,7 @@ export default function AIStrategyBuilder() {
       {/* ═══ From Sentence to Strategy in Three Steps ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="How It Works" title="From Sentence to Strategy in Three Steps" />
+          <SectionHeader kicker="How It Works" title="From Sentence to Strategy" accent="in Three Steps" />
           <div className="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-3">
             {STEPS.map((s, i) => {
               const Icon = STEP_ICONS[i];
@@ -192,13 +362,12 @@ export default function AIStrategyBuilder() {
                   <div className="group relative flex-1 min-w-0 bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-2xl p-6 lg:p-8 text-center overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                     <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
                     <span className="absolute top-4 right-5 font-mono font-black text-5xl lg:text-6xl leading-none text-white/[0.04] group-hover:text-white/[0.09] transition-colors duration-300 select-none pointer-events-none">{s.num}</span>
-                    <div className="relative inline-flex items-center justify-center w-14 h-14 rounded-2xl text-white mb-4" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', boxShadow: '0 10px 28px rgba(123,92,255,0.35)' }}>
-                      <Icon cn="w-6 h-6" />
+                    <div className="relative inline-flex items-center justify-center w-11 h-11 rounded-xl mb-4 bg-[#7b5cff]/10 text-[#a78bfa]">
+                      <Icon cn="w-[22px] h-[22px]" />
                     </div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#a78bfa] font-bold mb-3">Step {s.num}</div>
-                    <p className="text-sm sm:text-base text-[#f5f6fa] leading-relaxed tracking-[0.02em]">
-                      <span className="font-bold">{s.lead}</span>
-                      <span className="text-[#9aa0b4]">{s.rest}</span>
+                    <h3 className="font-mono text-sm sm:text-base text-[#f5f6fa] mb-2">{s.lead}</h3>
+                    <p className="text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+                      {s.text}
                     </p>
                   </div>
                   {i < STEPS.length - 1 && (
@@ -216,24 +385,29 @@ export default function AIStrategyBuilder() {
       {/* ═══ Guardrails Against Curve Fitting ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Testing" title="Guardrails Against Curve Fitting" />
-          <p className="text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] text-center max-w-2xl mx-auto mb-10 lg:mb-12">
-            {GUARDRAIL_INTRO}
-          </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
-            {GUARDRAILS.map((g) => {
-              const Icon = g.icon;
-              return (
-                <div key={g.title} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                  <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-                  <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
-                    <Icon cn="w-[22px] h-[22px]" />
-                  </div>
-                  <h3 className="font-mono font-bold text-sm sm:text-base text-[#f5f6fa] mb-2">{g.title}</h3>
-                  {g.desc && <p className="text-sm text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{g.desc}</p>}
-                </div>
-              );
-            })}
+          <div className="xl:grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
+            <div>
+              <SectionHeader align="left" className="mb-10 xl:mb-0" kicker="Testing" title="Guardrails Against" accent="Curve Fitting" sub={GUARDRAIL_INTRO} />
+              <ul className="space-y-3 xl:mt-10">
+                {GUARDRAILS.map((g) => {
+                  const Icon = g.icon;
+                  return (
+                    <li key={g.title} className="flex items-start gap-4 rounded-xl p-4 bg-[#0d1120]/60 border border-[rgba(255,255,255,0.08)]">
+                      <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] shrink-0">
+                        <Icon cn="w-[22px] h-[22px]" />
+                      </div>
+                      <div className="min-w-0 pt-1">
+                        <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4]">{g.title}</h3>
+                        {g.desc && <p className="text-sm text-[#7c829c] mt-0.5 leading-relaxed tracking-[0.02em]">{g.desc}</p>}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="mt-10 xl:mt-0 max-w-xl xl:max-w-none mx-auto">
+              <StressPanel />
+            </div>
           </div>
         </div>
       </section>
@@ -242,7 +416,7 @@ export default function AIStrategyBuilder() {
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-5xl mx-auto">
           <SectionHeader kicker="Control" title="You Stay in Control" />
-          <p className="font-mono text-base sm:text-lg text-[#f5f6fa] font-bold text-center leading-relaxed tracking-[0.02em] mb-10 lg:mb-12">
+          <p className="font-mono text-sm sm:text-base text-[#9aa0b4] text-center leading-relaxed tracking-[0.02em] mb-10 lg:mb-12">
             The AI drafts. <span className="text-[#05df72]">You decide.</span>
           </p>
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
@@ -254,7 +428,7 @@ export default function AIStrategyBuilder() {
                   <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] shrink-0">
                     <Icon cn="w-[22px] h-[22px]" />
                   </div>
-                  <h3 className="font-mono font-bold text-sm sm:text-base text-[#f5f6fa] leading-relaxed tracking-[0.02em] pt-1">{c.title}</h3>
+                  <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em] pt-1">{c.title}</h3>
                 </div>
               );
             })}
@@ -275,7 +449,7 @@ export default function AIStrategyBuilder() {
                   <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
                     <Icon cn="w-[22px] h-[22px]" />
                   </div>
-                  <h3 className="font-mono font-bold text-sm sm:text-base text-[#f5f6fa] leading-relaxed tracking-[0.02em]">{a.title}</h3>
+                  <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em]">{a.title}</h3>
                 </div>
               );
             })}
