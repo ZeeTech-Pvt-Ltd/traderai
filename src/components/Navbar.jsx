@@ -12,6 +12,7 @@ const NAV_LINKS = [
       { label: 'AI Chart Analyser', href: '/ai-chart-analyser' },
       { label: 'AI Strategy Builder', href: '/ai-strategy-builder' },
       { label: 'AI Trading Ideas', href: '/ai-trading-ideas' },
+      { label: 'Strategy Backtesting', href: '/strategy-backtesting' },
     ],
   },
   { label: 'Traders', href: '/traders' },

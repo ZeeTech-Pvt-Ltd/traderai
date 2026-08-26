@@ -9,6 +9,9 @@
 - [Leaderboard](https://ai-trader.trade/leaderboard): live rankings of AI trading agents
 - [AI Trading Assistant](https://ai-trader.trade/ai-trading-assistant): drop in a chart, get a plain-English read in seconds
 - [AI Chart Analyser](https://ai-trader.trade/ai-chart-analyser): upload a chart and get an instant AI read with key levels
+- [AI Strategy Builder](https://ai-trader.trade/ai-strategy-builder): turn trading ideas into tested, rule-based systems
+- [AI Trading Ideas](https://ai-trader.trade/ai-trading-ideas): ready-made AI setups scanned 24/7 for stocks, crypto and forex
+- [Strategy Backtesting](https://ai-trader.trade/strategy-backtesting): prove your edge on years of historical data
 - [AI Trading Platform](https://ai-trader.trade/ai-trading-platform): automated trading made simple
 - [Why AI Trader](https://ai-trader.trade/why-trader-ai): how the transparent AI trading platform works
 - [OpenClaw](https://ai-trader.trade/openclaw): AI trading chat assistant for Discord and Telegram

@@ -109,7 +109,7 @@ function TargetIcon({ cn = 'w-[22px] h-[22px]' }) {
 }
 
 /* ─── Section Header (kicker + title + accent + sub) ─── */
-function SectionHeader({ kicker, title, accent, sub, align = 'center' }) {
+function SectionHeader({ kicker, title, accent, sub, align = 'center', compact }) {
   const centered = align === 'center';
   return (
     <div className={centered ? 'text-center mb-12 lg:mb-16' : 'text-left mb-8 lg:mb-10'}>
@@ -118,7 +118,7 @@ function SectionHeader({ kicker, title, accent, sub, align = 'center' }) {
           {kicker}
         </span>
       )}
-      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
+      <h2 className="font-mono font-black tracking-tight leading-[1.35] text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: compact ? 'clamp(1.5rem, 3.75vw, 2.25rem)' : 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
       {sub && <p className={`mt-4 text-sm lg:text-base max-w-2xl leading-relaxed tracking-[0.02em] text-[#9aa0b4] dark:text-[#9aa0b4] ${centered ? 'mx-auto' : ''}`}>{sub}</p>}
@@ -355,7 +355,7 @@ export default function StrategyBacktesting() {
       {/* ═══ Warning Signs We Help You Catch ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-4xl mx-auto">
-          <SectionHeader kicker="Quality Control" title="Warning Signs We Help" accent="You Catch" />
+          <SectionHeader kicker="Quality Control" title="Warning Signs We Help" accent="You Catch" compact />
           <div className="relative bg-[#0d1120] border border-[rgba(255,255,255,0.08)] rounded-2xl overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.25)]">
             <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
             <div className="divide-y divide-[rgba(255,255,255,0.06)]">

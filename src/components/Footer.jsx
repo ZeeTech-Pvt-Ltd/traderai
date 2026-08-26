@@ -16,6 +16,9 @@ const FOOTER_LINKS = {
     { label: 'AI Trading Platform', href: '/ai-trading-platform' },
     { label: 'AI Trading Assistant', href: '/ai-trading-assistant' },
     { label: 'AI Chart Analyser', href: '/ai-chart-analyser' },
+    { label: 'AI Strategy Builder', href: '/ai-strategy-builder' },
+    { label: 'AI Trading Ideas', href: '/ai-trading-ideas' },
+    { label: 'Strategy Backtesting', href: '/strategy-backtesting' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },

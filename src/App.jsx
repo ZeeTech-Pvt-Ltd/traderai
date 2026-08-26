@@ -18,6 +18,7 @@ const AITradingAssistant = lazy(() => import('./pages/AITradingAssistant'));
 const AIChartAnalyser = lazy(() => import('./pages/AIChartAnalyser'));
 const AIStrategyBuilder = lazy(() => import('./pages/AIStrategyBuilder'));
 const AITradingIdeas = lazy(() => import('./pages/AITradingIdeas'));
+const StrategyBacktesting = lazy(() => import('./pages/StrategyBacktesting'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -133,6 +134,18 @@ export default function App() {
                 <SEO title="AI Trading Ideas | Scanned 24/7 for Stocks, Crypto & Forex" description="Ready-made AI trading ideas for stocks, crypto and forex — every signal includes entry zone, stop loss, target, risk-to-reward and confidence score. Scanned 24/7 across every market and timeframe." path="/ai-trading-ideas" />
                 <Layout>
                   <AITradingIdeas />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/strategy-backtesting"
+            element={
+              <>
+                <SEO title="Strategy Backtesting | Prove Your Edge on Historical Data" description="Strategy backtesting that puts your rules through years of real historical conditions — thousands of simulated trades, real costs modelled, and the warning signs that break most strategies caught automatically." path="/strategy-backtesting" />
+                <Layout>
+                  <StrategyBacktesting />
                   <Footer />
                 </Layout>
               </>
