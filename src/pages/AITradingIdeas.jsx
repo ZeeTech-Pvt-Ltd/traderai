@@ -200,7 +200,7 @@ export default function AITradingIdeas() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#7b5cff] animate-pulse" />
                 AI Trading Ideas
               </span>
-              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.15', textWrap: 'balance' }}>
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 5vw, 2.75rem)', lineHeight: '1.15', textWrap: 'balance' }}>
                 <span className="block">AI Trading Ideas for</span>
                 <span className="block text-[#7b5cff]">Stocks, Crypto &amp; Forex — Scanned 24/7</span>
               </h1>
