@@ -23,10 +23,21 @@ const itiStyles = `
   .iti { width: 100%; }
   .iti--separate-dial-code .iti__selected-dial-code { color: #9aa0b4 !important; font-size: 13px; font-family: 'Courier New', monospace; font-weight: 600; }
   .iti__flag-container { z-index: 2; }
-  .iti__country-list { font-family: 'Courier New', monospace; font-size: 12px; }
+  .iti__country-list {
+    background-color: #000 !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.6) !important;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+  }
   .iti__country { color: #f5f6fa; }
+  .iti__country:hover,
+  .iti__country.iti__highlight { background-color: rgba(123,92,255,0.18) !important; }
+  .iti__country-name { color: #f5f6fa; }
+  .iti__dial-code { color: #7c829c !important; }
+  .iti__divider { border-bottom-color: rgba(255,255,255,0.08) !important; }
   .iti__selected-flag { background: transparent !important; }
-  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(0,0,0,0.03) !important; }
+  .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag { background: rgba(255,255,255,0.06) !important; }
   .iti__flag + .iti__selected-dial-code { margin-left: 4px; }
 `;
 
