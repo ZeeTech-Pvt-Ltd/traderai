@@ -246,7 +246,7 @@ export default function AITradingIdeas() {
                   <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
                     <Icon cn="w-[22px] h-[22px]" />
                   </div>
-                  <h3 className="font-mono text-sm sm:text-base text-[#9aa0b4] mb-2">{e.title}</h3>
+                  <h3 className="font-mono text-sm sm:text-base text-[#dadee7] mb-2">{e.title}</h3>
                   <p className="text-sm text-[#7c829c] leading-relaxed tracking-[0.02em]">{e.desc}</p>
                 </div>
               );
