@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom';
 
 const API_URL = 'https://quantryxtech.com/homeMailAction.php';
 
-function ArrowRight({ cn = 'w-4 h-4' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-    </svg>
-  );
-}
 function Mail({ cn = 'w-4 h-4' }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
@@ -31,65 +24,6 @@ function MessageIcon({ cn = 'w-[22px] h-[22px]' }) {
     </svg>
   );
 }
-function BotIcon({ cn = 'w-[22px] h-[22px]' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <path d="M12 8V4H8" /><rect width="16" height="12" x="4" y="8" rx="2" /><path d="M2 14h2" /><path d="M20 14h2" /><path d="M15 13v2" /><path d="M9 13v2" />
-    </svg>
-  );
-}
-function HandshakeIcon({ cn = 'w-[22px] h-[22px]' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <path d="M11 17a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h.2a3 3 0 0 1 2.2.89l3.17 3.17a1 1 0 0 1 0 1.42L12.4 16.5A2 2 0 0 1 11 17Z" />
-      <path d="m16 16 3.3-3.3a1 1 0 0 1 1.4 0l.7.7a1 1 0 0 1 0 1.4l-3.7 3.7a2 2 0 0 1-1.5.6H10" />
-      <path d="M13 17V9a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2" />
-      <path d="M22 12V6a2 2 0 0 0-2-2h-7" />
-    </svg>
-  );
-}
-function TwitterIcon({ cn = 'w-4 h-4' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={cn}>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-function MediumIcon({ cn = 'w-4 h-4' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={cn}>
-      <path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42c1.87 0 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-    </svg>
-  );
-}
-
-const CONTACT_OPTIONS = [
-  {
-    icon: MessageIcon,
-    title: 'General Inquiries',
-    desc: 'Questions about the platform, your account, or features. We typically respond within 24 hours.',
-    email: 'hello@trader.ai',
-  },
-  {
-    icon: HandshakeIcon,
-    title: 'Partnerships',
-    desc: 'Interested in partnering with AI Trader? Reach out to our partnerships team.',
-    email: 'partners@trader.ai',
-  },
-  {
-    icon: BotIcon,
-    title: 'Press & Media',
-    desc: 'Media inquiries, interview requests, and press kit access.',
-    email: 'press@trader.ai',
-  },
-];
-
-const FAQ_LINKS = [
-  { q: 'What is AI Trader?', href: '/faq' },
-  { q: 'Is the AI trading with real money?', href: '/faq' },
-  { q: 'How do I follow a bot?', href: '/faq' },
-  { q: 'When can I copy trades?', href: '/faq' },
-];
 
 /* ─── intl-tel-input custom styles (same as SignUp form) ─── */
 const itiStyles = `
@@ -221,9 +155,9 @@ export default function Contact() {
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left — Form (now identical to the SignUp page form) */}
+            {/* Left — Contact content + Form */}
             <div>
-              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1.08', textWrap: 'balance' }}>
+              <h1 className="font-mono font-black tracking-tight text-[#f5f6fa] dark:text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 5vw, 2.75rem)', lineHeight: '1.15', textWrap: 'balance' }}>
                 <span className="text-[#7b5cff]">Contact</span>
               </h1>
               <p className="mt-4 text-base sm:text-lg text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
@@ -233,6 +167,9 @@ export default function Contact() {
               <div className="mt-8 bg-card border border-border rounded-xl p-6 lg:p-8 shadow-xs">
                 <h2 className="font-mono font-bold text-base text-foreground mb-2">Get in Touch</h2>
                 <p className="font-mono text-xs text-muted-foreground mb-6">Fill in your details and we'll get back to you.</p>
+                <p className="font-mono text-[10px] leading-relaxed tracking-normal text-muted-foreground/70 mb-6">
+                  Please note that Snap Trader AI does not provide personalized financial or investment advice. Any questions related to trading decisions should be discussed with a qualified financial professional. We appreciate your interest in Snap Trader AI and value your trust. Your feedback helps us improve and serve you better.
+                </p>
 
                 {/* Message */}
                 {message && (
@@ -242,6 +179,7 @@ export default function Contact() {
                 )}
 
                 {/* Form */}
+                <h3 className="font-mono font-bold text-sm text-foreground mb-4">Explore Trading Opportunities</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Name Fields */}
                   <div className="grid grid-cols-2 gap-3">
@@ -296,42 +234,59 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right — Contact info + social (unchanged) */}
+            {/* Right — Live Chat + Email */}
             <div className="space-y-6 lg:pt-14">
-              {CONTACT_OPTIONS.map((opt) => {
-                const Icon = opt.icon;
-                return (
-                  <div key={opt.title} className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
-                        <Icon cn="w-[18px] h-[18px]" />
-                      </div>
-                      <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">{opt.title}</h3>
-                    </div>
-                    <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em] mb-2">{opt.desc}</p>
-                    <a href={`mailto:${opt.email}`} className="font-mono text-sm text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors">
-                      {opt.email}
-                    </a>
-                  </div>
-                );
-              })}
-
-              {/* Quick FAQ */}
+              {/* Live Chat */}
               <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
-                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa] mb-3">Quick Answers</h3>
-                <ul className="space-y-2">
-                  {FAQ_LINKS.map((item) => (
-                    <li key={item.q}>
-                      <Link to={item.href} className="font-mono text-xs text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#7b5cff] transition-colors">
-                        {item.q}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link to="/faq" className="mt-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.1em] text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors">
-                  View All FAQ
-                  <ArrowRight cn="w-3 h-3" />
-                </Link>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#05df72]/10 flex items-center justify-center text-[#05df72] shrink-0">
+                    <MessageIcon cn="w-[18px] h-[18px]" />
+                  </div>
+                  <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">Live Chat</h3>
+                </div>
+                <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em] mb-4">
+                  Chat with our team in real time — the live chat bubble is ready whenever you are.
+                </p>
+                <a
+                  href="#replain-link"
+                  className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md font-mono text-[10px] uppercase tracking-[0.1em] text-white transition-all hover:opacity-90"
+                  style={{ background: 'linear-gradient(135deg, #05df72 0%, #0aa855 100%)' }}
+                >
+                  <span className="relative flex w-2 h-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+                    <span className="relative inline-flex rounded-full w-2 h-2 bg-white" />
+                  </span>
+                  Start Live Chat
+                </a>
+              </div>
+
+              {/* Email */}
+              <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff] shrink-0">
+                    <Mail cn="w-[18px] h-[18px]" />
+                  </div>
+                  <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">Email Us</h3>
+                </div>
+                <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em] mb-2">
+                  Prefer email? Write to us and we'll get back to you within 24 hours.
+                </p>
+                <a href="mailto:support@aitrader.trade" className="font-mono text-sm text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors">
+                  support@aitrader.trade
+                </a>
+              </div>
+
+              {/* Get in Touch */}
+              <div className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl p-5 lg:p-6 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#5a7dff]/10 flex items-center justify-center text-[#5a7dff] shrink-0">
+                    <MessageIcon cn="w-[18px] h-[18px]" />
+                  </div>
+                  <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">Get in Touch</h3>
+                </div>
+                <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
+                  Fill in your details and we'll get back to you.
+                </p>
               </div>
             </div>
           </div>
