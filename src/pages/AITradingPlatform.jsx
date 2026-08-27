@@ -79,13 +79,6 @@ function TrendUp({ cn = 'w-3 h-3' }) {
     </svg>
   );
 }
-function TrendDown({ cn = 'w-3 h-3' }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
-      <path d="M22 17l-8.5-8.5-5 5L2 7" /><path d="M16 17h6v-6" />
-    </svg>
-  );
-}
 
 /* ─── Section Header (kicker + title + sub) ─── */
 function SectionHeader({ kicker, title, accent, sub }) {
@@ -105,10 +98,10 @@ function SectionHeader({ kicker, title, accent, sub }) {
 }
 
 /* ─── Command Center: BTC area chart (single-series, violet) ─── */
-function BtcChart({ values, id }) {
+function BtcChart({ values, id, viewH = 170 }) {
   const [hover, setHover] = useState(null);
   const w = 640;
-  const h = 170;
+  const h = viewH;
   const padX = 10;
   const padTop = 20;
   const padBottom = 22;
@@ -127,8 +120,8 @@ function BtcChart({ values, id }) {
   const gid = `btc-grad-${id}`;
 
   return (
-    <div className="relative w-full" style={{ height: h }}>
-      <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-full block" role="img" aria-label="Bitcoin 1H price, illustrative">
+    <div className="relative w-full">
+      <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-auto block" role="img" aria-label="Bitcoin 1H price, illustrative">
         <defs>
           <linearGradient id={gid} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#7b5cff" stopOpacity="0.28" />
@@ -154,6 +147,16 @@ function BtcChart({ values, id }) {
           const isHover = hover === i;
           return (
             <g key={i}>
+              {isHover && (
+                <g>
+                  <line x1={cx} x2={cx} y1={padTop - 6} y2={h - padBottom} stroke="#a78bfa" strokeOpacity="0.45" strokeWidth="1" strokeDasharray="3 3" />
+                  <circle cx={cx} cy={cy} r="4" fill="#05070f" stroke="#a78bfa" strokeWidth="2" />
+                  <g transform={`translate(${Math.min(Math.max(cx, 52), w - 52)}, ${padTop + 2})`}>
+                    <rect x="-52" y="-10" width="104" height="20" rx="4" fill="#0d1120" stroke="rgba(255,255,255,0.12)" />
+                    <text x="0" y="4" textAnchor="middle" className="font-mono" fontSize="11" fill="#f5f6fa">{fmt(p[2])}</text>
+                  </g>
+                </g>
+              )}
               <rect
                 x={cx - hitW / 2}
                 y={0}
@@ -168,16 +171,6 @@ function BtcChart({ values, id }) {
                 role="button"
                 aria-label={`${fmt(p[2])} — hover for details`}
               />
-              {isHover && (
-                <g>
-                  <line x1={cx} x2={cx} y1={padTop - 6} y2={h - padBottom} stroke="#a78bfa" strokeOpacity="0.45" strokeWidth="1" strokeDasharray="3 3" />
-                  <circle cx={cx} cy={cy} r="4" fill="#05070f" stroke="#a78bfa" strokeWidth="2" />
-                  <g transform={`translate(${Math.min(Math.max(cx, 52), w - 52)}, ${padTop + 2})`}>
-                    <rect x="-52" y="-10" width="104" height="20" rx="4" fill="#0d1120" stroke="rgba(255,255,255,0.12)" />
-                    <text x="0" y="4" textAnchor="middle" className="font-mono" fontSize="11" fill="#f5f6fa">{fmt(p[2])}</text>
-                  </g>
-                </g>
-              )}
             </g>
           );
         })}
@@ -201,6 +194,64 @@ function Meter({ value, label, display, color = 'linear-gradient(135deg, #7b5cff
   );
 }
 
+/* ─── Compact hero dashboard (illustrative live platform mock) ─── */
+function HeroCommandCenter() {
+  return (
+    <div className="relative min-w-0 rounded-2xl border border-[rgba(255,255,255,0.12)] p-4 lg:p-5" style={{ background: 'linear-gradient(180deg, #0d1120 0%, #10152a 100%)', boxShadow: '0 24px 64px rgba(0,0,0,0.45)' }}>
+      <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#7b5cff]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Header */}
+      <div className="relative flex items-center justify-between gap-2 mb-4">
+        <div className="flex items-center gap-2">
+          <span className="relative flex w-2 h-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#05df72' }} />
+            <span className="relative inline-flex rounded-full w-2 h-2" style={{ background: '#05df72' }} />
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#f5f6fa] font-bold">Command Center</span>
+          <span className="font-mono text-[9px] uppercase tracking-[0.12em] px-1.5 py-0.5 rounded border border-[#7b5cff]/40" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
+            LIVE
+          </span>
+        </div>
+        <span className="font-mono text-[9px] uppercase tracking-[0.12em] px-2 py-0.5 rounded border border-[#fcbb00]/40" style={{ background: 'rgba(252,187,0,0.08)', color: '#fcbb00' }}>
+          Illustrative
+        </span>
+      </div>
+
+      {/* Price row */}
+      <div className="relative flex items-center justify-between gap-3 mb-2">
+        <div className="min-w-0">
+          <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] mb-1">BTC / USD — Bitcoin 1H</div>
+          <div className="flex items-baseline gap-2">
+            <span className="font-mono font-black text-2xl text-[#f5f6fa]">$67,420</span>
+            <span className="font-mono text-[11px] font-bold flex items-center gap-0.5" style={{ color: '#05df72' }}>
+              <TrendUp cn="w-3 h-3" /> +2.41%
+            </span>
+          </div>
+        </div>
+        <div className="text-right shrink-0">
+          <div className="font-mono text-[9px] uppercase tracking-[0.1em] text-[#9aa0b4] mb-0.5">AI Score</div>
+          <div className="font-mono font-black text-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>82%</div>
+        </div>
+      </div>
+
+      {/* Chart */}
+      <BtcChart values={BTC_VALUES} id="hero" viewH={140} />
+
+      {/* Signal + confidence */}
+      <div className="relative mt-3 rounded-xl border border-[rgba(255,255,255,0.08)] p-3 bg-[#0d1120]">
+        <div className="flex items-center gap-2">
+          <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded-md border border-[#05df72]/40" style={{ background: 'rgba(5,223,114,0.12)', color: '#05df72' }}>
+            <TrendUp cn="w-2.5 h-2.5" /> Buy
+          </span>
+          <span className="text-[11px] text-[#9aa0b4] truncate">Momentum breakout detected — RSI + volume confirmation</span>
+        </div>
+        <div className="mt-2.5">
+          <Meter value={82} label="AI Confidence" display="82%" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Data (content from reference — brand adapted to AI Trader) ─── */
 const HERO_SUB =
   "AI Trader automates your strategy across stocks, crypto, forex, commodities, indices, ETFs and CFDs — with real-time market analysis and built-in risk controls. You stay in control.";
@@ -211,26 +262,7 @@ const HERO_STATS = [
   { value: 'iOS · Android · Web', label: 'Available on all platforms' },
 ];
 
-const WATCHLIST = [
-  { pair: 'BTC/USD', change: '+2.4%', up: true },
-  { pair: 'ETH/USD', change: '+1.1%', up: true },
-  { pair: 'EUR/USD', change: '-0.3%', up: false },
-  { pair: 'AAPL', change: '+0.8%', up: true },
-  { pair: 'GOLD', change: '+0.5%', up: true },
-  { pair: 'S&P 500', change: '-0.2%', up: false },
-];
-
 const BTC_VALUES = [63850, 64100, 63920, 64580, 65010, 64890, 65440, 65110, 65870, 66240, 65980, 66520, 66810, 66470, 67130, 67420];
-
-const MARKETS = [
-  { label: 'Stocks', detail: 'NYSE • NASDAQ' },
-  { label: 'Crypto', detail: 'BTC • ETH • 100+' },
-  { label: 'Forex', detail: '50+ currency pairs' },
-  { label: 'Commodities', detail: 'Gold • Oil • Silver' },
-  { label: 'Indices', detail: 'S&P 500 • FTSE • DAX' },
-  { label: 'ETFs', detail: 'Diversified funds' },
-  { label: 'CFDs', detail: 'Contract for difference' },
-];
 
 const CAPABILITIES = [
   {
@@ -342,176 +374,51 @@ function Card({ children, className = '' }) {
   );
 }
 
-/* ─── Command Center dashboard (illustrative live platform mock) ─── */
-function CommandCenter() {
-  return (
-    <div className="rounded-2xl border border-[rgba(255,255,255,0.1)] p-4 lg:p-6" style={{ background: 'linear-gradient(180deg, #0d1120 0%, #10152a 100%)' }}>
-      {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
-        <div className="flex items-center gap-2.5">
-          <span className="relative flex w-2.5 h-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#05df72' }} />
-            <span className="relative inline-flex rounded-full w-2.5 h-2.5" style={{ background: '#05df72' }} />
-          </span>
-          <span className="font-mono text-xs uppercase tracking-[0.15em] text-[#f5f6fa] font-bold">Command Center</span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.12em] px-2 py-0.5 rounded-md border border-[#7b5cff]/40" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
-            LIVE
-          </span>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.12em] px-2.5 py-1 rounded-md border border-[#fcbb00]/40" style={{ background: 'rgba(252,187,0,0.08)', color: '#fcbb00' }}>
-          Illustrative
-        </span>
-      </div>
-
-      {/* Watchlist */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mb-4">
-        {WATCHLIST.map((w) => (
-          <div key={w.pair} className="rounded-lg px-3 py-2.5 border border-[rgba(255,255,255,0.08)] bg-[#05070f]/40">
-            <div className="font-mono text-[11px] font-bold text-[#f5f6fa] mb-1 truncate">{w.pair}</div>
-            <div className="flex items-center gap-1" style={{ color: w.up ? '#05df72' : '#fb2c36' }}>
-              {w.up ? <TrendUp cn="w-3 h-3" /> : <TrendDown cn="w-3 h-3" />}
-              <span className="font-mono text-[11px] font-bold">{w.change}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Main row */}
-      <div className="grid lg:grid-cols-3 gap-4">
-        {/* BTC chart */}
-        <div className="rounded-xl border border-[rgba(255,255,255,0.08)] p-4 lg:p-5 lg:col-span-2 bg-[#0d1120]">
-          <div className="flex items-center justify-between mb-3">
-            <div>
-              <div className="font-mono text-xs text-[#9aa0b4] mb-0.5">BTC / USD — Bitcoin 1H chart</div>
-              <div className="flex items-baseline gap-2">
-                <span className="font-mono font-black text-2xl text-[#f5f6fa]">$67,420</span>
-                <span className="font-mono text-xs font-bold flex items-center gap-0.5" style={{ color: '#05df72' }}>
-                  <TrendUp cn="w-3 h-3" /> +2.41% today
-                </span>
-              </div>
-            </div>
-            <div className="text-right hidden sm:block">
-              <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] mb-1">AI Score</div>
-              <div className="font-mono font-black text-lg" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>82%</div>
-            </div>
-          </div>
-          <BtcChart values={BTC_VALUES} id="cmd" />
-          <div className="mt-4 grid sm:grid-cols-2 gap-4">
-            <Meter value={82} label="AI Confidence" display="82%" />
-            <Meter value={41} label="Market Volatility" display="41%" track="rgba(252,187,0,0.15)" color="linear-gradient(135deg, #fcbb00 0%, #fcbb00 100%)" />
-          </div>
-        </div>
-
-        {/* Right column */}
-        <div className="flex flex-col gap-4">
-          {/* AI Signal */}
-          <div className="rounded-xl border border-[rgba(255,255,255,0.08)] p-4 lg:p-5 bg-[#0d1120] flex-1">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-[#05df72]/10 flex items-center justify-center text-[#05df72]">
-                <ActivityIcon cn="w-4 h-4" />
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.12em] text-[#9aa0b4]">AI Signal</div>
-              <span className="ml-auto inline-flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded-md border border-[#05df72]/40" style={{ background: 'rgba(5,223,114,0.12)', color: '#05df72' }}>
-                <TrendUp cn="w-3 h-3" /> Buy
-              </span>
-            </div>
-            <p className="text-sm text-[#f5f6fa] leading-relaxed mb-4">Momentum breakout detected — RSI + volume confirmation</p>
-            <Meter value={82} label="Confidence" display="82% conf." />
-          </div>
-
-          {/* Risk controls */}
-          <div className="rounded-xl border border-[rgba(255,255,255,0.08)] p-4 lg:p-5 bg-[#0d1120]">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-[#7b5cff]/10 flex items-center justify-center text-[#7b5cff]">
-                <ShieldIcon cn="w-4 h-4" />
-              </div>
-              <div className="font-mono text-xs uppercase tracking-[0.12em] text-[#9aa0b4]">Risk Controls</div>
-            </div>
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#9aa0b4]">Stop Loss</span>
-                <span className="inline-flex items-center gap-1 font-mono text-[11px] font-bold text-[#05df72]">
-                  <CheckIcon cn="w-3 h-3" /> Active
-                </span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#9aa0b4]">Take Profit</span>
-                <span className="font-mono text-[11px] font-bold text-[#f5f6fa]">$69,800</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#9aa0b4]">Risk Per Trade</span>
-                <span className="font-mono text-[11px] font-bold text-[#f5f6fa]">2%</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#9aa0b4]">Positions Open</span>
-                <span className="font-mono text-[11px] font-bold text-[#f5f6fa]">3 / 10</span>
-              </div>
-              <div className="h-1 rounded-full overflow-hidden mt-2" style={{ background: 'rgba(123,92,255,0.18)' }}>
-                <div className="h-full rounded-full" style={{ width: '30%', background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Markets strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 mt-4">
-        {MARKETS.map((m) => (
-          <div key={m.label} className="rounded-lg px-3 py-2.5 border border-[rgba(255,255,255,0.08)] bg-[#05070f]/40 text-center">
-            <div className="font-mono text-[11px] font-bold text-[#f5f6fa]">{m.label}</div>
-            <div className="font-mono text-[10px] text-[#9aa0b4] truncate">{m.detail}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ─── Page ─── */
 export default function AITradingPlatform() {
   const [openId, setOpenId] = useState(null);
 
   return (
     <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28">
-      {/* ═══ Hero ═══ */}
+      {/* ═══ Hero — heading, text, button left + live dashboard right ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-[420px] bg-[#7b5cff]/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
-            AI-Powered Platform
-          </span>
-          <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1', textWrap: 'balance' }}>
-            Trade Smarter With AI That <span className="text-[#7b5cff]">Never Sleeps</span>
-          </h1>
-          <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em]">{HERO_SUB}</p>
-          <div className="mt-8">
-            <Link
-              to="/signup"
-              className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
-            >
-              Start Free — No Fees
-              <ArrowRight cn="w-4 h-4" />
-            </Link>
+        <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Left: heading, text, button */}
+          <div className="text-center lg:text-left min-w-0">
+            <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
+              AI-Powered Platform
+            </span>
+            <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1', textWrap: 'balance' }}>
+              Trade Smarter With AI That <span className="text-[#7b5cff]">Never Sleeps</span>
+            </h1>
+            <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] lg:max-w-lg">{HERO_SUB}</p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <Link
+                to="/signup"
+                className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
+              >
+                Start Free — No Fees
+                <ArrowRight cn="w-4 h-4" />
+              </Link>
+            </div>
+            {/* Trust stats */}
+            <div className="mt-8 grid grid-cols-3 gap-2.5 max-w-md mx-auto lg:mx-0">
+              {HERO_STATS.map((s) => (
+                <div key={s.label} className="rounded-lg px-3 py-2.5 border border-[rgba(255,255,255,0.08)] bg-[#0d1120]">
+                  <div className="font-mono font-black text-[#f5f6fa]" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.95rem)' }}>{s.value}</div>
+                  <div className="font-mono text-[9px] uppercase tracking-[0.08em] text-[#9aa0b4] mt-1 leading-tight">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          {/* Trust stats */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
-            {HERO_STATS.map((s) => (
-              <div key={s.label} className="rounded-xl px-4 py-3.5 border border-[rgba(255,255,255,0.08)] bg-[#0d1120]">
-                <div className="font-mono font-black text-sm sm:text-base text-[#f5f6fa]" style={{ fontSize: 'clamp(0.9rem, 2.2vw, 1.05rem)' }}>{s.value}</div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] mt-1">{s.label}</div>
-              </div>
-            ))}
+
+          {/* Right: compact live dashboard */}
+          <div className="relative min-w-0">
+            <HeroCommandCenter />
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-10" style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(123,92,255,0.5) 25%, rgba(90,125,255,0.5) 75%, transparent)' }} />
-      </section>
-
-      {/* ═══ Command Center LIVE ═══ */}
-      <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Live Platform" title="Command Center" accent="LIVE" />
-          <CommandCenter />
-        </div>
       </section>
 
       {/* ═══ Platform Capabilities ═══ */}
