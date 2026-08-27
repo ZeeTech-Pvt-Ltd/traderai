@@ -20,6 +20,7 @@ const AIStrategyBuilder = lazy(() => import('./pages/AIStrategyBuilder'));
 const AITradingIdeas = lazy(() => import('./pages/AITradingIdeas'));
 const StrategyBacktesting = lazy(() => import('./pages/StrategyBacktesting'));
 const RiskCalculator = lazy(() => import('./pages/RiskCalculator'));
+const TradeJournal = lazy(() => import('./pages/TradeJournal'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
@@ -158,6 +159,18 @@ export default function App() {
                 <SEO title="Risk Calculator | Know Your Downside Before You Enter" description="Free trading risk calculator — position size, cash value of your risk and reward, reward-to-risk ratio, break-even win rate, and how many losses in a row your account can absorb. Works for forex, crypto and stocks." path="/risk-calculator" />
                 <Layout>
                   <RiskCalculator />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/trade-journal"
+            element={
+              <>
+                <SEO title="Trade Journal | Know Why You Lose" description="A trading journal that turns your own history into evidence — expectancy, win rate, profit factor, leak detection, discipline score and equity curves. Log trades and see where the money really comes from." path="/trade-journal" />
+                <Layout>
+                  <TradeJournal />
                   <Footer />
                 </Layout>
               </>

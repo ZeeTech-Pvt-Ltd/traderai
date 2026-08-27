@@ -14,6 +14,7 @@ const NAV_LINKS = [
       { label: 'AI Trading Ideas', href: '/ai-trading-ideas' },
       { label: 'Strategy Backtesting', href: '/strategy-backtesting' },
       { label: 'Risk Calculator', href: '/risk-calculator' },
+      { label: 'Trade Journal', href: '/trade-journal' },
     ],
   },
   { label: 'Traders', href: '/traders' },
