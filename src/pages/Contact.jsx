@@ -165,12 +165,6 @@ export default function Contact() {
               </p>
 
               <div className="mt-8 bg-card border border-border rounded-xl p-6 lg:p-8 shadow-xs">
-                <h2 className="font-mono font-bold text-base text-foreground mb-2">Get in Touch</h2>
-                <p className="font-mono text-xs text-muted-foreground mb-6">Fill in your details and we'll get back to you.</p>
-                <p className="font-mono text-[10px] leading-relaxed tracking-normal text-muted-foreground/70 mb-6">
-                  Please note that Snap Trader AI does not provide personalized financial or investment advice. Any questions related to trading decisions should be discussed with a qualified financial professional. We appreciate your interest in Snap Trader AI and value your trust. Your feedback helps us improve and serve you better.
-                </p>
-
                 {/* Message */}
                 {message && (
                   <div className={`p-3 rounded-lg text-center font-mono text-xs mb-4 ${msgType === 'success' ? 'bg-[#05df72]/10 text-[#05df72] border border-[#05df72]/20' : 'bg-[#fb2c36]/10 text-[#fb2c36] border border-[#fb2c36]/20'}`}>
@@ -179,7 +173,7 @@ export default function Contact() {
                 )}
 
                 {/* Form */}
-                <h3 className="font-mono font-bold text-sm text-foreground mb-4">Explore Trading Opportunities</h3>
+                <h3 className="font-mono font-bold text-foreground mb-8" style={{ fontSize: '22px' }}>Explore Trading Opportunities</h3>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   {/* Name Fields */}
                   <div className="grid grid-cols-2 gap-3">
@@ -250,7 +244,7 @@ export default function Contact() {
                 <a
                   href="#replain-link"
                   className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-md font-mono text-[10px] uppercase tracking-[0.1em] text-white transition-all hover:opacity-90"
-                  style={{ background: 'linear-gradient(135deg, #05df72 0%, #0aa855 100%)' }}
+                  style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
                   <span className="relative flex w-2 h-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
@@ -285,7 +279,7 @@ export default function Contact() {
                   <h3 className="font-mono font-bold text-sm text-[#f5f6fa] dark:text-[#f5f6fa]">Get in Touch</h3>
                 </div>
                 <p className="text-xs text-[#9aa0b4] dark:text-[#9aa0b4] leading-relaxed tracking-[0.02em]">
-                  Fill in your details and we'll get back to you.
+                  Please note that Snap Trader AI does not provide personalized financial or investment advice. Any questions related to trading decisions should be discussed with a qualified financial professional. We appreciate your interest in Snap Trader AI and value your trust. Your feedback helps us improve and serve you better.
                 </p>
               </div>
             </div>
