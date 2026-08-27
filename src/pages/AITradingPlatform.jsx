@@ -44,6 +44,20 @@ function DevicesIcon({ cn = 'w-[22px] h-[22px]' }) {
     </svg>
   );
 }
+function UsersIcon({ cn = 'w-4 h-4' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  );
+}
+function GlobeIcon({ cn = 'w-4 h-4' }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
+      <circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  );
+}
 function ActivityIcon({ cn = 'w-[22px] h-[22px]' }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={cn}>
@@ -206,7 +220,7 @@ function HeroCommandCenter() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-60" style={{ background: '#05df72' }} />
             <span className="relative inline-flex rounded-full w-2 h-2" style={{ background: '#05df72' }} />
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#f5f6fa] font-bold">Command Center</span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#f5f6fa] font-bold">Live Console</span>
           <span className="font-mono text-[9px] uppercase tracking-[0.12em] px-1.5 py-0.5 rounded border border-[#7b5cff]/40" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
             LIVE
           </span>
@@ -219,7 +233,7 @@ function HeroCommandCenter() {
       {/* Price row */}
       <div className="relative flex items-center justify-between gap-3 mb-2">
         <div className="min-w-0">
-          <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] mb-1">BTC / USD — Bitcoin 1H</div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[#9aa0b4] mb-1">BTC/USD · Bitcoin 1H</div>
           <div className="flex items-baseline gap-2">
             <span className="font-mono font-black text-2xl text-[#f5f6fa]">$67,420</span>
             <span className="font-mono text-[11px] font-bold flex items-center gap-0.5" style={{ color: '#05df72' }}>
@@ -242,7 +256,7 @@ function HeroCommandCenter() {
           <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold uppercase tracking-[0.1em] px-2 py-0.5 rounded-md border border-[#05df72]/40" style={{ background: 'rgba(5,223,114,0.12)', color: '#05df72' }}>
             <TrendUp cn="w-2.5 h-2.5" /> Buy
           </span>
-          <span className="text-[11px] text-[#9aa0b4] truncate">Momentum breakout detected — RSI + volume confirmation</span>
+          <span className="text-[11px] text-[#9aa0b4] truncate">Uptrend momentum confirmed — RSI + volume aligned</span>
         </div>
         <div className="mt-2.5">
           <Meter value={82} label="AI Confidence" display="82%" />
@@ -254,12 +268,12 @@ function HeroCommandCenter() {
 
 /* ─── Data (content from reference — brand adapted to AI Trader) ─── */
 const HERO_SUB =
-  "AI Trader automates your strategy across stocks, crypto, forex, commodities, indices, ETFs and CFDs — with real-time market analysis and built-in risk controls. You stay in control.";
+  "AI Trader runs your trading strategy automatically across stocks, crypto, forex, commodities, indices, ETFs and CFDs — backed by live market analysis and built-in risk management. You stay in the driver's seat.";
 
 const HERO_STATS = [
-  { value: '100,000+', label: 'Traders worldwide' },
-  { value: '50+', label: 'Countries supported' },
-  { value: 'iOS · Android · Web', label: 'Available on all platforms' },
+  { value: '100,000+', label: 'Global traders', Icon: UsersIcon },
+  { value: '50+', label: 'Countries served', Icon: GlobeIcon },
+  { value: 'iOS · Android · Web', label: 'Runs on every device', Icon: DevicesIcon },
 ];
 
 const BTC_VALUES = [63850, 64100, 63920, 64580, 65010, 64890, 65440, 65110, 65870, 66240, 65980, 66520, 66810, 66470, 67130, 67420];
@@ -268,98 +282,98 @@ const CAPABILITIES = [
   {
     icon: EyeIcon,
     num: '01',
-    title: 'Real-time market analysis',
-    desc: 'AI Trader scans live price feeds across all your connected markets simultaneously — identifying patterns, momentum shifts and entry signals the moment they emerge. No delay, no guesswork.',
+    title: 'Live Market Monitoring',
+    desc: 'AI Trader watches live price data across every market you connect, spotting patterns, momentum changes and entry points the instant they appear. Real-time, no second-guessing.',
   },
   {
     icon: CogIcon,
     num: '02',
-    title: 'Strategy automation',
-    desc: 'Set your strategy parameters once. AI Trader executes trades automatically, around the clock across every market you trade. You define the rules — the platform works the hours.',
+    title: 'Hands-Off Execution',
+    desc: 'Define your trading rules a single time. From there, AI Trader handles execution automatically, day and night, across all the markets you trade. You set the logic — the platform puts in the hours.',
   },
   {
     icon: ShieldIcon,
     num: '03',
-    title: 'Built-in risk controls',
-    desc: 'Configurable stop-loss limits, per-trade risk caps and drawdown protections are native to every position. Your funds always remain in your own broker or exchange account — AI Trader never holds your capital.',
+    title: 'Built-In Safety Limits',
+    desc: 'Every position comes with adjustable stop-losses, per-trade risk limits and drawdown safeguards built in. Your money never leaves your own broker or exchange account — AI Trader never takes custody.',
   },
   {
     icon: TestIcon,
     num: '04',
-    title: 'Backtesting engine',
-    desc: 'Test any strategy against historical market data before risking a penny live. The backtesting module lets you validate, refine and compare strategies with complete transparency.',
+    title: 'Historical Backtesting',
+    desc: 'Try out any strategy against years of historical data before going live with real money. The backtesting tool lets you validate, fine-tune and compare approaches — fully transparent.',
   },
 ];
 
 const STEPS = [
-  { num: '01', title: 'Create your free account', desc: 'Register online in minutes. Registration is free — no platform subscription fee required.' },
-  { num: '02', title: 'Deposit initial capital', desc: 'A minimum of £250 in initial capital is required to begin live trading. This is your trading capital, not a fee.' },
-  { num: '03', title: 'Connect your broker', desc: 'Link AI Trader to your existing broker or exchange account. Your funds stay there — the platform never takes custody.' },
-  { num: '04', title: 'Let the AI trade smarter', desc: 'Configure your strategy, set your risk limits, and AI Trader monitors markets and executes trades automatically on your behalf.' },
+  { num: '01', title: 'Open Your Free Account', desc: 'Sign up online in just a few minutes. Registration costs nothing — there\'s no subscription fee to use the platform.' },
+  { num: '02', title: 'Add Starting Capital', desc: 'To start live trading you need a minimum of £250 in starting capital. This is your own trading money — not a payment to us.' },
+  { num: '03', title: 'Link Your Broker', desc: 'Connect AI Trader to the broker or exchange account you already use. Your funds stay where they are — the platform never holds them.' },
+  { num: '04', title: 'Let the AI Take Over', desc: 'Choose your strategy, set your risk levels, and AI Trader keeps an eye on the markets and places trades automatically for you.' },
 ];
 
 const AI_POINTS = [
-  'Monitors markets 24/7 without fatigue or distraction',
-  'Executes strategy rules consistently — no emotional drift',
-  'Processes real-time data across multiple markets simultaneously',
-  'Backtests strategies before any live capital is deployed',
-  'Configurable risk controls enforce discipline automatically',
-  'Available on web, iOS and Android — monitor anytime',
+  'Watches the markets around the clock with no fatigue or distraction',
+  'Applies your strategy the same way every time — no emotional interference',
+  'Handles live data from many markets all at once',
+  'Tests strategies against history before a single pound goes live',
+  'Adjustable risk settings keep discipline fully automatic',
+  'Works on web, iOS and Android — check in whenever you like',
 ];
 
 const MANUAL_POINTS = [
-  'Limited to market hours and personal screen time',
-  'Emotional decisions can override a well-reasoned plan',
-  'Difficult to track multiple assets at the same time',
-  'Strategy testing often relies on hindsight, not data',
-  'Risk management depends on self-discipline under pressure',
-  'Missed signals during sleep or away from the screen',
+  'Restricted to market hours and however long you can sit at a screen',
+  'Emotions can push aside even a carefully thought-out plan',
+  'Hard to keep an eye on several assets at once',
+  'Testing a strategy often depends on hindsight rather than hard data',
+  'Risk control relies on staying disciplined under pressure',
+  'You miss signals while sleeping or away from the charts',
 ];
 
 const PLATFORMS = [
-  { icon: DevicesIcon, title: 'iOS App', desc: 'Available on the App Store' },
-  { icon: DevicesIcon, title: 'Android App', desc: 'Available on Google Play' },
-  { icon: DevicesIcon, title: 'Web Platform', desc: 'Full-featured browser access' },
+  { icon: DevicesIcon, title: 'iPhone App', desc: 'Download from the App Store' },
+  { icon: DevicesIcon, title: 'Android App', desc: 'Get it on Google Play' },
+  { icon: DevicesIcon, title: 'Web Dashboard', desc: 'Full control from any browser' },
 ];
 
 const PLATFORM_STATS = [
-  { value: '$2.4B+', label: 'Notional volume analysed monthly' },
-  { value: '140ms', label: 'Average signal latency' },
-  { value: '99.95%', label: 'Platform uptime' },
-  { value: '4.7M+', label: 'Backtests run to date' },
+  { value: '$2.4B+', label: 'Monthly trading volume reviewed' },
+  { value: '140ms', label: 'Typical signal speed' },
+  { value: '99.95%', label: 'Service availability' },
+  { value: '4.7M+', label: 'Backtests completed so far' },
 ];
 
 const FAQS = [
   {
-    question: 'Is there a fee to use AI Trader?',
-    answer: 'Registration is free and there is no ongoing platform subscription fee. A minimum initial capital of £250 is required to begin live trading. This is your trading capital placed with your connected broker or exchange — it is not a fee paid to AI Trader.',
+    question: 'Do I have to pay to use AI Trader?',
+    answer: 'Signing up is free and there\'s no recurring platform fee. You do need at least £250 in starting capital to trade live. That money sits with your own broker or exchange — it\'s your trading capital, never a fee that goes to AI Trader.',
   },
   {
-    question: 'Does AI Trader hold my funds?',
-    answer: 'No. Your funds remain at all times in your own broker or exchange account. AI Trader connects via API to execute trades on your behalf — it does not take custody or hold any of your capital. You retain full ownership and control.',
+    question: 'Where does my money stay with AI Trader?',
+    answer: 'No — your money always stays in your own broker or exchange account. AI Trader links in through an API to place trades for you; it never takes custody or holds your capital. You keep full ownership and control at all times.',
   },
   {
-    question: 'Are profits guaranteed?',
-    answer: 'No. Profits are never guaranteed. All trading — whether manual or automated — carries risk, including the risk of losing your invested capital. AI Trader is a tool to help you execute your strategy more efficiently, not a guarantee of returns. Please only trade with capital you can afford to lose.',
+    question: 'Can I count on making money?',
+    answer: 'No, profits can never be promised. Every kind of trading — manual or automated — involves risk, including losing the money you put in. AI Trader is a tool that helps you run your strategy more efficiently; it isn\'t a promise of returns. Only trade with money you can afford to lose.',
   },
   {
-    question: 'Is crypto trading supported? Is it risky?',
-    answer: 'Yes, AI Trader supports cryptocurrency trading across a wide range of digital assets. Cryptocurrency markets are highly volatile and can move rapidly. The value of your investment can decrease as well as increase. Ensure you understand the risks before allocating capital to crypto markets.',
+    question: 'Can I trade crypto on AI Trader, and is it risky?',
+    answer: 'Yes — AI Trader lets you trade a broad range of cryptocurrencies. Crypto is one of the most volatile markets and prices can swing fast, so the value of your investment can go down as well as up. Make sure you understand the risks before committing money to crypto.',
   },
   {
-    question: 'Which markets can I trade with AI Trader?',
-    answer: 'AI Trader supports trading across stocks, cryptocurrencies, forex (currency pairs), commodities (such as gold and oil), stock market indices, ETFs (exchange-traded funds) and CFDs (contracts for difference). The platform is designed to operate across multiple asset classes simultaneously.',
+    question: 'What markets does AI Trader cover?',
+    answer: 'You can trade stocks, cryptocurrencies, forex currency pairs, commodities like gold and oil, stock market indices, ETFs (exchange-traded funds) and CFDs (contracts for difference). The platform is built to run across several asset classes at the same time.',
   },
   {
-    question: 'How many countries is AI Trader available in?',
-    answer: 'AI Trader is currently available to traders in over 50 countries worldwide, with more than 100,000 traders using the platform. Please check the platform for the current list of supported regions, as availability may vary depending on local regulations.',
+    question: 'In how many countries can I use AI Trader?',
+    answer: 'AI Trader is now live for traders in more than 50 countries, with over 100,000 traders on the platform. Availability can differ by local regulation, so check the current list of supported regions in the platform.',
   },
 ];
 
 const FINAL_CTA = {
-  kicker: 'Ready When You Are',
-  title: 'Start researching markets like a professional.',
-  sub: 'Free to start, no credit card required. Paper trade first, go live only when you\'re ready.',
+  kicker: 'Whenever You\'re Ready',
+  title: 'Research the markets with the confidence of a pro.',
+  sub: 'No card needed to get going. Practise with paper trading first, then go live when you feel ready.',
   disclaimer:
     'Trading involves risk. Profits are never guaranteed and you may lose some or all of your invested capital. AI Trader is a research and analysis platform, not a broker, and does not provide financial advice.',
 };
@@ -387,10 +401,10 @@ export default function AITradingPlatform() {
           {/* Left: heading, text, button */}
           <div className="text-center lg:text-left min-w-0">
             <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-6 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
-              AI-Powered Platform
+              The Automated Edge
             </span>
             <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.75rem)', lineHeight: '1', textWrap: 'balance' }}>
-              Trade Smarter With AI That <span className="text-[#7b5cff]">Never Sleeps</span>
+              Trade Around the Clock, Guided by <span className="text-[#7b5cff]">AI That Never Stops</span>
             </h1>
             <p className="mt-6 text-[#9aa0b4] text-sm sm:text-base leading-relaxed tracking-[0.02em] lg:max-w-lg">{HERO_SUB}</p>
             <div className="mt-8 flex justify-center lg:justify-start">
@@ -398,16 +412,21 @@ export default function AITradingPlatform() {
                 to="/signup"
                 className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
               >
-                Start Free — No Fees
+                Create Free Account
                 <ArrowRight cn="w-4 h-4" />
               </Link>
             </div>
             {/* Trust stats */}
-            <div className="mt-8 grid grid-cols-3 gap-2.5 max-w-md mx-auto lg:mx-0">
+            <div className="mt-9 flex flex-col xl:flex-row max-w-xl mx-auto lg:mx-0 divide-y divide-[rgba(255,255,255,0.08)] xl:divide-y-0 xl:divide-x">
               {HERO_STATS.map((s) => (
-                <div key={s.label} className="rounded-lg px-3 py-2.5 border border-[rgba(255,255,255,0.08)] bg-[#0d1120]">
-                  <div className="font-mono font-black text-[#f5f6fa]" style={{ fontSize: 'clamp(0.75rem, 2vw, 0.95rem)' }}>{s.value}</div>
-                  <div className="font-mono text-[9px] uppercase tracking-[0.08em] text-[#9aa0b4] mt-1 leading-tight">{s.label}</div>
+                <div key={s.label} className="flex items-center gap-2.5 py-3.5 xl:py-0 xl:px-4 first:xl:pl-0 last:xl:pr-0">
+                  <span className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
+                    <s.Icon cn="w-4 h-4" />
+                  </span>
+                  <div className="min-w-0">
+                    <div className="font-mono font-black text-[#f5f6fa] leading-none whitespace-nowrap" style={{ fontSize: 'clamp(0.7rem, 1.15vw, 0.8rem)' }}>{s.value}</div>
+                    <div className="font-mono text-[9px] uppercase tracking-[0.08em] text-[#9aa0b4] mt-1 leading-tight">{s.label}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -424,7 +443,7 @@ export default function AITradingPlatform() {
       {/* ═══ Platform Capabilities ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Platform Capabilities" title="Everything You Need," accent="Nothing You Don't" />
+          <SectionHeader kicker="Core Capabilities" title="Everything Essential," accent="Nothing Extra" />
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-5">
             {CAPABILITIES.map((f) => {
               const Icon = f.icon;
@@ -452,7 +471,7 @@ export default function AITradingPlatform() {
       {/* ═══ Getting Started — 4 Steps ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="Getting Started" title="From Signup to Live Trading" accent="in Four Steps" />
+          <SectionHeader kicker="Getting Started" title="From Account to Live Markets" accent="in Four Steps" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             {STEPS.map((s) => (
               <Card key={s.num} className="p-6 lg:p-7">
@@ -469,7 +488,7 @@ export default function AITradingPlatform() {
               to="/signup"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Start Free — No Fees
+              Create Free Account
               <ArrowRight cn="w-4 h-4" />
             </Link>
           </div>
@@ -479,12 +498,12 @@ export default function AITradingPlatform() {
       {/* ═══ AI vs Manual Trading ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-6xl mx-auto">
-          <SectionHeader kicker="Intelligent Edge" title="AI-Powered" accent="vs. Manual Trading" />
+          <SectionHeader kicker="The Smart Advantage" title="Automated" accent="vs. Trading by Hand" />
           <div className="grid md:grid-cols-2 gap-4 lg:gap-5">
             {/* AI */}
             <div className="rounded-xl border border-[#05df72]/25 overflow-hidden bg-[#0d1120]">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'rgba(5,223,114,0.06)' }}>
-                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] uppercase tracking-[0.1em]">AI Trader — Always On. Always Analytical.</h3>
+                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] uppercase tracking-[0.1em]">AI Trader — Tireless and Data-Driven</h3>
               </div>
               <ul className="p-6 space-y-3.5">
                 {AI_POINTS.map((p) => (
@@ -500,7 +519,7 @@ export default function AITradingPlatform() {
             {/* Manual */}
             <div className="rounded-xl border border-[#fb2c36]/25 overflow-hidden bg-[#0d1120]">
               <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'rgba(251,44,54,0.06)' }}>
-                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] uppercase tracking-[0.1em]">Manual Trading — Human Limits in a 24/7 Market.</h3>
+                <h3 className="font-mono font-bold text-sm text-[#f5f6fa] uppercase tracking-[0.1em]">Manual Trading — Bound by Human Limits</h3>
               </div>
               <ul className="p-6 space-y-3.5">
                 {MANUAL_POINTS.map((p) => (
@@ -520,7 +539,7 @@ export default function AITradingPlatform() {
       {/* ═══ Multi-Platform + Stats ═══ */}
       <section className="relative py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]" style={{ background: 'linear-gradient(180deg, #05070f 0%, #10152a 100%)' }}>
         <div className="max-w-5xl mx-auto">
-          <SectionHeader kicker="Multi-Platform" title="Your Positions." accent="Any Device." sub="The AI Trader platform runs seamlessly across web, iOS and Android. Monitor your portfolio, review AI signals and adjust your strategy wherever you are." />
+          <SectionHeader kicker="Cross-Device Access" title="Your Portfolio," accent="Wherever You Are" sub="AI Trader works smoothly on web, iOS and Android — check your portfolio, review signals and tweak your strategy from anywhere." />
           <div className="grid sm:grid-cols-3 gap-4 lg:gap-5">
             {PLATFORMS.map((p) => {
               const Icon = p.icon;
@@ -549,7 +568,7 @@ export default function AITradingPlatform() {
               to="/signup"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Start for Free
+              Start Free Today
               <ArrowRight cn="w-4 h-4" />
             </Link>
           </div>
@@ -559,7 +578,7 @@ export default function AITradingPlatform() {
       {/* ═══ FAQ ═══ */}
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-3xl mx-auto">
-          <SectionHeader kicker="Common Questions" title="Frequently Asked" accent="Questions" />
+          <SectionHeader kicker="Good to Know" title="Questions &" accent="Answers" />
           <div className="space-y-3">
             {FAQS.map((item, i) => {
               const isOpen = openId === i;
@@ -592,14 +611,14 @@ export default function AITradingPlatform() {
               to="/signup"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-white hover:opacity-90 transition-all shadow-lg max-w-full" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
             >
-              Start Free Analysis
+              Start Your Free Analysis
               <ArrowRight cn="w-4 h-4" />
             </Link>
             <Link
               to="/leaderboard"
               className="inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-12 px-10 rounded-md text-[#f5f6fa] border border-[rgba(255,255,255,0.2)] hover:border-[rgba(255,255,255,0.4)] transition-all max-w-full"
             >
-              See the Leaderboard
+              View the Leaderboard
             </Link>
           </div>
           <p className="mt-8 text-[11px] leading-relaxed tracking-[0.02em] max-w-xl mx-auto" style={{ color: '#7c829c' }}>{FINAL_CTA.disclaimer}</p>

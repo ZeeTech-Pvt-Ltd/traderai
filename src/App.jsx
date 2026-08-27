@@ -84,7 +84,7 @@ export default function App() {
             path="/ai-trading-platform"
             element={
               <>
-                <SEO title="AI Trading Platform | Trade Smarter With AI That Never Sleeps" description="AI Trader automates your strategy across stocks, crypto, forex, commodities, indices, ETFs and CFDs — with real-time market analysis and built-in risk controls. You stay in control." path="/ai-trading-platform" />
+                <SEO title="AI Trading Platform | Trade Around the Clock With AI That Never Stops" description="AI Trader runs your trading strategy automatically across stocks, crypto, forex, commodities, indices, ETFs and CFDs — backed by live market analysis and built-in risk management. You stay in the driver's seat." path="/ai-trading-platform" />
                 <Layout>
                   <AITradingPlatform />
                   <Footer />
