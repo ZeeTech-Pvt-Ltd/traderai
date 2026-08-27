@@ -3,16 +3,12 @@ import { Link } from 'react-router-dom';
 const FOOTER_LINKS = {
   'Why AI Trader': [
     { label: 'Home', href: '/' },
+    { label: 'AI Traders', href: '/traders' },
+    { label: 'Leaderboard', href: '/leaderboard' },
     { label: 'Contact', href: '/contact' },
     { label: 'Sign Up', href: '/signup' },
   ],
-  Resources: [
-    { label: 'Blog', href: '/resources/blog' },
-    { label: 'Verification', href: '/resources/verification' },
-  ],
   Product: [
-    { label: 'AI Traders', href: '/traders' },
-    { label: 'Leaderboard', href: '/leaderboard' },
     { label: 'AI Trading Platform', href: '/ai-trading-platform' },
     { label: 'AI Trading Assistant', href: '/ai-trading-assistant' },
     { label: 'AI Chart Analyser', href: '/ai-chart-analyser' },
@@ -39,7 +35,7 @@ export default function Footer() {
       <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(123,92,255,0.45) 25%, rgba(90,125,255,0.45) 75%, transparent)' }} />
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
         {/* Top Section */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center group mb-4">
