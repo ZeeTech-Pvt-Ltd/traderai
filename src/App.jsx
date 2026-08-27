@@ -19,11 +19,11 @@ const AIChartAnalyser = lazy(() => import('./pages/AIChartAnalyser'));
 const AIStrategyBuilder = lazy(() => import('./pages/AIStrategyBuilder'));
 const AITradingIdeas = lazy(() => import('./pages/AITradingIdeas'));
 const StrategyBacktesting = lazy(() => import('./pages/StrategyBacktesting'));
+const RiskCalculator = lazy(() => import('./pages/RiskCalculator'));
 const TraderProfile = lazy(() => import('./pages/TraderProfile'));
 const LeaderboardPage = lazy(() => import('./pages/LeaderboardPage'));
 const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
 const Partners = lazy(() => import('./pages/Partners'));
-const FAQPage = lazy(() => import('./pages/FAQPage'));
 const Verification = lazy(() => import('./pages/Verification'));
 const OpenClaw = lazy(() => import('./pages/OpenClaw'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -152,6 +152,18 @@ export default function App() {
             }
           />
           <Route
+            path="/risk-calculator"
+            element={
+              <>
+                <SEO title="Risk Calculator | Know Your Downside Before You Enter" description="Free trading risk calculator — position size, cash value of your risk and reward, reward-to-risk ratio, break-even win rate, and how many losses in a row your account can absorb. Works for forex, crypto and stocks." path="/risk-calculator" />
+                <Layout>
+                  <RiskCalculator />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
             path="/traders/:id"
             element={
               <>
@@ -194,18 +206,6 @@ export default function App() {
                 <SEO title="Partners | AI Trading & Fintech Ecosystem" description="Partner with AI Trader — collaborate with leading fintech, AI model providers, academic institutions, and media partners shaping the future of automated trading." path="/partners" />
                 <Layout>
                   <Partners />
-                  <Footer />
-                </Layout>
-              </>
-            }
-          />
-          <Route
-            path="/faq"
-            element={
-              <>
-                <SEO title="FAQ | AI Trading & Platform Questions Answered" description="Answers to common questions about AI trading, algorithmic trading bots, real-capital trading, and AI Trader platform features, risk management, and performance verification." path="/faq" />
-                <Layout>
-                  <FAQPage />
                   <Footer />
                 </Layout>
               </>

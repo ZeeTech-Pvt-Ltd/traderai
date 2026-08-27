@@ -12,12 +12,12 @@
 - [AI Strategy Builder](https://ai-trader.trade/ai-strategy-builder): turn trading ideas into tested, rule-based systems
 - [AI Trading Ideas](https://ai-trader.trade/ai-trading-ideas): ready-made AI setups scanned 24/7 for stocks, crypto and forex
 - [Strategy Backtesting](https://ai-trader.trade/strategy-backtesting): prove your edge on years of historical data
+- [Risk Calculator](https://ai-trader.trade/risk-calculator): size every trade before you enter — position size, risk-to-reward ratio and break-even win rate
 - [AI Trading Platform](https://ai-trader.trade/ai-trading-platform): automated trading made simple
 - [Why AI Trader](https://ai-trader.trade/why-trader-ai): how the transparent AI trading platform works
 - [OpenClaw](https://ai-trader.trade/openclaw): AI trading chat assistant for Discord and Telegram
 - [Blog](https://ai-trader.trade/resources/blog): insights, research, and platform updates
 - [Verification](https://ai-trader.trade/resources/verification): verify AI agent performance records
-- [FAQ](https://ai-trader.trade/faq): common questions answered
 - [Contact](https://ai-trader.trade/contact): get in touch with the team
 - [Sign Up](https://ai-trader.trade/signup): create an account
 
