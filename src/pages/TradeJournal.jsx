@@ -143,7 +143,7 @@ function SectionHeader({ kicker, title, accent, sub, align = 'center', compact }
           {kicker}
         </span>
       )}
-      <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: compact ? 'clamp(1.5rem, 3.75vw, 2.25rem)' : 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1.35', textWrap: 'balance' }}>
+      <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: compact ? 'clamp(1.5rem, 3.75vw, 2.25rem)' : 'clamp(1.875rem, 3.75vw, 2.25rem)', lineHeight: '1', textWrap: 'balance' }}>
         {title} {accent && <span className="block text-[#7b5cff]">{accent}</span>}
       </h2>
       {sub && <p className={`mt-4 text-sm lg:text-base max-w-2xl leading-relaxed tracking-[0.02em] text-[#9aa0b4] ${centered ? 'mx-auto' : ''}`}>{sub}</p>}
@@ -296,11 +296,11 @@ function RecapCard() {
         <div className="mt-4">
           <Sparkline values={EQUITY} color="#7b5cff" id="hero-equity" />
         </div>
-        <div className="mt-5 grid grid-cols-3 gap-2.5">
+        <div className="mt-5 grid grid-cols-3 gap-2">
           {RECAP_STATS.map((s) => (
-            <div key={s.label} className="rounded-lg border border-[rgba(255,255,255,0.08)] bg-[#10152a] px-3 py-3 text-center">
-              <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-[#7c829c] mb-1">{s.label}</p>
-              <p className="font-mono font-black text-sm lg:text-base" style={{ color: s.tone }}>{s.value}</p>
+            <div key={s.label} className="rounded-lg border border-[rgba(255,255,255,0.08)] bg-[#10152a] px-2 py-2.5 text-center">
+              <p className="font-mono text-[8px] uppercase tracking-[0.06em] text-[#7c829c] mb-1 truncate">{s.label}</p>
+              <p className="font-mono font-black text-xs lg:text-sm truncate" style={{ color: s.tone }}>{s.value}</p>
             </div>
           ))}
         </div>
@@ -457,7 +457,7 @@ function Dashboard() {
    ═══════════════════════════════════════════════════════════════════════════ */
 export default function TradeJournal() {
   return (
-    <div className="min-h-screen pt-24 lg:pt-32 pb-20 lg:pb-28">
+    <div className="min-h-screen pt-24 lg:pt-40 pb-20 lg:pb-28">
       {/* ═══ Hero + Recap ═══ */}
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
@@ -465,7 +465,7 @@ export default function TradeJournal() {
             <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] px-3 py-1 rounded-full mb-5 border border-[#7b5cff]/30" style={{ background: 'rgba(123,92,255,0.12)', color: '#a78bfa' }}>
               Trade Journal
             </span>
-            <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 5vw, 2.75rem)', lineHeight: '1.15', textWrap: 'balance' }}>
+            <h1 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(2.125rem, 5vw, 2.75rem)', lineHeight: '1', textWrap: 'balance' }}>
               Trade Journal That Shows You <span className="text-[#7b5cff]">Why You Lose</span>
             </h1>
             <p className="mt-5 text-base sm:text-lg text-[#9aa0b4] leading-relaxed tracking-[0.02em] max-w-[540px] mx-auto xl:mx-0">
@@ -614,7 +614,7 @@ export default function TradeJournal() {
           <div className="w-12 h-12 rounded-xl bg-[#7b5cff]/15 text-[#a78bfa] flex items-center justify-center mx-auto mb-5">
             <LayersIcon />
           </div>
-          <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 3.75vw, 1.875rem)', lineHeight: '1.35', textWrap: 'balance' }}>
+          <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 3.75vw, 1.875rem)', lineHeight: '1', textWrap: 'balance' }}>
             Built for every market <span className="text-[#7b5cff]">you trade</span>
           </h2>
           <p className="mt-5 text-sm lg:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em] max-w-2xl mx-auto">
@@ -638,7 +638,7 @@ export default function TradeJournal() {
             <div className="w-12 h-12 rounded-xl bg-[#7b5cff]/15 text-[#a78bfa] flex items-center justify-center mx-auto mb-5">
               <SparklesIcon />
             </div>
-            <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 3.75vw, 1.875rem)', lineHeight: '1.35', textWrap: 'balance' }}>
+            <h2 className="font-mono font-black tracking-tight text-[#f5f6fa]" style={{ fontSize: 'clamp(1.375rem, 3.75vw, 1.875rem)', lineHeight: '1', textWrap: 'balance' }}>
               Start with one <span className="text-[#7b5cff]">honest week</span>
             </h2>
             <p className="mt-5 text-sm lg:text-base text-[#9aa0b4] leading-relaxed tracking-[0.02em] max-w-2xl mx-auto">
