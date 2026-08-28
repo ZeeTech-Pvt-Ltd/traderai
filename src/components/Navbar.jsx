@@ -20,7 +20,14 @@ const NAV_LINKS = [
   { label: 'Traders', href: '/traders' },
   { label: 'Leaderboard', href: '/leaderboard' },
   { label: 'AI Trading Platform', href: '/ai-trading-platform' },
-  { label: 'Blog', href: '/resources/blog' },
+  {
+    label: 'Resources',
+    href: '/resources',
+    children: [
+      { label: 'Academy', href: '/resources/academy' },
+      { label: 'Blog', href: '/resources/blog' },
+    ],
+  },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -28,31 +35,31 @@ const GRAD = 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const productsRef = useRef(null);
+  const [openMenu, setOpenMenu] = useState(null); // href of the open dropdown, null = all closed
+  const navRef = useRef(null);
   const location = useLocation();
 
   // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
-    setProductsOpen(false);
+    setOpenMenu(null);
   }, [location.pathname]);
 
-  // Close Products dropdown when clicking outside
+  // Close any open dropdown when clicking outside the nav
   useEffect(() => {
     function handleClickOutside(e) {
-      if (productsRef.current && !productsRef.current.contains(e.target)) {
-        setProductsOpen(false);
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenMenu(null);
       }
     }
-    if (productsOpen) {
+    if (openMenu) {
       document.addEventListener('mousedown', handleClickOutside);
       return () => document.removeEventListener('mousedown', handleClickOutside);
     }
-  }, [productsOpen]);
+  }, [openMenu]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: 'rgba(5,7,15,0.88)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.08)' }}>
+    <nav ref={navRef} className="fixed top-0 left-0 right-0 z-50 border-b" style={{ background: 'rgba(5,7,15,0.88)', backdropFilter: 'blur(12px)', borderColor: 'rgba(255,255,255,0.08)' }}>
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -66,22 +73,22 @@ export default function Navbar() {
               const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
               if (link.children) {
                 return (
-                  <div key={link.href} ref={productsRef} className="relative">
+                  <div key={link.href} className="relative">
                     <button
-                      onClick={() => setProductsOpen((v) => !v)}
+                      onClick={() => setOpenMenu((v) => (v === link.href ? null : link.href))}
                       className="font-mono text-xs uppercase tracking-widest transition-colors duration-200 inline-flex items-center gap-1"
                       style={{ color: isActive ? '#f5f6fa' : '#9aa0b4' }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = '#f5f6fa')}
                       onMouseLeave={(e) => (e.currentTarget.style.color = isActive ? '#f5f6fa' : '#9aa0b4')}
                       aria-haspopup="true"
-                      aria-expanded={productsOpen}
+                      aria-expanded={openMenu === link.href}
                     >
                       {link.label}
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openMenu === link.href ? 'rotate-180' : ''}`} />
                     </button>
 
                     {/* Dropdown */}
-                    {productsOpen && (
+                    {openMenu === link.href && (
                       <div className="absolute left-0 top-full pt-3 z-50">
                         <div className="rounded-xl py-2 min-w-[220px]" style={{ background: '#0d1120', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 12px 32px rgba(0,0,0,0.5)' }}>
                           {link.children.map((child) => {
@@ -90,7 +97,7 @@ export default function Navbar() {
                               <Link
                                 key={child.href}
                                 to={child.href}
-                                onClick={() => setProductsOpen(false)}
+                                onClick={() => setOpenMenu(null)}
                                 className="block px-4 py-2.5 font-mono text-xs uppercase tracking-widest transition-colors duration-200"
                                 style={{ color: childActive ? '#f5f6fa' : '#9aa0b4' }}
                                 onMouseEnter={(e) => (e.currentTarget.style.color = '#f5f6fa')}

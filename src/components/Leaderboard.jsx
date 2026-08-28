@@ -27,7 +27,13 @@ const RISK_COLORS = {
 };
 const RISK_TEXT = { Low: T.green, Medium: T.amber, High: T.red };
 
-const sortedTraders = [...TRADERS].sort((a, b) => b.totalReturn - a.totalReturn).slice(0, 10);
+// Homepage Live Rankings list agents in name sequence (Titan-01, Atlas-02, ... Altair-20),
+// not by performance — the rank column reads cleanly as the bot's ID.
+const sortedTraders = [...TRADERS].sort((a, b) => {
+  const na = parseInt(a.name.split('-')[1], 10);
+  const nb = parseInt(b.name.split('-')[1], 10);
+  return na - nb;
+});
 
 function LeaderboardRow({ trader, rank }) {
   const color = AVATAR_COLORS[rank % AVATAR_COLORS.length];
@@ -37,7 +43,7 @@ function LeaderboardRow({ trader, rank }) {
       className="grid grid-cols-[40px_1fr_80px_100px_150px_70px_120px_80px_90px] gap-3 items-center px-4 py-2.5 transition-colors border-b last:border-0 group"
       style={{ borderColor: T.border }}
     >
-      <span className="font-mono text-xs font-bold" style={{ color: T.muted }}>0{rank}</span>
+      <span className="font-mono text-xs font-bold" style={{ color: T.muted }}>{String(rank).padStart(2, '0')}</span>
 
       <Link to={`/traders/${trader.slug}`} className="flex items-center gap-2.5 min-w-0">
         <div className="w-7 h-7 rounded-md flex items-center justify-center font-mono font-bold text-xs shrink-0" style={{ backgroundColor: `${color}22`, color }}>
@@ -86,7 +92,7 @@ function MobileBotCard({ trader, rank }) {
       <Link to={`/traders/${trader.slug}`} className="block">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2.5 min-w-0">
-            <span className="font-mono text-xs font-bold shrink-0" style={{ color: T.muted }}>0{rank}</span>
+            <span className="font-mono text-xs font-bold shrink-0" style={{ color: T.muted }}>{String(rank).padStart(2, '0')}</span>
             <div className="w-8 h-8 rounded-md flex items-center justify-center font-mono font-bold text-sm shrink-0" style={{ backgroundColor: `${color}22`, color }}>
               {trader.name.charAt(0)}
             </div>

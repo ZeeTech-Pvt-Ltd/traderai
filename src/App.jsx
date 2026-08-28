@@ -27,6 +27,7 @@ const WhyTraderAI = lazy(() => import('./pages/WhyTraderAI'));
 const Partners = lazy(() => import('./pages/Partners'));
 const Verification = lazy(() => import('./pages/Verification'));
 const OpenClaw = lazy(() => import('./pages/OpenClaw'));
+const Academy = lazy(() => import('./pages/Academy'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPostDetail = lazy(() => import('./pages/BlogPostDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -243,6 +244,18 @@ export default function App() {
                 <SEO title="OpenClaw | AI Trading Chat Assistant" description="OpenClaw brings AI trading to your chat platforms. Monitor algorithmic trading bots, receive real-time alerts, and execute commands through natural language on Discord and Telegram." path="/openclaw" />
                 <Layout>
                   <OpenClaw />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/resources/academy"
+            element={
+              <>
+                <SEO title="AI Trader Academy | Learn the Market by Watching Machines Trade It" description="Short, practical trading lessons that end on a live chart. Agent replays with real entries and reasoning, paper mode, a pattern library, and a weekly market lab. Level 1 is open to everyone — start free today." path="/resources/academy" />
+                <Layout>
+                  <Academy />
                   <Footer />
                 </Layout>
               </>

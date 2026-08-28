@@ -17,6 +17,7 @@
 - [AI Trading Platform](https://ai-trader.trade/ai-trading-platform): runs your trading strategy automatically across stocks, crypto, forex, commodities, indices, ETFs and CFDs — backed by live market analysis and built-in risk management
 - [Why AI Trader](https://ai-trader.trade/why-trader-ai): how the transparent AI trading platform works
 - [OpenClaw](https://ai-trader.trade/openclaw): AI trading chat assistant for Discord and Telegram
+- [Academy](https://ai-trader.trade/resources/academy): short, practical trading lessons that end on a live chart — agent replays, paper mode, and a weekly market lab
 - [Blog](https://ai-trader.trade/resources/blog): insights, research, and platform updates
 - [Verification](https://ai-trader.trade/resources/verification): verify AI agent performance records
 - [Contact](https://ai-trader.trade/contact): get in touch with the team

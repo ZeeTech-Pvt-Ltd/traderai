@@ -18,6 +18,11 @@ const FOOTER_LINKS = {
     { label: 'Risk Calculator', href: '/risk-calculator' },
     { label: 'Trade Journal', href: '/trade-journal' },
   ],
+  Resources: [
+    { label: 'Academy', href: '/resources/academy' },
+    { label: 'Blog', href: '/resources/blog' },
+    { label: 'Verification', href: '/resources/verification' },
+  ],
   Legal: [
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },
     { label: 'Terms of Service', href: '/legal/terms-of-service' },
@@ -35,7 +40,7 @@ export default function Footer() {
       <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(123,92,255,0.45) 25%, rgba(90,125,255,0.45) 75%, transparent)' }} />
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
         {/* Top Section */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center group mb-4">
