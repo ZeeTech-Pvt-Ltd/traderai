@@ -769,12 +769,12 @@ export default function Academy() {
             {REPLAY_FEATURES.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.text} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-6 lg:p-7 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                <div key={f.text} className="group bg-[#0d1120] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(255,255,255,0.22)] rounded-xl p-5 lg:p-6 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
                   <div className="absolute top-0 left-0 right-0 h-0.5 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500" style={{ background: grad }} />
                   <div className="w-11 h-11 rounded-xl bg-[#7b5cff]/10 flex items-center justify-center text-[#a78bfa] mb-4">
                     <Icon cn="w-[22px] h-[22px]" />
                   </div>
-                  <p className="font-mono text-sm sm:text-base text-[#dadee7] leading-relaxed tracking-[0.02em]">{f.text}</p>
+                  <p className="font-mono text-xs sm:text-sm text-[#dadee7] leading-relaxed tracking-[0.02em]">{f.text}</p>
                 </div>
               );
             })}
@@ -798,7 +798,7 @@ export default function Academy() {
                   <div className="w-11 h-11 rounded-xl bg-[#05df72]/10 flex items-center justify-center text-[#05df72] mb-4 mx-auto sm:mx-0">
                     <Icon cn="w-[22px] h-[22px]" />
                   </div>
-                  <p className="font-mono text-xs sm:text-sm text-[#dadee7] leading-relaxed tracking-[0.02em]">{j.text}</p>
+                  <p className="text-sm text-[#7c829c] leading-relaxed tracking-[0.02em]">{j.text}</p>
                 </div>
               );
             })}
