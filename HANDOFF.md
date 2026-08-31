@@ -60,10 +60,10 @@ All routes defined in `src/App.jsx`:
 | `/why-trader-ai` | `WhyTraderAI` | ✅ |
 | `/partners` | `Partners` | ✅ |
 | `/faq` | `FAQPage` | ✅ |
-| `/resources/verification` | `Verification` | ✅ |
+| `/verification` | `Verification` | ✅ |
 | `/openclaw` | `OpenClaw` | ✅ |
-| `/resources/blog` | `Blog` | ✅ |
-| `/resources/blog/:id` | `BlogPostDetail` | ✅ |
+| `/blog` | `Blog` | ✅ |
+| `/blog/:id` | `BlogPostDetail` | ✅ |
 | `/contact` | `Contact` | ✅ |
 | `/signup` | `Login` (Sign Up page) | ✅ |
 | `/legal/privacy-policy` | `PrivacyPolicy` | ✅ |

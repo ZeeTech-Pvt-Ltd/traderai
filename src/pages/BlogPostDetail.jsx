@@ -74,7 +74,7 @@ export default function BlogPostDetail() {
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)]">
         <div className="max-w-4xl mx-auto">
           <Link
-            to="/resources/blog"
+            to="/blog"
             className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.1em] text-[#9aa0b4] dark:text-[#9aa0b4] hover:text-[#f5f6fa] dark:hover:text-[#f5f6fa] transition-colors mb-8"
           >
             <ArrowLeft cn="w-3.5 h-3.5" />
@@ -130,7 +130,7 @@ export default function BlogPostDetail() {
               {POSTS.filter((p) => p.id !== post.id).slice(0, 4).map((p) => (
                 <Link
                   key={p.id}
-                  to={`/resources/blog/${p.id}`}
+                  to={`/blog/${p.id}`}
                   className="font-mono text-xs text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#10152a]/50 dark:bg-[#10152a]/50"
                 >
                   {p.title}

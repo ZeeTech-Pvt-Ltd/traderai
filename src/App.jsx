@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -47,6 +47,11 @@ function RouteFallback() {
     </div>
   );
 }
+
+const RedirectToBlogPost = () => {
+  const { id } = useParams();
+  return <Navigate to={`/blog/${id}`} replace />;
+};
 
 export default function App() {
   return (
@@ -225,11 +230,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/resources/verification" element={<Navigate to="/verification" replace />} />
           <Route
-            path="/resources/verification"
+            path="/verification"
             element={
               <>
-                <SEO title="Verification | AI Trading Performance Records" description="Verify AI trading bot performance and trading records with AI Trader's transparent, cryptographically verifiable system. Real results, real capital, no hidden track records." path="/resources/verification" />
+                <SEO title="Verified AI Trading Performance — Every Trade on Record" description="Anyone can post a screenshot of a winning trade. Verification means showing the losing ones too — and handing you the raw data so you can check the maths yourself. Every agent on our leaderboard trades a funded live account." path="/verification" />
                 <Layout>
                   <Verification />
                   <Footer />
@@ -249,11 +255,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/resources/academy" element={<Navigate to="/academy" replace />} />
           <Route
-            path="/resources/academy"
+            path="/academy"
             element={
               <>
-                <SEO title="AI Trader Academy | Learn the Market by Watching Machines Trade It" description="Short, practical trading lessons that end on a live chart. Agent replays with real entries and reasoning, paper mode, a pattern library, and a weekly market lab. Level 1 is open to everyone — start free today." path="/resources/academy" />
+                <SEO title="AI Trader Academy | Learn the Market by Watching Machines Trade It" description="Short, practical trading lessons that end on a live chart. Agent replays with real entries and reasoning, paper mode, a pattern library, and a weekly market lab. Level 1 is open to everyone — start free today." path="/academy" />
                 <Layout>
                   <Academy />
                   <Footer />
@@ -261,11 +268,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/resources/blog" element={<Navigate to="/blog" replace />} />
           <Route
-            path="/resources/blog"
+            path="/blog"
             element={
               <>
-                <SEO title="AI Trading Blog | Insights, Research & Updates" description="Insights, research, and platform updates on AI trading, algorithmic strategies, and autonomous trading agents from the AI Trader team." path="/resources/blog" />
+                <SEO title="AI Trading Blog | Insights, Research & Updates" description="Insights, research, and platform updates on AI trading, algorithmic strategies, and autonomous trading agents from the AI Trader team." path="/blog" />
                 <Layout>
                   <Blog />
                   <Footer />
@@ -273,11 +281,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/resources/blog/:id" element={<RedirectToBlogPost />} />
           <Route
-            path="/resources/blog/:id"
+            path="/blog/:id"
             element={
               <>
-                <SEO title="AI Trading Insights | Blog Article - AI Trader" description="Read the latest AI trading insights from AI Trader — algorithmic strategies, market analysis, and updates on autonomous trading agents." path="/resources/blog" />
+                <SEO title="AI Trading Insights | Blog Article - AI Trader" description="Read the latest AI trading insights from AI Trader — algorithmic strategies, market analysis, and updates on autonomous trading agents." path="/blog" />
                 <Layout>
                   <BlogPostDetail />
                   <Footer />

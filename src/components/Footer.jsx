@@ -19,9 +19,9 @@ const FOOTER_LINKS = {
     { label: 'Trade Journal', href: '/trade-journal' },
   ],
   Resources: [
-    { label: 'Academy', href: '/resources/academy' },
-    { label: 'Blog', href: '/resources/blog' },
-    { label: 'Verification', href: '/resources/verification' },
+    { label: 'Academy', href: '/academy' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Verification', href: '/verification' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '/legal/privacy-policy' },

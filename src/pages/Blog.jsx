@@ -158,7 +158,7 @@ export default function Blog() {
                   <span>{FEATURED.author} — {FEATURED.authorRole}</span>
                 </div>
                 <Link
-                  to={`/resources/blog/${FEATURED.id}`}
+                  to={`/blog/${FEATURED.id}`}
                   className="mt-6 inline-flex items-center justify-center font-mono text-xs uppercase tracking-[0.1em] gap-2 h-11 px-6 rounded-md text-white hover:opacity-90 transition-all shadow-xs" style={{ background: 'linear-gradient(135deg, #7b5cff 0%, #5a7dff 100%)' }}
                 >
                   Read Article
@@ -181,7 +181,7 @@ export default function Blog() {
             {REGULAR.map((post) => (
               <Link
                 key={post.id}
-                to={`/resources/blog/${post.id}`}
+                to={`/blog/${post.id}`}
                 className="bg-[#0d1120] dark:bg-[#10152a] border border-[rgba(255,255,255,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl overflow-hidden hover:bg-[#10152a]/50 dark:bg-[#10152a]/50 transition-colors duration-300 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] group"
               >
                 {post.image && (

@@ -24,8 +24,9 @@ const NAV_LINKS = [
     label: 'Resources',
     href: '/resources',
     children: [
-      { label: 'Academy', href: '/resources/academy' },
-      { label: 'Blog', href: '/resources/blog' },
+      { label: 'Academy', href: '/academy' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Verification', href: '/verification' },
     ],
   },
   { label: 'Contact', href: '/contact' },
