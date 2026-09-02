@@ -230,12 +230,13 @@ export default function App() {
               </>
             }
           />
-          <Route path="/resources/verification" element={<Navigate to="/verification" replace />} />
+          <Route path="/resources/verification" element={<Navigate to="/performance-verification" replace />} />
+          <Route path="/verification" element={<Navigate to="/performance-verification" replace />} />
           <Route
-            path="/verification"
+            path="/performance-verification"
             element={
               <>
-                <SEO title="Verified AI Trading Performance — Every Trade on Record" description="Anyone can post a screenshot of a winning trade. Verification means showing the losing ones too — and handing you the raw data so you can check the maths yourself. Every agent on our leaderboard trades a funded live account." path="/verification" />
+                <SEO title="Verified AI Trading Performance — Every Trade on Record" description="Anyone can post a screenshot of a winning trade. Verification means showing the losing ones too — and handing you the raw data so you can check the maths yourself. Every agent on our leaderboard trades a funded live account." path="/performance-verification" />
                 <Layout>
                   <Verification />
                   <Footer />

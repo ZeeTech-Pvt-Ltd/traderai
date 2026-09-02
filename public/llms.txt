@@ -19,7 +19,7 @@
 - [OpenClaw](https://ai-trader.trade/openclaw): AI trading chat assistant for Discord and Telegram
 - [Academy](https://ai-trader.trade/academy): short, practical trading lessons that end on a live chart — agent replays, paper mode, and a weekly market lab
 - [Blog](https://ai-trader.trade/blog): insights, research, and platform updates
-- [Verification](https://ai-trader.trade/verification): verify AI agent performance records
+- [Performance Verification](https://ai-trader.trade/performance-verification): verify AI agent performance records
 - [Contact](https://ai-trader.trade/contact): get in touch with the team
 - [Sign Up](https://ai-trader.trade/signup): create an account
 

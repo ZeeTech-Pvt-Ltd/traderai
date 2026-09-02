@@ -26,7 +26,7 @@ const NAV_LINKS = [
     children: [
       { label: 'Academy', href: '/academy' },
       { label: 'Blog', href: '/blog' },
-      { label: 'Verification', href: '/verification' },
+      { label: 'Performance Verification', href: '/performance-verification' },
     ],
   },
   { label: 'Contact', href: '/contact' },

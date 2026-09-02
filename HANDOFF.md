@@ -60,7 +60,7 @@ All routes defined in `src/App.jsx`:
 | `/why-trader-ai` | `WhyTraderAI` | ✅ |
 | `/partners` | `Partners` | ✅ |
 | `/faq` | `FAQPage` | ✅ |
-| `/verification` | `Verification` | ✅ |
+| `/performance-verification` | `Verification` | ✅ |
 | `/openclaw` | `OpenClaw` | ✅ |
 | `/blog` | `Blog` | ✅ |
 | `/blog/:id` | `BlogPostDetail` | ✅ |
