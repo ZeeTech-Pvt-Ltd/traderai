@@ -21,6 +21,7 @@ const FOOTER_LINKS = {
   Resources: [
     { label: 'Academy', href: '/academy' },
     { label: 'Blog', href: '/blog' },
+    { label: 'Why Choose Us', href: '/why-choose-us' },
     { label: 'Performance Verification', href: '/performance-verification' },
   ],
   Legal: [

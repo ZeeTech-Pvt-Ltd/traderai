@@ -28,6 +28,7 @@ const Partners = lazy(() => import('./pages/Partners'));
 const Verification = lazy(() => import('./pages/Verification'));
 const OpenClaw = lazy(() => import('./pages/OpenClaw'));
 const Academy = lazy(() => import('./pages/Academy'));
+const WhyChooseUs = lazy(() => import('./pages/WhyChooseUs'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPostDetail = lazy(() => import('./pages/BlogPostDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -277,6 +278,18 @@ export default function App() {
                 <SEO title="AI Trading Blog | Insights, Research & Updates" description="Insights, research, and platform updates on AI trading, algorithmic strategies, and autonomous trading agents from the AI Trader team." path="/blog" />
                 <Layout>
                   <Blog />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route
+            path="/why-choose-us"
+            element={
+              <>
+                <SEO title="Why Choose AI Trader | Real Money, Live Markets, Full Transparency" description="Most trading platforms show you what an algorithm could have done. AI Trader shows you what it is doing right now — with real capital, in live markets, in front of everyone. Real funded accounts, a leaderboard that hides nothing, and frontier AI behind every decision." path="/why-choose-us" />
+                <Layout>
+                  <WhyChooseUs />
                   <Footer />
                 </Layout>
               </>

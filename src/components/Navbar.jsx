@@ -26,6 +26,7 @@ const NAV_LINKS = [
     children: [
       { label: 'Academy', href: '/academy' },
       { label: 'Blog', href: '/blog' },
+      { label: 'Why Choose Us', href: '/why-choose-us' },
       { label: 'Performance Verification', href: '/performance-verification' },
     ],
   },
@@ -160,8 +161,8 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         className={cn(
-          'lg:hidden overflow-hidden transition-all duration-300 ease-in-out',
-          mobileOpen ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0 invisible pointer-events-none'
+          'lg:hidden transition-all duration-300 ease-in-out',
+          mobileOpen ? 'max-h-[calc(100vh-5rem)] overflow-y-auto opacity-100' : 'max-h-0 overflow-hidden opacity-0 invisible pointer-events-none'
         )}
         aria-hidden={!mobileOpen}
       >

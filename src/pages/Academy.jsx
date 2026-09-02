@@ -810,8 +810,8 @@ export default function Academy() {
       <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-[rgba(255,255,255,0.08)]">
         <div className="max-w-7xl mx-auto">
           <SectionHeader kicker="Practice Tools" title="Practice Without Paying Tuition" accent="to the Market" />
-          <div className="grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
-            <div className="space-y-3">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-16 items-center">
+            <div className="space-y-3 min-w-0">
               {PRACTICE.map((p, i) => {
                 const Icon = p.icon;
                 return (
@@ -827,7 +827,7 @@ export default function Academy() {
                 );
               })}
             </div>
-            <div className="max-w-xl xl:max-w-none mx-auto xl:mx-0">
+            <div className="max-w-xl xl:max-w-none mx-auto xl:mx-0 min-w-0 w-full">
               <PaperDashboard />
             </div>
           </div>

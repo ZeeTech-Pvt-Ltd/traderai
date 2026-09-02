@@ -64,6 +64,7 @@ All routes defined in `src/App.jsx`:
 | `/openclaw` | `OpenClaw` | ✅ |
 | `/blog` | `Blog` | ✅ |
 | `/blog/:id` | `BlogPostDetail` | ✅ |
+| `/why-choose-us` | `WhyChooseUs` | ✅ |
 | `/contact` | `Contact` | ✅ |
 | `/signup` | `Login` (Sign Up page) | ✅ |
 | `/legal/privacy-policy` | `PrivacyPolicy` | ✅ |
