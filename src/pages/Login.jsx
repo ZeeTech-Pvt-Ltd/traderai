@@ -210,9 +210,9 @@ export default function SignUp() {
             </button>
             <p className="mt-4 text-center font-mono text-[10px] text-muted-foreground/60 leading-relaxed">
               By continuing, you agree to our{' '}
-              <Link to="/legal/terms-of-service" className="text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
+              <Link to="/terms-of-service" className="text-primary hover:text-primary/80 transition-colors">Terms of Service</Link>
               {' '}and{' '}
-              <Link to="/legal/privacy-policy" className="text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>
+              <Link to="/privacy-policy" className="text-primary hover:text-primary/80 transition-colors">Privacy Policy</Link>
             </p>
           </form>
         </div>

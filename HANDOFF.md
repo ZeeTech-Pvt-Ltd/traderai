@@ -67,9 +67,10 @@ All routes defined in `src/App.jsx`:
 | `/why-choose-us` | `WhyChooseUs` | ✅ |
 | `/contact` | `Contact` | ✅ |
 | `/signup` | `Login` (Sign Up page) | ✅ |
-| `/legal/privacy-policy` | `PrivacyPolicy` | ✅ |
-| `/legal/terms-of-service` | `TermsOfService` | ✅ |
-| `/legal/risk-disclosure` | `RiskDisclosure` | ✅ |
+| `/privacy-policy` | `PrivacyPolicy` | ✅ |
+| `/terms-of-service` | `TermsOfService` | ✅ |
+| `/risk-disclosure` | `RiskDisclosure` | ✅ |
+| `/disclaimer` | `Disclaimer` | ✅ |
 | `*` | `NotFound` (404) | ✅ |
 
 Additional pages present but not yet routed in App.jsx: `ThankYou` (post-form-submit screen), `Login` (route is `/signup`).

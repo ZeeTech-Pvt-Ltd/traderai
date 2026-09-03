@@ -132,10 +132,11 @@ export default function CookiePolicy() {
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-4">Related Documents</h3>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
-                    { label: 'Terms of Service', href: '/legal/terms-of-service' },
-                    { label: 'Privacy Policy', href: '/legal/privacy-policy' },
-                    { label: 'Risk Disclosure', href: '/legal/risk-disclosure' },
-                    { label: 'Data Processing Agreement', href: '/legal/dpa' },
+                    { label: 'Terms of Service', href: '/terms-of-service' },
+                    { label: 'Privacy Policy', href: '/privacy-policy' },
+                    { label: 'Risk Disclosure', href: '/risk-disclosure' },
+                    { label: 'Disclaimer', href: '/disclaimer' },
+                    { label: 'Data Processing Agreement', href: '/dpa' },
                   ].map((doc) => (
                     <Link
                       key={doc.label}

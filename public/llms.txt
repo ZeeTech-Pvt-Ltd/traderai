@@ -26,7 +26,8 @@
 
 ## Legal
 
-- [Privacy Policy](https://ai-trader.trade/legal/privacy-policy)
-- [Terms of Service](https://ai-trader.trade/legal/terms-of-service)
-- [Risk Disclosure](https://ai-trader.trade/legal/risk-disclosure)
-- [Cookie Policy](https://ai-trader.trade/legal/cookie-policy)
+- [Privacy Policy](https://ai-trader.trade/privacy-policy)
+- [Terms of Service](https://ai-trader.trade/terms-of-service)
+- [Risk Disclosure](https://ai-trader.trade/risk-disclosure)
+- [Cookie Policy](https://ai-trader.trade/cookie-policy)
+- [Disclaimer](https://ai-trader.trade/disclaimer): content is for information only and is not financial advice; understand the risks of AI and automated trading

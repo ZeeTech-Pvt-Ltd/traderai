@@ -38,6 +38,7 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const RiskDisclosure = lazy(() => import('./pages/RiskDisclosure'));
+const Disclaimer = lazy(() => import('./pages/Disclaimer'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 /* Minimal loader shown briefly while a page chunk downloads. */
@@ -344,11 +345,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/legal/privacy-policy" element={<Navigate to="/privacy-policy" replace />} />
           <Route
-            path="/legal/privacy-policy"
+            path="/privacy-policy"
             element={
               <>
-                <SEO title="Privacy Policy | AI Trader" description="How AI Trader collects, uses, and protects your personal data on our AI trading platform. Read our full privacy policy for transparent data practices." path="/legal/privacy-policy" />
+                <SEO title="Privacy Policy | AI Trader" description="How AI Trader collects, uses, and protects your personal data on our AI trading platform. Read our full privacy policy for transparent data practices." path="/privacy-policy" />
                 <Layout>
                   <PrivacyPolicy />
                   <Footer />
@@ -356,11 +358,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/legal/terms-of-service" element={<Navigate to="/terms-of-service" replace />} />
           <Route
-            path="/legal/terms-of-service"
+            path="/terms-of-service"
             element={
               <>
-                <SEO title="Terms of Service | AI Trader" description="Terms and conditions governing your use of the AI Trader AI trading platform, automated trading services, and algorithmic trading tools." path="/legal/terms-of-service" />
+                <SEO title="Terms of Service | AI Trader" description="Terms and conditions governing your use of the AI Trader AI trading platform, automated trading services, and algorithmic trading tools." path="/terms-of-service" />
                 <Layout>
                   <TermsOfService />
                   <Footer />
@@ -368,11 +371,12 @@ export default function App() {
               </>
             }
           />
+          <Route path="/legal/risk-disclosure" element={<Navigate to="/risk-disclosure" replace />} />
           <Route
-            path="/legal/risk-disclosure"
+            path="/risk-disclosure"
             element={
               <>
-                <SEO title="Risk Disclosure | AI Trading & Financial Markets" description="Important risk information for AI trading, algorithmic trading, and financial markets. Understand the risks before using automated trading agents." path="/legal/risk-disclosure" />
+                <SEO title="Risk Disclosure | AI Trading & Financial Markets" description="Important risk information for AI trading, algorithmic trading, and financial markets. Understand the risks before using automated trading agents." path="/risk-disclosure" />
                 <Layout>
                   <RiskDisclosure />
                   <Footer />
@@ -380,13 +384,27 @@ export default function App() {
               </>
             }
           />
+          <Route path="/legal/cookie-policy" element={<Navigate to="/cookie-policy" replace />} />
           <Route
-            path="/legal/cookie-policy"
+            path="/cookie-policy"
             element={
               <>
-                <SEO title="Cookie Policy | AI Trader" description="How AI Trader uses cookies and similar technologies on our AI trading platform — what cookies we set, why we use them, and how you can manage or disable them." path="/legal/cookie-policy" />
+                <SEO title="Cookie Policy | AI Trader" description="How AI Trader uses cookies and similar technologies on our AI trading platform — what cookies we set, why we use them, and how you can manage or disable them." path="/cookie-policy" />
                 <Layout>
                   <CookiePolicy />
+                  <Footer />
+                </Layout>
+              </>
+            }
+          />
+          <Route path="/legal/disclaimer" element={<Navigate to="/disclaimer" replace />} />
+          <Route
+            path="/disclaimer"
+            element={
+              <>
+                <SEO title="Disclaimer | AI Trader" description="Important disclaimer for the AI Trader platform — content is for information only and is not financial advice. Understand the risks of AI and automated trading before you use the platform." path="/disclaimer" />
+                <Layout>
+                  <Disclaimer />
                   <Footer />
                 </Layout>
               </>

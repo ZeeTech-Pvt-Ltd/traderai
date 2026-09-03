@@ -138,9 +138,10 @@ export default function RiskDisclosure() {
                 <h3 className="font-mono font-bold text-base text-[#f5f6fa] dark:text-[#f5f6fa] mb-4">Related Documents</h3>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {[
-                    { label: 'Terms of Service', href: '/legal/terms-of-service' },
-                    { label: 'Privacy Policy', href: '/legal/privacy-policy' },
-                    { label: 'Cookie Policy', href: '/legal/cookie-policy' },
+                    { label: 'Terms of Service', href: '/terms-of-service' },
+                    { label: 'Privacy Policy', href: '/privacy-policy' },
+                    { label: 'Cookie Policy', href: '/cookie-policy' },
+                    { label: 'Disclaimer', href: '/disclaimer' },
                   ].map((doc) => (
                     <Link key={doc.label} to={doc.href} className="font-mono text-xs uppercase tracking-[0.1em] text-[#7b5cff] hover:text-[#7b5cff]/80 transition-colors py-2 px-3 rounded-lg hover:bg-[#10152a]/50 dark:bg-[#10152a]/50">{doc.label}</Link>
                   ))}

@@ -20,8 +20,9 @@
   <url><loc>https://ai-trader.trade/blog</loc><priority>0.8</priority></url>
   <url><loc>https://ai-trader.trade/why-choose-us</loc><priority>0.7</priority></url>
   <url><loc>https://ai-trader.trade/performance-verification</loc><priority>0.7</priority></url>
-  <url><loc>https://ai-trader.trade/legal/privacy-policy</loc><priority>0.4</priority></url>
-  <url><loc>https://ai-trader.trade/legal/terms-of-service</loc><priority>0.4</priority></url>
-  <url><loc>https://ai-trader.trade/legal/risk-disclosure</loc><priority>0.4</priority></url>
-  <url><loc>https://ai-trader.trade/legal/cookie-policy</loc><priority>0.4</priority></url>
+  <url><loc>https://ai-trader.trade/privacy-policy</loc><priority>0.4</priority></url>
+  <url><loc>https://ai-trader.trade/terms-of-service</loc><priority>0.4</priority></url>
+  <url><loc>https://ai-trader.trade/risk-disclosure</loc><priority>0.4</priority></url>
+  <url><loc>https://ai-trader.trade/cookie-policy</loc><priority>0.4</priority></url>
+  <url><loc>https://ai-trader.trade/disclaimer</loc><priority>0.4</priority></url>
 </urlset>
