@@ -71,8 +71,9 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-6">
-            {NAV_LINKS.map((link) => {
+            {NAV_LINKS.map((link, index) => {
               const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+              const alignRight = index >= Math.floor(NAV_LINKS.length / 2); // menus on the right half open leftward so they never overflow the viewport
               if (link.children) {
                 return (
                   <div key={link.href} className="relative">
@@ -91,8 +92,8 @@ export default function Navbar() {
 
                     {/* Dropdown */}
                     {openMenu === link.href && (
-                      <div className="absolute left-0 top-full pt-3 z-50">
-                        <div className="rounded-xl py-2 min-w-[220px]" style={{ background: '#0d1120', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 12px 32px rgba(0,0,0,0.5)' }}>
+                      <div className={`absolute top-full pt-3 z-50 ${alignRight ? 'right-0' : 'left-0'}`}>
+                        <div className="rounded-xl py-2 w-max min-w-[200px]" style={{ background: '#0d1120', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 12px 32px rgba(0,0,0,0.5)' }}>
                           {link.children.map((child) => {
                             const childActive = location.pathname === child.href;
                             return (
@@ -100,7 +101,7 @@ export default function Navbar() {
                                 key={child.href}
                                 to={child.href}
                                 onClick={() => setOpenMenu(null)}
-                                className="block px-4 py-2.5 font-mono text-xs uppercase tracking-widest transition-colors duration-200"
+                                className="block px-4 py-2.5 font-mono text-xs uppercase tracking-widest whitespace-nowrap transition-colors duration-200"
                                 style={{ color: childActive ? '#f5f6fa' : '#9aa0b4' }}
                                 onMouseEnter={(e) => (e.currentTarget.style.color = '#f5f6fa')}
                                 onMouseLeave={(e) => (e.currentTarget.style.color = childActive ? '#f5f6fa' : '#9aa0b4')}
