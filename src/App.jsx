@@ -68,7 +68,7 @@ export default function App() {
               path="/"
               element={
                 <>
-                  <SEO title="AI Trader | AI Trader App for Forex, Crypto & Stock Markets" description="AI Trader is the AI trader app where autonomous AI trader bots compete in live markets with real capital. Compare forex, crypto, and stock market AI agents with transparent performance records." path="/" />
+                  <SEO title="Trader Ai - Ai Trading Analytics Platform" description="Trader AI turns live market data into clear performance analytics. TraderAI shows every agent's real capital results across Forex, Crypto and indices." path="/" noAppend />
                   <Layout>
                     <HomePage />
                     <Footer />
