@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { T, secHeader, grad } from './homeTheme';
 import { TRADERS } from '../data/traders';
-import CryptoChart from './CryptoChart';
 
 function percent(v) {
   return `${v > 0 ? '+' : ''}${v.toFixed(2)}%`;
@@ -13,6 +12,34 @@ function money(v, signed = true) {
 
 const top = [...TRADERS].sort((a, b) => b.totalReturn - a.totalReturn)[0];
 const positive = top.totalReturn >= 0;
+
+/* Deterministic SVG area chart of the top agent's own equity series.
+   Mirrors the equity-curve look used on the trader profile page (no external
+   API — drawn straight from TRADERS data, so nothing extra downloads). */
+function EquityArea({ values, color }) {
+  const width = 1080, height = 200, pl = 8, pr = 8, pt = 14, pb = 8;
+  const mn = Math.min(...values);
+  const mx = Math.max(...values);
+  const rng = mx - mn || 1;
+  const pts = values.map((v, i) => {
+    const x = pl + (i / (values.length - 1)) * (width - pl - pr);
+    const y = pt + (1 - (v - mn) / rng) * (height - pt - pb);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const gid = 'apf-eq';
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-auto" role="img" aria-label={`Equity curve for ${top.name}`}>
+      <defs>
+        <linearGradient id={gid} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="0.28" />
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <polygon points={`${pl},${height - pb} ${pts} ${width - pr},${height - pb}`} fill={`url(#${gid})`} />
+      <polyline points={pts} fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function AgentPerfDemo() {
   const stats = [
@@ -42,13 +69,13 @@ export default function AgentPerfDemo() {
             ))}
           </div>
 
-          {/* Chart */}
+          {/* Equity curve */}
           <div className="rounded-xl p-4" style={{ background: T.card2, border: `1px solid ${T.border}` }}>
             <div className="flex items-center justify-between mb-3">
               <p className="font-mono text-xs font-bold" style={{ color: T.text }}>{top.name} · {top.market} Market</p>
               <p className="font-mono text-[10px] uppercase tracking-[0.1em]" style={{ color: T.muted }}>{money(top.totalProfit)} net</p>
             </div>
-            <CryptoChart />
+            <EquityArea values={top.series} color={positive ? T.green : T.red} />
           </div>
 
           <div className="mt-5 text-center">
